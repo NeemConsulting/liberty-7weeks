@@ -22,6 +22,13 @@ export default {
       }
     },
     {
+      name: 'nickname',
+      type: 'string',
+      title: 'Nickname',
+      description: 'nicknames are fun, but they can br cruel as well',
+      }
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
