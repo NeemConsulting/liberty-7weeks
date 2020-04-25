@@ -9,7 +9,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
-import tools from './documents/tool'
+import tool from './documents/tool'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
