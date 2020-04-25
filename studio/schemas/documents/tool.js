@@ -25,18 +25,4 @@ export default {
       title: 'Main image',
     },
   ],
-  preview: {
-    select: {
-      toolName: 'Tool Name',
-      slug: 'slug',
-      media: 'mainImage',
-    },
-    prepare({ toolName = 'No tools', slug = {}, media }) {
-      return {
-        toolName,
-        slug,
-        media,
-      }
-    },
-  },
 }
