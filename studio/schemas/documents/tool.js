@@ -1,7 +1,7 @@
 export default {
-  name: 'tools',
+  name: 'tool',
   type: 'document',
-  title: 'Tools',
+  title: 'Tool',
   fields: [
     {
       name: 'toolName',
