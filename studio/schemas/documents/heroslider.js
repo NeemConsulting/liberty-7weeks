@@ -1,6 +1,9 @@
+import {GiNinjaHead} from 'react-icons/gi'
+
 export default {
   name: 'heroslider',
   type: 'document',
+  icon: GiNinjaHead,
   title: 'Hero Slider',
   fields: [
     {
