@@ -18,10 +18,21 @@ export default {
       }
     },
     {
+      name: 'image',
+      type: 'mainImage',
+      title: 'Image'
+    },
+    {
       name: 'slider',
       type: 'array',
       of: [{type: 'mainImage'}],
       title: 'Slider'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'heroslider',
+      media: 'image'
+    }
+  }
 }
