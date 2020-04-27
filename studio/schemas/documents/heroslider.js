@@ -6,7 +6,7 @@ xport default {
       {
         name: 'heroslider',
         type: 'string',
-        title: 'Hero Slider',
+        title: 'Hero xx Slider',
       },
       {
         name: 'slug',
@@ -18,7 +18,7 @@ xport default {
         },
       },
       {
-        name: 'slider',
+        name: 'slider', 
         type: 'array',
         of: [{ type: 'mainImage' }],
         title: 'Slider',
