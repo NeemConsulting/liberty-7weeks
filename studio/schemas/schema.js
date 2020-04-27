@@ -10,7 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
-import hero-slider from './documents/hero-slider' 
+import heroslider from './documents/hero-slider'
 
 // boo
 
@@ -33,16 +33,16 @@ export default createSchema({
     siteSettings,
     post,
     tool,
-    hero-slider,
+    hero - slider,
     category,
     author,
     mainImage,
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText,
+    excerptPortableText
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-  ]),
+  ])
 })

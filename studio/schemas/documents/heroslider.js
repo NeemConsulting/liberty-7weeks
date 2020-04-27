@@ -1,10 +1,10 @@
 xport default {
-    name: 'hero-slider',
+    name: 'heroslider',
     type: 'document',
     title: 'Tool',
     fields: [
       {
-        name: 'hero-slider',
+        name: 'heroslider',
         type: 'string',
         title: 'Hero Slider',
       },
@@ -13,7 +13,7 @@ xport default {
         type: 'slug',
         title: 'Slug',
         options: {
-          source: 'hero-slider',
+          source: 'heroslider',
           maxLength: 96,
         },
       },
