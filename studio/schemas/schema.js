@@ -10,7 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
-import heroslider from './documents/hero-slider'
+import heroslider from './documents/heroslider'
 
 // boo
 

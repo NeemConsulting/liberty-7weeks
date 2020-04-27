@@ -7,7 +7,7 @@ export default {
       name: 'toolName',
       type: 'string',
       title: 'Tool Name',
-      description: 'Add some tools',
+      description: 'Add some tools'
     },
     {
       name: 'slug',
@@ -16,19 +16,13 @@ export default {
       description: 'Slug Me',
       options: {
         source: 'toolName',
-        maxLength: 96,
-      },
+        maxLength: 96
+      }
     },
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image',
-    },
-  ],
-  preview: {
-    select: {
-      title: 'toolName',
-      media: 'image.mainImage',
+      title: 'Main image'
     }
-
+  ]
 }
