@@ -33,7 +33,7 @@ export default createSchema({
     siteSettings,
     post,
     tool,
-    hero - slider,
+    heroslider,
     category,
     author,
     mainImage,
