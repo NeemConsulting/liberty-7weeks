@@ -32,7 +32,8 @@ export default {
   preview: {
     select: {
       title: 'heroslider',
-      media: 'image'
+      subtitle: 'mainImage.0.caption',
+      media: 'mainImage.0.asset'
     }
   }
 }
