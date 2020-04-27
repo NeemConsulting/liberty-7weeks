@@ -9,6 +9,12 @@ export default {
       title: 'Hero xx Slider'
     },
     {
+      name: 'slider',
+      type: 'array',
+      of: [{type: 'mainImage'}],
+      title: 'Slider'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
@@ -16,17 +22,6 @@ export default {
         source: 'heroslider',
         maxLength: 96
       }
-    },
-    {
-      name: 'image',
-      type: 'mainImage',
-      title: 'Image'
-    },
-    {
-      name: 'slider',
-      type: 'array',
-      of: [{type: 'mainImage'}],
-      title: 'Slider'
     }
   ],
   preview: {
