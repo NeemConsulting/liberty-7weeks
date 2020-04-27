@@ -24,5 +24,12 @@ export default {
       type: 'mainImage',
       title: 'Main image'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'toolName',
+      description: 'whatever hard coded',
+      media: 'mainImage'
+    }
+  }
 }
