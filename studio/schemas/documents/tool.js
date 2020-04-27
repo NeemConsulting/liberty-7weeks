@@ -28,7 +28,7 @@ export default {
   preview: {
     select: {
       title: 'toolName',
-      substitle: 'mainImage.caption',
+      subtitle: 'mainImage.caption',
       media: 'mainImage'
     }
   }
