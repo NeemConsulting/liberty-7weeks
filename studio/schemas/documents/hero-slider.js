@@ -18,9 +18,10 @@ xport default {
         },
       },
       {
-        name: 'mainImage',
-        type: 'mainImage',
-        title: 'Main image',
+        name: 'slider',
+        type: 'array',
+        of: [{ type: 'mainImage' }],
+        title: 'Slider',
       },
     ],
   }

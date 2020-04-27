@@ -10,7 +10,9 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
-import hero-slider from './documents/hero-slider'
+import hero-slider from './documents/hero-slider' 
+
+// boo
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
