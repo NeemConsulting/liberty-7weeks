@@ -10,6 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
+import hero-slider from './documents/hero-slider'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -30,6 +31,7 @@ export default createSchema({
     siteSettings,
     post,
     tool,
+    hero-slider,
     category,
     author,
     mainImage,

@@ -25,4 +25,10 @@ export default {
       title: 'Main image',
     },
   ],
+  preview: {
+    select: {
+      title: 'toolName',
+      media: 'image.mainImage',
+    },
+
 }
