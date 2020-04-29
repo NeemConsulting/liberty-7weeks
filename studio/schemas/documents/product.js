@@ -1,8 +1,5 @@
-import {GiBeerBottle} from 'react-icons/gi'
-
 export default {
   title: 'Product',
-  icon: GiBeerBottle,
   name: 'product',
   type: 'document',
   fields: [

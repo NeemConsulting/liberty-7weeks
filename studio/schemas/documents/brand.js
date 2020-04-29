@@ -1,10 +1,7 @@
-import {MdBrandingWatermark} from 'react-icons/md'
-
 export default {
   name: 'brand',
   title: 'Brand',
   type: 'document',
-  icon: MdBrandingWatermark,
   fields: [
     {
       name: 'brandName',
