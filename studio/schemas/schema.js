@@ -14,6 +14,7 @@ import tag from './documents/tag'
 import product from './documents/product'
 import category from './documents/category'
 import brand from './documents/brand'
+import howToArticle from './documents/howToArticle'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -22,6 +23,8 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 import figure from './objects/figure'
+import howToPortableText from './objects/howToPortableText'
+import step from './objects/step'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,6 +37,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    howToArticle,
     figure,
     product,
     brand,
@@ -43,6 +47,8 @@ export default createSchema({
     category,
     author,
     mainImage,
+    step,
+    howToPortableText,
     authorReference,
     bodyPortableText,
     bioPortableText,
