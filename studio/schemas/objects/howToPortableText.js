@@ -52,7 +52,9 @@ export default {
     // as a block type.
     {
       type: 'figure',
-      options: {hotspot: true},
+      options: {hotspot: true}
+    },
+    {
       type: 'step'
     }
   ]

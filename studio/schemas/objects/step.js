@@ -22,7 +22,7 @@ export default {
     },
 
     {
-      name: 'image',
+      name: 'imageName',
       title: 'Image',
       type: 'figure',
       description: `Instruction Image`,
@@ -35,7 +35,7 @@ export default {
     select: {
       title: 'instructionName',
       subtitle: 'directions',
-      media: 'image.figure'
+      media: 'imageName.image'
     }
   }
 }
