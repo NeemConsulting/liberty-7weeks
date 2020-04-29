@@ -10,7 +10,7 @@ export default {
     {
       name: 'alt',
       title: 'Alt Text *',
-      description: 'For accessibility purposes, please describe the image'
+      description: 'For accessibility purposes, please describe the image',
       type: 'string',
       validation: Rule => Rule.required(),
       options: {
