@@ -11,7 +11,7 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
 import heroslider from './documents/heroslider'
-import heroslider from './documents/tags'
+import tag from './documents/tags'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
