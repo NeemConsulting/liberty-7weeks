@@ -9,7 +9,8 @@ export default {
   fields: [
     {
       name: 'alt',
-      title: 'Alt text : Please describe the image',
+      title: 'Alt Text *',
+      description: 'For accessibility purposes, please describe the image'
       type: 'string',
       validation: Rule => Rule.required(),
       options: {
