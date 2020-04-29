@@ -11,8 +11,7 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
 import heroslider from './documents/heroslider'
-
-// boo
+import heroslider from './documents/tags'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -33,6 +32,7 @@ export default createSchema({
     siteSettings,
     post,
     tool,
+    tag,
     heroslider,
     category,
     author,

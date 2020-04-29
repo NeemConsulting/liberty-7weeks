@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 
 export default {
   name: 'post',
@@ -9,7 +9,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long',
+      description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
       name: 'slug',
@@ -18,8 +18,8 @@ export default {
       description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
-        maxLength: 96,
-      },
+        maxLength: 96
+      }
     },
     /*
     {
@@ -33,19 +33,19 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing',
+      description: 'This can be used to schedule post for publishing'
     },
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image',
+      title: 'Main image'
     },
     {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.',
+        'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
       name: 'authors',
@@ -53,9 +53,9 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'authorReference',
-        },
-      ],
+          type: 'authorReference'
+        }
+      ]
     },
     {
       name: 'categories',
@@ -65,16 +65,29 @@ export default {
         {
           type: 'reference',
           to: {
-            type: 'category',
-          },
-        },
-      ],
+            type: 'category'
+          }
+        }
+      ]
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      title: 'Tags',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'tag'
+          }
+        }
+      ]
     },
     {
       name: 'body',
       type: 'bodyPortableText',
-      title: 'Body',
-    },
+      title: 'Body'
+    }
   ],
   orderings: [
     {
@@ -83,13 +96,13 @@ export default {
       by: [
         {
           field: 'publishedAt',
-          direction: 'asc',
+          direction: 'asc'
         },
         {
           field: 'title',
-          direction: 'asc',
-        },
-      ],
+          direction: 'asc'
+        }
+      ]
     },
     {
       name: 'publishingDateDesc',
@@ -97,30 +110,30 @@ export default {
       by: [
         {
           field: 'publishedAt',
-          direction: 'desc',
+          direction: 'desc'
         },
         {
           field: 'title',
-          direction: 'asc',
-        },
-      ],
-    },
+          direction: 'asc'
+        }
+      ]
+    }
   ],
   preview: {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage',
+      media: 'mainImage'
     },
-    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
+    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date',
+        subtitle: publishedAt ? path : 'Missing publishing date'
       }
-    },
-  },
+    }
+  }
 }
