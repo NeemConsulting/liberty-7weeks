@@ -56,7 +56,7 @@ export default {
       title: 'Slug',
       description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
-        source: 'title',
+        source: 'headline',
         maxLength: 96
       }
     }
@@ -93,10 +93,10 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'headline',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'heroImage'
     },
     prepare ({title = 'No title', publishedAt, slug = {}, media}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')

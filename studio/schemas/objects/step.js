@@ -35,7 +35,7 @@ export default {
     select: {
       title: 'instructionName',
       subtitle: 'directions',
-      media: 'Image'
+      media: 'image.figure'
     }
   }
 }
