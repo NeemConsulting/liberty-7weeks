@@ -35,6 +35,8 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    figure,
+    youtTube,
     product,
     brand,
     tool,
