@@ -35,6 +35,8 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    product,
+    brand,
     tool,
     tag,
     heroslider,
