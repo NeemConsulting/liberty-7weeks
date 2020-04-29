@@ -21,7 +21,7 @@ export default {
   preview: {
     select: {
       title: 'tagName',
-      subtitle: 'categoryName'
+      subtitle: 'categoryName.categoryName'
     }
   },
   orderings: [
