@@ -1,8 +1,5 @@
-import {FaTag} from 'react-icons/fa'
-
 export default {
   title: 'Tags',
-  icon: FaTag,
   name: 'tag',
   type: 'document',
   fields: [
