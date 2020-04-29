@@ -25,6 +25,7 @@ import authorReference from './objects/authorReference'
 import figure from './objects/figure'
 import howToPortableText from './objects/howToPortableText'
 import step from './objects/step'
+import seo from './objects/seo'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
