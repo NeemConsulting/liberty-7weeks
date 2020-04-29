@@ -24,5 +24,17 @@ export default {
       title: 'name',
       subtitle: 'category'
     }
-  }
+  },
+  orderings: [
+    {
+      title: 'Tag Name',
+      name: 'nameAZ',
+      by: [{field: 'name', direction: 'asc'}]
+    },
+    {
+      title: 'Category',
+      name: 'categoryAZ',
+      by: [{field: 'category', direction: 'asc'}]
+    }
+  ]
 }
