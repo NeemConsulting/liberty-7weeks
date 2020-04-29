@@ -33,7 +33,7 @@ export default {
     {
       title: 'Category',
       name: 'categoryAZ',
-      by: [{field: 'categoryName', direction: 'asc'}]
+      by: [{field: 'categoryName.categoryName', direction: 'asc'}]
     }
   ]
 }
