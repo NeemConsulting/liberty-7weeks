@@ -20,7 +20,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'tagName'
+      title: 'tagName',
+      subtitle: 'categoryName'
     }
   },
   orderings: [

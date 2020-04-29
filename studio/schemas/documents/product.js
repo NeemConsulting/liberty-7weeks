@@ -44,15 +44,13 @@ export default {
       name: 'usageDetails',
       description: 'Brief description of Top Tips and How To Use',
       type: 'array',
-      of: [{type: 'block'}],
-      validation: Rule => Rule.required()
+      of: [{type: 'block'}]
     },
     {
       title: 'Ingredients',
       name: 'ingredients',
       type: 'array',
-      of: [{type: 'block'}],
-      validation: Rule => Rule.required()
+      of: [{type: 'block'}]
     },
     {
       name: 'tags',
