@@ -13,6 +13,7 @@ import articleSlider from './documents/articleSlider'
 import sliderType from './documents/sliderType'
 import tag from './documents/tag'
 import product from './documents/product'
+import productSlider from './documents/productSlider'
 import category from './documents/category'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
@@ -58,6 +59,7 @@ export default createSchema({
     product,
     tool,
     articleSlider,
+    productSlider,
     sliderType,
     // Objects
     figure,

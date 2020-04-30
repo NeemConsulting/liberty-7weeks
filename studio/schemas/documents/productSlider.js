@@ -1,11 +1,11 @@
 import {GiNinjaHead} from 'react-icons/gi'
 
 export default {
-  name: 'articleSlider',
+  name: 'productSlider',
   type: 'document',
   icon: GiNinjaHead,
-  title: 'Article Slider',
-  description: 'Article slider for hero and tile user experiences ',
+  title: 'Product Slider',
+  description: 'Product slider for hero and tile user experiences ',
   fields: [
     {
       name: 'sliderName',
@@ -32,11 +32,11 @@ export default {
       name: 'slides',
       type: 'array',
       title: 'Slides',
-      description: 'Add any article, image will be taken from the hero image',
+      description: 'Add any product, image will be taken from the hero image',
       of: [
         {
           type: 'reference',
-          to: [{type: 'howToArticle'}, {type: 'featureArticle'}, {type: 'galleryArticle'}]
+          to: [{type: 'product'}]
         }
       ]
     }
