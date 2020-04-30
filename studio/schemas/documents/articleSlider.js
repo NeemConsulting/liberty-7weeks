@@ -10,7 +10,14 @@ export default {
     {
       name: 'sliderName',
       type: 'string',
-      title: 'Slider'
+      title: 'Slider',
+      description: 'Name is used to identify the slider for page layout'
+    },
+    {
+      name: 'headline',
+      title: 'Headline',
+      type: 'string',
+      description: 'Headline will be displayed on website'
     },
     {
       name: 'slideType',
@@ -20,15 +27,6 @@ export default {
         type: 'sliderType'
       },
       description: 'Select Slide Type'
-    },
-    {
-      name: 'selectSection',
-      title: 'Section',
-      type: 'reference',
-      to: {
-        type: 'section'
-      },
-      description: 'Select Section'
     },
     {
       name: 'slides',
@@ -46,8 +44,7 @@ export default {
   preview: {
     select: {
       title: 'sliderName',
-      subtitle: 'slideType.sliderName',
-      media: 'selectSection.heroImage'
+      subtitle: 'slideType.sliderName' + ' - ' + 'headline'
     }
   }
 }

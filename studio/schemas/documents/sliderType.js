@@ -8,5 +8,10 @@ export default {
       type: 'string',
       title: 'Slider Type'
     }
+    {
+      name: 'sliderDescription',
+      type: 'string',
+      title: 'Slider Description'
+    }
   ]
 }
