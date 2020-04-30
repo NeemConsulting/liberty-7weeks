@@ -18,11 +18,16 @@ export default {
       title: 'Slider Type'
     },
     {
-      name: 'slide',
+      name: 'slides',
       type: 'array',
-      of: [{type: 'howToArticle'}, {type: 'featureArticle'}, {type: 'galleryArticle'}],
-      title: 'Slide',
-      description: 'Add any article, image will be taken from the hero image'
+      title: 'Slides',
+      description: 'Add any article, image will be taken from the hero image',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'howToArticle'}, {type: 'featureArticle'}, {type: 'galleryArticle'}]
+        }
+      ]
     }
   ]
 }
