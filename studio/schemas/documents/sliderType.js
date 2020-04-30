@@ -16,7 +16,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'silderName',
+      title: 'sliderName',
       subtitle: 'sliderDescription'
     }
   }

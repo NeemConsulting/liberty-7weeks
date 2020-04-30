@@ -1,5 +1,3 @@
-import {format} from 'date-fns'
-
 export default {
   name: 'galleryArticle',
   type: 'document',

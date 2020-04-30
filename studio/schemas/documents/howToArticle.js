@@ -1,5 +1,3 @@
-import {format} from 'date-fns'
-
 export default {
   name: 'howToArticle',
   type: 'document',
