@@ -9,7 +9,8 @@ import author from './documents/author'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
-import heroslider from './documents/articleSlider'
+import articleSlider from './documents/articleSlider'
+import sliderType from './documents/sliderType'
 import tag from './documents/tag'
 import product from './documents/product'
 import category from './documents/category'
@@ -56,7 +57,8 @@ export default createSchema({
     brand,
     product,
     tool,
-    heroslider,
+    articleSlider,
+    sliderType,
     // Objects
     figure,
     imageGallery,

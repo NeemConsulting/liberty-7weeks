@@ -13,9 +13,22 @@ export default {
       title: 'Slider'
     },
     {
-      name: 'sliderType',
-      type: 'string',
-      title: 'Slider Type'
+      name: 'slideType',
+      title: 'Slide Type',
+      type: 'reference',
+      to: {
+        type: 'sliderType'
+      },
+      description: 'Select Slide Type'
+    },
+    {
+      name: 'selectSection',
+      title: 'Section',
+      type: 'reference',
+      to: {
+        type: 'section'
+      },
+      description: 'Select Section'
     },
     {
       name: 'slides',
@@ -29,6 +42,13 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'sliderName',
+      subtitle: 'sliderType',
+      description: 'selectSection',
+      media: 'selectSection.heroImage'
+    }
+  }
 }
-// test
