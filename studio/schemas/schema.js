@@ -15,6 +15,7 @@ import product from './documents/product'
 import category from './documents/category'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
+import section from './documents/section'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -51,6 +52,7 @@ export default createSchema({
     mainImage,
     step,
     seo,
+    section,
     productReference,
     howToPortableText,
     authorReference,

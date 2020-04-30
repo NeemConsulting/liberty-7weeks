@@ -1,35 +1,24 @@
 export default {
-  name: 'tool',
+  name: 'tools',
+  title: 'Tools',
   type: 'document',
-  title: 'Tool',
   fields: [
     {
       name: 'toolName',
+      title: 'Tool Name *',
       type: 'string',
-      title: 'Tool Name',
-      description: 'Add some tools'
+      validation: Rule => Rule.required()
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Slug Me',
-      options: {
-        source: 'toolName',
-        maxLength: 96
-      }
-    },
-    {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image'
+      name: 'toolImage',
+      title: 'Tool Image',
+      type: 'figure'
     }
   ],
   preview: {
     select: {
       title: 'toolName',
-      subtitle: 'mainImage.caption',
-      media: 'mainImage'
+      media: 'toolImage'
     }
   }
 }
