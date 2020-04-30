@@ -18,6 +18,7 @@ import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
 import section from './documents/section'
+import brandInfo from './documents/brandInfo'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -44,6 +45,7 @@ export default createSchema({
     // in the studio.
 
     // Documents
+    brandInfo,
     howToArticle,
     featureArticle,
     galleryArticle,
@@ -54,7 +56,6 @@ export default createSchema({
     brand,
     product,
     tool,
-    siteSettings,
     heroslider,
     // Objects
     figure,
@@ -66,6 +67,7 @@ export default createSchema({
     articlePortableText,
     howToPortableText,
     // Old Stuff to be deleted
+    siteSettings,
     post,
     mainImage,
     bodyPortableText,
