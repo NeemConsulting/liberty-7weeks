@@ -27,7 +27,7 @@ export default {
     {
       name: 'productImage',
       title: 'Product Image',
-      type: 'figure',
+      type: 'image',
       options: {
         hotspot: true
       }

@@ -11,7 +11,7 @@ export default {
     {
       name: 'brandImage',
       title: 'Brand Image',
-      type: 'figure',
+      type: 'image',
       options: {
         hotspot: true
       }

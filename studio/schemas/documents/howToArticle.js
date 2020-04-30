@@ -19,7 +19,7 @@ export default {
     },
     {
       name: 'heroImage',
-      type: 'figure',
+      type: 'image',
       title: 'Hero Image'
     },
     {
