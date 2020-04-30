@@ -1,9 +1,9 @@
 import {format} from 'date-fns'
 
 export default {
-  name: 'howToArticle',
+  name: 'featureArticle',
   type: 'document',
-  title: 'How To Article',
+  title: 'Feature Article',
   fields: [
     {
       name: 'headline',
@@ -23,58 +23,13 @@ export default {
       title: 'Hero Image'
     },
     {
-      name: 'time',
-      title: 'Duration',
-      type: 'number',
-      description: 'Time In Minutes'
+      name: 'featureBody',
+      type: 'featurePortableText',
+      title: 'Feature Body',
+      description: 'Insert Images, Video and Products anywhere in the body'
     },
     {
-      title: 'Skill level',
-      name: 'skillLevel',
-      type: 'string',
-      description: 'A concept used to indicate the technical difficulty of a task or skill.',
-      options: {
-        list: [
-          {title: 'Easy', value: 'easy'},
-          {title: 'Medium', value: 'medium'},
-          {title: 'Difficult', value: 'difficult'}
-        ], // <-- predefined values
-        layout: 'radio' // <-- defaults to 'dropdown'
-      }
-    },
-    {
-      name: 'productList',
-      title: 'Products',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'product'}]
-        }
-      ],
-      description: 'List products used in tutorial'
-    },
-    {
-      name: 'toolList',
-      title: 'Tools',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'tool'}]
-        }
-      ],
-      description: 'List tools used in tutorial'
-    },
-
-    {
-      name: 'howTobody',
-      type: 'howToPortableText',
-      title: 'How To Body',
-      description: 'Insert Step to provide instruction name, direction and image'
-    },
-    {
-      name: 'howToSection',
+      name: 'featureSection',
       title: 'Article Section',
       type: 'reference',
       description: 'Categorise the How To in Taxonomy',
