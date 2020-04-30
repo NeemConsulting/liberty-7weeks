@@ -19,4 +19,5 @@ export default {
       title: 'silderName',
       subtitle: 'sliderDescription'
     }
+  }
 }
