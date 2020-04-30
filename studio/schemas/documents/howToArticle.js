@@ -13,7 +13,7 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
-      name: 'subtitle',
+      name: 'subheading',
       title: 'Subheading',
       type: 'string'
     },
@@ -148,18 +148,8 @@ export default {
   preview: {
     select: {
       title: 'headline',
-      publishedAt: 'publishedAt',
-      slug: 'slug',
+      subtitle: 'subheading',
       media: 'heroImage'
-    },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
-      return {
-        title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
-      }
     }
   }
 }
