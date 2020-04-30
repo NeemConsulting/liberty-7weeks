@@ -54,11 +54,47 @@ export default {
       ],
       description: 'List products used in tutorial'
     },
+    {
+      name: 'toolList',
+      title: 'Tools',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'tool'}]
+        }
+      ],
+      description: 'List tools used in tutorial'
+    },
 
     {
       name: 'howTobody',
       type: 'howToPortableText',
-      title: 'Body'
+      title: 'How To Body',
+      description: 'Insert Step to provide instruction name, direction and image'
+    },
+    {
+      name: 'howToSection',
+      title: 'Article Section',
+      type: 'reference',
+      description: 'Categorise the How To in Taxonomy',
+      to: {
+        type: 'section'
+      }
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      title: 'Tags',
+      description: 'These tags will generate related articles',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'tag'
+          }
+        }
+      ]
     },
     {
       name: 'readnext',
@@ -68,20 +104,6 @@ export default {
       to: {
         type: 'howToArticle'
       }
-    },
-
-    {
-      name: 'tags',
-      type: 'array',
-      title: 'Tags',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'tag'
-          }
-        }
-      ]
     },
 
     {
@@ -97,13 +119,13 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      description: 'Date displayed on page'
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'May be used for friendly url',
       options: {
         source: 'headline',
         maxLength: 96
