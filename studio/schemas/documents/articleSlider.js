@@ -47,7 +47,7 @@ export default {
     select: {
       title: 'sliderName',
       subtitle: 'sliderType',
-      description: 'selectSection',
+      description: 'selectSection.sectionName',
       media: 'selectSection.heroImage'
     }
   }
