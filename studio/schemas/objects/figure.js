@@ -1,6 +1,6 @@
 export default {
   name: 'figure',
-  title: 'Figure',
+  title: 'Image',
   type: 'image',
   description: 'Upload image from your computer, TAB, or paste image fom clipboard',
   options: {
