@@ -66,7 +66,7 @@ export default {
       type: 'reference',
       description: 'Editorial recommendation for next article to read',
       to: {
-        type: 'article'
+        type: 'howToarticle'
       }
     },
 
