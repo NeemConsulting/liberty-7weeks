@@ -101,9 +101,7 @@ export default {
       title: 'Read Next',
       type: 'reference',
       description: 'Editorial recommendation for next article to read',
-      to: {
-        type: 'howToArticle'
-      }
+      to: [{type: 'howToArticle'}, {type: 'featureArticle'}, {type: 'galleryArticle'}]
     },
 
     {
