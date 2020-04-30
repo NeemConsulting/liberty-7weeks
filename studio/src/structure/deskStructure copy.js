@@ -1,12 +1,17 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import {MdPerson, MdDescription, MdLocalOffer} from 'react-icons/lib/md'
+import {
+  MdPerson,
+  MdDescription,
+  MdLocalOffer
+} from 'react-icons/lib/md'
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
 const remoteURL = 'https://sanity-gatsby-blog-web-3d35kyw2.netlify.app'
 const localURL = 'http://localhost:8000'
-const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
+const previewURL =
+  window.location.hostname === 'localhost' ? localURL : remoteURL
 
 export const getDefaultDocumentNode = props => {
   /**
@@ -16,14 +21,14 @@ export const getDefaultDocumentNode = props => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const {schemaType} = props
+  const { schemaType } = props
   if (schemaType == 'post') {
     return S.document().views([
       S.view.form(),
       S.view
         .component(IframePreview)
         .title('Web preview')
-        .options({previewURL})
+        .options({ previewURL })
     ])
   }
   return S.document().views([S.view.form()])
@@ -53,39 +58,6 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('Article - Feature')
-        .icon(MdDescription)
-        .schemaType('featureArticle')
-        .child(S.documentTypeList('featureArticle').title('Article - Feature')),
-      S.listItem()
-        .title('Article - Gallery')
-        .icon(MdDescription)
-        .schemaType('galleryArticle')
-        .child(S.documentTypeList('galleryArticle').title('Article - Gallery')),
-      S.listItem()
-        .title('Article - How To')
-        .icon(MdDescription)
-        .schemaType('howToArticle')
-        .child(S.documentTypeList('howToArticle').title('Article - How To')),
-      S.divider(),
-      S.listItem()
-        .title('Slider - Articles')
-        .icon(MdDescription)
-        .schemaType('articleSlider')
-        .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
-      S.listItem()
-        .title('Slider - products')
-        .icon(MdDescription)
-        .schemaType('productSlider')
-        .child(S.documentTypeList('productSlider').title('Slider - Products')),
-      S.divider(),
-      S.listItem()
-        .title('Layout')
-        .icon(MdDescription)
-        .schemaType('landingLayout')
-        .child(S.documentTypeList('landingLayout').title('Layouts')),
-      S.divider(),
-      S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
         .schemaType('post')
@@ -104,6 +76,9 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        listItem => !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())
+        listItem =>
+          !['category', 'author', 'post', 'siteSettings'].includes(
+            listItem.getId()
+          )
       )
     ])
