@@ -24,7 +24,7 @@ export default {
     },
     {
       name: 'featureBody',
-      type: 'featurePortableText',
+      type: 'articlePortableText',
       title: 'Feature Body',
       description: 'Insert Images, Video and Products anywhere in the body'
     },
