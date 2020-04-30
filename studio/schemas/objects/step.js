@@ -24,7 +24,7 @@ export default {
     {
       name: 'imageName',
       title: 'Image',
-      type: 'image',
+      type: 'figure',
       description: `Instruction Image`,
       options: {
         hotspot: true

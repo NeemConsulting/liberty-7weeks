@@ -1,5 +1,5 @@
 export default {
-  name: 'image',
+  name: 'figure',
   title: 'Image',
   type: 'image',
   description: 'Upload image from your computer, TAB, or paste image fom clipboard',
