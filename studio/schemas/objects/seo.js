@@ -4,7 +4,7 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'mettaitle',
+      name: 'metaTitle',
       type: 'text',
       title: 'Title',
       rows: 2,
@@ -12,7 +12,7 @@ export default {
     },
 
     {
-      name: 'keywords',
+      name: 'metaKeywords',
       type: 'array',
       title: 'Keywords',
       description: 'META-KEYWORDS',
@@ -22,7 +22,7 @@ export default {
       }
     },
     {
-      name: 'metadescription',
+      name: 'metaDescription',
       type: 'text',
       title: 'Description',
       rows: 2,
