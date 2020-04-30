@@ -26,6 +26,7 @@ import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 import figure from './objects/figure'
 import howToPortableText from './objects/howToPortableText'
+import featurePortableText from './objects/featurePortableText'
 import step from './objects/step'
 import seo from './objects/seo'
 import productReference from './objects/productReference'
@@ -57,6 +58,7 @@ export default createSchema({
     section,
     productReference,
     howToPortableText,
+    featurePortableText,
     authorReference,
     bodyPortableText,
     bioPortableText,
