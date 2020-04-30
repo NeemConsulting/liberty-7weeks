@@ -16,7 +16,8 @@ export default {
   preview: {
     select: {
       title: 'product.productName',
-      media: 'product.figure.asset'
+      subtitle: 'product.productTagLine',
+      media: 'product.productImage'
     }
   }
 }
