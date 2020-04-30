@@ -44,7 +44,7 @@ export default {
   preview: {
     select: {
       title: 'sliderName',
-      subtitle: 'slideType.sliderName' + ' - ' + 'headline'
+      subtitle: 'slideType.sliderName'
     }
   }
 }

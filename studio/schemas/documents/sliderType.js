@@ -13,5 +13,10 @@ export default {
       type: 'string',
       title: 'Slider Description'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'silderName',
+      subtitle: 'sliderDescription'
+    }
 }
