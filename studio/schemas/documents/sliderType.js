@@ -7,7 +7,7 @@ export default {
       name: 'sliderName',
       type: 'string',
       title: 'Slider Type'
-    }
+    },
     {
       name: 'sliderDescription',
       type: 'string',
