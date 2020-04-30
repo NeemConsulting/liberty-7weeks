@@ -46,8 +46,7 @@ export default {
   preview: {
     select: {
       title: 'sliderName',
-      subtitle: 'sliderType',
-      description: 'selectSection.sectionName',
+      subtitle: 'slideType.sliderName',
       media: 'selectSection.heroImage'
     }
   }
