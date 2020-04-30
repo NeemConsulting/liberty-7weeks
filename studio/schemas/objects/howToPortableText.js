@@ -56,6 +56,9 @@ export default {
     },
     {
       type: 'step'
+    },
+    {
+      type: 'productReference'
     }
   ]
 }
