@@ -16,6 +16,7 @@ import category from './documents/category'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
+import galleryArticle from './documents/galleryArticle'
 import section from './documents/section'
 
 // Object types
@@ -25,6 +26,7 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 import figure from './objects/figure'
+import imageGallery from './objects/imageGallery'
 import howToPortableText from './objects/howToPortableText'
 import articlePortableText from './objects/articlePortableText'
 import step from './objects/step'
@@ -40,26 +42,32 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    siteSettings,
-    post,
+
+    // Documents
     howToArticle,
     featureArticle,
-    figure,
-    product,
-    brand,
-    tool,
-    tag,
-    heroslider,
-    category,
+    galleryArticle,
     author,
-    mainImage,
+    section,
+    category,
+    tag,
+    brand,
+    product,
+    tool,
+    siteSettings,
+    heroslider,
+    // Objects
+    figure,
+    imageGallery,
     step,
     seo,
-    section,
-    productReference,
-    howToPortableText,
-    articlePortableText,
     authorReference,
+    productReference,
+    articlePortableText,
+    howToPortableText,
+    // Old Stuff to be deleted
+    post,
+    mainImage,
     bodyPortableText,
     bioPortableText,
     excerptPortableText
