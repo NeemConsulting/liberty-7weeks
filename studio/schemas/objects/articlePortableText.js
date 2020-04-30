@@ -1,7 +1,7 @@
 export default {
-  name: 'howToPortableText',
+  name: 'articlePortableText',
   type: 'array',
-  title: 'How To Article Body',
+  title: 'Article Body',
   of: [
     {
       type: 'block',
@@ -52,9 +52,6 @@ export default {
     // as a block type.
     {
       type: 'figure'
-    },
-    {
-      type: 'step'
     },
     {
       type: 'productReference'
