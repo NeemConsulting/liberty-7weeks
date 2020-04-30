@@ -22,6 +22,7 @@ import galleryArticle from './documents/galleryArticle'
 import section from './documents/section'
 import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
+import textBlock from './documents/textBlock'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -33,6 +34,7 @@ import figure from './objects/figure'
 import imageGallery from './objects/imageGallery'
 import howToPortableText from './objects/howToPortableText'
 import articlePortableText from './objects/articlePortableText'
+import textBlockPortableText from './objects/textBlockPortableText'
 import step from './objects/step'
 import seo from './objects/seo'
 import productReference from './objects/productReference'
@@ -63,6 +65,7 @@ export default createSchema({
     productSlider,
     sliderType,
     landingLayout,
+    textBlock,
     // Objects
     figure,
     imageGallery,
@@ -72,6 +75,7 @@ export default createSchema({
     productReference,
     articlePortableText,
     howToPortableText,
+    textBlockPortableText,
     // Old Stuff to be deleted
     siteSettings,
     post,
