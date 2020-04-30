@@ -21,6 +21,7 @@ import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
 import section from './documents/section'
 import brandInfo from './documents/brandInfo'
+import landingLayout from './documents/landingLayout'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -61,6 +62,7 @@ export default createSchema({
     articleSlider,
     productSlider,
     sliderType,
+    landingLayout,
     // Objects
     figure,
     imageGallery,
