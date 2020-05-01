@@ -17,7 +17,7 @@ export const getDefaultDocumentNode = props => {
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
   const {schemaType} = props
-  if (schemaType == 'featureArticle') {
+  if (schemaType == 'post') {
     return S.document().views([
       S.view.form(),
       S.view
@@ -94,6 +94,26 @@ export default () =>
         .schemaType('tool')
         .child(S.documentTypeList('tool').title('tools')),
       S.divider(),
+
+      S.listItem()
+        .title('Sliders')
+        .icon(MdDescription)
+        .child(
+          S.listItem()
+            .title('Slider Type')
+            .icon(MdDescription)
+            .schemaType('sliderType')
+            .child(S.documentTypeList('sliderType').title('Slider Type')),
+          S.listItem()
+            .title('Slider - Articles')
+            .schemaType('articleSlider')
+            .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
+          S.listItem()
+            .title('Slider - Products')
+            .schemaType('productSlider')
+            .child(S.documentTypeList('productSlider').title('Slider - Products')),  
+        )
+      /*
       S.listItem()
         .title('Slider Type')
         .icon(MdDescription)
@@ -107,6 +127,7 @@ export default () =>
         .title('Slider - Products')
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
+      */
       S.divider(),
       S.listItem()
         .title('Breadcrumb')
