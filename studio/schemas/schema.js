@@ -69,6 +69,7 @@ export default createSchema({
     landingLayout,
     textBlock,
     // Objects
+    // Test
     figure,
     imageGallery,
     step,
