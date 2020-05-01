@@ -24,6 +24,7 @@ import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
 import textBlock from './documents/textBlock'
 import breadcrumb from './documents/breadcrumb'
+import writer from './documents/writer'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -68,6 +69,7 @@ export default createSchema({
     sliderType,
     landingLayout,
     textBlock,
+    writer,
     // Objects
     // Test
     figure,

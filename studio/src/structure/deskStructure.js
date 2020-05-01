@@ -82,12 +82,12 @@ export default () =>
         .title('Brand')
         .icon(MdDescription)
         .schemaType('brand')
-        .child(S.documentTypeList('brand').title('brand')),
+        .child(S.documentTypeList('brand').title('Brand')),
       S.listItem()
         .title('Product')
         .icon(MdDescription)
         .schemaType('product')
-        .child(S.documentTypeList('product').title('product')),
+        .child(S.documentTypeList('product').title('Product')),
       S.listItem()
         .title('Tool')
         .icon(MdDescription)
@@ -130,10 +130,10 @@ export default () =>
         .child(S.documentTypeList('section').title('Sections')),
       S.divider(),
       S.listItem()
-        .title('Authors')
+        .title('Writers')
         .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Authors')),
+        .schemaType('writer')
+        .child(S.documentTypeList('writer').title('Writer')),
       //
       //
       S.listItem()
@@ -145,6 +145,11 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
+      S.listItem()
+        .title('Authors')
+        .icon(MdPerson)
+        .schemaType('author')
+        .child(S.documentTypeList('author').title('Authors')),
       S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
@@ -174,6 +179,7 @@ export default () =>
             'category',
             'author',
             'post',
+            'writer',
             'siteSettings'
           ].includes(listItem.getId())
       )
