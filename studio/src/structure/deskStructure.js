@@ -163,6 +163,7 @@ export default () =>
             'howToArticle',
             'textBlock',
             'brand',
+            'breadcrumb',
             'product',
             'sliderType',
             'articleSlider',
