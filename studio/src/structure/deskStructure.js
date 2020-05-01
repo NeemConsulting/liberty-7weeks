@@ -96,25 +96,6 @@ export default () =>
       S.divider(),
 
       S.listItem()
-        .title('Sliders')
-        .icon(MdDescription)
-        .child(
-          S.listItem()
-            .title('Slider Type')
-            .icon(MdDescription)
-            .schemaType('sliderType')
-            .child(S.documentTypeList('sliderType').title('Slider Type')),
-          S.listItem()
-            .title('Slider - Articles')
-            .schemaType('articleSlider')
-            .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
-          S.listItem()
-            .title('Slider - Products')
-            .schemaType('productSlider')
-            .child(S.documentTypeList('productSlider').title('Slider - Products')),  
-        )
-      /*
-      S.listItem()
         .title('Slider Type')
         .icon(MdDescription)
         .schemaType('sliderType')
@@ -127,7 +108,7 @@ export default () =>
         .title('Slider - Products')
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
-      */
+
       S.divider(),
       S.listItem()
         .title('Breadcrumb')
