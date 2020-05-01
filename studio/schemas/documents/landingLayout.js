@@ -1,9 +1,9 @@
-import {MdFlightLand} from 'react-icons/gi'
+// import {MdFlightLand} from 'react-icons/gi'
 
 export default {
   name: 'landingLayout',
   type: 'document',
-  icon: MdFlightLand,
+  // icon: MdFlightLand,
   title: 'Landing Layout',
   description: 'Full control to layout your landing pages',
   fields: [

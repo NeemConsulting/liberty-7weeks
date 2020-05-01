@@ -1,9 +1,9 @@
-import {GiNinjaHead} from 'react-icons/gi'
+// import {GiNinjaHead} from 'react-icons/gi'
 
 export default {
   name: 'articleSlider',
   type: 'document',
-  icon: GiNinjaHead,
+  // icon: GiNinjaHead,
   title: 'Article Slider',
   description: 'Article slider for hero and tile user experiences ',
   fields: [
