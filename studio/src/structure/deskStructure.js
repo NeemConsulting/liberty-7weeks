@@ -141,6 +141,24 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        listItem => !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())
+        listItem =>
+          ![
+            'brandInfo',
+            'landingLayout',
+            'featureArticle',
+            'galleryArticle',
+            'howToArticle',
+            'textBlock',
+            'brand',
+            'product',
+            'sliderType',
+            'articleSlider',
+            'productSlider',
+            'tag',
+            'category',
+            'author',
+            'post',
+            'siteSettings'
+          ].includes(listItem.getId())
       )
     ])
