@@ -14,7 +14,7 @@ export const query = graphql`
       publishedAt
       categories {
         _id
-        title
+        categoryName
       }
       mainImage {
         ...SanityImage
