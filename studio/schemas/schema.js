@@ -19,7 +19,6 @@ import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
-import section from './documents/section'
 import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
 import textBlock from './documents/textBlock'
@@ -52,38 +51,38 @@ export default createSchema({
     // in the studio.
 
     // Documents
+    articleSlider,
+    brand,
     brandInfo,
-    howToArticle,
+    breadcrumb,
+    category,
     featureArticle,
     galleryArticle,
-    author,
-    section,
-    category,
-    tag,
-    brand,
-    breadcrumb,
+    howToArticle,
+    landingLayout,
     product,
-    tool,
-    articleSlider,
     productSlider,
     sliderType,
-    landingLayout,
+    tag,
     textBlock,
+    tool,
     writer,
+
     // Objects
-    // Test
-    figure,
-    imageGallery,
-    step,
-    seo,
-    authorReference,
-    productReference,
     articlePortableText,
+    authorReference,
+    figure,
     howToPortableText,
+    imageGallery,
+    productReference,
+    seo,
+    step,
     textBlockPortableText,
+
     // Old Stuff to be deleted
     siteSettings,
     post,
+    author,
     mainImage,
     bodyPortableText,
     bioPortableText,

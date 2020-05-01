@@ -124,18 +124,13 @@ export default () =>
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
       S.listItem()
-        .title('Section')
-        .icon(MdDescription)
-        .schemaType('section')
-        .child(S.documentTypeList('section').title('Sections')),
-      S.divider(),
-      S.listItem()
         .title('Writers')
         .icon(MdPerson)
         .schemaType('writer')
         .child(S.documentTypeList('writer').title('Writer')),
       //
       //
+      S.divider(),
       S.listItem()
         .title('Settings')
         .icon(MdSettings)
@@ -174,7 +169,6 @@ export default () =>
             'articleSlider',
             'productSlider',
             'tool',
-            'section',
             'tag',
             'category',
             'author',
