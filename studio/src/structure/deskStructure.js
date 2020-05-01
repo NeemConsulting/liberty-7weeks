@@ -104,7 +104,7 @@ export default () =>
         .schemaType('articleSlider')
         .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
       S.listItem()
-        .title('Slider - products')
+        .title('Slider - Products')
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
       S.divider(),
