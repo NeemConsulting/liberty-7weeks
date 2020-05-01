@@ -72,12 +72,12 @@ export default {
       description: 'Insert Step to provide instruction name, direction and image'
     },
     {
-      name: 'howToSection',
-      title: 'Article Section',
+      name: 'articleBreadcrumb',
+      title: 'Breadcrumb',
       type: 'reference',
-      description: 'Categorise the How To in Taxonomy',
+      description: 'Select the breadcrumb for this article',
       to: {
-        type: 'section'
+        type: 'breadcrumb'
       }
     },
     {

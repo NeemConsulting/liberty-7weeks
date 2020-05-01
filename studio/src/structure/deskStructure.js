@@ -109,6 +109,11 @@ export default () =>
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
       S.divider(),
       S.listItem()
+        .title('Breadcrumb')
+        .icon(MdDescription)
+        .schemaType('breadcrumb')
+        .child(S.documentTypeList('breadcrumb').title('Breadcrumb')),
+      S.listItem()
         .title('Tag Categories')
         .icon(MdLocalOffer)
         .schemaType('category')

@@ -23,6 +23,7 @@ import section from './documents/section'
 import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
 import textBlock from './documents/textBlock'
+import breadcrumb from './documents/breadcrumb'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -59,6 +60,7 @@ export default createSchema({
     category,
     tag,
     brand,
+    breadcrumb,
     product,
     tool,
     articleSlider,

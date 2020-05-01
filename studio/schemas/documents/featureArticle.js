@@ -27,12 +27,12 @@ export default {
       description: 'Insert Images, Video and Products anywhere in the body'
     },
     {
-      name: 'featureSection',
-      title: 'Article Section',
+      name: 'articleBreadcrumb',
+      title: 'Breadcrumb',
       type: 'reference',
-      description: 'Categorise the How To in Taxonomy',
+      description: 'Select the breadcrumb for this article',
       to: {
-        type: 'section'
+        type: 'breadcrumb'
       }
     },
     {
