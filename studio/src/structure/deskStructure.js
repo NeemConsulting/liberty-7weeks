@@ -43,14 +43,20 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Brand Information')
         .icon(MdSettings)
         .child(
           S.editor()
-            .id('siteSettings')
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
+            .id('brandInfo')
+            .schemaType('brandInfo')
+            .documentId('brandInfo')
         ),
+      S.divider(),
+      S.listItem()
+        .title('Layout')
+        .icon(MdDescription)
+        .schemaType('landingLayout')
+        .child(S.documentTypeList('landingLayout').title('Layouts')),
       S.divider(),
       S.listItem()
         .title('Article - Feature')
@@ -67,7 +73,27 @@ export default () =>
         .icon(MdDescription)
         .schemaType('howToArticle')
         .child(S.documentTypeList('howToArticle').title('Article - How To')),
+      S.listItem()
+        .title('Text Block')
+        .icon(MdDescription)
+        .schemaType('textBlock')
+        .child(S.documentTypeList('textBlock').title('Text Block')),
+      S.listItem()
+        .title('Brand')
+        .icon(MdDescription)
+        .schemaType('brand')
+        .child(S.documentTypeList('brand').title('brand')),
+      S.listItem()
+        .title('Product')
+        .icon(MdDescription)
+        .schemaType('product')
+        .child(S.documentTypeList('product').title('product')),
       S.divider(),
+      S.listItem()
+        .title('Slider Type')
+        .icon(MdDescription)
+        .schemaType('sliderType')
+        .child(S.documentTypeList('sliderType').title('Slider Type')),
       S.listItem()
         .title('Slider - Articles')
         .icon(MdDescription)
@@ -80,26 +106,37 @@ export default () =>
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
       S.divider(),
       S.listItem()
-        .title('Layout')
-        .icon(MdDescription)
-        .schemaType('landingLayout')
-        .child(S.documentTypeList('landingLayout').title('Layouts')),
-      S.divider(),
+        .title('Tag Categories')
+        .icon(MdLocalOffer)
+        .schemaType('category')
+        .child(S.documentTypeList('category').title('Tag Categories')),
       S.listItem()
-        .title('Blog posts')
+        .title('Tag')
         .icon(MdDescription)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .schemaType('tag')
+        .child(S.documentTypeList('tag').title('Tags')),
+      S.divider(),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Authors')),
+      //
+      //
       S.listItem()
-        .title('Categories')
-        .icon(MdLocalOffer)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .title('Settings')
+        .icon(MdSettings)
+        .child(
+          S.editor()
+            .id('siteSettings')
+            .schemaType('siteSettings')
+            .documentId('siteSettings')
+        ),
+      S.listItem()
+        .title('Blog posts')
+        .icon(MdDescription)
+        .schemaType('post')
+        .child(S.documentTypeList('post').title('Blog posts')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
