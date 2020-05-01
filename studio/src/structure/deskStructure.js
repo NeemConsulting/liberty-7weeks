@@ -88,6 +88,11 @@ export default () =>
         .icon(MdDescription)
         .schemaType('product')
         .child(S.documentTypeList('product').title('product')),
+      S.listItem()
+        .title('Tool')
+        .icon(MdDescription)
+        .schemaType('tool')
+        .child(S.documentTypeList('tool').title('tools')),
       S.divider(),
       S.listItem()
         .title('Slider Type')
@@ -96,12 +101,10 @@ export default () =>
         .child(S.documentTypeList('sliderType').title('Slider Type')),
       S.listItem()
         .title('Slider - Articles')
-        .icon(MdDescription)
         .schemaType('articleSlider')
         .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
       S.listItem()
         .title('Slider - products')
-        .icon(MdDescription)
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
       S.divider(),
@@ -115,6 +118,11 @@ export default () =>
         .icon(MdDescription)
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
+      S.listItem()
+        .title('Section')
+        .icon(MdDescription)
+        .schemaType('section')
+        .child(S.documentTypeList('section').title('Sections')),
       S.divider(),
       S.listItem()
         .title('Authors')
@@ -154,6 +162,8 @@ export default () =>
             'sliderType',
             'articleSlider',
             'productSlider',
+            'tool',
+            'section',
             'tag',
             'category',
             'author',
