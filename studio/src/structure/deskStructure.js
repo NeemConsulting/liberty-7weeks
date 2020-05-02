@@ -1,13 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import {
-  MdPerson,
-  MdDescription,
-  MdLocalOffer,
-  MdVideocam,
-  MdImage,
-  MdTextFields
-} from 'react-icons/lib/md'
+import {MdPerson, MdDescription, MdVideocam, MdImage, MdTextFields} from 'react-icons/lib/md'
+// import FaSettings from 'react-icons/lib/fa/settings'
+import {FaSitemap, FaTag, FaTags} from 'react-icons/lib/fa'
+// ran npm install react
+// ran npm install font-awesome
 
 import IframePreview from '../previews/IframePreview'
 
@@ -71,7 +68,7 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Layout')
-        .icon(MdDescription)
+        .icon(FaSitemap)
         .schemaType('landingLayout')
         .child(S.documentTypeList('landingLayout').title('Layouts')),
       S.divider(),
@@ -123,17 +120,17 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Breadcrumb')
-        .icon(MdDescription)
+        .icon(FaSitemap)
         .schemaType('breadcrumb')
         .child(S.documentTypeList('breadcrumb').title('Breadcrumb')),
       S.listItem()
-        .title('Tag Categories')
-        .icon(MdLocalOffer)
+        .title('Tag Category')
+        .icon(FaTag)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Tag Categories')),
       S.listItem()
-        .title('Tag')
-        .icon(MdLocalOffer)
+        .title('Tags')
+        .icon(FaTags)
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
       //
