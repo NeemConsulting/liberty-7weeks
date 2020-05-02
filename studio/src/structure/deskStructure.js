@@ -9,7 +9,8 @@ import {
   MdViewCompact
 } from 'react-icons/lib/md'
 // import FaSettings from 'react-icons/lib/fa/settings'
-import {FaSitemap, FaTag, FaTags, FaSliders, FaSprayCan, FaNewspaperO} from 'react-icons/lib/fa'
+import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaperO} from 'react-icons/lib/fa'
+import {GiSpray, GiCherish, GiComb} from 'react-icons/gi'
 // ran npm install react
 // ran npm install font-awesome
 
@@ -96,17 +97,17 @@ export default () =>
         .child(S.documentTypeList('howToArticle').title('Article - How To')),
       S.listItem()
         .title('Brand')
-        .icon(MdDescription)
+        .icon(GiCherish)
         .schemaType('brand')
         .child(S.documentTypeList('brand').title('Brand')),
       S.listItem()
         .title('Product')
-        .icon(FaSprayCan)
+        .icon(GiSpray)
         .schemaType('product')
         .child(S.documentTypeList('product').title('Product')),
       S.listItem()
         .title('Tool')
-        .icon(MdDescription)
+        .icon(GiComb)
         .schemaType('tool')
         .child(S.documentTypeList('tool').title('tools')),
       S.divider(),
@@ -126,22 +127,6 @@ export default () =>
         .icon(FaSliders)
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
-      S.divider(),
-      S.listItem()
-        .title('Breadcrumb')
-        .icon(FaSitemap)
-        .schemaType('breadcrumb')
-        .child(S.documentTypeList('breadcrumb').title('Breadcrumb')),
-      S.listItem()
-        .title('Tag Category')
-        .icon(FaTag)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Tag Categories')),
-      S.listItem()
-        .title('Tags')
-        .icon(FaTags)
-        .schemaType('tag')
-        .child(S.documentTypeList('tag').title('Tags')),
       //
       S.divider(),
       S.listItem()
@@ -176,10 +161,28 @@ export default () =>
         .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
       S.divider(),
       S.listItem()
+        .title('Breadcrumb')
+        .icon(FaSitemap)
+        .schemaType('breadcrumb')
+        .child(S.documentTypeList('breadcrumb').title('Breadcrumb')),
+      S.listItem()
+        .title('Tag Category')
+        .icon(FaTag)
+        .schemaType('category')
+        .child(S.documentTypeList('category').title('Tag Categories')),
+      S.listItem()
+        .title('Tags')
+        .icon(FaTags)
+        .schemaType('tag')
+        .child(S.documentTypeList('tag').title('Tags')),
+      S.divider(),
+      S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Author')),
+      S.divider(),
+      S.divider(),
       S.divider(),
       S.divider(),
       S.listItem()
