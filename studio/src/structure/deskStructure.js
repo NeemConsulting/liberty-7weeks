@@ -1,6 +1,14 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import {MdPerson, MdDescription, MdLocalOffer, MdVideocam} from 'react-icons/lib/md'
+import {
+  MdPerson,
+  MdDescription,
+  MdLocalOffer,
+  MdVideocam,
+  MdImage,
+  MdTextFields
+} from 'react-icons/lib/md'
+
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
@@ -83,11 +91,6 @@ export default () =>
         .schemaType('howToArticle')
         .child(S.documentTypeList('howToArticle').title('Article - How To')),
       S.listItem()
-        .title('Text Block')
-        .icon(MdDescription)
-        .schemaType('textBlock')
-        .child(S.documentTypeList('textBlock').title('Text Block')),
-      S.listItem()
         .title('Brand')
         .icon(MdDescription)
         .schemaType('brand')
@@ -117,7 +120,6 @@ export default () =>
         .title('Slider - Products')
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
-
       S.divider(),
       S.listItem()
         .title('Breadcrumb')
@@ -134,12 +136,28 @@ export default () =>
         .icon(MdLocalOffer)
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
-      S.listItem()
-        .title('Authors')
-        .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Author')),
       //
+      S.divider(),
+      S.listItem()
+        .title('Text Block')
+        .icon(MdTextFields)
+        .schemaType('textBlock')
+        .child(S.documentTypeList('textBlock').title('Text Block')),
+      S.listItem()
+        .title('Text Block Type')
+        .icon(MdTextFields)
+        .schemaType('textBlockType')
+        .child(S.documentTypeList('textBlockType').title('Text Block Type')),
+      S.listItem()
+        .title('Image Block')
+        .icon(MdImage)
+        .schemaType('textBlock')
+        .child(S.documentTypeList('imageBlock').title('Image Block')),
+      S.listItem()
+        .title('Image Block Type')
+        .icon(MdImage)
+        .schemaType('imageBlockType')
+        .child(S.documentTypeList('imageBlockType').title('Image Block Type')),
       S.listItem()
         .title('Video Block')
         .icon(MdVideocam)
@@ -150,6 +168,13 @@ export default () =>
         .icon(MdVideocam)
         .schemaType('videoBlockType')
         .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
+      S.divider(),
+      S.listItem()
+        .title('Authors')
+        .icon(MdPerson)
+        .schemaType('author')
+        .child(S.documentTypeList('author').title('Author')),
+      S.divider(),
       S.divider(),
       S.listItem()
         .title('Settings')
@@ -182,7 +207,6 @@ export default () =>
             'featureArticle',
             'galleryArticle',
             'howToArticle',
-            'textBlock',
             'brand',
             'breadcrumb',
             'product',
@@ -197,6 +221,10 @@ export default () =>
             'writer',
             'blogAuthor',
             'siteSettings',
+            'textBlock',
+            'textBlockType',
+            'imageBlock',
+            'imageBlockType',
             'videoBlock',
             'videoBlockType'
           ].includes(listItem.getId())
