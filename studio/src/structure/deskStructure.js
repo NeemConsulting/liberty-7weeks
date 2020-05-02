@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import {MdPerson, MdDescription, MdLocalOffer} from 'react-icons/lib/md'
+import {MdPerson, MdDescription, MdLocalOffer, MdVideocam} from 'react-icons/lib/md'
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
@@ -131,7 +131,7 @@ export default () =>
         .child(S.documentTypeList('category').title('Tag Categories')),
       S.listItem()
         .title('Tag')
-        .icon(MdDescription)
+        .icon(MdLocalOffer)
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
       S.listItem()
@@ -140,7 +140,16 @@ export default () =>
         .schemaType('author')
         .child(S.documentTypeList('author').title('Author')),
       //
-      //
+      S.listItem()
+        .title('Video Block')
+        .icon(MdVideocam)
+        .schemaType('videoBlock')
+        .child(S.documentTypeList('videoBlock').title('Video Block')),
+      S.listItem()
+        .title('Video Block Type')
+        .icon(MdVideocam)
+        .schemaType('videoBlockType')
+        .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
       S.divider(),
       S.listItem()
         .title('Settings')
@@ -187,7 +196,9 @@ export default () =>
             'post',
             'writer',
             'blogAuthor',
-            'siteSettings'
+            'siteSettings',
+            'videoBlock',
+            'videoBlockType'
           ].includes(listItem.getId())
       )
     ])
