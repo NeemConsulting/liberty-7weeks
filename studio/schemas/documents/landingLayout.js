@@ -25,7 +25,8 @@ export default {
             {type: 'articleSlider'},
             {type: 'productSlider'},
             {type: 'textBlock'},
-            {type: 'imageBlock'}
+            {type: 'imageBlock'},
+            {type: 'videoBlock'}
           ]
         }
       ]

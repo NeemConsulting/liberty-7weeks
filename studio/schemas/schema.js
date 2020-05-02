@@ -5,19 +5,13 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
+import author from './documents/author'
+import breadcrumb from './documents/breadcrumb'
 import blogAuthor from './documents/blogAuthor'
 import config from './documents/config'
-import post from './documents/post'
-import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
-import articleSlider from './documents/articleSlider'
-import sliderType from './documents/sliderType'
-import imageBlock from './documents/imageBlock'
-import imageBlockType from './documents/imageBlockType'
-import textBlockType from './documents/textBlockType'
 import tag from './documents/tag'
 import product from './documents/product'
-import productSlider from './documents/productSlider'
 import category from './documents/category'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
@@ -25,9 +19,18 @@ import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
 import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
+import imageBlock from './documents/imageBlock'
+import imageBlockType from './documents/imageBlockType'
 import textBlock from './documents/textBlock'
-import breadcrumb from './documents/breadcrumb'
-import author from './documents/author'
+import textBlockType from './documents/textBlockType'
+import videoBlock from './documents/videoBlock'
+import videoBlockType from './documents/videoBlockType'
+import sliderType from './documents/sliderType'
+import articleSlider from './documents/articleSlider'
+import productSlider from './documents/productSlider'
+
+import post from './documents/post'
+import siteSettings from './documents/siteSettings'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -73,6 +76,8 @@ export default createSchema({
     imageBlockType,
     imageBlock,
     textBlockType,
+    videoBlock,
+    videoBlockType,
     tag,
     textBlock,
     tool,
