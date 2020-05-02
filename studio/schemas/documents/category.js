@@ -6,7 +6,13 @@ export default {
     {
       name: 'categoryName',
       type: 'string',
-      title: 'Category'
+      title: 'Tag Category',
+      description: 'Tag categories help group tags together'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'categoryName'
+    }
+  }
 }
