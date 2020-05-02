@@ -12,10 +12,6 @@ export const query = graphql`
     post: sanityPost(id: {eq: $id}) {
       id
       publishedAt
-      categories {
-        _id
-        categoryName
-      }
       mainImage {
         ...SanityImage
         alt
@@ -26,33 +22,6 @@ export const query = graphql`
       }
       _rawExcerpt(resolveReferences: {maxDepth: 5})
       _rawBody(resolveReferences: {maxDepth: 5})
-      authors {
-        _key
-        author {
-          image {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-          }
-          name
-        }
-      }
     }
   }
 `
@@ -63,7 +32,13 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={post.title || 'Untitled'} description={toPlainText(post._rawExcerpt)} image={post.mainImage} />}
+      {post && (
+        <SEO
+          title={post.title || 'Untitled'}
+          description={toPlainText(post._rawExcerpt)}
+          image={post.mainImage}
+        />
+      )}
 
       {errors && (
         <Container>

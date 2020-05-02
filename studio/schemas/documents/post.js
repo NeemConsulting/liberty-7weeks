@@ -21,14 +21,6 @@ export default {
         maxLength: 96
       }
     },
-    /*
-    {
-      name: 'nickname',
-      type: 'string',
-      title: 'Nickname',
-      description: 'nicknames are fun, but they can br cruel as well'
-    },
-  */
     {
       name: 'publishedAt',
       type: 'datetime',
@@ -47,7 +39,7 @@ export default {
       description:
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
-    {
+    /*    {
       name: 'authors',
       title: 'Authors',
       type: 'array',
@@ -83,6 +75,7 @@ export default {
         }
       ]
     },
+  */
     {
       name: 'body',
       type: 'bodyPortableText',

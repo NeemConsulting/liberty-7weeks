@@ -66,11 +66,11 @@ export default {
     },
 
     {
-      name: 'writer',
-      title: 'Writer',
+      name: 'author',
+      title: 'Author',
       type: 'reference',
       to: {
-        type: 'writer'
+        type: 'author'
       }
     },
 

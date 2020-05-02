@@ -17,7 +17,7 @@ export const getDefaultDocumentNode = props => {
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
   const {schemaType} = props
-  if (schemaType == 'post') {
+  if (schemaType === 'post') {
     return S.document().views([
       S.view.form(),
       S.view
@@ -50,6 +50,15 @@ export default () =>
             .id('brandInfo')
             .schemaType('brandInfo')
             .documentId('brandInfo')
+        ),
+      S.listItem()
+        .title('Configuration')
+        .icon(MdSettings)
+        .child(
+          S.editor()
+            .id('config')
+            .schemaType('config')
+            .documentId('config')
         ),
       S.divider(),
       S.listItem()
@@ -126,10 +135,10 @@ export default () =>
         .schemaType('tag')
         .child(S.documentTypeList('tag').title('Tags')),
       S.listItem()
-        .title('Writers')
+        .title('Authors')
         .icon(MdPerson)
-        .schemaType('writer')
-        .child(S.documentTypeList('writer').title('Writer')),
+        .schemaType('author')
+        .child(S.documentTypeList('author').title('Author')),
       //
       //
       S.divider(),
@@ -143,12 +152,12 @@ export default () =>
             .documentId('siteSettings')
         ),
       S.listItem()
-        .title('Authors')
+        .title('Blog Author')
         .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Authors')),
+        .schemaType('blogAuthor')
+        .child(S.documentTypeList('blogAuthor').title('Blog Authors')),
       S.listItem()
-        .title('Blog posts')
+        .title('Blog Posts')
         .icon(MdDescription)
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
@@ -159,6 +168,7 @@ export default () =>
         listItem =>
           ![
             'brandInfo',
+            'config',
             'landingLayout',
             'featureArticle',
             'galleryArticle',
@@ -176,6 +186,7 @@ export default () =>
             'author',
             'post',
             'writer',
+            'blogAuthor',
             'siteSettings'
           ].includes(listItem.getId())
       )

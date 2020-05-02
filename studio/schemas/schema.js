@@ -5,7 +5,8 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
-import author from './documents/author'
+import blogAuthor from './documents/blogAuthor'
+import config from './documents/config'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
@@ -23,14 +24,15 @@ import brandInfo from './documents/brandInfo'
 import landingLayout from './documents/landingLayout'
 import textBlock from './documents/textBlock'
 import breadcrumb from './documents/breadcrumb'
-import writer from './documents/writer'
+import author from './documents/author'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
+import authorBioPortableText from './objects/authorBioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
-import authorReference from './objects/authorReference'
+import blogAuthorReference from './objects/blogAuthorReference'
 import figure from './objects/figure'
 import imageGallery from './objects/imageGallery'
 import howToPortableText from './objects/howToPortableText'
@@ -52,6 +54,7 @@ export default createSchema({
 
     // Documents
     articleSlider,
+    config,
     brand,
     brandInfo,
     breadcrumb,
@@ -66,23 +69,24 @@ export default createSchema({
     tag,
     textBlock,
     tool,
-    writer,
+    author,
 
     // Objects
     articlePortableText,
-    authorReference,
+    blogAuthorReference,
     figure,
     howToPortableText,
     imageGallery,
     productReference,
     seo,
     step,
+    authorBioPortableText,
     textBlockPortableText,
 
     // Old Stuff to be deleted
     siteSettings,
     post,
-    author,
+    blogAuthor,
     mainImage,
     bodyPortableText,
     bioPortableText,
