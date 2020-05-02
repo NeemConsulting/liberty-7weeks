@@ -12,6 +12,9 @@ import siteSettings from './documents/siteSettings'
 import tool from './documents/tool'
 import articleSlider from './documents/articleSlider'
 import sliderType from './documents/sliderType'
+import imageBlock from './documents/imageBlock'
+import imageBlockType from './documents/imageBlockType'
+import textBlockType from './documents/textBlockType'
 import tag from './documents/tag'
 import product from './documents/product'
 import productSlider from './documents/productSlider'
@@ -66,6 +69,9 @@ export default createSchema({
     product,
     productSlider,
     sliderType,
+    imageBlockType,
+    imageBlock,
+    textBlockType,
     tag,
     textBlock,
     tool,

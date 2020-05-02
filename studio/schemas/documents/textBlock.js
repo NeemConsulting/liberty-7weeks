@@ -11,6 +11,15 @@ export default {
       description: 'Name is used to identify the slider for page layout'
     },
     {
+      name: 'textBlockType',
+      title: 'Text Block Type',
+      type: 'reference',
+      to: {
+        type: 'textBlockType'
+      },
+      description: 'Select Text Block Type'
+    },
+    {
       name: 'textBlockBody',
       type: 'textBlockPortableText',
       title: 'Text Block',

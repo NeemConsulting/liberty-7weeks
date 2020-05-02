@@ -21,7 +21,12 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'articleSlider'}, {type: 'productSlider'}, {type: 'textBlock'}]
+          to: [
+            {type: 'articleSlider'},
+            {type: 'productSlider'},
+            {type: 'textBlock'},
+            {type: 'imageBlock'}
+          ]
         }
       ]
     }
