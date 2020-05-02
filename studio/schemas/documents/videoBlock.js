@@ -17,7 +17,7 @@ export default {
       to: {
         type: 'videoBlockType'
       },
-      description: 'Select Block Block Type'
+      description: 'Select Video Block Type'
     },
     {
       name: 'videoBlock',

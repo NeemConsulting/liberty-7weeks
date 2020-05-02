@@ -8,7 +8,7 @@ export default {
       type: 'string',
       title: 'Text Block Name *',
       validation: Rule => Rule.required(),
-      description: 'Name is used to identify the slider for page layout'
+      description: 'Name is used to identify the text for page layout'
     },
     {
       name: 'textBlockType',
