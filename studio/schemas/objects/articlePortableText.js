@@ -54,6 +54,9 @@ export default {
       type: 'figure'
     },
     {
+      type: 'youTube'
+    },
+    {
       type: 'productReference'
     }
   ]

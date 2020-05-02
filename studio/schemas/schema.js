@@ -44,6 +44,7 @@ import textBlockPortableText from './objects/textBlockPortableText'
 import step from './objects/step'
 import seo from './objects/seo'
 import productReference from './objects/productReference'
+import youTube from './objects/youTube'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -88,6 +89,7 @@ export default createSchema({
     step,
     authorBioPortableText,
     textBlockPortableText,
+    youTube,
 
     // Old Stuff to be deleted
     siteSettings,
