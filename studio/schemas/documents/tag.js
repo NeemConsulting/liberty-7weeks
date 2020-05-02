@@ -1,6 +1,9 @@
+import {FaTag} from 'react-icons/lib/fa'
+
 export default {
   title: 'Tag',
   name: 'tag',
+  icon: FaTag,
   type: 'document',
   fields: [
     {
@@ -21,7 +24,8 @@ export default {
   preview: {
     select: {
       title: 'tagName',
-      subtitle: 'categoryName.categoryName'
+      subtitle: 'categoryName.categoryName',
+      media: 'FaTag'
     }
   },
   orderings: [

@@ -1,6 +1,9 @@
+import {FaTag} from 'react-icons/lib/fa'
+
 export default {
   name: 'category',
   type: 'document',
+  icon: FaTag,
   title: 'Tag Category',
   fields: [
     {
@@ -12,7 +15,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'categoryName'
+      title: 'categoryName',
+      media: 'FaTag'
     }
   }
 }
