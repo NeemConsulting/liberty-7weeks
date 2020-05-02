@@ -1,8 +1,15 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import {MdPerson, MdDescription, MdVideocam, MdImage, MdTextFields} from 'react-icons/lib/md'
+import {
+  MdPerson,
+  MdDescription,
+  MdVideocam,
+  MdImage,
+  MdTextFields,
+  MdViewCompact
+} from 'react-icons/lib/md'
 // import FaSettings from 'react-icons/lib/fa/settings'
-import {FaSitemap, FaTag, FaTags} from 'react-icons/lib/fa'
+import {FaSitemap, FaTag, FaTags, FaSliders, FaSprayCan, FaNewspaperO} from 'react-icons/lib/fa'
 // ran npm install react
 // ran npm install font-awesome
 
@@ -68,23 +75,23 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Layout')
-        .icon(FaSitemap)
+        .icon(MdViewCompact)
         .schemaType('landingLayout')
         .child(S.documentTypeList('landingLayout').title('Layouts')),
       S.divider(),
       S.listItem()
         .title('Article - Feature')
-        .icon(MdDescription)
+        .icon(FaNewspaperO)
         .schemaType('featureArticle')
         .child(S.documentTypeList('featureArticle').title('Article - Feature')),
       S.listItem()
         .title('Article - Gallery')
-        .icon(MdDescription)
+        .icon(FaNewspaperO)
         .schemaType('galleryArticle')
         .child(S.documentTypeList('galleryArticle').title('Article - Gallery')),
       S.listItem()
         .title('Article - How To')
-        .icon(MdDescription)
+        .icon(FaNewspaperO)
         .schemaType('howToArticle')
         .child(S.documentTypeList('howToArticle').title('Article - How To')),
       S.listItem()
@@ -94,7 +101,7 @@ export default () =>
         .child(S.documentTypeList('brand').title('Brand')),
       S.listItem()
         .title('Product')
-        .icon(MdDescription)
+        .icon(FaSprayCan)
         .schemaType('product')
         .child(S.documentTypeList('product').title('Product')),
       S.listItem()
@@ -106,15 +113,17 @@ export default () =>
 
       S.listItem()
         .title('Slider Type')
-        .icon(MdDescription)
+        .icon(FaSliders)
         .schemaType('sliderType')
         .child(S.documentTypeList('sliderType').title('Slider Type')),
       S.listItem()
         .title('Slider - Articles')
+        .icon(FaSliders)
         .schemaType('articleSlider')
         .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
       S.listItem()
         .title('Slider - Products')
+        .icon(FaSliders)
         .schemaType('productSlider')
         .child(S.documentTypeList('productSlider').title('Slider - Products')),
       S.divider(),
