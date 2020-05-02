@@ -10,7 +10,7 @@ import {
 } from 'react-icons/lib/md'
 // import FaSettings from 'react-icons/lib/fa/settings'
 import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaperO} from 'react-icons/lib/fa'
-import {GiSpray, GiCherish, GiComb} from 'react-icons/gi'
+import {GiSpray, GiCherish, GiHairStrands} from 'react-icons/gi'
 // ran npm install react
 // ran npm install font-awesome
 
@@ -107,7 +107,7 @@ export default () =>
         .child(S.documentTypeList('product').title('Product')),
       S.listItem()
         .title('Tool')
-        .icon(GiComb)
+        .icon(GiHairStrands)
         .schemaType('tool')
         .child(S.documentTypeList('tool').title('tools')),
       S.divider(),
