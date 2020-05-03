@@ -31,7 +31,7 @@ export default {
     {
       name: 'galleryBody',
       type: 'articlePortableText',
-      title: 'Feature Body',
+      title: 'Gallery Body',
       description: 'Insert Images, Video and Products anywhere in the body'
     },
     {
