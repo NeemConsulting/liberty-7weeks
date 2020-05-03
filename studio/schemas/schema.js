@@ -25,6 +25,8 @@ import textBlock from './documents/textBlock'
 import textBlockType from './documents/textBlockType'
 import videoBlock from './documents/videoBlock'
 import videoBlockType from './documents/videoBlockType'
+import newsletterBlock from './documents/newsletterBlock'
+import newsletterBlockType from './documents/newsletterBlockType'
 import sliderType from './documents/sliderType'
 import articleSlider from './documents/articleSlider'
 import productSlider from './documents/productSlider'
@@ -78,6 +80,8 @@ export default createSchema({
     textBlockType,
     videoBlock,
     videoBlockType,
+    newsletterBlock,
+    newsletterBlockType,
     tag,
     textBlock,
     tool,
