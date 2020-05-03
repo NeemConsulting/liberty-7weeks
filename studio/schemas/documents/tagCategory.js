@@ -1,13 +1,13 @@
 import {FaTag} from 'react-icons/lib/fa'
 
 export default {
-  name: 'category',
+  name: 'tagCategory',
   type: 'document',
   icon: FaTag,
   title: 'Tag Category',
   fields: [
     {
-      name: 'categoryName',
+      name: 'tagCategoryName',
       type: 'string',
       title: 'Tag Category',
       description: 'Tag categories help group tags together'
@@ -15,7 +15,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'categoryName',
+      title: 'tagCategoryName',
       media: 'FaTag'
     }
   }

@@ -168,8 +168,8 @@ export default () =>
       S.listItem()
         .title('Tag Category')
         .icon(FaTag)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Tag Categories')),
+        .schemaType('tagCategory')
+        .child(S.documentTypeList('tagCategory').title('Tag Categories')),
       S.listItem()
         .title('Tags')
         .icon(FaTags)
@@ -224,7 +224,7 @@ export default () =>
             'productSlider',
             'tool',
             'tag',
-            'category',
+            'tagCategory',
             'author',
             'post',
             'writer',

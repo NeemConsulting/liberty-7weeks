@@ -12,7 +12,7 @@ import config from './documents/config'
 import tool from './documents/tool'
 import tag from './documents/tag'
 import product from './documents/product'
-import category from './documents/category'
+import tagCategory from './documents/tagCategory'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
@@ -65,7 +65,7 @@ export default createSchema({
     brand,
     brandInfo,
     breadcrumb,
-    category,
+    tagCategory,
     featureArticle,
     galleryArticle,
     howToArticle,

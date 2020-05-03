@@ -11,7 +11,7 @@ export default {
       title: 'Category *',
       type: 'reference',
       to: {
-        type: 'category'
+        type: 'tagCategory'
       },
       description: 'Select Category'
     },
@@ -24,7 +24,7 @@ export default {
   preview: {
     select: {
       title: 'tagName',
-      subtitle: 'categoryName.categoryName',
+      subtitle: 'categoryName.tagCategoryName',
       media: 'FaTag'
     }
   },
@@ -35,10 +35,10 @@ export default {
       by: [{field: 'tagName', direction: 'asc'}]
     },
     {
-      title: 'Category',
+      title: 'Tag Category',
       name: 'categoryAZ',
       by: [
-        {field: 'categoryName.categoryName', direction: 'asc'},
+        {field: 'categoryName.tagCategoryName', direction: 'asc'},
         {field: 'tagName', direction: 'asc'}
       ]
     }
