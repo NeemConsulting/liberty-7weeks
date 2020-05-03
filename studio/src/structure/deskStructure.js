@@ -6,7 +6,8 @@ import {
   MdVideocam,
   MdImage,
   MdTextFields,
-  MdViewCompact
+  MdViewCompact,
+  MdEmail
 } from 'react-icons/lib/md'
 // import FaSettings from 'react-icons/lib/fa/settings'
 import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaperO} from 'react-icons/lib/fa'
@@ -159,6 +160,16 @@ export default () =>
         .icon(MdVideocam)
         .schemaType('videoBlockType')
         .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
+      S.listItem()
+        .title('Newsletter Block')
+        .icon(MdEmail)
+        .schemaType('newsletterBlock')
+        .child(S.documentTypeList('newsletterBlock').title('Newsletter Block')),
+      S.listItem()
+        .title('Newsletter Block Type')
+        .icon(MdEmail)
+        .schemaType('newsletterBlockType')
+        .child(S.documentTypeList('newsletterBlockType').title('Newsletter Block Type')),
       S.divider(),
       S.listItem()
         .title('Breadcrumb')
@@ -235,7 +246,9 @@ export default () =>
             'imageBlock',
             'imageBlockType',
             'videoBlock',
-            'videoBlockType'
+            'videoBlockType',
+            'newsletterBlock',
+            'newsletterBlockType'
           ].includes(listItem.getId())
       )
     ])
