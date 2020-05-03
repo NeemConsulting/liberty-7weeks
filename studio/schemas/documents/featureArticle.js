@@ -21,6 +21,16 @@ export default {
       title: 'Hero Image'
     },
     {
+      name: 'heroVideo',
+      title: 'Hero Video',
+      description: 'If you enter a video, the cover frame will be taken from the Hero Image',
+      type: 'youTube',
+      options: {
+        collapsible: true
+      }
+    },
+
+    {
       name: 'featureBody',
       type: 'articlePortableText',
       title: 'Feature Body',
