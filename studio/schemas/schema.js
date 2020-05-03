@@ -11,8 +11,9 @@ import blogAuthor from './documents/blogAuthor'
 import config from './documents/config'
 import tool from './documents/tool'
 import tag from './documents/tag'
-import product from './documents/product'
 import tagCategory from './documents/tagCategory'
+import navigation from './documents/navigation'
+import product from './documents/product'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
@@ -43,6 +44,7 @@ import mainImage from './objects/mainImage'
 import blogAuthorReference from './objects/blogAuthorReference'
 import figure from './objects/figure'
 import imageGallery from './objects/imageGallery'
+import navigationPortableText from './objects/navigationPortableText'
 import howToPortableText from './objects/howToPortableText'
 import articlePortableText from './objects/articlePortableText'
 import textBlockPortableText from './objects/textBlockPortableText'
@@ -83,6 +85,7 @@ export default createSchema({
     newsletterBlock,
     newsletterBlockType,
     tag,
+    navigation,
     textBlock,
     tool,
     author,
@@ -91,6 +94,7 @@ export default createSchema({
     articlePortableText,
     blogAuthorReference,
     figure,
+    navigationPortableText,
     howToPortableText,
     imageGallery,
     productReference,

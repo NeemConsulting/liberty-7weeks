@@ -74,6 +74,15 @@ export default () =>
             .schemaType('config')
             .documentId('config')
         ),
+      S.listItem()
+        .title('Navigation')
+        .icon(FaSitemap)
+        .child(
+          S.editor()
+            .id('navigation')
+            .schemaType('navigation')
+            .documentId('navigation')
+        ),
       S.divider(),
       S.listItem()
         .title('Layout')
@@ -234,6 +243,7 @@ export default () =>
             'articleSlider',
             'productSlider',
             'tool',
+            'navigation',
             'tag',
             'tagCategory',
             'author',

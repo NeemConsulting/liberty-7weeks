@@ -32,6 +32,12 @@ export default {
       description: 'Short and Sharp Description'
     },
     {
+      name: 'newsletterCampaignID',
+      type: 'string',
+      title: 'Newsletter Campaign ID',
+      description: 'Get the campaign id from the 121 Campaign squad'
+    },
+    {
       name: 'newsletterBlockCTALabel',
       type: 'string',
       title: 'CTA Label',
