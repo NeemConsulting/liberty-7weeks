@@ -1,5 +1,8 @@
+import {GiSpray} from 'react-icons/gi'
+
 export default {
   name: 'productReference',
+  icon: GiSpray,
   type: 'object',
   title: 'Product Placement',
   fields: [

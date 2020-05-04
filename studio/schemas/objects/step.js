@@ -1,6 +1,9 @@
+import {FaTasks} from 'react-icons/lib/fa'
+
 export default {
   name: 'step',
   title: 'Step',
+  icon: FaTasks,
   type: 'object',
   fields: [
     {

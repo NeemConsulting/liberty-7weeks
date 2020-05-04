@@ -1,6 +1,9 @@
+import {FaImage} from 'react-icons/lib/fa'
+
 export default {
   name: 'figure',
   title: 'Image',
+  icon: FaImage,
   type: 'image',
   description: 'Upload image from your computer, TAB, or paste image fom clipboard',
   options: {
