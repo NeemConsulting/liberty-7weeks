@@ -1,6 +1,7 @@
 import React from 'react'
 import getYouTubeId from 'get-youtube-id'
 import YouTube from 'react-youtube'
+import {FaYoutube} from 'react-icons/lib/fa'
 
 const Preview = ({value}) => {
   const {url} = value
@@ -11,6 +12,7 @@ const Preview = ({value}) => {
 export default {
   name: 'youTube',
   type: 'object',
+  icon: FaYoutube,
   title: 'YouTube Video',
   fields: [
     {
