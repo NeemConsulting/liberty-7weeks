@@ -20,15 +20,21 @@ export default {
       type: 'array',
       of: [{type: 'block'}]
     },
-
     {
       name: 'imageName',
       title: 'Image',
       type: 'figure',
-      description: `Instruction Image`,
+      description: 'Instruction Image',
       options: {
         hotspot: true
       }
+    },
+    {
+      name: 'stepNumber',
+      title: 'Step Number (Override)',
+      description:
+        'Only use this if you want to override the sequetial order, otherwise leave blank',
+      type: 'string'
     }
   ],
   preview: {
