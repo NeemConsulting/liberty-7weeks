@@ -17,6 +17,7 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
+    "tab-asset-source",
     "@sanity/studio-hints",
     "media"
   ],
@@ -36,6 +37,10 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./src/dashboardConfig.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/asset-sources.js"
     },
     {
       "implements": "part:@sanity/default-layout/studio-hints-config",
