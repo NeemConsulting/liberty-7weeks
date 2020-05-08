@@ -1,4 +1,4 @@
-import {FaTag} from 'react-icons/lib/fa'
+import {FaTag} from 'react-icons/fa'
 
 export default {
   name: 'tagCategory',

@@ -28,6 +28,7 @@
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.10.0",
     "react-youtube": "^7.11.2",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.10",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",

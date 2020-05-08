@@ -1,6 +1,8 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
+
+// import article from './src/structure/article'
 import {
+  MdSettings,
   MdPerson,
   MdDescription,
   MdVideocam,
@@ -8,9 +10,9 @@ import {
   MdTextFields,
   MdViewCompact,
   MdEmail
-} from 'react-icons/lib/md'
+} from 'react-icons/md'
 // import FaSettings from 'react-icons/lib/fa/settings'
-import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaperO} from 'react-icons/lib/fa'
+import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaper, FaBuffer} from 'react-icons/fa'
 import {GiSpray, GiCherish, GiHairStrands} from 'react-icons/gi'
 // ran npm install react
 // ran npm install font-awesome
@@ -57,156 +59,203 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Brand Information')
-        .icon(MdSettings)
-        .child(
-          S.editor()
-            .id('brandInfo')
-            .schemaType('brandInfo')
-            .documentId('brandInfo')
-        ),
-      S.listItem()
-        .title('Configuration')
-        .icon(MdSettings)
-        .child(
-          S.editor()
-            .id('config')
-            .schemaType('config')
-            .documentId('config')
-        ),
-      S.listItem()
-        .title('Navigation')
+        .title('Site Structure')
         .icon(FaSitemap)
         .child(
-          S.editor()
-            .id('navigation')
-            .schemaType('navigation')
-            .documentId('navigation')
+          S.list()
+            .title('Structure')
+            .items([
+              S.listItem()
+                .title('Navigation')
+                .icon(FaSitemap)
+                .child(
+                  S.editor()
+                    .id('navigation')
+                    .schemaType('navigation')
+                    .documentId('navigation')
+                ),
+              S.listItem()
+                .title('Breadcrumb')
+                .icon(FaSitemap)
+                .schemaType('breadcrumb')
+                .child(S.documentTypeList('breadcrumb').title('Breadcrumb'))
+            ])
         ),
+
       S.divider(),
       S.listItem()
-        .title('Layout')
-        .icon(MdViewCompact)
-        .schemaType('landingLayout')
-        .child(S.documentTypeList('landingLayout').title('Layouts')),
-      S.divider(),
+        .title('Articles')
+        .icon(FaNewspaper)
+        .child(
+          S.list()
+            .title('Article Type')
+            .items([
+              S.listItem()
+                .title('Feature')
+                .icon(FaNewspaper)
+                .schemaType('featureArticle')
+                .child(S.documentTypeList('featureArticle').title('Features')),
+              S.listItem()
+                .title('Gallery')
+                .icon(FaNewspaper)
+                .schemaType('galleryArticle')
+                .child(S.documentTypeList('galleryArticle').title('Gallery')),
+              S.listItem()
+                .title('How To')
+                .icon(FaNewspaper)
+                .schemaType('howToArticle')
+                .child(S.documentTypeList('howToArticle').title('HowTo'))
+            ])
+        ),
       S.listItem()
-        .title('Article - Feature')
-        .icon(FaNewspaperO)
-        .schemaType('featureArticle')
-        .child(S.documentTypeList('featureArticle').title('Article - Feature')),
-      S.listItem()
-        .title('Article - Gallery')
-        .icon(FaNewspaperO)
-        .schemaType('galleryArticle')
-        .child(S.documentTypeList('galleryArticle').title('Article - Gallery')),
-      S.listItem()
-        .title('Article - How To')
-        .icon(FaNewspaperO)
-        .schemaType('howToArticle')
-        .child(S.documentTypeList('howToArticle').title('Article - How To')),
+        .title('Product')
+        .icon(GiSpray)
+        .schemaType('product')
+        .child(S.documentTypeList('product').title('Product')),
+
       S.listItem()
         .title('Brand')
         .icon(GiCherish)
         .schemaType('brand')
         .child(S.documentTypeList('brand').title('Brand')),
       S.listItem()
-        .title('Product')
-        .icon(GiSpray)
-        .schemaType('product')
-        .child(S.documentTypeList('product').title('Product')),
-      S.listItem()
         .title('Tool')
         .icon(GiHairStrands)
         .schemaType('tool')
         .child(S.documentTypeList('tool').title('tools')),
-      S.divider(),
 
-      S.listItem()
-        .title('Slider Type')
-        .icon(FaSliders)
-        .schemaType('sliderType')
-        .child(S.documentTypeList('sliderType').title('Slider Type')),
-      S.listItem()
-        .title('Slider - Articles')
-        .icon(FaSliders)
-        .schemaType('articleSlider')
-        .child(S.documentTypeList('articleSlider').title('Slider - Articles')),
-      S.listItem()
-        .title('Slider - Products')
-        .icon(FaSliders)
-        .schemaType('productSlider')
-        .child(S.documentTypeList('productSlider').title('Slider - Products')),
-      //
-      S.divider(),
-      S.listItem()
-        .title('Text Block')
-        .icon(MdTextFields)
-        .schemaType('textBlock')
-        .child(S.documentTypeList('textBlock').title('Text Block')),
-      S.listItem()
-        .title('Text Block Type')
-        .icon(MdTextFields)
-        .schemaType('textBlockType')
-        .child(S.documentTypeList('textBlockType').title('Text Block Type')),
-      S.listItem()
-        .title('Image Block')
-        .icon(MdImage)
-        .schemaType('textBlock')
-        .child(S.documentTypeList('imageBlock').title('Image Block')),
-      S.listItem()
-        .title('Image Block Type')
-        .icon(MdImage)
-        .schemaType('imageBlockType')
-        .child(S.documentTypeList('imageBlockType').title('Image Block Type')),
-      S.listItem()
-        .title('Video Block')
-        .icon(MdVideocam)
-        .schemaType('videoBlock')
-        .child(S.documentTypeList('videoBlock').title('Video Block')),
-      S.listItem()
-        .title('Video Block Type')
-        .icon(MdVideocam)
-        .schemaType('videoBlockType')
-        .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
-      S.listItem()
-        .title('Newsletter Block')
-        .icon(MdEmail)
-        .schemaType('newsletterBlock')
-        .child(S.documentTypeList('newsletterBlock').title('Newsletter Block')),
-      S.listItem()
-        .title('Newsletter Block Type')
-        .icon(MdEmail)
-        .schemaType('newsletterBlockType')
-        .child(S.documentTypeList('newsletterBlockType').title('Newsletter Block Type')),
-      S.divider(),
-      S.listItem()
-        .title('Breadcrumb')
-        .icon(FaSitemap)
-        .schemaType('breadcrumb')
-        .child(S.documentTypeList('breadcrumb').title('Breadcrumb')),
-      S.listItem()
-        .title('Tag Category')
-        .icon(FaTag)
-        .schemaType('tagCategory')
-        .child(S.documentTypeList('tagCategory').title('Tag Categories')),
-      S.listItem()
-        .title('Tags')
-        .icon(FaTags)
-        .schemaType('tag')
-        .child(S.documentTypeList('tag').title('Tags')),
-      S.divider(),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Author')),
+
       S.divider(),
+
+      S.listItem()
+        .title('Manage Layouts')
+        .icon(MdViewCompact)
+        .schemaType('landingLayout')
+        .child(S.documentTypeList('landingLayout').title('Layouts')),
+      S.listItem()
+        .title('Manage Blocks')
+        .icon(FaBuffer)
+        .child(
+          S.list()
+            .title('Block Type')
+            .items([
+              S.listItem()
+                .title('Slider - Articles')
+                .icon(FaSliders)
+                .schemaType('articleSlider')
+                .child(S.documentTypeList('articleSlider').title('Slider for articles')),
+              S.listItem()
+                .title('Slider - Products')
+                .icon(FaSliders)
+                .schemaType('productSlider')
+                .child(S.documentTypeList('productSlider').title('Slider for products')),
+              S.listItem()
+                .title('Slider Type')
+                .icon(FaSliders)
+                .schemaType('sliderType')
+                .child(S.documentTypeList('sliderType').title('Slider Type')),
+              S.divider(),
+              S.listItem()
+                .title('Text Block')
+                .icon(MdTextFields)
+                .schemaType('textBlock')
+                .child(S.documentTypeList('textBlock').title('Text Block')),
+              S.listItem()
+                .title('Text Block Type')
+                .icon(MdTextFields)
+                .schemaType('textBlockType')
+                .child(S.documentTypeList('textBlockType').title('Text Block Type')),
+              S.divider(),
+              S.listItem()
+                .title('Image Block')
+                .icon(MdImage)
+                .schemaType('textBlock')
+                .child(S.documentTypeList('imageBlock').title('Image Block')),
+              S.listItem()
+                .title('Image Block Type')
+                .icon(MdImage)
+                .schemaType('imageBlockType')
+                .child(S.documentTypeList('imageBlockType').title('Image Block Type')),
+              S.divider(),
+              S.listItem()
+                .title('Video Block')
+                .icon(MdVideocam)
+                .schemaType('videoBlock')
+                .child(S.documentTypeList('videoBlock').title('Video Block')),
+              S.listItem()
+                .title('Video Block Type')
+                .icon(MdVideocam)
+                .schemaType('videoBlockType')
+                .child(S.documentTypeList('videoBlockType').title('Video Block Type')),
+              S.divider(),
+              S.listItem()
+                .title('Newsletter Block')
+                .icon(MdEmail)
+                .schemaType('newsletterBlock')
+                .child(S.documentTypeList('newsletterBlock').title('Newsletter Block')),
+              S.listItem()
+                .title('Newsletter Block Type')
+                .icon(MdEmail)
+                .schemaType('newsletterBlockType')
+                .child(S.documentTypeList('newsletterBlockType').title('Newsletter Block Type'))
+            ])
+        ),
+      S.listItem()
+        .title('Manage Tags')
+        .icon(FaTags)
+        .child(
+          S.list()
+            .title('Manage Tags')
+            .items([
+              S.listItem()
+                .title('Tag Category')
+                .icon(FaTag)
+                .schemaType('tagCategory')
+                .child(S.documentTypeList('tagCategory').title('Tag Categories')),
+              S.listItem()
+                .title('Tags')
+                .icon(FaTags)
+                .schemaType('tag')
+                .child(S.documentTypeList('tag').title('Tags'))
+            ])
+        ),
+      S.listItem()
+        .title('Site Settings')
+        .icon(MdSettings)
+        .child(
+          S.list()
+            .title('Settings')
+            .items([
+              S.listItem()
+                .title('Brand Information')
+                .icon(MdSettings)
+                .child(
+                  S.editor()
+                    .id('brandInfo')
+                    .schemaType('brandInfo')
+                    .documentId('brandInfo')
+                ),
+              S.listItem()
+                .title('Configuration')
+                .icon(MdSettings)
+                .child(
+                  S.editor()
+                    .id('config')
+                    .schemaType('config')
+                    .documentId('config')
+                )
+            ])
+        ),
       S.divider(),
-      S.divider(),
+
       S.divider(),
       S.listItem()
-        .title('Settings')
+        .title('Blog Settings')
         .icon(MdSettings)
         .child(
           S.editor()

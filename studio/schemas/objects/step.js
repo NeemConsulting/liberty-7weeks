@@ -1,4 +1,4 @@
-import {FaTasks} from 'react-icons/lib/fa'
+import {FaTasks} from 'react-icons/fa'
 
 export default {
   name: 'step',
