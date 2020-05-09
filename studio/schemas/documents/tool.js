@@ -1,6 +1,9 @@
+import {GiHairStrands} from 'react-icons/gi'
+
 export default {
   name: 'tool',
   title: 'Tool',
+  icon: GiHairStrands,
   type: 'document',
   fields: [
     {

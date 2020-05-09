@@ -1,11 +1,11 @@
-// import {MdFlightLand} from 'react-icons/gi'
+import {MdWeb} from 'react-icons/md'
 
 export default {
   name: 'landingLayout',
-  type: 'document',
-  // icon: MdFlightLand,
   title: 'Landing Layout',
   description: 'Full control to layout your landing pages',
+  icon: MdWeb,
+  type: 'document',
   fields: [
     {
       name: 'landingPage',
@@ -20,6 +20,7 @@ export default {
       description: 'Add/Order your page section layout',
       of: [
         {
+          title: 'Add any sliders or blocks',
           type: 'reference',
           to: [
             {type: 'articleSlider'},

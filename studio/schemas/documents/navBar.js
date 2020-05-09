@@ -9,12 +9,13 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Navigation Identifier e.g. Header'
+      title: 'Navigation Identifier',
+      description: 'e.g. Header or Footer'
     },
     {
       name: 'navItems',
       title: 'Navigation Items',
-      description: 'Add navigatable pages',
+      description: 'Add Level 1 and Level 2 navigation',
       type: 'array',
       of: [
         {

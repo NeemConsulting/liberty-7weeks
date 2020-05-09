@@ -65,7 +65,7 @@ export default () =>
             .title('Structure')
             .items([
               S.listItem()
-                .title('Navigation V2')
+                .title('Navigation')
                 .icon(FaSitemap)
                 .schemaType('navBar')
                 .child(S.documentTypeList('navBar').title('Navigation V2 - Improved')),
@@ -254,6 +254,16 @@ export default () =>
 
       S.divider(),
       S.listItem()
+        .title('Blog Posts')
+        .icon(MdDescription)
+        .schemaType('post')
+        .child(S.documentTypeList('post').title('Blog posts')),
+      S.listItem()
+        .title('Blog Author')
+        .icon(MdPerson)
+        .schemaType('blogAuthor')
+        .child(S.documentTypeList('blogAuthor').title('Blog Authors')),
+      S.listItem()
         .title('Blog Settings')
         .icon(MdSettings)
         .child(
@@ -262,16 +272,6 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
-      S.listItem()
-        .title('Blog Author')
-        .icon(MdPerson)
-        .schemaType('blogAuthor')
-        .child(S.documentTypeList('blogAuthor').title('Blog Authors')),
-      S.listItem()
-        .title('Blog Posts')
-        .icon(MdDescription)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
