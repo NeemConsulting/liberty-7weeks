@@ -30,21 +30,11 @@ import newsletterBlockType from './documents/newsletterBlockType'
 import sliderType from './documents/sliderType'
 import articleSlider from './documents/articleSlider'
 import productSlider from './documents/productSlider'
-
-import post from './documents/post'
-import siteSettings from './documents/siteSettings'
-
-import navLink from './objects/navLink'
-import navItem from './objects/navItem'
 import navBar from './documents/navBar'
 
 // Object types
-import bodyPortableText from './objects/bodyPortableText'
-import bioPortableText from './objects/bioPortableText'
-import authorBioPortableText from './objects/authorBioPortableText'
-import excerptPortableText from './objects/excerptPortableText'
-import mainImage from './objects/mainImage'
-import blogAuthorReference from './objects/blogAuthorReference'
+import navLink from './objects/navLink'
+import navItem from './objects/navItem'
 import figure from './objects/figure'
 import imageGallery from './objects/imageGallery'
 import navigationPortableText from './objects/navigationPortableText'
@@ -55,6 +45,15 @@ import step from './objects/step'
 import seo from './objects/seo'
 import productReference from './objects/productReference'
 import youTube from './objects/youTube'
+import bioPortableText from './objects/bioPortableText'
+import authorBioPortableText from './objects/authorBioPortableText'
+
+import post from './documents/post'
+import siteSettings from './documents/siteSettings'
+import bodyPortableText from './objects/bodyPortableText'
+import excerptPortableText from './objects/excerptPortableText'
+import mainImage from './objects/mainImage'
+import blogAuthorReference from './objects/blogAuthorReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
