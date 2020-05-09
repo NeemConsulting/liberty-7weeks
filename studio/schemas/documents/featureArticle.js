@@ -1,7 +1,10 @@
+import {FaNewspaper} from 'react-icons/fa'
+
 export default {
   name: 'featureArticle',
-  type: 'document',
   title: 'Feature Article',
+  icon: FaNewspaper,
+  type: 'document',
   fields: [
     {
       name: 'headline',
@@ -37,19 +40,11 @@ export default {
       description: 'Insert Images, Video and Products anywhere in the body'
     },
     {
-      name: 'articleBreadcrumb',
-      title: 'Breadcrumb',
-      type: 'reference',
-      description: 'Select the breadcrumb for this article',
-      to: {
-        type: 'breadcrumb'
-      }
-    },
-    {
       name: 'tags',
       type: 'array',
       title: 'Tags',
-      description: 'These tags will generate related articles',
+      description:
+        'First tag is used for page breadcrumb, with supporting tags to generate related articles',
       of: [
         {
           type: 'reference',

@@ -11,8 +11,7 @@ import {
   MdViewCompact,
   MdEmail
 } from 'react-icons/md'
-// import FaSettings from 'react-icons/lib/fa/settings'
-import {FaSitemap, FaTag, FaTags, FaSliders, FaNewspaper, FaBuffer} from 'react-icons/fa'
+import {FaSitemap, FaTag, FaTags, FaNewspaper, FaBuffer, FaSlidersH} from 'react-icons/fa'
 import {GiSpray, GiCherish, GiHairStrands} from 'react-icons/gi'
 // ran npm install react
 // ran npm install font-awesome
@@ -66,19 +65,19 @@ export default () =>
             .title('Structure')
             .items([
               S.listItem()
-                .title('Navigation')
+                .title('Navigation V2')
+                .icon(FaSitemap)
+                .schemaType('navBar')
+                .child(S.documentTypeList('navBar').title('Navigation V2 - Improved')),
+              S.listItem()
+                .title('Navigation - Depreciated - Do Not Use')
                 .icon(FaSitemap)
                 .child(
                   S.editor()
                     .id('navigation')
                     .schemaType('navigation')
                     .documentId('navigation')
-                ),
-              S.listItem()
-                .title('Breadcrumb')
-                .icon(FaSitemap)
-                .schemaType('breadcrumb')
-                .child(S.documentTypeList('breadcrumb').title('Breadcrumb'))
+                )
             ])
         ),
 
@@ -133,10 +132,10 @@ export default () =>
       S.divider(),
 
       S.listItem()
-        .title('Manage Layouts')
+        .title('Manage Pages')
         .icon(MdViewCompact)
         .schemaType('landingLayout')
-        .child(S.documentTypeList('landingLayout').title('Layouts')),
+        .child(S.documentTypeList('landingLayout').title('Landing Pages')),
       S.listItem()
         .title('Manage Blocks')
         .icon(FaBuffer)
@@ -146,17 +145,17 @@ export default () =>
             .items([
               S.listItem()
                 .title('Slider - Articles')
-                .icon(FaSliders)
+                .icon(FaSlidersH)
                 .schemaType('articleSlider')
                 .child(S.documentTypeList('articleSlider').title('Slider for articles')),
               S.listItem()
                 .title('Slider - Products')
-                .icon(FaSliders)
+                .icon(FaSlidersH)
                 .schemaType('productSlider')
                 .child(S.documentTypeList('productSlider').title('Slider for products')),
               S.listItem()
                 .title('Slider Type')
-                .icon(FaSliders)
+                .icon(FaSlidersH)
                 .schemaType('sliderType')
                 .child(S.documentTypeList('sliderType').title('Slider Type')),
               S.divider(),
@@ -286,13 +285,13 @@ export default () =>
             'galleryArticle',
             'howToArticle',
             'brand',
-            'breadcrumb',
             'product',
             'sliderType',
             'articleSlider',
             'productSlider',
             'tool',
             'navigation',
+            'navBar',
             'tag',
             'tagCategory',
             'author',

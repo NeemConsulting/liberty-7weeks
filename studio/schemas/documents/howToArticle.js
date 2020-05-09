@@ -1,7 +1,10 @@
+import {FaNewspaper} from 'react-icons/fa'
+
 export default {
   name: 'howToArticle',
-  type: 'document',
   title: 'How To Article',
+  icon: FaNewspaper,
+  type: 'document',
   fields: [
     {
       name: 'headline',
@@ -81,19 +84,11 @@ export default {
       description: 'Insert Step to provide instruction name, direction and image'
     },
     {
-      name: 'articleBreadcrumb',
-      title: 'Breadcrumb',
-      type: 'reference',
-      description: 'Select the breadcrumb for this article',
-      to: {
-        type: 'breadcrumb'
-      }
-    },
-    {
       name: 'tags',
       type: 'array',
       title: 'Tags',
-      description: 'These tags will generate related articles',
+      description:
+        'First tag is used for page breadcrumb, with supporting tags to generate related articles',
       of: [
         {
           type: 'reference',

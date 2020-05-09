@@ -6,7 +6,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import author from './documents/author'
-import breadcrumb from './documents/breadcrumb'
 import blogAuthor from './documents/blogAuthor'
 import config from './documents/config'
 import tool from './documents/tool'
@@ -34,6 +33,10 @@ import productSlider from './documents/productSlider'
 
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
+
+import navLink from './objects/navLink'
+import navItem from './objects/navItem'
+import navBar from './documents/navBar'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -68,7 +71,6 @@ export default createSchema({
     config,
     brand,
     brandInfo,
-    breadcrumb,
     tagCategory,
     featureArticle,
     galleryArticle,
@@ -89,6 +91,10 @@ export default createSchema({
     textBlock,
     tool,
     author,
+
+    navLink,
+    navItem,
+    navBar,
 
     // Objects
     articlePortableText,
