@@ -1,6 +1,9 @@
+import {GiSpray} from 'react-icons/gi'
+
 export default {
   title: 'Product',
   name: 'product',
+  icon: GiSpray,
   type: 'document',
   fields: [
     {

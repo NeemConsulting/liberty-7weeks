@@ -1,6 +1,9 @@
+import {GiCherish} from 'react-icons/gi'
+
 export default {
   name: 'brand',
   title: 'Brand',
+  icon: GiCherish,
   type: 'document',
   fields: [
     {

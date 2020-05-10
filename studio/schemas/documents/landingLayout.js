@@ -36,7 +36,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'landingPage'
+      title: 'landingPage',
+      media: 'MdWeb'
     }
   }
 }

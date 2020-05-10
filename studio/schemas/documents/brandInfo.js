@@ -1,6 +1,9 @@
+import {MdSettings} from 'react-icons/md'
+
 export default {
   name: 'brandInfo',
   type: 'document',
+  icon: MdSettings,
   title: 'Brand Information',
   fields: [
     {

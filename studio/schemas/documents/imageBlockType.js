@@ -1,6 +1,9 @@
+import {MdImage} from 'react-icons/md'
+
 export default {
   name: 'imageBlockType',
   type: 'document',
+  icon: MdImage,
   title: 'Image Block Type',
   fields: [
     {
@@ -17,7 +20,8 @@ export default {
   preview: {
     select: {
       title: 'imageBlockName',
-      subtitle: 'imageBlockDescription'
+      subtitle: 'imageBlockDescription',
+      media: 'MdImage'
     }
   }
 }

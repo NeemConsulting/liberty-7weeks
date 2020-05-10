@@ -1,6 +1,9 @@
+import {MdEmail} from 'react-icons/md'
+
 export default {
   name: 'newsletterBlock',
   type: 'document',
+  icon: MdEmail,
   title: 'Newsletter Block',
   fields: [
     {

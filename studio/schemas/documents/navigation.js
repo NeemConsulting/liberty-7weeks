@@ -1,6 +1,9 @@
+import {FaSitemap} from 'react-icons/fa'
+
 export default {
   name: 'navigation',
   type: 'document',
+  icon: FaSitemap,
   title: 'Navigation',
   fields: [
     {

@@ -1,6 +1,9 @@
+import {MdTextFields} from 'react-icons/md'
+
 export default {
   name: 'textBlock',
   type: 'document',
+  icon: MdTextFields,
   title: 'Text Block',
   fields: [
     {
@@ -29,7 +32,8 @@ export default {
   preview: {
     select: {
       title: 'textBlockName',
-      subtitle: 'textBlockBody'
+      subtitle: 'textBlockBody',
+      media: 'MdTextFields'
     }
   }
 }

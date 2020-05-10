@@ -1,6 +1,9 @@
+import {MdImage} from 'react-icons/md'
+
 export default {
   name: 'imageBlock',
   type: 'document',
+  icon: MdImage,
   title: 'Image Block',
   fields: [
     {

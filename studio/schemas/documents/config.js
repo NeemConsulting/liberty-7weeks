@@ -1,7 +1,10 @@
+import {MdSettings} from 'react-icons/md'
+
 export default {
   name: 'config',
   title: 'Configuration',
   type: 'document',
+  icon: MdSettings,
   fields: [
     {
       name: 'ga',

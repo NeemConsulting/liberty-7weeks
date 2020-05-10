@@ -1,6 +1,9 @@
+import {MdVideocam} from 'react-icons/md'
+
 export default {
   name: 'videoBlockType',
   type: 'document',
+  icon: MdVideocam,
   title: 'Video Block Type',
   fields: [
     {
@@ -17,7 +20,8 @@ export default {
   preview: {
     select: {
       title: 'videoBlockName',
-      subtitle: 'videoBlockDescription'
+      subtitle: 'videoBlockDescription',
+      media: 'MdVideocam'
     }
   }
 }

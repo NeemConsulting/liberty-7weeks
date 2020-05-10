@@ -1,6 +1,9 @@
+import {FaSlidersH} from 'react-icons/fa'
+
 export default {
   name: 'sliderType',
   type: 'document',
+  icon: FaSlidersH,
   title: 'Slider Type',
   fields: [
     {
@@ -17,7 +20,8 @@ export default {
   preview: {
     select: {
       title: 'sliderName',
-      subtitle: 'sliderDescription'
+      subtitle: 'sliderDescription',
+      media: 'FaSlidersH'
     }
   }
 }
