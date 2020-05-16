@@ -8,7 +8,7 @@ export default {
   description: 'Article slider for hero and tile user experiences ',
   fields: [
     {
-      name: 'sliderName',
+      name: 'name',
       type: 'string',
       title: 'Slider',
       description: 'Name is used to identify the slider for page layout'
@@ -43,8 +43,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'sliderName',
-      subtitle: 'slideType.sliderName',
+      title: 'name',
+      subtitle: 'slideType.name',
       media: 'FaSlidersH'
     }
   }

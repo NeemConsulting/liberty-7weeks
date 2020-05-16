@@ -7,21 +7,21 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'toolName',
+      name: 'name',
       title: 'Tool Name *',
       type: 'string',
       validation: Rule => Rule.required()
     },
     {
-      name: 'toolImage',
+      name: 'image',
       title: 'Tool Image',
       type: 'figure'
     }
   ],
   preview: {
     select: {
-      title: 'toolName',
-      media: 'toolImage'
+      title: 'name',
+      media: 'image'
     }
   }
 }

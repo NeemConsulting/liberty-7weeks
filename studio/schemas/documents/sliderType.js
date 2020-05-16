@@ -7,20 +7,20 @@ export default {
   title: 'Slider Type',
   fields: [
     {
-      name: 'sliderName',
+      name: 'name',
       type: 'string',
       title: 'Slider Type'
     },
     {
-      name: 'sliderDescription',
+      name: 'description',
       type: 'string',
       title: 'Slider Description'
     }
   ],
   preview: {
     select: {
-      title: 'sliderName',
-      subtitle: 'sliderDescription',
+      title: 'name',
+      subtitle: 'description',
       media: 'FaSlidersH'
     }
   }

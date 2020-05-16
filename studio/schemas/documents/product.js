@@ -17,18 +17,18 @@ export default {
     },
     {
       title: 'Product Name *',
-      name: 'productName',
+      name: 'name',
       type: 'string',
       validation: Rule => Rule.required()
     },
     {
       title: 'Product Tag Line',
-      name: 'productTagLine',
+      name: 'tagLine',
       type: 'string',
       description: 'Catchy Tag Line'
     },
     {
-      name: 'productImage',
+      name: 'image',
       title: 'Product Image',
       type: 'figure',
       options: {
@@ -90,15 +90,15 @@ export default {
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'productName'
+        source: 'name'
       }
     }
   ],
   preview: {
     select: {
-      title: 'productName',
-      subtitle: 'productTagLine',
-      media: 'productImage'
+      title: 'name',
+      subtitle: 'tagLine',
+      media: 'image'
     }
   }
 }

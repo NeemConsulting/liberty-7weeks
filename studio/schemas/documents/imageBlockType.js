@@ -7,20 +7,20 @@ export default {
   title: 'Image Block Type',
   fields: [
     {
-      name: 'imageBlockName',
+      name: 'name',
       type: 'string',
       title: 'Image Block Type'
     },
     {
-      name: 'imageBlockDescription',
+      name: 'description',
       type: 'string',
       title: 'Image Block Description'
     }
   ],
   preview: {
     select: {
-      title: 'imageBlockName',
-      subtitle: 'imageBlockDescription',
+      title: 'name',
+      subtitle: 'description',
       media: 'MdImage'
     }
   }

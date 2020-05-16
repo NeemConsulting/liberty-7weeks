@@ -7,20 +7,20 @@ export default {
   title: 'Video Block Type',
   fields: [
     {
-      name: 'videoBlockName',
+      name: 'name',
       type: 'string',
       title: 'Video Block Type'
     },
     {
-      name: 'videoBlockDescription',
+      name: 'description',
       type: 'string',
       title: 'Video Block Description'
     }
   ],
   preview: {
     select: {
-      title: 'videoBlockName',
-      subtitle: 'videoBlockDescription',
+      title: 'name',
+      subtitle: 'description',
       media: 'MdVideocam'
     }
   }

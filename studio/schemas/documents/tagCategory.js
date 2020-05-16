@@ -7,7 +7,7 @@ export default {
   title: 'Tag Category',
   fields: [
     {
-      name: 'tagCategoryName',
+      name: 'name',
       type: 'string',
       title: 'Tag Category',
       description: 'Tag categories help group tags together'
@@ -15,7 +15,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'tagCategoryName',
+      title: 'name',
       media: 'FaTag'
     }
   }

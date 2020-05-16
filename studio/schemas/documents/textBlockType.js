@@ -7,20 +7,20 @@ export default {
   title: 'Text Block Type',
   fields: [
     {
-      name: 'textBlockName',
+      name: 'name',
       type: 'string',
       title: 'Text Block Type'
     },
     {
-      name: 'textBlockDescription',
+      name: 'description',
       type: 'string',
       title: 'Text Block Description'
     }
   ],
   preview: {
     select: {
-      title: 'textBlockName',
-      subtitle: 'textBlockDescription',
+      title: 'name',
+      subtitle: 'description',
       media: 'MdTextFields'
     }
   }

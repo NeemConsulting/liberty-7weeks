@@ -7,7 +7,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'categoryName',
+      name: 'tagCategory',
       title: 'Category *',
       type: 'reference',
       to: {
@@ -16,15 +16,15 @@ export default {
       description: 'Select Category'
     },
     {
-      name: 'tagName',
+      name: 'name',
       type: 'string',
       title: 'Tag'
     }
   ],
   preview: {
     select: {
-      title: 'tagName',
-      subtitle: 'categoryName.tagCategoryName',
+      title: 'name',
+      subtitle: 'tagCategory.name',
       media: 'FaTag'
     }
   },
@@ -32,14 +32,14 @@ export default {
     {
       title: 'Tag Name',
       name: 'nameAZ',
-      by: [{field: 'tagName', direction: 'asc'}]
+      by: [{field: 'name', direction: 'asc'}]
     },
     {
       title: 'Tag Category',
       name: 'categoryAZ',
       by: [
-        {field: 'categoryName.tagCategoryName', direction: 'asc'},
-        {field: 'tagName', direction: 'asc'}
+        {field: 'tagCategory.name', direction: 'asc'},
+        {field: 'name', direction: 'asc'}
       ]
     }
   ]

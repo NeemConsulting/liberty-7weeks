@@ -7,12 +7,12 @@ export default {
   title: 'Author',
   fields: [
     {
-      name: 'authorName',
+      name: 'name',
       type: 'string',
       title: 'Name'
     },
     {
-      name: 'authorImage',
+      name: 'image',
       type: 'figure',
       title: 'Image'
     },
@@ -26,16 +26,16 @@ export default {
       type: 'slug',
       title: 'Slug',
       options: {
-        source: 'authorName',
+        source: 'name',
         maxLength: 96
       }
     }
   ],
   preview: {
     select: {
-      title: 'authorName',
+      title: 'name',
       subtitle: 'slug.current',
-      media: 'authorImage'
+      media: 'image'
     }
   }
 }

@@ -7,20 +7,20 @@ export default {
   title: 'Newsletter Block Type',
   fields: [
     {
-      name: 'newsletterBlockName',
+      name: 'name',
       type: 'string',
       title: 'Newsletter Block Type'
     },
     {
-      name: 'newsletterBlockDescription',
+      name: 'description',
       type: 'string',
       title: 'Newsletter Block Description'
     }
   ],
   preview: {
     select: {
-      title: 'newsletterBlockName',
-      subtitle: 'newsletterBlockDescription'
+      title: 'name',
+      subtitle: 'description'
     }
   }
 }

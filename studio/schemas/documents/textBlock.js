@@ -7,7 +7,7 @@ export default {
   title: 'Text Block',
   fields: [
     {
-      name: 'textBlockName',
+      name: 'name',
       type: 'string',
       title: 'Text Block Name *',
       validation: Rule => Rule.required(),
@@ -31,7 +31,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'textBlockName',
+      title: 'name',
       subtitle: 'textBlockBody',
       media: 'MdTextFields'
     }

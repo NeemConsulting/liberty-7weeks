@@ -7,12 +7,12 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'brandName',
+      name: 'name',
       title: 'Brand Name',
       type: 'string'
     },
     {
-      name: 'brandImage',
+      name: 'image',
       title: 'Brand Image',
       type: 'figure',
       options: {
@@ -22,8 +22,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'brandName',
-      media: 'brandImage'
+      title: 'name',
+      media: 'image'
     }
   }
 }

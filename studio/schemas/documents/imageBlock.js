@@ -7,7 +7,7 @@ export default {
   title: 'Image Block',
   fields: [
     {
-      name: 'imageBlockName',
+      name: 'name',
       type: 'string',
       title: 'Image Block Name *',
       validation: Rule => Rule.required(),
@@ -23,7 +23,7 @@ export default {
       description: 'Select Image Block Type'
     },
     {
-      name: 'imageBlock',
+      name: 'image',
       type: 'figure',
       title: 'Image Block',
       description: 'Typically, this may be a landscape image so dont foget about the focal point'
@@ -43,9 +43,9 @@ export default {
   ],
   preview: {
     select: {
-      title: 'imageBlockName',
-      subtitle: 'imageBlockType.imageBlockName',
-      media: 'imageBlock'
+      title: 'name',
+      subtitle: 'imageBlockType.name',
+      media: 'image'
     }
   }
 }

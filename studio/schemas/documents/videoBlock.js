@@ -7,7 +7,7 @@ export default {
   title: 'Video Block',
   fields: [
     {
-      name: 'videoBlockName',
+      name: 'name',
       type: 'string',
       title: 'Video Block Name *',
       validation: Rule => Rule.required(),
@@ -38,8 +38,8 @@ export default {
 
   preview: {
     select: {
-      title: 'videoBlockName',
-      subtitle: 'videoBlockType.videoBlockName',
+      title: 'name',
+      subtitle: 'videoBlockType.name',
       media: 'MdVideocam'
     }
   }

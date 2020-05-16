@@ -7,14 +7,14 @@ export default {
   title: 'Newsletter Block',
   fields: [
     {
-      name: 'newsletterBlockName',
+      name: 'name',
       type: 'string',
       title: 'Newsletter Block Name *',
       validation: Rule => Rule.required(),
       description: 'Name is used to identify the newsletter block for page layout'
     },
     {
-      name: 'newsletterBlockType',
+      name: 'type',
       title: 'Newsletter Block Type',
       type: 'reference',
       to: {
@@ -23,31 +23,31 @@ export default {
       description: 'Select Newsletter Block Type'
     },
     {
-      name: 'newsletterBlockHeadline',
+      name: 'headline',
       type: 'string',
       title: 'Headline',
       description: 'Add catchy CTA headline'
     },
     {
-      name: 'newsletterBlockBody',
+      name: 'body',
       type: 'textBlockPortableText',
       title: 'Newsletter Body',
       description: 'Short and Sharp Description'
     },
     {
-      name: 'newsletterCampaignID',
+      name: 'campaignID',
       type: 'string',
       title: 'Newsletter Campaign ID',
       description: 'Get the campaign id from the 121 Campaign squad'
     },
     {
-      name: 'newsletterBlockCTALabel',
+      name: 'ctaLabel',
       type: 'string',
       title: 'CTA Label',
       description: 'Optional: Add catchy CTA Label for buttons'
     },
     {
-      name: 'newsletterImage',
+      name: 'image',
       type: 'figure',
       options: {
         collapsible: true
@@ -58,8 +58,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'newsletterBlockName',
-      subtitle: 'newsletterBlockType.newsletterBlockName'
+      title: 'name',
+      subtitle: 'type.name'
     }
   }
 }

@@ -4,21 +4,21 @@ export default {
   title: 'Section',
   fields: [
     {
-      name: 'sectionName',
+      name: 'name',
       title: 'Section Name *',
       type: 'string',
       validation: Rule => Rule.required()
     },
     {
-      name: 'heroImage',
+      name: 'image',
       title: 'Section Image',
       type: 'figure'
     }
   ],
   preview: {
     select: {
-      title: 'sectionName',
-      media: 'heroImage'
+      title: 'name',
+      media: 'image'
     }
   }
 }
