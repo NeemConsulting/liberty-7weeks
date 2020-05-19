@@ -38,6 +38,15 @@ export default {
       description: 'Insert Images, Video and Products anywhere in the body'
     },
     {
+      name: 'parentPage',
+      title: 'Parent Page',
+      description: 'Article will be categorised under the parent landing page',
+      type: 'reference',
+      to: {
+        type: 'landingPage'
+      }
+    },
+    {
       name: 'tags',
       type: 'array',
       title: 'Tags',

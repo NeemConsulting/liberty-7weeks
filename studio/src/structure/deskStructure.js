@@ -134,8 +134,8 @@ export default () =>
       S.listItem()
         .title('Manage Pages')
         .icon(MdViewCompact)
-        .schemaType('landingLayout')
-        .child(S.documentTypeList('landingLayout').title('Landing Pages')),
+        .schemaType('landingPage')
+        .child(S.documentTypeList('landingPage').title('Landing Pages')),
       S.listItem()
         .title('Manage Blocks')
         .icon(FaBuffer)

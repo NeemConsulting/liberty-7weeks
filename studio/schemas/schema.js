@@ -18,7 +18,7 @@ import howToArticle from './documents/howToArticle'
 import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
 import brandInfo from './documents/brandInfo'
-import landingLayout from './documents/landingLayout'
+import landingPage from './documents/landingPage'
 import imageBlock from './documents/imageBlock'
 import imageBlockType from './documents/imageBlockType'
 import textBlock from './documents/textBlock'
@@ -74,7 +74,7 @@ export default createSchema({
     featureArticle,
     galleryArticle,
     howToArticle,
-    landingLayout,
+    landingPage,
     product,
     productSlider,
     sliderType,

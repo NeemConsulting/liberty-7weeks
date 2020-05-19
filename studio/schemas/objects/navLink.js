@@ -14,7 +14,7 @@ export default {
       description: 'Select Landing Page',
       type: 'reference',
       to: {
-        type: 'landingLayout'
+        type: 'landingPage'
       }
     },
     {

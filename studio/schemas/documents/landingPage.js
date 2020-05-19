@@ -1,14 +1,14 @@
 import {MdWeb} from 'react-icons/md'
 
 export default {
-  name: 'landingLayout',
+  name: 'landingPage',
   title: 'Landing Layout',
   description: 'Full control to layout your landing pages',
   icon: MdWeb,
   type: 'document',
   fields: [
     {
-      name: 'landingPage',
+      name: 'name',
       type: 'string',
       title: 'Landing Page',
       description: 'Name your landing page - may be fixed list in the future'
@@ -32,11 +32,21 @@ export default {
           ]
         }
       ]
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      description: 'May be used for friendly url',
+      options: {
+        source: 'name',
+        maxLength: 96
+      }
     }
   ],
   preview: {
     select: {
-      title: 'landingPage',
+      title: 'name',
       media: 'MdWeb'
     }
   }

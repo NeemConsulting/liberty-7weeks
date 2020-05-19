@@ -7,7 +7,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'brandName',
+      name: 'brand',
       title: 'Brand *',
       type: 'reference',
       to: {

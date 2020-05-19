@@ -84,6 +84,15 @@ export default {
       description: 'Insert Step to provide instruction name, direction and image'
     },
     {
+      name: 'parentPage',
+      title: 'Parent Page',
+      description: 'Article will be categorised under the parent landing page',
+      type: 'reference',
+      to: {
+        type: 'landingPage'
+      }
+    },
+    {
       name: 'tags',
       type: 'array',
       title: 'Tags',
