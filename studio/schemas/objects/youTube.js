@@ -26,7 +26,12 @@ export default {
       name: 'youTubeCaption',
       type: 'string',
       title: 'Caption'
-    }
+    },
+    {
+      name: 'heroImage',
+      type: 'figure',
+      title: 'Video Cover Image'
+    }	    
   ],
   preview: {
     select: {
