@@ -19,6 +19,7 @@
     "dashboard-widget-netlify",
     "tab-asset-source",
     "@sanity/studio-hints",
+    "@sanity/production-preview",
     "media"
   ],
   "parts": [
@@ -32,7 +33,7 @@
     },
     {
       "name": "part:@sanity/desk-tool/structure",
-      "path": "./src/structure/deskStructure.js"
+      "path": "./src/deskStructure/index.js"
     },
     {
       "implements": "part:@sanity/dashboard/config",
@@ -49,6 +50,10 @@
     {
       "implements": "part:@sanity/base/brand-logo",
       "path": "./logo/libertyLogo.js"
-    }
+    },
+    {
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+          "path": "./resolveProductionUrl.js" 
+        }
   ]
 }

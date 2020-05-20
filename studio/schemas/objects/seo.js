@@ -8,6 +8,8 @@ export default {
       type: 'text',
       title: 'Title',
       rows: 2,
+      validation: (Rule) =>
+      Rule.max(88).error('Please keep the SEO description below 160 characters.'),
       description: 'META-TITLE'
     },
 
@@ -26,6 +28,8 @@ export default {
       type: 'text',
       title: 'Description',
       rows: 2,
+      validation: (Rule) =>
+      Rule.max(160).error('Please keep the SEO description below 160 characters.'),
       description: 'META-DESCRIPTION'
     }
   ]

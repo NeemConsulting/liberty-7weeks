@@ -17,6 +17,7 @@ import {GiSpray, GiCherish, GiHairStrands} from 'react-icons/gi'
 // ran npm install font-awesome
 
 import IframePreview from '../previews/IframePreview'
+import article from './article'
 
 // Web preview configuration
 const remoteURL = 'https://sanity-gatsby-blog-web-3d35kyw2.netlify.app'
@@ -82,30 +83,7 @@ export default () =>
         ),
 
       S.divider(),
-      S.listItem()
-        .title('Articles')
-        .icon(FaNewspaper)
-        .child(
-          S.list()
-            .title('Article Type')
-            .items([
-              S.listItem()
-                .title('Feature')
-                .icon(FaNewspaper)
-                .schemaType('featureArticle')
-                .child(S.documentTypeList('featureArticle').title('Features')),
-              S.listItem()
-                .title('Gallery')
-                .icon(FaNewspaper)
-                .schemaType('galleryArticle')
-                .child(S.documentTypeList('galleryArticle').title('Gallery')),
-              S.listItem()
-                .title('How To')
-                .icon(FaNewspaper)
-                .schemaType('howToArticle')
-                .child(S.documentTypeList('howToArticle').title('HowTo'))
-            ])
-        ),
+      article,
       S.listItem()
         .title('Product')
         .icon(GiSpray)
