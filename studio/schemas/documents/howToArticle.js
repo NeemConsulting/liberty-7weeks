@@ -135,6 +135,7 @@ export default {
       type: 'slug',
       title: 'Slug',
       description: 'May be used for friendly url',
+      validation: Rule => Rule.required(),
       options: {
         source: 'headline',
         maxLength: 96
