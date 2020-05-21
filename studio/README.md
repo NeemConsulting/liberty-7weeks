@@ -1,1 +1,1 @@
-# sanity-liberty-gatsby-blog-studio
+# sanity-liberty-gatsby--studio
