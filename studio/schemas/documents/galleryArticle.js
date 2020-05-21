@@ -32,7 +32,7 @@ export default {
       }
     },
     {
-      name: 'gallery',
+      name: 'body',
       type: 'articlePortableText',
       title: 'Gallery Body',
       description: 'Insert Images, Video and Products anywhere in the body'
