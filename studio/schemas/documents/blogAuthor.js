@@ -12,6 +12,7 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      validation: Rule => Rule.required(),
       description: 'Some frontends will require a slug to be set to be able to show the person',
       options: {
         source: 'name',

@@ -38,6 +38,7 @@ export default {
       type: 'slug',
       title: 'Slug',
       description: 'May be used for friendly url',
+      validation: Rule => Rule.required(),
       options: {
         source: 'name',
         maxLength: 96
