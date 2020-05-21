@@ -28,7 +28,7 @@ import AllSeoPreviews from '../previews/AllSeoPreviews';
     S.list()
       .title('Article Type')
       .items([
-        getArticlePreviews('featureArticle').title('Features'),
+        getArticlePreviews('featureArticle').title('Feature'),
         getArticlePreviews('galleryArticle').title('Gallery'),
         getArticlePreviews('howToArticle').title('How To'),
       ])
