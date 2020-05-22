@@ -18,9 +18,9 @@ export default {
   ],
   preview: {
     select: {
-      title: 'product.productName',
-      subtitle: 'product.productTagLine',
-      media: 'product.productImage'
+      title: 'product.name',
+      subtitle: 'product.tagLine',
+      media: 'product.image'
     }
   }
 }
