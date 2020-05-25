@@ -17,7 +17,9 @@ module.exports = {
         themeConfig: {
           meta_host: process.env['app_local_host'],
           meta_lang: process.env['app_local_locale'],
-          site_name: process.env['app_local_siteName']
+          site_name: process.env['app_local_siteName'],
+          sanity_id: process.env['app_local_sanityId'],
+          sanity_dataset: process.env['app_local_sanityDataset']
         }
       },
     },

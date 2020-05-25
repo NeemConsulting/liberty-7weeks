@@ -1,5 +1,5 @@
 name: Web | Build and Deploy
-on: 
+on:
   # ONLY triggers on master branch
   repository_dispatch:
     types: [content-update-build]
@@ -20,7 +20,7 @@ jobs:
             env:
                 SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
             run: |
-                 npm install
+                 yarn
                  npm run build-web
           - name: Deploy to netlify
             uses: netlify/actions/cli@master
@@ -28,6 +28,8 @@ jobs:
               NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
               NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
               SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+              app_local_sanityId: ${{secrets.SANITY_ID}}
+              app_local_sanityDataset: ${{secrets.SANITY_DATASET}}
             with:
-              args: deploy --dir=web/public --prod
+              args: deploy --dir=packages/tl-ph/public --prod
               secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID","SANITY_DEPLOY_STUDIO_TOKEN"]'
