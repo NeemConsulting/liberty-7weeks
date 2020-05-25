@@ -3377,6 +3377,11 @@
     rxjs "^6.5.3"
     shallow-equals "^1.0.0"
 
+"@sanity/production-preview@^1.149.0":
+  version "1.149.0"
+  resolved "https://registry.yarnpkg.com/@sanity/production-preview/-/production-preview-1.149.0.tgz#2c83d3f67602512ff9fbb91242f38b6d9799bee7"
+  integrity sha512-S7mtEf5oioE7IzzWTaEKbYh7Hstzg19laxAkvaBhLBKJYJL3YHBS3Tg/h4Q6h7n9ZgrqGq0UPp6sXRFcIKLVyA==
+
 "@sanity/react-hooks@1.149.15":
   version "1.149.15"
   resolved "https://registry.yarnpkg.com/@sanity/react-hooks/-/react-hooks-1.149.15.tgz#f6cea79cf562caf18db33773e53530626874b929"
@@ -11754,6 +11759,11 @@ get-window@^1.1.1:
   integrity sha512-yjWpFcy9fjhLQHW1dPtg9ga4pmizLY8y4ZSHdGrAQ1NU277MRhnGnnLPxe19X8W5lWVsCZz++5xEuNozWMVmTw==
   dependencies:
     get-document "1"
+
+get-youtube-id@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/get-youtube-id/-/get-youtube-id-1.0.1.tgz#adb6f475e292d98f98ed5bfb530887656193e157"
+  integrity sha512-5yidLzoLXbtw82a/Wb7LrajkGn29BM6JuLWeHyNfzOGp1weGyW4+7eMz6cP23+etqj27VlOFtq8fFFDMLq/FXQ==
 
 getpass@^0.1.1:
   version "0.1.7"

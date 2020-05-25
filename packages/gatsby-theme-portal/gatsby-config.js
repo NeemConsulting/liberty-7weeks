@@ -7,6 +7,8 @@ module.exports = ({ themeConfig }) => {
     siteName: themeConfig['site_name'],
     siteUrl: themeConfig['meta_host'],
     lang: themeConfig['meta_lang'],
+    sanityId: themeConfig['sanity_id'],
+    sanityDataset: themeConfig['sanity_dataset'],
   };
 
   const netlifyOptions = {
@@ -71,8 +73,8 @@ module.exports = ({ themeConfig }) => {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `e1mdz151`,
-        dataset: `production`,
+        projectId: siteMetadata.sanityId,
+        dataset: siteMetadata.sanityDataset,
       },
     },
   ];
