@@ -7,7 +7,7 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
-const createLayoutPages = require('./scripts/build/createLayoutPages');
+const createLandingPages = require('./scripts/build/createLandingPages');
 const createHowtoPages = require('./scripts/build/createHowtoPages');
 const createProductPages = require('./scripts/build/createProductPages');
 const createFeaturePages = require('./scripts/build/createFeaturePages');
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // };
 
   const pagesCreators = [
-    createLayoutPages({
+    createLandingPages({
       graphql,
       createPage,
     }),

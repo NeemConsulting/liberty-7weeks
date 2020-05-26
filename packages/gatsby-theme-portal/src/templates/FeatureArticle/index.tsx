@@ -85,10 +85,7 @@ export default FeatureArticle;
 export const query = graphql`
   query($slug: String!, $tags: [String!], $id: [String!]) {
     galleryArticles: allSanityGalleryArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {
@@ -98,10 +95,7 @@ export const query = graphql`
     }
 
     howToArticles: allSanityHowToArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {
@@ -111,10 +105,7 @@ export const query = graphql`
     }
 
     featureArticles: allSanityFeatureArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {

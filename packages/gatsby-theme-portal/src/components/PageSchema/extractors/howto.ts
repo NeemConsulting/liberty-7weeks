@@ -38,8 +38,8 @@ const extractor = (pageHref: string, data: any) => {
     data.productList &&
     data.productList.map(product => ({
       '@type': 'HowToSupply',
-      name: product.productName,
-      image: product.productImage ? product.productImage.asset.url : null,
+      name: product.name,
+      image: product.image ? product.image.asset.url : null,
       url: `${pageHref}/${product.slug ? product.slug.current : null}`,
     }));
   const video = data.heroVideo && {
@@ -55,7 +55,7 @@ const extractor = (pageHref: string, data: any) => {
     data.toolList &&
     data.toolList.map(tool => ({
       '@type': 'HowToTool',
-      name: tool.toolName,
+      name: tool.name,
     }));
 
   const resp = {

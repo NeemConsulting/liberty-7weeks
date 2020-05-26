@@ -11,7 +11,7 @@ module.exports = async ({ graphql, createPage }) => {
       items: allSanityProduct {
         nodes {
           id
-          productName
+          name
           slug {
             current
           }
@@ -23,10 +23,10 @@ module.exports = async ({ graphql, createPage }) => {
 
   items.forEach(node => {
     createPage({
-      path: node.slug ? node.slug.current : getSlug(node.productName),
+      path: node.slug ? node.slug.current : getSlug(node.name),
       component,
       context: {
-        title: node.productName,
+        title: node.name,
         slug: node.id,
       },
     });

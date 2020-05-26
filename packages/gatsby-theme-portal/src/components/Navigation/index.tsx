@@ -230,14 +230,14 @@ const SiteNavigation: FunctionComponent = () => {
         navItems {
           navL1 {
             landingPage {
-              landingPage
+              name
             }
             name
             path
           }
           navL2 {
             landingPage {
-              landingPage
+              name
             }
             name
             path
@@ -295,7 +295,7 @@ const SiteNavigation: FunctionComponent = () => {
                     href={
                       navItem.navL1.path
                         ? navItem.navL1.path
-                        : `/${getSlug(navItem.navL1.landingPage.landingPage)}`
+                        : `/${getSlug(navItem.navL1.landingPage.name)}`
                     }
                     className={classes.navigationLink}
                   >
@@ -332,7 +332,7 @@ const SiteNavigation: FunctionComponent = () => {
                                 navItem.path
                                   ? navItem.path
                                   : `/${getSlug(
-                                      navItem.landingPage.landingPage
+                                      navItem.landingPage.name
                                     )}`
                               }
                               className={classes.subNavigationLink}
@@ -358,7 +358,7 @@ interface NavItemInterface {
   name: string;
   path: string;
   landingPage?: {
-    landingPage: string;
+    name: string;
   };
 }
 export default SiteNavigation;

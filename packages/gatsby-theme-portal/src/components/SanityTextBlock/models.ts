@@ -1,4 +1,4 @@
 export interface SanityTextBlockInterface {
-  textBlockName: string;
+  name: string;
   _rawTextBlockBody: any;
 }

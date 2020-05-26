@@ -66,7 +66,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         <Grid container spacing={2}>
           <Grid className={classes.articleBody} item sm={7}>
             {/* TODO: Rename data with 'body' - generic dev practice */}
-            <RichText data={page._rawGalleryBody} />
+            <RichText data={page._rawBody} />
             {page.readnext && <ReadNext data={page} />}
           </Grid>
           <Grid item sm={1}></Grid>
@@ -87,10 +87,7 @@ export default GalleryArticlePage;
 export const query = graphql`
   query($slug: String!, $tags: [String!], $id: [String!]) {
     galleryArticles: allSanityGalleryArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {
@@ -100,10 +97,7 @@ export const query = graphql`
     }
 
     howToArticles: allSanityHowToArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {
@@ -113,10 +107,7 @@ export const query = graphql`
     }
 
     featureArticles: allSanityFeatureArticle(
-      filter: {
-        tags: { elemMatch: { tagName: { in: $tags } } }
-        id: { nin: $id }
-      }
+      filter: { tags: { elemMatch: { name: { in: $tags } } }, id: { nin: $id } }
       limit: 10
       sort: { fields: _createdAt, order: DESC }
     ) {

@@ -20,7 +20,7 @@ const extractor = (pageHref: string, data: any) => {
     data.author &&
       (resp.author = {
         '@type': 'Person',
-        name: data.author ? data.author.authorName : 'Unilever',
+        name: data.author ? data.author.name : 'Unilever',
       });
   }
   return resp;

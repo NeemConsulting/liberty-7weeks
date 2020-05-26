@@ -43,17 +43,17 @@ const ProductPage = (props: ProductPageProps) => {
       />
       <Grid container spacing={2}>
         <Grid item xs={9}>
-          <h2>{page.productName}</h2>
+          <h2>{page.name}</h2>
           <section>
             <div>{page.subheading}</div>
-            <Img fluid={page.productImage.asset.fluid} />
+            <Img fluid={page.image.asset.fluid} />
           </section>
         </Grid>
         <Grid item xs={3}>
           {productNodes.map(item => (
-            <Paper className={classes.paper} key={item.productName + item.id}>
+            <Paper className={classes.paper} key={item.name + item.id}>
               <Link to={item.slug ? item.slug.current : '/'}>
-                {item.productName}
+                {item.name}
               </Link>
             </Paper>
           ))}

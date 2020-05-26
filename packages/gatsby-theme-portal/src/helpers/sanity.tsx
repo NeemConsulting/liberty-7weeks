@@ -48,7 +48,7 @@ export const blockTypeDefaultSerializers = {
       }
 
       const fluidProps = getFluidGatsbyImage(
-        node.product.productImage.asset._id,
+        node.product.image.asset._id,
         { maxWidth: 250 },
         sanityConfig
       );
@@ -64,10 +64,10 @@ export const blockTypeDefaultSerializers = {
               </figure>
             </div>
             <p className="c-product__tagline">
-              <span>{node.product && node.product.productTagLine}</span>
+              <span>{node.product && node.product.tagLine}</span>
             </p>
             <h3 className="c-product__name">
-              {node.product && node.product.productName}
+              {node.product && node.product.name}
             </h3>
           </Link>
         </div>

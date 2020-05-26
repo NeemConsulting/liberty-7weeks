@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 export const query1 = graphql`
   fragment ProductFieldsFull on SanityProduct {
     buyNow
-    brandName {
-      brandName
+    brand {
+      name
     }
     _rawIngredients(resolveReferences: { maxDepth: 10 })
     _rawMarketingDescription(resolveReferences: { maxDepth: 10 })
-    productImage {
+    image {
       asset {
         url
         fluid {
@@ -22,8 +22,8 @@ export const query1 = graphql`
         }
       }
     }
-    productName
-    productTagLine
+    name
+    tagLine
     smartProductID
     slug {
       current
@@ -35,10 +35,10 @@ export const query1 = graphql`
 export const query2 = graphql`
   fragment ProductFieldsTile on SanityProduct {
     id
-    brandName {
-      brandName
+    brand {
+      name
     }
-    productImage {
+    image {
       asset {
         url
         fluid {
@@ -52,7 +52,7 @@ export const query2 = graphql`
         }
       }
     }
-    productName
+    name
     slug {
       current
     }

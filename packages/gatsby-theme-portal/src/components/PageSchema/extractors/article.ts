@@ -9,7 +9,7 @@ const extractor = (pageHref: string, data: any) => {
     dateModified: data.publishedAt,
     author: {
       '@type': 'Person',
-      name: data.author ? data.author.authorName : 'Unilever',
+      name: data.author ? data.author.name : 'Unilever',
     },
     publisher: {
       '@type': 'Organization',

@@ -92,18 +92,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SanityNewsletterBlock: FunctionComponent<SanityNewsletterBlockInterface> = ({
-  _rawNewsletterBlockBody,
+  _rawBody,
 }) => {
   const classes = useStyles();
 
   return (
     <section className={classes.newsletter}>
       <div className={classes.newsletterContent}>
-        {_rawNewsletterBlockBody && (
+        {_rawBody && (
           <h3 className={classes.newsletterTitle}>
             <BlockContent
               serializers={blockTypeDefaultSerializers}
-              blocks={_rawNewsletterBlockBody}
+              blocks={_rawBody}
             />
           </h3>
         )}

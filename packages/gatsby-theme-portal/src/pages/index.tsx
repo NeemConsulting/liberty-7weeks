@@ -32,15 +32,13 @@ export const query = graphql`
       description
       keywords
     }
-    layout: allSanityLandingLayout(
-      filter: { landingPage: { eq: "Home Page" } }
-    ) {
+    layout: allSanityLandingPage(filter: { name: { eq: "Home Page" } }) {
       nodes {
-        landingPage
+        name
         landingSections {
           ... on SanityArticleSlider {
             id
-            sliderName
+            name
           }
         }
       }

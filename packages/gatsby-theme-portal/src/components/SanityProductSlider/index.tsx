@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SanityProductSlider: FunctionComponent<SanityProductSliderInterface> = ({
-  sliderName,
+  name,
   slides,
   headline,
 }) => {
@@ -26,11 +26,7 @@ const SanityProductSlider: FunctionComponent<SanityProductSliderInterface> = ({
   return (
     <section className={classes.section}>
       <Container>
-        <TileSlider
-          sliderName={sliderName}
-          slides={slides}
-          headline={headline}
-        />
+        <TileSlider name={name} slides={slides} headline={headline} />
       </Container>
     </section>
   );

@@ -68,16 +68,14 @@ const Breadcrumb: FunctionComponent<BreadcrumbInterface> = ({
               </Link>
             </li>
             <li className={classes.item}>
-              <Link
-                to={`/${tag.categoryName.tagCategoryName}`}
-                className={classes.link}
+              <Link to={`/${tag.tagCategory.name}`} className={classes.link}
               >
-                {tag.categoryName.tagCategoryName}
+                {tag.tagCategory.name}
               </Link>
             </li>
             <li className={classes.item}>
-              <Link to={`${tag.tagName}`} className={classes.link}>
-                {tag.tagName}
+              <Link to={`${tag.name}`} className={classes.link}>
+                {tag.name}
               </Link>
             </li>
             <li className={classNames(classes.item, classes.active)}>

@@ -66,9 +66,7 @@ const Tags: FunctionComponent<TagsInterface> = ({ data }) => {
 
   const uniqueCategories = data.reduce((tag: any, current: any) => {
     const category = tag.find(
-      (item: any) =>
-        item.categoryName.tagCategoryName ===
-        current.categoryName.tagCategoryName
+      (item: any) => item.name.tagCategoryName === current.name.tagCategoryName
     );
     if (!category) {
       return tag.concat([current]);
@@ -82,19 +80,19 @@ const Tags: FunctionComponent<TagsInterface> = ({ data }) => {
       <h3 className={classes.tagsTitle}>Related Topics</h3>
       <ul className={classes.tagList}>
         {uniqueCategories.map(tag => (
-          <li className={classes.tagListItem} key={tag.tagName}>
+          <li className={classes.tagListItem} key={tag.name}>
             <Link
               className={classes.tagsListLink}
-              to={`/${tag.categoryName.tagCategoryName}`}
+              to={`/${tag.name.tagCategoryName}`}
             >
-              {tag.categoryName.tagCategoryName}
+              {tag.name.tagCategoryName}
             </Link>
           </li>
         ))}
         {data.map(tag => (
-          <li className={classes.tagListItem} key={tag.tagName}>
-            <Link className={classes.tagsListLink} to={`/${tag.tagName}`}>
-              {tag.tagName}
+          <li className={classes.tagListItem} key={tag.name}>
+            <Link className={classes.tagsListLink} to={`/${tag.name}`}>
+              {tag.name}
             </Link>
           </li>
         ))}

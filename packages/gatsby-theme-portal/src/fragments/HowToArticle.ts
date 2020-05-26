@@ -43,12 +43,12 @@ export const query1 = graphql`
     productList {
       buyNow
       smartProductID
-      productTagLine
-      productName
+      tagLine
+      name
       slug {
         current
       }
-      productImage {
+      image {
         asset {
           url
           fluid {
@@ -69,16 +69,16 @@ export const query1 = graphql`
       metaTitle
     }
     tags {
-      tagName
+      name
       id
-      categoryName {
-        tagCategoryName
+      tagCategory {
+        name
         id
       }
     }
     toolList {
-      toolName
-      toolImage {
+      name
+      image {
         asset {
           url
           fluid {
@@ -94,14 +94,14 @@ export const query1 = graphql`
       }
     }
     tags {
-      tagName
+      name
     }
     author {
-      authorName
+      name
       slug {
         current
       }
-      authorImage {
+      image {
         alt
         asset {
           fluid {

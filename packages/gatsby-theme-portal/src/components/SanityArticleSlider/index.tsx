@@ -21,15 +21,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
-  sliderName,
+  name,
   slides,
   headline,
   slideType,
 }) => {
   const classes = useStyles();
 
-  const heroSliderType = slideType.sliderName.indexOf('Hero') >= 0;
-  const tileSliderType = slideType.sliderName.indexOf('Tile') >= 0;
+  const heroSliderType = slideType.name.indexOf('Hero') >= 0;
+  const tileSliderType = slideType.name.indexOf('Tile') >= 0;
 
   return (
     <section
@@ -41,14 +41,14 @@ const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
       <Container maxWidth="lg">
         {slides && heroSliderType && (
           <HeroSlider
-            sliderName={sliderName}
+            name={name}
             slides={slides}
             headline={headline}
           />
         )}
         {slides && tileSliderType && (
           <ArticleTileSlider
-            sliderName={sliderName}
+            name={name}
             slides={slides}
             headline={headline}
           />

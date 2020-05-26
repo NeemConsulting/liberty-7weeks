@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
-import SocialMenu from 'src/components/SocialMenu';
+import SocialMenu from '../SocialMenu';
 import { getYouTubeId } from '../../helpers/youtube';
 import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
@@ -221,23 +221,16 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
       </p>
       <div className={classes.articleInfoWrapper}>
         <div className={classes.articleInfo}>
-          {author && author.authorName && (
+          {author && author.name && (
             <div className={classes.authorInfo}>
-              {author.authorImage && (
-                <Img
-                  fluid={author.authorImage.asset.fluid}
-                  alt={author.authorImage.alt}
-                />
+              {author.image && (
+                <Img fluid={author.image.asset.fluid} alt={author.image.alt} />
               )}
               <Link
                 className={classes.link}
-                to={
-                  author.slug
-                    ? `/${author.slug.current}`
-                    : `/${author.authorName}`
-                }
+                to={author.slug ? `/${author.slug.current}` : `/${author.name}`}
               >
-                <span>{author.authorName}</span>
+                <span>{author.name}</span>
               </Link>
 
               <span className={classes.divider}>|</span>

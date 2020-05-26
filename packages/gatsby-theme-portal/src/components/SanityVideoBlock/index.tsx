@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SanityVideoBlock: FunctionComponent<SanityVideoBlockInterface> = ({
-  videoBlockName,
+  name,
   videoBlock,
   _rawTextBlockBody,
 }) => {
@@ -78,7 +78,7 @@ const SanityVideoBlock: FunctionComponent<SanityVideoBlockInterface> = ({
             allowFullScreen
           ></iframe>
           <div className={classes.copyText}>
-            <h2 className={classes.sectionTitle}>{videoBlockName}</h2>
+            <h2 className={classes.sectionTitle}>{name}</h2>
             {_rawTextBlockBody && (
               <BlockContent
                 serializers={blockTypeDefaultSerializers}

@@ -1,4 +1,4 @@
 export interface SanityNewsletterBlockInterface {
-  newsletterBlockName: string;
-  _rawNewsletterBlockBody: any;
+  name: string;
+  _rawBody: any;
 }

@@ -8,22 +8,22 @@ const component = path.resolve(
 module.exports = async ({ graphql, createPage }) => {
   const result = await graphql(`
     {
-      allSanityLandingLayout {
+      allSanityLandingPage {
         nodes {
           id
-          landingPage
+          name
         }
       }
     }
   `);
 
-  result.data.allSanityLandingLayout.nodes.forEach(node => {
+  result.data.allSanityLandingPage.nodes.forEach(node => {
     createPage({
-      path: getSlug(node.landingPage || node.id),
+      path: getSlug(node.name || node.id),
       component,
       context: {
-        title: node.landingPage,
-        slug: getSlug(node.langingPage || node.id),
+        title: node.name,
+        slug: getSlug(node.name || node.id),
         id: node.id,
       },
     });

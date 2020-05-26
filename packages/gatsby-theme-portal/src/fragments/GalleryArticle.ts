@@ -11,11 +11,11 @@ export const query1 = graphql`
     }
     id
     author {
-      authorName
+      name
       slug {
         current
       }
-      authorImage {
+      image {
         alt
         asset {
           fluid {
@@ -31,7 +31,7 @@ export const query1 = graphql`
       }
     }
     _type
-    _rawGalleryBody(resolveReferences: { maxDepth: 10 })
+    _rawBody(resolveReferences: { maxDepth: 10 })
     heroImage {
       alt
       asset {
@@ -76,10 +76,10 @@ export const query1 = graphql`
       }
     }
     tags {
-      tagName
+      name
       id
-      categoryName {
-        tagCategoryName
+      tagCategory {
+        name
         id
       }
     }

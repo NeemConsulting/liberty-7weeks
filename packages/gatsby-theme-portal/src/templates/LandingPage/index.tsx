@@ -17,14 +17,14 @@ const LandingPage = (props: LandingPageProps) => {
     <Layout className="home-page">
       <SEO
         lang={'tl-ph'}
-        title={page.landingPage}
+        title={page.name}
         description={site.description}
         keywords={site.keywords}
       />
       <PageSchema
         type={'WebPage'}
-        name={page.landingPage}
-        description={page.landingPage}
+        name={page.name}
+        description={page.name}
         slug={''}
         data={page}
       />
@@ -39,7 +39,7 @@ export default LandingPage;
 
 export const query = graphql`
   query($id: String!) {
-    page: sanityLandingLayout(id: { eq: $id }) {
+    page: sanityLandingPage(id: { eq: $id }) {
       ...LandingPageFieldsFull
     }
   }

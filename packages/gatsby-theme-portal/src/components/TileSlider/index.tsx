@@ -228,7 +228,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const TileSlider: FunctionComponent<TileSliderInterface> = ({
-  sliderName,
+  name,
   slides,
   headline,
 }) => {
@@ -262,20 +262,17 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
 
   const renderer = slide => {
     return (
-      <div key={slide.productName}>
+      <div key={slide.name}>
         <div>
           <Link
             className={classes.sliderLink}
             to={slide.slug ? slide.slug.current : '/'}
           >
-            {slide.productImage && (
-              <Img
-                fluid={slide.productImage.asset.fluid}
-                alt={slide.productImage.alt}
-              />
+            {slide.image && (
+              <Img fluid={slide.image.asset.fluid} alt={slide.image.alt} />
             )}
             <h3 className={classes.sliderItemCaption}>
-              <span>{slide.productName}</span>
+              <span>{slide.name}</span>
             </h3>
           </Link>
         </div>
@@ -286,7 +283,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
   return (
     <div className={classes.slider}>
       <div className={classes.sectionTitle}>
-        <h2 className={classes.sliderTitle}>{sliderName}</h2>
+        <h2 className={classes.sliderTitle}>{name}</h2>
         <Link className={classes.sectionLink} to={'/'}>
           See All
         </Link>

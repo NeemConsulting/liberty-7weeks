@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SanityNewsletterBlock: FunctionComponent<SanityTextBlockInterface> = ({
-  textBlockName,
+  name,
   _rawTextBlockBody,
 }) => {
   const classes = useStyles();

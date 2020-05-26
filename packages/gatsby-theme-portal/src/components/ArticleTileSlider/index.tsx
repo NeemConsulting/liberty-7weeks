@@ -225,7 +225,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
-  sliderName,
+  name,
   slides,
   headline,
 }) => {
@@ -291,7 +291,7 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
   return (
     <div className={classes.slider}>
       <div className={classes.sectionTitle}>
-        <h2 className={classes.sliderTitle}>{sliderName}</h2>
+        <h2 className={classes.sliderTitle}>{name}</h2>
         <Link className={classes.sectionLink} to={'/'}>
           See All
         </Link>

@@ -1,5 +1,5 @@
 export interface SanityVideoBlockInterface {
-  videoBlockName: string;
+  name: string;
   videoBlock: any;
   _rawTextBlockBody: any;
 }

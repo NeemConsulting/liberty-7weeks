@@ -1,13 +1,13 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment LandingPageFieldsFull on SanityLandingLayout {
+  fragment LandingPageFieldsFull on SanityLandingPage {
     id
-    landingPage
+    name
     landingSections {
       ... on SanityArticleSlider {
         id
-        sliderName
+        name
         headline
         slides {
           ... on SanityFeatureArticle {
@@ -90,29 +90,29 @@ export const query = graphql`
           }
         }
         slideType {
-          sliderDescription
-          sliderName
+          description
+          name
         }
       }
       ... on SanityImageBlock {
         id
         url
-        imageBlockName
+        name
         _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
       }
       ... on SanityNewsletterBlock {
         id
-        newsletterBlockName
-        _rawNewsletterBlockBody(resolveReferences: { maxDepth: 10 })
+        name
+        _rawBody(resolveReferences: { maxDepth: 10 })
       }
       ... on SanityProductSlider {
         id
-        sliderName
+        name
         headline
         slides {
           _type
-          productName
-          productImage {
+          name
+          image {
             asset {
               source {
                 url
@@ -129,26 +129,26 @@ export const query = graphql`
             }
             alt
           }
-          brandName {
-            brandName
+          brand {
+            name
           }
           slug {
             current
           }
         }
         slideType {
-          sliderDescription
-          sliderName
+          description
+          name
         }
       }
       ... on SanityTextBlock {
         id
-        textBlockName
+        name
         _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
       }
       ... on SanityVideoBlock {
         id
-        videoBlockName
+        name
         _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
         videoBlock {
           _type

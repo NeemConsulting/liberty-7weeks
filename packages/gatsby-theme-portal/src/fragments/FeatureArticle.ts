@@ -39,11 +39,11 @@ export const query1 = graphql`
       metaTitle
     }
     author {
-      authorName
+      name
       slug {
         current
       }
-      authorImage {
+      image {
         alt
         asset {
           fluid {
@@ -62,9 +62,9 @@ export const query1 = graphql`
     publishedAt(formatString: "MMMM D, YYYY")
     _updatedAt(formatString: "MMMM D, YYYY")
     tags {
-      tagName
-      categoryName {
-        tagCategoryName
+      name
+      tagCategory {
+        name
       }
     }
     readnext {

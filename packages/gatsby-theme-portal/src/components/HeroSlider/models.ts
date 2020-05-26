@@ -1,5 +1,5 @@
 export interface HeroSliderInterface {
-  sliderName: string;
+  name: string;
   slides: any;
   headline: string | null;
 }

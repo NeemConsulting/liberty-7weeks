@@ -71,27 +71,24 @@ const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
       <h2 className={classes.sectionTitle}>Tools</h2>
       <Grid container spacing={2}>
         {data.map(tool => (
-          <Grid className={classes.gridItem} item xs={3} key={tool.toolName}>
-            {tool.toolImage ? (
+          <Grid className={classes.gridItem} item xs={3} key={tool.name}>
+            {tool.image ? (
               <div>
-                <Img
-                  fluid={tool.toolImage.asset.fluid}
-                  alt={tool.toolImage.alt}
-                />
+                <Img fluid={tool.image.asset.fluid} alt={tool.image.alt} />
               </div>
             ) : (
               <div className={classes.icon}>
                 {/* TODO: Dynamically call component based on toolname */}
-                {tool.toolName.indexOf('Comb') >= 0 && <Comb />}
-                {tool.toolName.indexOf('Clip') >= 0 && <Clip />}
-                {tool.toolName.indexOf('Elastic') >= 0 && <Elastic />}
-                {tool.toolName.indexOf('Dryer') >= 0 && <Dryer />}
-                {tool.toolName.indexOf('Pins') >= 0 && <Pins />}
-                {tool.toolName.indexOf('Ironer') >= 0 && <Ironer />}
-                {tool.toolName.indexOf('Wand') >= 0 && <Wand />}
+                {tool.name.indexOf('Comb') >= 0 && <Comb />}
+                {tool.name.indexOf('Clip') >= 0 && <Clip />}
+                {tool.name.indexOf('Elastic') >= 0 && <Elastic />}
+                {tool.name.indexOf('Dryer') >= 0 && <Dryer />}
+                {tool.name.indexOf('Pins') >= 0 && <Pins />}
+                {tool.name.indexOf('Ironer') >= 0 && <Ironer />}
+                {tool.name.indexOf('Wand') >= 0 && <Wand />}
               </div>
             )}
-            <h3 className={classes.gridItemCaption}>{tool.toolName}</h3>
+            <h3 className={classes.gridItemCaption}>{tool.name}</h3>
           </Grid>
         ))}
       </Grid>

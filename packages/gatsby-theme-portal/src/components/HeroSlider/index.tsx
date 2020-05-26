@@ -172,7 +172,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
-  sliderName,
+  name,
   slides,
   headline,
 }) => {
@@ -191,7 +191,7 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
   };
   return (
     <div className={classes.sliderWrapper}>
-      {sliderName && <h2 className={classes.sectionTitle}>{sliderName}</h2>}
+      {name && <h2 className={classes.sectionTitle}>{name}</h2>}
       {headline && <div>{headline}</div>}
       <Swiper {...params}>
         {slides.map((slide: any) => (

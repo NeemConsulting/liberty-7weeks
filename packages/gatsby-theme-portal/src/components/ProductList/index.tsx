@@ -71,16 +71,16 @@ const ProductList: FunctionComponent<ProductListInterface> = ({ data }) => {
             className={classes.gridItem}
             item
             xs={4}
-            key={product.productName}
+            key={product.name}
           >
-            {product.productImage && (
+            {product.image && (
               <Img
                 className={classes.image}
-                fluid={product.productImage.asset.fluid}
+                fluid={product.image.asset.fluid}
                 alt=""
               />
             )}
-            <h3 className={classes.productTitle}>{product.productName}</h3>
+            <h3 className={classes.productTitle}>{product.name}</h3>
           </Grid>
         ))}
       </Grid>
