@@ -60,6 +60,7 @@ export const query1 = graphql`
     }
     id
     publishedAt(formatString: "MMMM D, YYYY")
+    _createdAt(formatString: "MMMM D, YYYY")
     _updatedAt(formatString: "MMMM D, YYYY")
     tags {
       name

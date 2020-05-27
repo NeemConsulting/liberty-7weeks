@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -7,13 +7,13 @@ import Container from '@material-ui/core/Container';
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
 import Gallery from '../../components/Gallery';
-import RelatedArticles from 'src/components/RelatedArticles';
+import RelatedArticles from '../../components/RelatedArticles';
 import PageSchema from '../../components/PageSchema';
-import Tags from 'src/components/Tags';
-import ReadNext from 'src/components/ReadNext';
-import Breadcrumb from 'src/components/Breadcrumb';
-import RichText from 'src/components/RichText';
-import ArticleHeader from 'src/components/ArticleHeader';
+import Tags from '../../components/Tags';
+import ReadNext from '../../components/ReadNext';
+import Breadcrumb from '../../components/Breadcrumb';
+import RichText from '../../components/RichText';
+import ArticleHeader from '../../components/ArticleHeader';
 
 const useStyles = makeStyles(theme => ({
   articleBody: {
@@ -61,7 +61,12 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         <ArticleHeader article={page} type={'gallery'} />
       </Container>
 
-      <Gallery data={page.imageGallery.picture} />
+      <Gallery
+        data={page.imageGallery.picture}
+        name={page.headline}
+        authorName={page.author.name}
+        slug={page.slug.current}
+      />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid className={classes.articleBody} item sm={7}>

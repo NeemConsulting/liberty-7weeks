@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { ReactComponent as Next } from '../../images/icons/next.svg';
+import PageSchema from '../PageSchema';
 
 const useStyles = makeStyles(theme => ({
   galleryWrapper: {
@@ -113,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Gallery: FunctionComponent<GalleryInterface> = ({ data }) => {
+const Gallery: FunctionComponent<GalleryInterface> = ({ data, slug, name, authorName }) => {
   const classes = useStyles();
   const renderArrowPrev = (
     onClickHandler: any,
@@ -169,32 +170,38 @@ const Gallery: FunctionComponent<GalleryInterface> = ({ data }) => {
   };
 
   return (
-    <div className={classes.galleryWrapper}>
-      <Carousel
-        statusFormatter={(current, total) => {
-          return `${current} / ${total}`;
-        }}
-        renderArrowPrev={renderArrowPrev}
-        renderArrowNext={renderArrowNext}
-        renderThumbs={renderThumbs}
-        centerMode
-        centerSlidePercentage={100}
-      >
-        {data.map((picture: any) => (
-          <div key={picture.asset._id}>
-            <Img
-              className="img-responsive"
-              fluid={picture.asset.fluid}
-              alt={picture.alt}
-            />
-          </div>
-        ))}
-      </Carousel>
-    </div>
+    <>
+      <PageSchema type={'ImageGallery'} {...{ name, slug, data, authorName }} />;
+      <div className={classes.galleryWrapper}>
+        <Carousel
+          statusFormatter={(current, total) => {
+            return `${current} / ${total}`;
+          }}
+          renderArrowPrev={renderArrowPrev}
+          renderArrowNext={renderArrowNext}
+          renderThumbs={renderThumbs}
+          centerMode
+          centerSlidePercentage={100}
+        >
+          {data.map((picture: any) => (
+            <div key={picture.asset._id}>
+              <Img
+                className="img-responsive"
+                fluid={picture.asset.fluid}
+                alt={picture.alt}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+    </>
   );
 };
 
 interface GalleryInterface {
   data: any;
+  slug?: string;
+  name?: string;
+  authorName?: string;
 }
 export default Gallery;

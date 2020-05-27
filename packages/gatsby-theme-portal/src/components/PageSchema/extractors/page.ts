@@ -1,13 +1,16 @@
-const extractor = (pageHref: string, data: any) => {
+const extractor = (pageHref: string, data: any, brandInfo: any) => {
   const url = new URL(pageHref);
   const resp = {
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageHref,
     },
+    inLanguage: brandInfo.langhref,
     publisher: {
       '@type': 'Organization',
-      name: 'Unilever',
+      name: brandInfo.title,
+      url: brandInfo.domainurl,
+      sameAs: brandInfo.sameAs,
       logo: {
         '@type': 'ImageObject',
         url: `${url.origin}/unilever-logo.png`,
@@ -20,7 +23,7 @@ const extractor = (pageHref: string, data: any) => {
     data.author &&
       (resp.author = {
         '@type': 'Person',
-        name: data.author ? data.author.name : 'Unilever',
+        name: data.author ? data.author.name : brandInfo.title,
       });
   }
   return resp;

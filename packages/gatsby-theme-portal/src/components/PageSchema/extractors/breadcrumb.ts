@@ -1,4 +1,4 @@
-const extractor = (pageHref: string, data: any) => {
+const extractor = (pageHref: string, data: any, brandInfo: any) => {
   return {};
 };
 
