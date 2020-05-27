@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import LandingSectionRenderer from '../../components/LandingSectionRenderer';
 import PageSchema from '../../components/PageSchema';
 import OGTags from '../../components/OGTags';
+import Breadcrumb from '../../components/Breadcrumb';
 
 const LandingPage = (props: LandingPageProps) => {
   const {
@@ -14,8 +15,13 @@ const LandingPage = (props: LandingPageProps) => {
   page.seo = page.seo || {};
 
   const site = {};
+
+  const getLayoutClassName = type => {
+    return type.replace(/\s/g, '-').toLowerCase();
+  };
+
   return (
-    <Layout className="home-page">
+    <Layout className={getLayoutClassName(page.name)}>
       <SEO
         lang={'tl-ph'}
         title={page.name}
@@ -30,6 +36,7 @@ const LandingPage = (props: LandingPageProps) => {
         data={page}
       />
       <OGTags type={'page'} slug={page.slug.current} data={page} />
+      {page.slug.current !== '/' && <Breadcrumb pageTitle={page.name} />}
       {page.landingSections.map(section => (
         <LandingSectionRenderer key={section.id} section={section} />
       ))}

@@ -93,7 +93,9 @@ export default theme => ({
     },
   },
   textCenter: {
-    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'center',
+    },
   },
   link: {
     backgroundImage: `linear-gradient(120deg,${theme.palette.primary.main} 0%,${theme.palette.primary.main} 100%)`,

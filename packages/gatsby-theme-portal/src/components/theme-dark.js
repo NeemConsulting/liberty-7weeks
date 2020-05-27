@@ -7,11 +7,11 @@ const breakpoints = createBreakpoints({});
 const themeName = 'allthingshair';
 
 const color = {
-  primary: '#ff3366',
-  secondary: '#b8f0c0',
+  primary: '#ccc',
+  secondary: '#FFDDE1',
   tertiary: '#fed760',
-  quaternary: '#f8e6de',
-  quinary: '#2c5270',
+  quaternary: '#F38D68',
+  quinary: '#F38D68',
   grey: {
     light: '#333',
     lighter: 'rgba(0,0,0,.4)',
@@ -40,7 +40,6 @@ const palette = {
   },
   primary: {
     main: color.primary,
-    dark: color.black,
   },
   secondary: {
     main: color.secondary,
@@ -52,7 +51,7 @@ const palette = {
     main: color.quaternary,
   },
   quinary: {
-    main: color.white,
+    main: color.quinary,
   },
   grey: {
     20: color.grey.lighter,

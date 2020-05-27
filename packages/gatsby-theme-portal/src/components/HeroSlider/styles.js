@@ -13,14 +13,11 @@ export default theme => ({
     [theme.breakpoints.up('md')]: {
       margin: 0,
     },
-    '& .swiper-slide': {
-      height: 422,
-    },
     '& .swiper-pagination': {
       display: 'flex',
       justifyContent: 'center',
       position: 'static',
-      marginTop: theme.spacing(0.875),
+      marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
       [theme.breakpoints.up('md')]: {
         marginTop: theme.spacing(2.5),

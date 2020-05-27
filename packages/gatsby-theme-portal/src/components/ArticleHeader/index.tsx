@@ -38,7 +38,6 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
       )}?autoplay=1`
     );
   };
-
   return (
     <div className={classes.header}>
       <Typography
@@ -86,7 +85,11 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
       {!imageGallery && (
         <div className={classes.heroImage}>
           {!showVideo && (
-            <Img className="img-responsive" fluid={heroImage.asset.fluid} />
+            <Img
+              className="img-responsive"
+              fluid={heroImage.asset.fluid}
+              alt={heroImage.alt}
+            />
           )}
           {!showVideo && heroVideo && (
             <button

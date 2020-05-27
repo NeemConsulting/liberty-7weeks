@@ -13,17 +13,12 @@ const ProductList: FunctionComponent<ProductListInterface> = ({ data }) => {
       <h2 className={classes.sectionTitle}>Products</h2>
       <Grid className={classes.gridContainer} container spacing={2}>
         {data.map(product => (
-          <Grid
-            className={classes.gridItem}
-            item
-            xs={4}
-            key={product.name}
-          >
+          <Grid className={classes.gridItem} item xs={4} key={product.name}>
             {product.image && (
               <Img
                 className={classes.image}
                 fluid={product.image.asset.fluid}
-                alt=""
+                alt={product.image.alt}
               />
             )}
             <h3 className={classes.productTitle}>{product.name}</h3>

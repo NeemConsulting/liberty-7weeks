@@ -14,7 +14,7 @@ const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
       <div className={classes.readNextContent}>
         <Link className={classes.readNextLink} to={`/${data.slug.current}`}>
           <div className={classes.readNextImage}>
-            <Img fluid={data.heroImage.asset.fluid} />
+            <Img fluid={data.heroImage.asset.fluid} alt={data.heroImage.alt} />
           </div>
           <div className={classes.readNextCopy}>
             <span className={classes.readNextCopyType}>

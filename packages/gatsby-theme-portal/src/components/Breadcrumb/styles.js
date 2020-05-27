@@ -30,7 +30,7 @@ export default theme => ({
         display: 'none',
       },
     },
-    '&:last-child': {
+    '& + li + li + li': {
       display: 'none',
       [theme.breakpoints.up('md')]: {
         display: 'block',

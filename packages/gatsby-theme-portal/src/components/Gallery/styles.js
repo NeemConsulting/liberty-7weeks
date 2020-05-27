@@ -14,11 +14,7 @@ export default theme => ({
       maxHeight: 500,
       margin: 'auto',
       '& .slide': {
-        opacity: 0.2,
         background: '#f4f4f4',
-      },
-      '& .slide.selected': {
-        opacity: 1,
       },
       '& .thumbs-wrapper': {
         display: 'none',
