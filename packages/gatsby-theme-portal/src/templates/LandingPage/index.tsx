@@ -4,6 +4,7 @@ import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import LandingSectionRenderer from '../../components/LandingSectionRenderer';
 import PageSchema from '../../components/PageSchema';
+import OGTags from '../../components/OGTags';
 
 const LandingPage = (props: LandingPageProps) => {
   const {
@@ -25,9 +26,10 @@ const LandingPage = (props: LandingPageProps) => {
         type={'WebPage'}
         name={page.name}
         description={page.name}
-        slug={''}
+        slug={page.slug.current}
         data={page}
       />
+      <OGTags type={'page'} slug={page.slug.current} data={page} />
       {page.landingSections.map(section => (
         <LandingSectionRenderer key={section.id} section={section} />
       ))}

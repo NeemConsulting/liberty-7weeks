@@ -18,8 +18,17 @@ const LandingSectionRenderer: FunctionComponent<LandingSectionRendererInterface>
   section,
 }) => {
   const sanityType = section.__typename;
-  const getComponent = sanityType =>
-    componentsMap[sanityType || 'SanityTextBlock'];
+  const getComponent = sanityType => {
+    const component = componentsMap[sanityType];
+
+    if (component) {
+      return component;
+    } else {
+      console.info('Unknown block for landing page: ', sanityType);
+
+      return componentsMap['SanityTextBlock'];
+    }
+  };
 
   return React.createElement(getComponent(sanityType), { ...section });
 };

@@ -14,6 +14,7 @@ import ToolList from 'src/components/ToolList';
 import ProductList from 'src/components/ProductList';
 import ArticleHeader from 'src/components/ArticleHeader';
 import PageSchema from '../../components/PageSchema';
+import OGTags from '../../components/OGTags';
 
 const useStyles = makeStyles(theme => ({
   articleBody: {
@@ -55,6 +56,7 @@ const FeatureArticle = (props: FeatureArticleProps) => {
         }}
         data={page}
       />
+      <OGTags type={'article'} slug={page.slug.current} data={page} />
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
