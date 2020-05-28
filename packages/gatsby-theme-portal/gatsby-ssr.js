@@ -3,6 +3,7 @@ const React = require('react');
 const headComponents = [];
 
 headComponents.push(
+  <link rel="preconnect" href="https://cdn.sanity.io" />,
   <script
     type="text/javascript"
     dangerouslySetInnerHTML={{

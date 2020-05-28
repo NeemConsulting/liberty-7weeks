@@ -14,6 +14,7 @@ import ReadNext from '../../components/ReadNext';
 import Breadcrumb from '../../components/Breadcrumb';
 import RichText from '../../components/RichText';
 import ArticleHeader from '../../components/ArticleHeader';
+import OGTags from '../../components/OGTags';
 
 const useStyles = makeStyles(theme => ({
   articleBody: {
@@ -54,6 +55,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         }}
         data={page}
       />
+      <OGTags type={'article'} slug={page.slug.current} data={page} />
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <ArticleHeader article={page} type={'gallery'} />

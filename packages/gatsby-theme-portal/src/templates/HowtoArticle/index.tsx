@@ -14,6 +14,7 @@ import ProductList from '../../components/ProductList';
 import Tags from '../../components/Tags';
 import ReadNext from '../../components/ReadNext';
 import PageSchema from '../../components/PageSchema';
+import OGTags from '../../components/OGTags';
 
 const useStyles = makeStyles(theme => ({
   articleBody: {
@@ -57,6 +58,7 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
         }}
         data={page}
       />
+      <OGTags type={'article'} slug={page.slug.current} data={page} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid className={classes.articleBody} item sm={7}>

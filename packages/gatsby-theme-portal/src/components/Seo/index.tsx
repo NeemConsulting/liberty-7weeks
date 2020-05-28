@@ -64,16 +64,14 @@ function Index({ description, lang, keywords, title } : SeoProps) {
                 name: 'twitter:description',
                 content: metaDescription,
               },
-            ]
-              .concat(
-                keywords && keywords.length > 0
-                  ? {
-                      name: 'keywords',
-                      content: keywords.join(', '),
-                    }
-                  : []
-              )
-            }
+            ].concat(
+              keywords && keywords.length > 0
+                ? {
+                    name: 'keywords',
+                    content: keywords.join(', '),
+                  }
+                : []
+            )}
           />
         );
       }}

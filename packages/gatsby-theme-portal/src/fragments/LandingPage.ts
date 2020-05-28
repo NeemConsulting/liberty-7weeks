@@ -4,6 +4,9 @@ export const query = graphql`
   fragment LandingPageFieldsFull on SanityLandingPage {
     id
     name
+    slug {
+      current
+    }
     landingSections {
       ... on SanityArticleSlider {
         id
