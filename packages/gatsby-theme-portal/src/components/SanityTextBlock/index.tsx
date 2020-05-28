@@ -4,35 +4,16 @@ import { SanityTextBlockInterface } from './models';
 import { makeStyles } from '@material-ui/core/styles';
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
-const useStyles = makeStyles(theme => ({
-  section: {
-    paddingBottom: 16,
-    paddingTop: 16,
-    backgroundColor: '#f8e6de',
-    [theme.breakpoints.up('md')]: {
-      paddingBottom: 24,
-      paddingTop: 24,
-    },
-  },
-  sectionDescription: {
-    '& p': {
-      fontSize: '.875rem',
-      margin: 0,
-      [theme.breakpoints.up('md')]: {
-        fontSize: '1.125rem',
-      },
-    },
-    '& h2': {
-      fontSize: '1.5rem',
-    },
-  },
-}));
+import quote from '../../images/icons/quote-left.svg';
+
+import Styles from './styles';
+const useStyles = makeStyles(Styles);
 
 const SanityNewsletterBlock: FunctionComponent<SanityTextBlockInterface> = ({
   name,
   _rawTextBlockBody,
 }) => {
-  const classes = useStyles();
+  const classes = useStyles({ icon: quote });
 
   return (
     <section className={classes.section}>

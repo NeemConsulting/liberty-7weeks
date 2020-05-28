@@ -8,171 +8,9 @@ import { getYouTubeId } from '../../helpers/youtube';
 import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
 
-const useStyles = makeStyles(theme => ({
-  header: {
-    margin: 'auto',
-    maxWidth: 750,
-    [theme.breakpoints.up('md')]: {
-      margin: '16px auto',
-    },
-    '& svg': {
-      width: 28,
-      height: 28,
-      fill: theme.palette.common.black,
-    },
-  },
-  headingPrimary: {
-    fontSize: '1.875rem',
-    fontWeight: 600,
-    margin: 0,
-    marginBottom: 10,
-    [theme.breakpoints.up('md')]: {
-      fontSize: '2.875rem',
-      marginBottom: 15,
-    },
-  },
-  headingSecondary: {
-    fontSize: '2.5rem',
-    fontWeight: 600,
-    margin: 0,
-    marginBottom: 20,
-  },
-  textSecondary: {
-    paddingBottom: 10,
-    fontSize: '.875rem',
-    margin: 0,
-    marginBottom: 10,
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.125rem',
-      marginBottom: 16,
-    },
-  },
-  articleInfo: {
-    fontSize: '.875rem',
-    fontWeight: 400,
-    maxWidth: 750,
-    marginBottom: 15,
-    display: 'flex',
-
-    [theme.breakpoints.up('md')]: {
-      marginBottom: 0,
-    },
-  },
-  articleAuthor: {},
-  articleDate: {},
-  divider: {
-    margin: '0 10px',
-  },
-  articleInfoWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    [theme.breakpoints.up('md')]: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-  },
-  heroImage: {
-    marginTop: 10,
-    position: 'relative',
-    '& iframe': {
-      height: 263,
-      [theme.breakpoints.up('md')]: {
-        height: 399,
-      },
-    },
-  },
-  iconVideo: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translateX(-50%) translateY(-50%)',
-    border: 0,
-    cursor: 'pointer',
-    backgroundColor: 'transparent',
-    '& svg': {
-      transition: 'all .5s',
-      fill: '#fff',
-      width: 60,
-      height: 60,
-      cursor: 'pointer',
-    },
-    '&:hover': {
-      '& svg': {
-        fill: '#ff3366',
-        transform: 'scale(1.2)',
-      },
-    },
-  },
-  textCenter: {
-    textAlign: 'center',
-  },
-  link: {
-    backgroundImage: 'linear-gradient(120deg,#ff3366 0%,#ff3366 100%)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 3px',
-    backgroundPosition: '0 100%',
-    color: theme.palette.common.black,
-    lineHeight: 1.75,
-    textDecoration: 'none',
-    display: 'flex',
-  },
-  tutorialInfo: {
-    display: 'flex',
-    marginTop: 16,
-    marginBottom: 16,
-    width: '100%',
-  },
-  tutorialInfoBlock: {
-    backgroundColor: '#f4f4f4',
-    padding: '10px 16px',
-    fontSize: '.75rem',
-    lineHeight: 1.1,
-    letterSpacing: 1,
-    marginRight: 20,
-    flex: '1 50%',
-    '&:last-child': {
-      marginRight: 0,
-    },
-    '& strong': {
-      display: 'block',
-      marginBottom: 8,
-      textTransform: 'uppercase',
-    },
-    '& span': {
-      textTransform: 'capitalize',
-    },
-  },
-  flex: {
-    display: 'flex',
-    alignItems: 'center',
-    '& span': {
-      marginLeft: 20,
-    },
-    '& svg': {
-      marginRight: 10,
-      opacity: 0.2,
-      '&.active': {
-        opacity: 1,
-      },
-    },
-  },
-  authorInfo: {
-    display: 'flex',
-    '& .gatsby-image-wrapper': {
-      width: 25,
-      height: 25,
-      borderRadius: '50%',
-      border: '2px solid #ff3366',
-      marginRight: 10,
-    },
-    '& picture img': {
-      width: '25px !important',
-      height: '25px !important',
-      objectFit: 'contain !important',
-    },
-  },
-}));
+import Styles from './styles';
+const useStyles = makeStyles(Styles);
+import { Typography } from '@material-ui/core';
 
 const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   article,
@@ -203,14 +41,15 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
 
   return (
     <div className={classes.header}>
-      <h2
+      <Typography
+        variant="h1"
         className={classNames(
           classes.headingPrimary,
           type === 'gallery' ? classes.textCenter : null
         )}
       >
         {headline}
-      </h2>
+      </Typography>
       <p
         className={classNames(
           classes.textSecondary,

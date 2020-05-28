@@ -64,7 +64,7 @@ export const query1 = graphql`
           label
           title
           url
-          fluid(maxWidth: 500, maxHeight: 500) {
+          fluid(maxWidth: 334, maxHeight: 500) {
             aspectRatio
             base64
             sizes

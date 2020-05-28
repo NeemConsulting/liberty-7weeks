@@ -12,57 +12,8 @@ import { ReactComponent as Dryer } from '../../images/icons/dryer.svg';
 import { ReactComponent as Ironer } from '../../images/icons/ironer.svg';
 import { ReactComponent as Pins } from '../../images/icons/pins.svg';
 
-const useStyles = makeStyles(theme => ({
-  section: {
-    marginTop: 30,
-    marginBottom: 30,
-  },
-  sectionTitle: {
-    fontSize: '1.875rem',
-    fontWeight: 600,
-    lineHeight: 1.1,
-    position: 'relative',
-    margin: 0,
-    marginBottom: 30,
-    '&:before': {
-      content: '""',
-      background: '#f8e6de',
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      width: '100vw',
-      height: 20,
-      zIndex: -1,
-    },
-  },
-  gridItem: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  icon: {
-    backgroundColor: '#f4f4f4',
-    borderRadius: '50%',
-    width: 100,
-    height: 100,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    '& svg': {
-      width: 50,
-      height: 50,
-    },
-  },
-  gridItemCaption: {
-    fontSize: '.875rem',
-    fontWeight: 600,
-    lineHeight: 1.4,
-    margin: 0,
-    marginTop: 8,
-    textAlign: 'center',
-  },
-}));
+import Styles from './styles';
+const useStyles = makeStyles(Styles);
 
 const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
   const classes = useStyles();

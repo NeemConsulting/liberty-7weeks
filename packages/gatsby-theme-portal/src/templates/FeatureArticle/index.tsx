@@ -18,8 +18,6 @@ import PageSchema from '../../components/PageSchema';
 const useStyles = makeStyles(theme => ({
   articleBody: {
     fontSize: '1.125rem',
-    fontWeight: 400,
-    color: '#333',
   },
 }));
 

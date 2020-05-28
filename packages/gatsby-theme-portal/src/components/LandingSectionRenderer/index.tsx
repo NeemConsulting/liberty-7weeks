@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { LandingSectionRendererInterface } from './models';
-import { makeStyles } from '@material-ui/core/styles';
 import SanityArticleSlider from '../SanityArticleSlider';
 import SanityProductSlider from '../SanityProductSlider';
 import SanityTextBlock from '../SanityTextBlock';
 import SanityNewsletterBlock from '../SanityNewsletterBlock';
 import SanityVideoBlock from '../SanityVideoBlock';
-const useStyles = makeStyles(theme => {});
 
 const componentsMap = {
   SanityArticleSlider: SanityArticleSlider,

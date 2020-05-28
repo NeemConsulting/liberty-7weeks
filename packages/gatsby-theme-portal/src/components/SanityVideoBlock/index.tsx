@@ -6,55 +6,9 @@ import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 import { getYouTubeId } from '../../helpers/youtube';
 
-const useStyles = makeStyles(theme => ({
-  section: {
-    backgroundColor: '#fed760',
-    paddingTop: 32,
-    paddingBottom: 32,
-    [theme.breakpoints.up('md')]: {
-      paddingTop: 48,
-      paddingBottom: 48,
-    },
-  },
-  sectionTitle: {
-    fontSize: '1.375rem',
-    fontWeight: 600,
-    marginBottom: 10,
-    [theme.breakpoints.up('md')]: {
-      fontSize: '2.5rem',
-      marginBottom: 20,
-    },
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    [theme.breakpoints.up('md')]: {
-      flexDirection: 'row',
-    },
-    '& iframe': {
-      [theme.breakpoints.up('md')]: {
-        order: 2,
-        height: 380,
-      },
-    },
-  },
-  copyText: {
-    padding: 18,
-    background: theme.palette.common.white,
-    order: 2,
-    [theme.breakpoints.up('md')]: {
-      order: 1,
-      alignSelf: 'center',
-      padding: 24,
-      position: 'relative',
-      right: -20,
-    },
-    '& p': {
-      margin: 0,
-      fontSize: '1.125rem',
-    },
-  },
-}));
+import Styles from './styles';
+import { Typography } from '@material-ui/core';
+const useStyles = makeStyles(Styles);
 
 const SanityVideoBlock: FunctionComponent<SanityVideoBlockInterface> = ({
   name,
@@ -78,7 +32,9 @@ const SanityVideoBlock: FunctionComponent<SanityVideoBlockInterface> = ({
             allowFullScreen
           ></iframe>
           <div className={classes.copyText}>
-            <h2 className={classes.sectionTitle}>{name}</h2>
+            <Typography variant="h2" className={classes.sectionTitle}>
+              {videoBlockName}
+            </Typography>
             {_rawTextBlockBody && (
               <BlockContent
                 serializers={blockTypeDefaultSerializers}

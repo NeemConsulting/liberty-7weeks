@@ -1,0 +1,9 @@
+<svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 768 768">
+	<g>
+		<clipPath id="SVGID_2_">
+			<polygon points="187.5,64.5 500,384 187.5,696" />
+		</clipPath>
+		<path clipPath="url(#SVGID_2_)" d="M187.5,132l69-67.5L576,384L256.5,703.5l-69-67.5L441,384L187.5,132z" />
+	</g>
+	<path d="M67,619" />
+</svg>

@@ -1,0 +1,61 @@
+export default theme => ({
+  wrapper: {
+    backgroundColor: theme.palette.primary.main,
+    border: 'none',
+    color: theme.palette.common.white,
+    height: 50,
+    width: 40,
+    fontSize: '.875rem',
+    fontWeight: 700,
+    cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecoration: 'none',
+    transform: 'perspective(1px) translateZ(0)',
+    position: 'fixed',
+    bottom: 41,
+    right: 20,
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      zIndex: -1,
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: 'auto',
+      background: theme.palette.common.black,
+      transform: 'scaleY(0)',
+      transformOrigin: '0 100%',
+      transitionProperty: 'transform',
+      transitionDuration: '0.3s',
+      transitionTimingFunction: 'ease-out',
+    },
+    '&:hover:before': {
+      transform: 'scaleY(1)',
+    },
+    '& svg': {
+      fill: theme.palette.common.white,
+      width: 14,
+      height: 14,
+    },
+    [theme.breakpoints.up('md')]: {
+      bottom: 47,
+      height: 70,
+      width: 60,
+      fontSize: '1.125rem',
+      '& svg': {
+        fill: theme.palette.common.white,
+        width: 22,
+        height: 22,
+      },
+    },
+  },
+});
+
+export const inlineStyle = {
+  position: 'static',
+  zIndex: 1,
+};

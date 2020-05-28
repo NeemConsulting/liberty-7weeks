@@ -18,8 +18,6 @@ import ArticleHeader from '../../components/ArticleHeader';
 const useStyles = makeStyles(theme => ({
   articleBody: {
     fontSize: '1.125rem',
-    fontWeight: 400,
-    color: '#333',
   },
 }));
 
@@ -59,14 +57,14 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <ArticleHeader article={page} type={'gallery'} />
+        <Gallery
+          data={page.imageGallery.picture}
+          name={page.headline}
+          authorName={page.author.name}
+          slug={page.slug.current}
+        />
       </Container>
 
-      <Gallery
-        data={page.imageGallery.picture}
-        name={page.headline}
-        authorName={page.author.name}
-        slug={page.slug.current}
-      />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid className={classes.articleBody} item sm={7}>

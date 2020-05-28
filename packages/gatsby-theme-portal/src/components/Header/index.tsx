@@ -5,37 +5,11 @@ import Container from '@material-ui/core/Container';
 
 import LogoImage from '../../images/logo.svg';
 import SiteNavigation from '../Navigation';
-
 import SiteSearch from './search';
 import NewsletterFollow from './newsletter-follow';
 
-const useStyles = makeStyles(theme => ({
-  header: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 3,
-    height: '60px',
-    display: 'flex',
-    alignItems: 'center',
-    borderBottom: '1px solid #FF3366',
-    backgroundColor: 'black',
-  },
-  headerContentWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    [theme.breakpoints.up('md')]: {
-      justifyContent: 'flex-start',
-    },
-  },
-  logo: {
-    [theme.breakpoints.up('md')]: {
-      margin: '0 30px -2px 0',
-    },
-  },
-}));
+import Styles from './styles';
+const useStyles = makeStyles(Styles);
 
 const Header: FunctionComponent = () => {
   const classes = useStyles();
@@ -44,11 +18,11 @@ const Header: FunctionComponent = () => {
     <header className={classes.header}>
       <Container maxWidth="lg">
         <div className={classes.headerContentWrapper}>
-          <h1 className={classes.logo}>
+          <div className={classes.logo}>
             <Link to="/home-page">
               <img src={LogoImage} width="139" alt="Simple Article" />
             </Link>
-          </h1>
+          </div>
           <SiteNavigation />
           <NewsletterFollow />
           <SiteSearch />

@@ -1,64 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles(theme => ({
-  section: {
-    marginTop: 30,
-    marginBottom: 30,
-    position: 'relative',
-    '&:before': {
-      content: '""',
-      background: '#f8e6de',
-      position: 'absolute',
-      right: 0,
-      bottom: 0,
-      width: '100vw',
-      height: 10,
-      zIndex: -1,
-    },
-  },
-  sectionTitle: {
-    fontSize: '1.875rem',
-    fontWeight: 600,
-    lineHeight: 1.1,
-    position: 'relative',
-    margin: 0,
-    marginBottom: 30,
-    '&:before': {
-      content: '""',
-      background: '#f8e6de',
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      width: '100vw',
-      height: 20,
-      zIndex: -1,
-    },
-  },
-  productTitle: {
-    fontSize: '.875rem',
-    fontWeight: 600,
-    lineHeight: 1.4,
-    margin: 0,
-    marginTop: 8,
-    textAlign: 'center',
-  },
-  image: {
-    maxWidth: 140,
-    maxHeight: 140,
-    margin: 'auto',
-  },
-  gridContainer: {
-    paddingBottom: 10,
-  },
-  gridItem: {
-    padding: 0,
-    marginBottom: 20,
-  },
-}));
+import Styles from './styles';
+const useStyles = makeStyles(Styles);
 
 const ProductList: FunctionComponent<ProductListInterface> = ({ data }) => {
   const classes = useStyles();

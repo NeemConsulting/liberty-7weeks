@@ -85,5 +85,22 @@ export const blockTypeDefaultSerializers = {
         ></iframe>
       );
     },
+    block: props => {
+      const { style = 'normal' } = props.node;
+      if (style === 'blockquote') {
+        return (
+          <blockquote>
+            <p>
+              {props.children.map(element => {
+                return <span key={element}>{element}</span>;
+              })}
+            </p>
+          </blockquote>
+        );
+      }
+
+      // Fall back to default handling
+      return BlockContent.defaultSerializers.types.block(props);
+    },
   },
 };
