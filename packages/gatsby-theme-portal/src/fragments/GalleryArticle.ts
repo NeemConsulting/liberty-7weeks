@@ -4,6 +4,7 @@ export const query1 = graphql`
   fragment GalleryFieldsFull on SanityGalleryArticle {
     headline
     publishedAt(formatString: "MMMM D, YYYY")
+    _createdAt(formatString: "MMMM D, YYYY")
     _updatedAt(formatString: "MMMM D, YYYY")
     subheading
     slug {

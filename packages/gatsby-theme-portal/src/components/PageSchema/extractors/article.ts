@@ -1,23 +1,26 @@
-const extractor = (pageHref: string, data: any) => {
+const extractor = (pageHref: string, data: any, brandInfo: any) => {
+  const url = new URL(pageHref);
+
   const resp = {
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageHref,
     },
     headline: data.headline,
-    datePublished: data.publishedAt,
-    dateModified: data.publishedAt,
+    datePublished: data.publishedAt || data._createdAt,
+    dateModified: data.publishedAt || data._updatedAt,
     author: {
       '@type': 'Person',
       name: data.author ? data.author.name : 'Unilever',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Unilever',
+      name: brandInfo.title,
+      url: brandInfo.domainurl,
+      sameAs: brandInfo.sameAs,
       logo: {
         '@type': 'ImageObject',
-        url:
-          'https://www.unilever.com/Images/UNILEVER_LOGO_160_tcm244-541804.gif',
+        url: `${url.origin}/unilever-logo.png`,
       },
     },
   };

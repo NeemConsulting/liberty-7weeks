@@ -3,12 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import howtoExtractor from './extractors/howto';
 import articleExtractor from './extractors/article';
 import breadcrumbExtractor from './extractors/breadcrumb';
+import imageGallery from './extractors/imageGallery';
 import pageExtractor from './extractors/page';
 
 const extractorsMap: any = {
   HowTo: howtoExtractor,
   Article: articleExtractor,
   BreadcrumbList: breadcrumbExtractor,
+  ImageGallery: imageGallery,
   default: pageExtractor,
 };
 
@@ -18,9 +20,10 @@ const PageScheme = ({
   description,
   slug,
   image,
+  authorName,
   data,
 }: PageSchemaInterface) => {
-  const { site } = useStaticQuery(
+  const { site, sanityBrandInfo: brandInfo } = useStaticQuery(
     graphql`
       query {
         site {
@@ -29,24 +32,44 @@ const PageScheme = ({
             siteUrl
           }
         }
+        sanityBrandInfo {
+          youtubeurl
+          twitterurl
+          title
+          pinteresturl
+          facebookurl
+          instaurl
+          domainurl
+          brandLogoURL
+          brandImageURL
+          description
+          langhref
+        }
       }
     `
   );
   let pageHref = `${site.siteMetadata.siteUrl}/`;
   slug && (pageHref += `${slug}/`);
 
+  brandInfo.sameAs = [];
+  brandInfo.youtubeurl && brandInfo.sameAs.push(brandInfo.youtubeurl);
+  brandInfo.twitterurl && brandInfo.sameAs.push(brandInfo.twitterurl);
+  brandInfo.pinteresturl && brandInfo.sameAs.push(brandInfo.pinteresturl);
+  brandInfo.facebookurl && brandInfo.sameAs.push(brandInfo.facebookurl);
+  brandInfo.instaurl && brandInfo.sameAs.push(brandInfo.instaurl);
+
   const extractor = extractorsMap[type] || extractorsMap.default;
   const jsonLd = Object.assign(
     {
       '@context': 'http://schema.org',
       '@type': type,
-      author: { '@type': 'Organization', name: 'The Team' },
     },
-    extractor(pageHref, data)
+    extractor(pageHref, data, brandInfo)
   );
-  jsonLd.name = name || site.siteMetadata.siteName;
+  jsonLd.name = name || brandInfo.title;
+  authorName && (jsonLd.author = { '@type': 'Person', name: authorName });
 
-  description && (jsonLd.description = description);
+  jsonLd.description = description || brandInfo.descripton;
 
   image &&
     (jsonLd.image = {
@@ -74,6 +97,7 @@ interface PageSchemaInterface {
     height: string;
     width: string;
   };
+  authorName?: string;
   data?: any;
 }
 export default PageScheme;

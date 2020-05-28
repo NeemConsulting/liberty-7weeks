@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Children } from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { ReactComponent as Instagram } from '../../images/icons/instagram.svg';

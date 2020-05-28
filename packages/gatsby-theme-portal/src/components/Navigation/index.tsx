@@ -2,7 +2,6 @@ import React, { FunctionComponent, useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import getSlug from '../../helpers/getSlug';
 
 const useStyles = makeStyles(theme => ({
   NavigationToggleButton: {
@@ -231,6 +230,9 @@ const SiteNavigation: FunctionComponent = () => {
           navL1 {
             landingPage {
               name
+              slug {
+                current
+              }
             }
             name
             path
@@ -238,6 +240,9 @@ const SiteNavigation: FunctionComponent = () => {
           navL2 {
             landingPage {
               name
+              slug {
+                current
+              }
             }
             name
             path
@@ -283,7 +288,7 @@ const SiteNavigation: FunctionComponent = () => {
               (
                 navItem: {
                   navL1: NavItemInterface;
-                  navL2: NavItemInterface;
+                  navL2: [NavItemInterface];
                 },
                 index: number
               ) => (
@@ -295,7 +300,7 @@ const SiteNavigation: FunctionComponent = () => {
                     href={
                       navItem.navL1.path
                         ? navItem.navL1.path
-                        : `/${getSlug(navItem.navL1.landingPage.name)}`
+                        : `/${navItem.navL1.landingPage.slug.current}`
                     }
                     className={classes.navigationLink}
                   >
@@ -331,9 +336,7 @@ const SiteNavigation: FunctionComponent = () => {
                               to={
                                 navItem.path
                                   ? navItem.path
-                                  : `/${getSlug(
-                                      navItem.landingPage.name
-                                    )}`
+                                  : `/${navItem.landingPage.slug.current}`
                               }
                               className={classes.subNavigationLink}
                             >
@@ -359,6 +362,9 @@ interface NavItemInterface {
   path: string;
   landingPage?: {
     name: string;
+    slug: {
+      current: string;
+    };
   };
 }
 export default SiteNavigation;

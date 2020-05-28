@@ -5,15 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
-import RelatedArticles from 'src/components/RelatedArticles';
-import RichText from 'src/components/RichText';
-import Breadcrumb from 'src/components/Breadcrumb';
-import ArticleHeader from 'src/components/ArticleHeader';
-import ToolList from 'src/components/ToolList';
-import ProductList from 'src/components/ProductList';
-import Tags from 'src/components/Tags';
-import ReadNext from 'src/components/ReadNext';
-import PageSchema from 'src/components/PageSchema';
+import RelatedArticles from '../../components/RelatedArticles';
+import RichText from '../../components/RichText';
+import Breadcrumb from '../../components/Breadcrumb';
+import ArticleHeader from '../../components/ArticleHeader';
+import ToolList from '../../components/ToolList';
+import ProductList from '../../components/ProductList';
+import Tags from '../../components/Tags';
+import ReadNext from '../../components/ReadNext';
+import PageSchema from '../../components/PageSchema';
 
 const useStyles = makeStyles(theme => ({
   articleBody: {

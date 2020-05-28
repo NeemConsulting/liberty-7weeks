@@ -1,5 +1,4 @@
 const path = require('path');
-const { getSlug } = require('../utils');
 const component = path.resolve(
   process.cwd(),
   `../gatsby-theme-portal/src/templates/Product/index.tsx`
@@ -23,7 +22,7 @@ module.exports = async ({ graphql, createPage }) => {
 
   items.forEach(node => {
     createPage({
-      path: node.slug ? node.slug.current : getSlug(node.name),
+      path: node.slug.current,
       component,
       context: {
         title: node.name,

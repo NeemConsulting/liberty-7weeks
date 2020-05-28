@@ -33,7 +33,7 @@ const extractSteps = (pageHref, richTextBlocks) => {
     });
 };
 
-const extractor = (pageHref: string, data: any) => {
+const extractor = (pageHref: string, data: any, brandInfo: any) => {
   const supply =
     data.productList &&
     data.productList.map(product => ({
@@ -44,7 +44,7 @@ const extractor = (pageHref: string, data: any) => {
     }));
   const video = data.heroVideo && {
     '@type': 'VideoObject',
-    name: data.heroVideo.youTubeCaption,
+    name: data.heroVideo.youTubeCaption || data.headline,
     contentUrl: pageHref,
     thumbnailUrl: data.heroImage.asset.url,
     embedUrl: data.heroVideo.url,
