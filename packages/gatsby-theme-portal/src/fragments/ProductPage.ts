@@ -10,7 +10,15 @@ export const query1 = graphql`
     _rawMarketingDescription(resolveReferences: { maxDepth: 10 })
     image {
       asset {
+        label
+        title
         url
+        metadata {
+          dimensions {
+            height
+            width
+          }
+        }
         fluid {
           aspectRatio
           base64
