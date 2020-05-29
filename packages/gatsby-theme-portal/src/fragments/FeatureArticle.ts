@@ -14,6 +14,8 @@ export const query1 = graphql`
     }
     heroImage {
       asset {
+        label
+        title
         url
         metadata {
           dimensions {

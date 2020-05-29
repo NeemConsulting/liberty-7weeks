@@ -40,6 +40,7 @@ const OGTags = ({ type, data, slug }: OGTagsInterface) => {
       'og:type': type,
       'og:url': pageHref,
       'og:title': data.headline || brandInfo.title,
+      'og:site_name': brandInfo.title,
       'og:locale': brandInfo.langhref,
     },
     extractor(pageHref, data, brandInfo)
