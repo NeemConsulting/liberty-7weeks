@@ -58,30 +58,6 @@ export default () =>
   S.list()
     .title('Content')
     .items([
-      S.listItem()
-        .title('Site Structure')
-        .icon(FaSitemap)
-        .child(
-          S.list()
-            .title('Structure')
-            .items([
-              S.listItem()
-                .title('Navigation')
-                .icon(FaSitemap)
-                .schemaType('navBar')
-                .child(S.documentTypeList('navBar').title('Navigation V2 - Improved')),
-              S.listItem()
-                .title('Navigation - Depreciated - Do Not Use')
-                .icon(FaSitemap)
-                .child(
-                  S.editor()
-                    .id('navigation')
-                    .schemaType('navigation')
-                    .documentId('navigation')
-                )
-            ])
-        ),
-
       S.divider(),
       article,
       S.listItem()
@@ -199,6 +175,20 @@ export default () =>
                 .icon(FaTags)
                 .schemaType('tag')
                 .child(S.documentTypeList('tag').title('Tags'))
+            ])
+        ),
+      S.listItem()
+        .title('Site Structure')
+        .icon(FaSitemap)
+        .child(
+          S.list()
+            .title('Structure')
+            .items([
+              S.listItem()
+                .title('Navigation')
+                .icon(FaSitemap)
+                .schemaType('navBar')
+                .child(S.documentTypeList('navBar').title('Navigation V2 - Improved'))
             ])
         ),
       S.listItem()
