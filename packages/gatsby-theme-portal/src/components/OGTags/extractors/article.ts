@@ -3,7 +3,8 @@ const extractor = (pageHref: string, data: any, brandInfo: any) => {
     'article:published_time': data.publishedAt || data._createdAt,
     'article:modified_time': data.publishedAt || data._updatedAt,
     'article:author': data.author ? data.author.name : 'Unilever',
-    'og:description': data.subheading,
+    'article:tag': data.seo.metaKeywords,
+    'og:description': data.seo.metaDescription,
   };
 
   if (data.heroImage) {
