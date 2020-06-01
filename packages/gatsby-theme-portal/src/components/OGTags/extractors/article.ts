@@ -8,6 +8,8 @@ const extractor = (pageHref: string, data: any, brandInfo: any) => {
   };
 
   if (data.heroImage) {
+    resp['twitter:card'] = 'summary_large_image';
+    resp['twitter:image'] = data.heroImage.asset.url;
     resp['og:image'] = data.heroImage.asset.url;
     resp['og:image:width'] = data.heroImage.asset.metadata.dimensions.width;
     resp['og:image:height'] = data.heroImage.asset.metadata.dimensions.height;

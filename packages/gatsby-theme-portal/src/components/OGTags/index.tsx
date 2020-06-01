@@ -34,16 +34,23 @@ const OGTags = ({ type, data, slug }: OGTagsInterface) => {
   slug && (pageHref += `${slug}/`);
 
   const extractor = extractorsMap[type] || extractorsMap.default;
-
+  const title =
+    data.seo && data.seo.metaTitle
+      ? data.seo.metaTitle
+      : data.headline || brandInfo.title;
+  const description =
+    data.seo && data.seo.metaDescription
+      ? data.seo.metaDescription
+      : data.headline || brandInfo.title;
   const metaTags = Object.assign(
     {
       'og:type': type,
       'og:url': pageHref,
-      'og:title':
-        data.seo && data.seo.metaTitle
-          ? data.seo.metaTitle
-          : data.headline || brandInfo.title,
+      'og:title': title,
       'og:site_name': brandInfo.title,
+      'twitter:site': brandInfo.title,
+      'twitter:title': title,
+      'twitter:description': description,
       'og:locale': brandInfo.langhref,
     },
     extractor(pageHref, data, brandInfo)
