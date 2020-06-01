@@ -44,6 +44,19 @@ const SiteNavigation: FunctionComponent = () => {
 
   const classes = useStyles();
 
+  const getUrl = (navItem: NavItemInterface) => {
+    let url;
+    if (navItem.path) {
+      url = navItem.path;
+    } else if (navItem.landingPage) {
+      url = navItem.landingPage.slug.current;
+    } else {
+      url = '#';
+    }
+
+    return url;
+  };
+
   return (
     <React.Fragment>
       <button
@@ -81,11 +94,7 @@ const SiteNavigation: FunctionComponent = () => {
                   key={navItem.navL1.name}
                 >
                   <a
-                    href={
-                      navItem.navL1.path
-                        ? navItem.navL1.path
-                        : `/${navItem.navL1.landingPage.slug.current}`
-                    }
+                    href={getUrl(navItem.navL1)}
                     className={classes.navigationLink}
                   >
                     {navItem.navL1.name}
@@ -117,11 +126,7 @@ const SiteNavigation: FunctionComponent = () => {
                           >
                             <Link
                               tabIndex="0"
-                              to={
-                                navItem.path
-                                  ? navItem.path
-                                  : `/${navItem.landingPage.slug.current}`
-                              }
+                              to={getUrl(navItem)}
                               className={classes.subNavigationLink}
                             >
                               {navItem.name}
