@@ -10,11 +10,12 @@ This repo includes several packages:
 1. `studio` currently includes hardcoded config (sanityId - *8azq2eb8*), can be changed on `packages/studio/sanity.json:7`
 2. `tl-ph` supports configuration files (`packages/tl-ph/.env.tl-ph`, `packages/tl-ph/.env.develop`) where you can specify required env vars.
 
-.env.development should contain sanity projectId and datataset name, e.g:
+`.env.development` should contain sanity projectId and datataset name (sanityToken is optional), e.g:
 
 ```
 app_local_sanityId = "8azq2eb8"
 app_local_sanityDataset = "production"
+app_local_sanityToken = "yourTokenValue"
 ```
 
 # Installation

@@ -4,6 +4,7 @@ const headComponents = [];
 
 headComponents.push(
   <link rel="preconnect" href="https://cdn.sanity.io" />,
+  <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," />,
   <script
     type="text/javascript"
     dangerouslySetInnerHTML={{

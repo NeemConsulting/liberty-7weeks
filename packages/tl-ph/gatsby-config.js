@@ -19,7 +19,8 @@ module.exports = {
           meta_lang: process.env['app_local_locale'],
           site_name: process.env['app_local_siteName'],
           sanity_id: process.env['app_local_sanityId'],
-          sanity_dataset: process.env['app_local_sanityDataset']
+          sanity_dataset: process.env['app_local_sanityDataset'],
+          sanity_token: process.env['app_local_sanityToken']
         }
       },
     },

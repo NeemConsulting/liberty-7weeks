@@ -33,6 +33,17 @@ module.exports = ({ themeConfig }) => {
     netlifyOptions.headers['/commons.js'] = [noCacheHeader];
     netlifyOptions.headers['/app.js'] = [noCacheHeader];
   }
+  const sanitySourcePlugin = {
+    resolve: `gatsby-source-sanity`,
+    options: {
+      projectId: siteMetadata.sanityId,
+      dataset: siteMetadata.sanityDataset,
+    },
+  };
+
+  if (themeConfig['sanity_token']) {
+    sanitySourcePlugin.options.token = themeConfig['sanity_token'];
+  }
 
   const plugins = [
     'gatsby-plugin-material-ui',
@@ -70,14 +81,8 @@ module.exports = ({ themeConfig }) => {
       resolve: `gatsby-plugin-netlify`,
       options: netlifyOptions,
     },
-    {
-      resolve: `gatsby-source-sanity`,
-      options: {
-        projectId: siteMetadata.sanityId,
-        dataset: siteMetadata.sanityDataset,
-      },
-    },
   ];
+  plugins.push(sanitySourcePlugin);
 
   return {
     siteMetadata,
