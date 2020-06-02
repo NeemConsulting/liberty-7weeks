@@ -1,19 +1,12 @@
 import { withStyles } from '@material-ui/core';
 
-import ProximaRegularWoff2 from '../fonts/ProximaNovaAltRegular.woff2';
-import ProximaRegularWoff from '../fonts/ProximaNovaAltRegular.woff';
-import ProximaLightWoff2 from '../fonts/ProximaNovaAltLight.woff2';
-import ProximaLightWoff from '../fonts/ProximaNovaAltLight.woff';
-import ProximaBoldWoff2 from '../fonts/ProximaNovaAltBold.woff2';
-import ProximaBoldWoff from '../fonts/ProximaNovaAltBold.woff';
-
 const ProximaRegular = {
   fontFamily: 'Proxima Nova Alt',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
   src: `
-    url(${ProximaRegularWoff2}) format('woff2'), url(${ProximaRegularWoff}) format('woff')
+    url('/fonts/ProximaNovaAltRegular.woff2') format('woff2'), url('/fonts/ProximaNovaAltRegular.woff2') format('woff')
   `,
 };
 
@@ -23,7 +16,7 @@ const ProximaRegularLight = {
   fontDisplay: 'swap',
   fontWeight: 300,
   src: `
-    url(${ProximaLightWoff2}) format('woff2'), url(${ProximaLightWoff}) format('woff')
+    url('/fonts/ProximaNovaAltLight.woff2') format('woff2'), url('/fonts/ProximaNovaAltRegular.woff') format('woff')
   `,
 };
 
@@ -33,7 +26,7 @@ const ProximaRegularBold = {
   fontDisplay: 'swap',
   fontWeight: 600,
   src: `
-    url(${ProximaBoldWoff2}) format('woff2'), url(${ProximaBoldWoff}) format('woff')
+    url('/fonts/ProximaNovaAltBold.woff2') format('woff2'), url('/fonts/ProximaNovaAltBold.woff') format('woff')
   `,
 };
 

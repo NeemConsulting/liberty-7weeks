@@ -116,11 +116,10 @@ exports.onCreateWebpackConfig = ({
               chunks: 'all',
               priority: 1,
             },
-            styles: {
-              name: 'styles',
-              test: /\.css$/,
+            components: {
+              test: /[\\/]components[\\/]/,
               chunks: 'all',
-              enforce: true,
+              priority: 1,
             },
           },
         },
