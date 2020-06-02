@@ -70,10 +70,8 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
               <Img
                 fluid={slide.heroImage.asset.fluid}
                 alt={slide.heroImage.alt}
-                imgStyle={{
-                  height: 'auto',
-                }}
-                style={{ height: '422px', width: '788px' }}
+                style={{ height: '422px' }}
+                imgStyle={{ objectPosition: 'top center' }}
               />
             )}
             <div className={classes.copy}>

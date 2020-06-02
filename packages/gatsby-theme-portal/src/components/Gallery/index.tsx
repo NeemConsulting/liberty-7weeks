@@ -93,7 +93,12 @@ const Gallery: FunctionComponent<GalleryInterface> = ({
                 className="img-responsive"
                 fluid={picture.asset.fluid}
                 alt={picture.alt}
-                style={{ left: '50%', transform: 'translateX(-50%)' }}
+                imgStyle={{
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: 'auto',
+                  height: 'auto',
+                }}
               />
             </div>
           ))}

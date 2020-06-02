@@ -22,17 +22,23 @@ const Breadcrumb: FunctionComponent<BreadcrumbInterface> = ({
                 Home
               </Link>
             </li>
-            <li className={classes.item}>
-              <Link to={`/${tag.tagCategory.name}`} className={classes.link}
-              >
-                {tag.tagCategory.name}
-              </Link>
-            </li>
-            <li className={classes.item}>
-              <Link to={`${tag.name}`} className={classes.link}>
-                {tag.name}
-              </Link>
-            </li>
+            {tag && (
+              <>
+                <li className={classes.item}>
+                  <Link
+                    to={`/${tag.tagCategory.name}`}
+                    className={classes.link}
+                  >
+                    {tag.tagCategory.name}
+                  </Link>
+                </li>
+                <li className={classes.item}>
+                  <Link to={`${tag.name}`} className={classes.link}>
+                    {tag.name}
+                  </Link>
+                </li>
+              </>
+            )}
             <li className={classNames(classes.item, classes.active)}>
               {pageTitle}
             </li>
@@ -44,7 +50,7 @@ const Breadcrumb: FunctionComponent<BreadcrumbInterface> = ({
 };
 
 interface BreadcrumbInterface {
-  tag: any;
+  tag?: any;
   pageTitle: string;
 }
 

@@ -19,6 +19,7 @@ const color = {
     darker: '#999',
   },
   white: '#fff',
+  black: '#000',
 };
 
 const typography = {
@@ -73,6 +74,7 @@ const overrides = {
       fontSize: '1.875rem',
       lineHeight: 1.1,
       letterSpacing: 0,
+      color: color.black,
       [breakpoints.up('md')]: {
         fontSize: '2.875rem',
       },

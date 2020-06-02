@@ -7,16 +7,37 @@ export default theme => ({
       paddingBottom: theme.spacing(5),
       paddingTop: theme.spacing(5),
     },
+    '& h1': {
+      fontSize: '1.875rem',
+      fontWeight: 600,
+      lineHeight: 1.1,
+      marginTop: 0,
+      marginBottom: 10,
+      [theme.breakpoints.up('md')]: {
+        fontSize: '2.875rem',
+      },
+    },
+    '&.textblocktypea': {
+      backgroundColor: theme.palette.common.white,
+      '& p': {
+        width: '80%',
+        margin: 'auto',
+      },
+    },
   },
   sectionDescription: {
     textAlign: 'center',
     margin: 'auto',
+    color: theme.palette.grey[50],
     '& p': {
       fontSize: '.875rem',
       margin: 0,
       [theme.breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
+    },
+    '& h1, & h2, & h3, & h4, & h5, & h6': {
+      color: theme.palette.common.black,
     },
     '& h2': {
       fontSize: '1.5rem',

@@ -35,7 +35,7 @@ export const blockTypeDefaultSerializers = {
           <BlockContent blocks={instructionName} />
           <BlockContent blocks={directions} />
           <figure>
-            <Img fluid={fluidProps} alt={''} />
+            <Img fluid={fluidProps} alt={imageName.alt} />
           </figure>
         </>
       );
@@ -60,7 +60,7 @@ export const blockTypeDefaultSerializers = {
           >
             <div className="c-product__image">
               <figure>
-                <Img fluid={fluidProps} alt={''} />
+                <Img fluid={fluidProps} alt={node.product.image.alt} />
               </figure>
             </div>
             <p className="c-product__tagline">

@@ -148,6 +148,9 @@ export const query = graphql`
         id
         name
         _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
+        textBlockType {
+          name
+        }
       }
       ... on SanityVideoBlock {
         id
@@ -159,6 +162,28 @@ export const query = graphql`
           youTubeCaption
         }
         _type
+      }
+      ... on SanityImageBlock {
+        name
+        image {
+          asset {
+            fluid {
+              aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+            }
+          }
+          alt
+        }
+        _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
+        url
+        imageBlockType {
+          name
+        }
       }
     }
   }

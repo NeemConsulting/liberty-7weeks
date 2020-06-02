@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import Container from '@material-ui/core/Container';
-import { SanityVideoBlockInterface } from './models';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import BlockContent from '@sanity/block-content-to-react';
+import { SanityVideoBlockInterface } from './models';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 import { getYouTubeId } from '../../helpers/youtube';
-
 import Styles from './styles';
-import { Typography } from '@material-ui/core';
+
 const useStyles = makeStyles(Styles);
 
 const SanityVideoBlock: FunctionComponent<SanityVideoBlockInterface> = ({
