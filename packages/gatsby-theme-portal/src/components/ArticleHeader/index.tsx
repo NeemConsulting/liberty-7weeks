@@ -84,13 +84,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
       </div>
       {!imageGallery && (
         <div className={classes.heroImage}>
-          {!showVideo && (
-            <Img
-              className="img-responsive"
-              fluid={heroImage.asset.fluid}
-              alt={heroImage.alt}
-            />
-          )}
+          {!showVideo && <img src={heroImage.asset.url} alt="" />}
           {!showVideo && heroVideo && (
             <button
               type="button"
