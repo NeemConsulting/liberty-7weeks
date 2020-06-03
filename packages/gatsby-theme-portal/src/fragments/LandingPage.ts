@@ -30,6 +30,17 @@ export const query = graphql`
                   srcSetWebp
                   srcWebp
                 }
+                localFile {
+                  childImageSharp {
+                    fluid(
+                      toFormat: JPG
+                      jpegProgressive: true
+                      jpegQuality: 70
+                    ) {
+                      src
+                    }
+                  }
+                }
               }
               alt
             }
@@ -57,6 +68,17 @@ export const query = graphql`
                   srcSetWebp
                   srcWebp
                 }
+                localFile {
+                  childImageSharp {
+                    fluid(
+                      toFormat: JPG
+                      jpegProgressive: true
+                      jpegQuality: 70
+                    ) {
+                      src
+                    }
+                  }
+                }
               }
               alt
             }
@@ -79,6 +101,17 @@ export const query = graphql`
                   srcSet
                   srcSetWebp
                   srcWebp
+                }
+                localFile {
+                  childImageSharp {
+                    fluid(
+                      toFormat: JPG
+                      jpegProgressive: true
+                      jpegQuality: 70
+                    ) {
+                      src
+                    }
+                  }
                 }
               }
               alt

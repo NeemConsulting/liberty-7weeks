@@ -19,7 +19,7 @@ const Header: FunctionComponent = () => {
       <Container maxWidth="lg">
         <div className={classes.headerContentWrapper}>
           <div className={classes.logo}>
-            <Link to="/home-page">
+            <Link to="/">
               <img src={LogoImage} width="139" alt="Simple Article" />
             </Link>
           </div>

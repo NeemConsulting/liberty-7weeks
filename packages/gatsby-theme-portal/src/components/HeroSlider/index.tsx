@@ -64,16 +64,25 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
         <span className={classes.srOnly}>Next</span>
       </button>
       <Swiper {...params} getSwiper={updateSwiper}>
-        {slides.map((slide: any) => (
+        {slides.map((slide: any, index: number) => (
           <div key={slide.slug.current}>
-            {slide.heroImage && (
-              <Img
-                fluid={slide.heroImage.asset.fluid}
-                alt={slide.heroImage.alt}
-                style={{ height: '422px' }}
-                imgStyle={{ objectPosition: 'top center' }}
-              />
-            )}
+            {slide.heroImage &&
+              (index ? (
+                <Img
+                  fluid={slide.heroImage.asset.fluid}
+                  alt={slide.heroImage.alt}
+                  style={{ height: '422px' }}
+                  imgStyle={{ objectPosition: 'top center' }}
+                />
+              ) : (
+                <img
+                  src={
+                    slide.heroImage.asset.localFile.childImageSharp.fluid.src
+                  }
+                  alt={slide.heroImage.alt}
+                  style={{ height: '422px' }}
+                />
+              ))}
             <div className={classes.copy}>
               <div className={classes.copyInner}>
                 <Typography variant="h2" className={classes.heading}>
