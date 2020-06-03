@@ -32,6 +32,13 @@ export const query1 = graphql`
           srcSetWebp
           srcWebp
         }
+        localFile {
+          childImageSharp {
+            fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+              src
+            }
+          }
+        }
       }
     }
     headline
@@ -48,7 +55,7 @@ export const query1 = graphql`
       image {
         alt
         asset {
-          fluid {
+          fluid(maxWidth: 50, maxHeight: 50) {
             aspectRatio
             base64
             sizes

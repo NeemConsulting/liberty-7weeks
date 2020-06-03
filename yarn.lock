@@ -11256,6 +11256,11 @@ gatsby-source-filesystem@^2.0.11:
     valid-url "^1.0.9"
     xstate "^4.9.1"
 
+gatsby-source-sanity-transform-images@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-source-sanity-transform-images/-/gatsby-source-sanity-transform-images-0.0.7.tgz#6c2190c98bcc7d5456e1281e29f5a88c8ebbb29e"
+  integrity sha512-l+POvgtPj7rNzdU4ooDxdVtRQceeFRIlgwtY7yZfBslDrQT05kFn2q8pbjG2Knul4KM+KHWxvoM0HethBzOiSg==
+
 gatsby-source-sanity@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-5.0.6.tgz#d1d7285774d29677258e2d22723f2c50a810a403"
