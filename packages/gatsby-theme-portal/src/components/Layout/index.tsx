@@ -5,7 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { FormGroup, FormControlLabel, Switch } from '@material-ui/core/';
 
-import GlobalStyles from '../GlobalStyles';
 import theme from '../theme';
 import themeDark from '../theme-dark';
 
@@ -25,7 +24,6 @@ const Layout = ({ className, children }: LayoutProps) => {
     <React.Fragment>
       <ThemeProvider theme={dark ? themeDark : theme}>
         <CssBaseline />
-        <GlobalStyles />
         <a href="#main" className={classes.skipLink}>
           <span className={classes.skipLinkText}>Skip to content</span>
         </a>

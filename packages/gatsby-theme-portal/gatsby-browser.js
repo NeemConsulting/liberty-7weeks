@@ -1,4 +1,4 @@
 import 'url-search-params-polyfill';
-import 'whatwg-fetch';
+import 'src/globalStyles.css';
 
 export const disableCorePrefetching = () => true;
