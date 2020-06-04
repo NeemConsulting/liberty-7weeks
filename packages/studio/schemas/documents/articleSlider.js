@@ -39,6 +39,26 @@ export default {
           to: [{type: 'howToArticle'}, {type: 'featureArticle'}, {type: 'galleryArticle'}]
         }
       ]
+    },
+    {
+      name: 'searchCtaLabel',
+      type: 'string',
+      title: 'Search CTA Label',
+      description: 'For example: See All, or leave blank'
+    },
+    {
+      name: 'searchTags',
+      type: 'array',
+      title: 'Search Tags',
+      description: 'Add list of tags that will be searched, when CTA label is pressed',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'tag'
+          }
+        }
+      ]
     }
   ],
   preview: {

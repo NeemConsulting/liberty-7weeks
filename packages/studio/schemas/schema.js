@@ -14,14 +14,20 @@ import tagCategory from './documents/tagCategory'
 import product from './documents/product'
 import brand from './documents/brand'
 import howToArticle from './documents/howToArticle'
+import howToTemplate from './documents/howToTemplate'
+import featureTemplate from './documents/featureTemplate'
+import galleryTemplate from './documents/galleryTemplate'
 import featureArticle from './documents/featureArticle'
 import galleryArticle from './documents/galleryArticle'
 import brandInfo from './documents/brandInfo'
+import globalLabels from './documents/globalLabels'
 import landingPage from './documents/landingPage'
 import imageBlock from './documents/imageBlock'
 import imageBlockType from './documents/imageBlockType'
 import textBlock from './documents/textBlock'
 import textBlockType from './documents/textBlockType'
+import taxonomyBlock from './documents/taxonomyBlock'
+import taxonomyBlockType from './documents/taxonomyBlockType'
 import videoBlock from './documents/videoBlock'
 import videoBlockType from './documents/videoBlockType'
 import newsletterBlock from './documents/newsletterBlock'
@@ -68,10 +74,14 @@ export default createSchema({
     config,
     brand,
     brandInfo,
+    globalLabels,
     tagCategory,
     featureArticle,
     galleryArticle,
     howToArticle,
+    howToTemplate,
+    featureTemplate,
+    galleryTemplate,
     landingPage,
     product,
     productSlider,
@@ -79,6 +89,8 @@ export default createSchema({
     imageBlockType,
     imageBlock,
     textBlockType,
+    taxonomyBlock,
+    taxonomyBlockType,
     videoBlock,
     videoBlockType,
     newsletterBlock,

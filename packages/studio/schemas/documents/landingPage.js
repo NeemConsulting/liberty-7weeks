@@ -11,7 +11,19 @@ export default {
       name: 'name',
       type: 'string',
       title: 'Landing Page',
-      description: 'Name your landing page - may be fixed list in the future'
+      description: 'Name your landing page - Used as internal identifier'
+    },
+    {
+      name: 'headline',
+      type: 'string',
+      title: 'Headline',
+      description: 'Headline of section / landing Page'
+    },
+    {
+      name: 'introduction',
+      type: 'textBlockPortableText',
+      title: 'Introduction',
+      description: 'Brief intro to this section / landing page'
     },
     {
       name: 'landingSections',
