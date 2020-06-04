@@ -274,7 +274,8 @@ export default () =>
             'videoBlock',
             'videoBlockType',
             'newsletterBlock',
-            'newsletterBlockType'
+            'newsletterBlockType',
+            'beforeAfterImage'
           ].includes(listItem.getId())
       )
     ])
