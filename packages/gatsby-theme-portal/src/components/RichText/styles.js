@@ -1,5 +1,6 @@
 export default theme => ({
   richText: {
+    counterReset: 'step',
     paddingTop: theme.spacing(5),
     marginBottom: theme.spacing(4),
     position: 'relative',
@@ -13,9 +14,21 @@ export default theme => ({
       width: '100vw',
       zIndex: -1,
     },
+    '& .c-image': {
+      marginBottom: theme.spacing(2),
+      '&>div': {
+        marginBottom: 0,
+      },
+      '&__credit': {
+        fontSize: '.75rem',
+        color: theme.palette.grey[100],
+        marginTop: theme.spacing(0.5),
+      },
+    },
     '& h2': {
       fontSize: '1.875rem',
       fontWeight: 700,
+      lineHeight: 1.1,
       marginTop: theme.spacing(6.25),
       marginBottom: theme.spacing(2.5),
       marginLeft: 0,
@@ -42,8 +55,8 @@ export default theme => ({
     },
     '& h3': {
       fontSize: '1.5rem',
-      fontWeight: 400,
-      margin: 0,
+      fontWeight: 600,
+      marginTop: 0,
       marginBottom: theme.spacing(1),
       [theme.breakpoints.up('md')]: {
         fontSize: '1.875rem',
@@ -51,15 +64,18 @@ export default theme => ({
     },
     '& p': {
       fontSize: '.875rem',
-      margin: 0,
+      marginTop: 0,
       marginBottom: theme.spacing(2),
       [theme.breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
     },
     '& div': {
-      margin: 0,
+      marginTop: 0,
       marginBottom: theme.spacing(2),
+    },
+    '& figure': {
+      margin: 0,
     },
     '& a': {
       color: theme.palette.common.black,
@@ -90,85 +106,53 @@ export default theme => ({
         right: 0,
       },
     },
-    '& figure': {
-      margin: 0,
-      marginBottom: theme.spacing(2),
-    },
-    '& .c-product': {
-      marginBottom: theme.spacing(3.75),
-      marginTop: theme.spacing(3.75),
-      textAlign: 'center',
+    '& .c-step': {
       position: 'relative',
-    },
-    '& .c-product__name': {
-      fontSize: '.875rem',
-      fontWeight: 700,
-      maxWidth: '80%',
-      margin: 'auto',
-      paddingBottom: theme.spacing(0.375),
-      '& span': {
-        backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% .1875rem',
-        backgroundPosition: '0 100%',
-      },
+      paddingLeft: 40,
+      marginTop: theme.spacing(5),
       [theme.breakpoints.up('md')]: {
-        fontSize: '1.125rem',
-      },
-    },
-    '& .c-product__tagline': {
-      marginBottom: theme.spacing(1.25),
-      '& span': {
-        fontSize: '1.125rem',
-        fontWeight: 700,
-        background: `linear-gradient(to bottom,${theme.palette.common.white} 40%,${theme.palette.quaternary.main} 5%,${theme.palette.quaternary.main} 95%)`,
-        display: 'inline-block',
-      },
-    },
-    '& .c-product__image': {
-      width: 250,
-      margin: 'auto',
-      position: 'relative',
-    },
-    '& .c-product__link': {
-      '&:before, &:after': {
-        display: 'none',
-      },
-    },
-    '& .c-product__buy': {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(1),
-      paddingRight: theme.spacing(1.5),
-      paddingLeft: theme.spacing(1.5),
-      fontSize: '.875rem',
-      fontWeight: 700,
-      position: 'absolute',
-      bottom: 10,
-      right: -30,
-      transform: 'perspective(1px) translateZ(0)',
-      '&:after': {
-        display: 'none',
+        paddingLeft: 100,
       },
       '&:before': {
-        content: '""',
         position: 'absolute',
-        zIndex: -1,
         top: 0,
         left: 0,
-        right: 0,
-        bottom: 0,
-        height: 'auto',
-        background: theme.palette.common.black,
-        transform: 'scaleX(0)',
-        transformOrigin: '0 50%',
-        transitionProperty: 'transform',
-        transitionDuration: '0.3s',
-        transitionTimingFunction: 'ease-out',
+        counterIncrement: 'step',
+        content: `${'counter(step)'}`,
+        fontSize: '3.125rem',
+        fontWeight: 600,
+        lineHeight: 1,
+        marginTop: theme.spacing(-0.625),
+        color: theme.palette.tertiary.main,
+        fontFamily: 'Proxima Nova Alt',
+        [theme.breakpoints.up('md')]: {
+          fontSize: '6.25rem',
+        },
       },
-      '&:hover:before': {
-        transform: 'scaleX(1)',
+    },
+    '& .c-step__reset': {
+      counterReset: 'step',
+      position: 'relative',
+      paddingLeft: 40,
+      marginTop: theme.spacing(5),
+      [theme.breakpoints.up('md')]: {
+        paddingLeft: 100,
+      },
+      '&:before': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        counterIncrement: 'step',
+        content: `${'counter(step)'}`,
+        fontSize: '3.125rem',
+        fontWeight: 600,
+        lineHeight: 1,
+        marginTop: theme.spacing(-0.625),
+        color: theme.palette.tertiary.main,
+        fontFamily: 'Proxima Nova Alt',
+        [theme.breakpoints.up('md')]: {
+          fontSize: '6.25rem',
+        },
       },
     },
   },

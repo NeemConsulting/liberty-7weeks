@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
@@ -12,6 +12,17 @@ import Styles from './styles';
 const useStyles = makeStyles(Styles);
 
 const Header: FunctionComponent = () => {
+  const data = useStaticQuery(graphql`
+    query brandSocialLinks {
+      brandInfo: sanityBrandInfo {
+        pinteresturl
+        twitterurl
+        youtubeurl
+        facebookurl
+        instaurl
+      }
+    }
+  `);
   const classes = useStyles();
 
   return (
@@ -24,7 +35,10 @@ const Header: FunctionComponent = () => {
             </Link>
           </div>
           <SiteNavigation />
-          <NewsletterFollow />
+          <NewsletterFollow
+            label={'Subscribe to our newsletter'}
+            links={data.brandInfo}
+          />
           <SiteSearch />
         </div>
       </Container>

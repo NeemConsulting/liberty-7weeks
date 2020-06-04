@@ -29,6 +29,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
       galleryArticles: { nodes: galleryNodes },
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
+      brandInfo,
     },
   } = props;
 
@@ -58,7 +59,11 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
       <OGTags type={'article'} slug={page.slug.current} data={page} />
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
-        <ArticleHeader article={page} type={'gallery'} />
+        <ArticleHeader
+          article={page}
+          type={'gallery'}
+          socialLinks={brandInfo}
+        />
         <Gallery
           data={page.imageGallery.picture}
           name={page.headline}
@@ -69,13 +74,12 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
 
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} item sm={7}>
-            {/* TODO: Rename data with 'body' - generic dev practice */}
+          <Grid className={classes.articleBody} xs={12} item sm={7}>
             <RichText data={page._rawBody} />
             {page.readnext && <ReadNext data={page} />}
           </Grid>
-          <Grid item sm={1}></Grid>
-          <Grid item sm={4}>
+          <Grid item xs={12} sm={1}></Grid>
+          <Grid item xs={12} sm={4} style={{ position: 'relative' }}>
             {relatedArticles.length !== 0 && (
               <RelatedArticles articles={relatedArticles} />
             )}
@@ -124,6 +128,14 @@ export const query = graphql`
     page: sanityGalleryArticle(slug: { current: { eq: $slug } }) {
       ...GalleryFieldsFull
     }
+
+    brandInfo: sanityBrandInfo {
+      pinteresturl
+      twitterurl
+      youtubeurl
+      facebookurl
+      instaurl
+    }
   }
 `;
 
@@ -133,6 +145,7 @@ interface GalleryArticlePageProps {
     galleryArticles: any;
     featureArticles: any;
     howToArticles: any;
+    brandInfo: any;
   };
   pageContext: {
     slug: string;

@@ -19,6 +19,13 @@ const Footer: FunctionComponent = () => {
           }
         }
       }
+      brandInfo: sanityBrandInfo {
+        pinteresturl
+        twitterurl
+        youtubeurl
+        facebookurl
+        instaurl
+      }
     }
   `);
 
@@ -26,7 +33,7 @@ const Footer: FunctionComponent = () => {
 
   return (
     <footer className={classes.footer}>
-      <SocialMenu />
+      <SocialMenu links={data.brandInfo} />
       <nav className={classes.wrapper} role="navigation">
         <ul className={classes.navigationItems}>
           {data.sanityNavBar.navItems.map(

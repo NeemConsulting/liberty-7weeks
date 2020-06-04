@@ -69,12 +69,24 @@ export default theme => ({
         height: 399,
       },
     },
+    '& .preloader-icon': {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      '& svg': {
+        width: 60,
+        height: 60,
+      },
+    },
   },
   iconVideo: {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translateX(-50%) translateY(-50%)',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
     border: 0,
     cursor: 'pointer',
     backgroundColor: 'transparent',
@@ -115,15 +127,23 @@ export default theme => ({
   },
   tutorialInfoBlock: {
     backgroundColor: theme.palette.secondary.main,
-    paddingTop: theme.spacing(1.25),
-    paddingBottom: theme.spacing(1.25),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    fontSize: '.75rem',
+    padding: theme.spacing(1),
+    fontSize: '.625rem',
     lineHeight: 1.1,
     letterSpacing: 1,
-    marginRight: theme.spacing(2.5),
+    marginRight: theme.spacing(1.5),
     flex: '1 50%',
+    display: 'flex',
+    position: 'relative',
+    alignItems: 'center',
+    [theme.breakpoints.up('md')]: {
+      paddingTop: theme.spacing(1.25),
+      paddingBottom: theme.spacing(1.25),
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      marginRight: theme.spacing(2.5),
+      fontSize: '.75rem',
+    },
     '&:last-child': {
       marginRight: 0,
     },
@@ -134,6 +154,37 @@ export default theme => ({
     },
     '& span': {
       textTransform: 'capitalize',
+    },
+  },
+  icon: {
+    width: '100%',
+    flex: 1,
+    textAlign: 'right',
+    '&.b-skill': {
+      '& svg': {
+        width: 24,
+        marginLeft: 5,
+        '&:first-child': {
+          marginLeft: 0,
+        },
+        [theme.breakpoints.up('md')]: {
+          width: 44,
+          height: 44,
+          marginLeft: 10,
+        },
+      },
+    },
+    '& svg': {
+      opacity: 0.2,
+      marginLeft: 10,
+      '&.active': {
+        opacity: 1,
+      },
+      [theme.breakpoints.up('md')]: {
+        width: 44,
+        height: 44,
+        marginLeft: 10,
+      },
     },
   },
   flex: {

@@ -29,11 +29,13 @@ const FeatureArticle = (props: FeatureArticleProps) => {
       galleryArticles: { nodes: galleryNodes },
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
+      brandInfo,
     },
   } = props;
 
   const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
+
   page.seo = page.seo || {};
 
   return (
@@ -60,15 +62,19 @@ const FeatureArticle = (props: FeatureArticleProps) => {
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} item sm={7}>
-            <ArticleHeader article={page} type={'feature'} />
+          <Grid className={classes.articleBody} item xs={12} sm={7}>
+            <ArticleHeader
+              article={page}
+              type={'feature'}
+              socialLinks={brandInfo}
+            />
             {page.toolList && <ToolList data={page.toolList} />}
             {page.productList && <ProductList data={page.productList} />}
             {page._rawFeatureBody && <RichText data={page._rawFeatureBody} />}
             {page.readnext && <ReadNext data={page} />}
           </Grid>
-          <Grid item sm={1}></Grid>
-          <Grid item sm={4}>
+          <Grid item xs={12} sm={1}></Grid>
+          <Grid item xs={12} sm={4}>
             {relatedArticles.length !== 0 && (
               <RelatedArticles articles={relatedArticles} />
             )}
@@ -116,6 +122,13 @@ export const query = graphql`
     page: sanityFeatureArticle(slug: { current: { eq: $slug } }) {
       ...FeatureFieldsFull
     }
+    brandInfo: sanityBrandInfo {
+      pinteresturl
+      twitterurl
+      youtubeurl
+      facebookurl
+      instaurl
+    }
   }
 `;
 
@@ -125,6 +138,7 @@ interface FeatureArticleProps {
     galleryArticles: any;
     featureArticles: any;
     howToArticles: any;
+    brandInfo: any;
   };
   pageContext: {
     slug: string;

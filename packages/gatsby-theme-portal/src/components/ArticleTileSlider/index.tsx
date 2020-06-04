@@ -35,12 +35,8 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
         slidesPerView: 4,
         spaceBetween: 30,
       },
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
       320: {
-        slidesPerView: 3,
+        slidesPerView: 2.5,
         spaceBetween: 20,
       },
     },

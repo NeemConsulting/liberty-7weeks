@@ -28,24 +28,35 @@ export default theme => ({
     marginBottom: theme.spacing(2.5),
   },
   icon: {
-    backgroundColor: theme.palette.grey[20],
+    backgroundColor: theme.palette.secondary.main,
     borderRadius: '50%',
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     '& svg': {
-      width: 50,
-      height: 50,
+      width: 20,
+      height: 20,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 120,
+      height: 120,
+      '& svg': {
+        width: 50,
+        height: 50,
+      },
     },
   },
   gridItemCaption: {
-    fontSize: '.875rem',
+    fontSize: '.75rem',
     fontWeight: 600,
-    lineHeight: 1.4,
+    lineHeight: 1.1,
     margin: 0,
     marginTop: theme.spacing(1),
     textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '.875rem',
+    },
   },
 });

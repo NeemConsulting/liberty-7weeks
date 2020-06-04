@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 
 import BlockContent from '@sanity/block-content-to-react';
@@ -13,8 +14,12 @@ const ArticleBodyBlockContent: FunctionComponent<ArticleBodyBlockContentProps> =
   const classes = useStyles();
 
   return (
-    <section className={classes.richText}>
-      <BlockContent blocks={data} serializers={blockTypeDefaultSerializers} />
+    <section className={classNames('c-richtext', classes.richText)}>
+      <BlockContent
+        blocks={data}
+        serializers={blockTypeDefaultSerializers}
+        className={'hello'}
+      />
     </section>
   );
 };

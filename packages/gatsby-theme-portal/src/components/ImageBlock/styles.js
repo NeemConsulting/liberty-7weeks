@@ -40,6 +40,9 @@ export default theme => ({
         backgroundSize: '100% .1875rem',
         backgroundPosition: '0 100%',
       },
+      '& img': {
+        transform: 'scale(1.1)',
+      },
     },
   },
   content: {
@@ -52,8 +55,10 @@ export default theme => ({
   imageWrapper: {
     marginLeft: -16,
     marginRight: -16,
+    overflow: 'hidden',
     '& img': {
       height: '100% !important',
+      transition: 'all 500ms ease 0s !important',
     },
     [theme.breakpoints.up('md')]: {
       order: 2,

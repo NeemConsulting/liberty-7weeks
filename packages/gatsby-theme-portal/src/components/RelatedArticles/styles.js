@@ -3,6 +3,15 @@ export default theme => ({
     marginTop: theme.spacing(3.75),
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing(2.5),
+      maxWidth: 400,
+    },
+    '&.fixed': {
+      position: 'fixed',
+      top: 90,
+    },
+    '&.absolute': {
+      position: 'absolute',
+      bottom: 0,
     },
   },
   teaser: {
@@ -47,6 +56,39 @@ export default theme => ({
       [theme.breakpoints.up('md')]: {
         paddingTop: theme.spacing(0.75),
         paddingBottom: theme.spacing(0.75),
+      },
+    },
+  },
+  teaserLast: {
+    marginTop: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(6),
+    },
+    '& .c-teaser__image': {
+      width: 190,
+    },
+    '& .c-teaser__copy': {
+      flex: '1',
+      width: '100%',
+    },
+    '& h3': {
+      fontWeight: 600,
+      maxWidth: '70%',
+    },
+  },
+  scrollArea: {
+    overflow: 'scroll',
+    display: 'flex',
+    flexWrap: 'nowrap',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    },
+    '& .c-teaser__item': {
+      flex: '0 0 75%',
+      marginRight: 10,
+      [theme.breakpoints.up('md')]: {
+        display: 'static',
+        marginRight: 0,
       },
     },
   },

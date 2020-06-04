@@ -15,7 +15,7 @@ const detailsQuery = graphql`
   }
 `;
 
-function Index({ description, lang, keywords, title } : SeoProps) {
+function Index({ description, lang, keywords, title }: SeoProps) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -28,6 +28,7 @@ function Index({ description, lang, keywords, title } : SeoProps) {
 
         return (
           <Helmet
+            bodyAttributes={{ id: 'top' }}
             htmlAttributes={{ lang }}
             title={title}
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}

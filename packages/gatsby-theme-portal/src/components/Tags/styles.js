@@ -35,6 +35,7 @@ export default theme => ({
     padding: 0,
     margin: 0,
     display: 'flex',
+    flexWrap: 'wrap',
   },
   tagListItem: {
     marginRight: theme.spacing(1.25),

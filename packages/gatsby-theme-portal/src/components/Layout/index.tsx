@@ -35,8 +35,8 @@ const Layout = ({ className, children }: LayoutProps) => {
         >
           <Grid>{children}</Grid>
         </main>
-        <BackToTop />
         <Footer />
+        <BackToTop />
         <FormGroup className={classes.mode} row>
           <FormControlLabel
             color="primary"

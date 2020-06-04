@@ -29,6 +29,7 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
       galleryArticles: { nodes: galleryNodes },
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
+      brandInfo,
     },
   } = props;
 
@@ -61,15 +62,19 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
       <OGTags type={'article'} slug={page.slug.current} data={page} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} item sm={7}>
-            <ArticleHeader article={page} type={'howto'} />
+          <Grid className={classes.articleBody} item xs={12} sm={7}>
+            <ArticleHeader
+              article={page}
+              type={'howto'}
+              socialLinks={brandInfo}
+            />
             {page.toolList && <ToolList data={page.toolList} />}
             {page.productList && <ProductList data={page.productList} />}
             <RichText data={page._rawHowTobody} />
             {page.readnext && <ReadNext data={page} />}
           </Grid>
-          <Grid item sm={1}></Grid>
-          <Grid item sm={4}>
+          <Grid item xs={12} sm={1}></Grid>
+          <Grid item xs={12} sm={4}>
             {relatedArticles.length !== 0 && (
               <RelatedArticles articles={relatedArticles} />
             )}
@@ -117,6 +122,13 @@ export const query = graphql`
     page: sanityHowToArticle(slug: { current: { eq: $slug } }) {
       ...HowToFieldsFull
     }
+    brandInfo: sanityBrandInfo {
+      pinteresturl
+      twitterurl
+      youtubeurl
+      facebookurl
+      instaurl
+    }
   }
 `;
 
@@ -126,6 +138,7 @@ interface HowtoArticlePageProps {
     galleryArticles: any;
     featureArticles: any;
     howToArticles: any;
+    brandInfo: any;
   };
   pageContext: {
     slug: string;

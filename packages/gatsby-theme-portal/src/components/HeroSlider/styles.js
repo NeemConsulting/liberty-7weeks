@@ -128,16 +128,23 @@ export default theme => ({
     border: 'none',
     padding: 0,
     margin: 0,
-    width: 43,
-    height: 80,
+    width: 26,
+    height: 50,
     cursor: 'pointer',
     '& svg': {
-      width: 75,
-      height: 80,
+      width: 55,
+      height: 50,
       transition: 'all .3s ease-in',
     },
     [theme.breakpoints.up('md')]: {
       top: '45%',
+      height: 80,
+      width: 45,
+      '& svg': {
+        width: 75,
+        height: 80,
+        transition: 'all .3s ease-in',
+      },
     },
     '&:disabled': {
       opacity: 0.2,
@@ -148,7 +155,7 @@ export default theme => ({
     },
   },
   nextButton: {
-    right: -60,
+    right: 10,
     '& svg': {
       marginLeft: -15,
     },
@@ -158,9 +165,12 @@ export default theme => ({
         marginLeft: -10,
       },
     },
+    [theme.breakpoints.up('md')]: {
+      right: -60,
+    },
   },
   prevButton: {
-    left: -60,
+    left: 10,
     '& svg': {
       marginLeft: -15,
       transform: 'rotate(180deg)',
@@ -170,6 +180,9 @@ export default theme => ({
         fill: theme.palette.primary.main,
         marginLeft: -20,
       },
+    },
+    [theme.breakpoints.up('md')]: {
+      left: -60,
     },
   },
   srOnly: {

@@ -1,22 +1,19 @@
 export default theme => ({
-  wrapper: {
+  element: {
     backgroundColor: theme.palette.primary.main,
     border: 'none',
     color: theme.palette.common.white,
-    height: 50,
-    width: 40,
-    fontSize: '.875rem',
-    fontWeight: 700,
-    cursor: 'pointer',
+    position: 'fixed',
+    width: 45,
+    height: 45,
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    textDecoration: 'none',
-    transform: 'perspective(1px) translateZ(0)',
-    position: 'fixed',
-    bottom: 41,
-    right: 20,
+    right: 15,
+    bottom: 20,
+    zIndex: 2,
+    transform: 'perspective(1px) translateZ(0) translateX(100px)',
+    transition: 'all .5s',
     '&:before': {
       content: '""',
       position: 'absolute',
@@ -33,29 +30,41 @@ export default theme => ({
       transitionDuration: '0.3s',
       transitionTimingFunction: 'ease-out',
     },
-    '&:hover:before': {
-      transform: 'scaleY(1)',
+    '&:hover': {
+      '&:before': {
+        transform: 'scaleY(1)',
+      },
+      '& svg': {
+        fill: theme.palette.primary.main,
+      },
+    },
+    '&:focus': {
+      transform: 'perspective(1px) translateZ(0) translateX(0)',
     },
     '& svg': {
       fill: theme.palette.common.white,
-      width: 14,
-      height: 14,
+      width: 24,
+      height: 24,
+      transition: 'all .5s',
     },
-    [theme.breakpoints.up('md')]: {
-      bottom: 47,
-      height: 70,
-      width: 60,
-      fontSize: '1.125rem',
-      '& svg': {
-        fill: theme.palette.common.white,
-        width: 22,
-        height: 22,
-      },
-    },
+    [theme.breakpoints.up('md')]: {},
+  },
+  isActive: {
+    transform: 'perspective(1px) translateZ(0) translateX(0)',
+  },
+  isHidden: {
+    transform: 'perspective(1px) translateZ(0) translateX(100px)',
+  },
+  srOnly: {
+    border: 0,
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'polygon(0 0,0 0,0 0)',
+    height: '.0625rem',
+    margin: '-.0625rem',
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    width: '.0625rem',
+    whiteSpace: 'nowrap',
   },
 });
-
-export const inlineStyle = {
-  position: 'static',
-  zIndex: 1,
-};

@@ -1,12 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Preloader, Oval } from 'react-preloader-icon';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 import SocialMenu from '../SocialMenu';
 import { getYouTubeId } from '../../helpers/youtube';
 import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
+import { ReactComponent as IconTime } from '../../images/icons/time.svg';
 
 import Styles from './styles';
 const useStyles = makeStyles(Styles);
@@ -15,10 +17,12 @@ import { Typography } from '@material-ui/core';
 const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   article,
   type,
+  socialLinks,
 }) => {
   const classes = useStyles();
   const [showVideo, setShowVideo] = useState(false);
   const [videoSourceUrl, setVideoSourceUrl] = useState('');
+  const [videoLoading, setVideoLoading] = useState(false);
   const {
     headline,
     subheading,
@@ -31,13 +35,19 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   } = article;
 
   const playVideo = (event: any) => {
-    setShowVideo(true);
+    setVideoLoading(true);
     setVideoSourceUrl(
       `https://www.youtube.com/embed/${getYouTubeId(
         event.currentTarget.dataset.url
       )}?autoplay=1`
     );
+    setShowVideo(true);
   };
+
+  const onFrameLoad = () => {
+    setVideoLoading(false);
+  };
+
   return (
     <div className={classes.header}>
       <Typography
@@ -61,9 +71,6 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         <div className={classes.articleInfo}>
           {author && author.name && (
             <div className={classes.authorInfo}>
-              {author.image && (
-                <Img fluid={author.image.asset.fluid} alt={author.image.alt} />
-              )}
               <Link
                 className={classes.link}
                 to={author.slug ? `/${author.slug.current}` : `/${author.name}`}
@@ -80,8 +87,10 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
             </span>
           )}
         </div>
-        <SocialMenu />
+        <SocialMenu links={socialLinks} />
       </div>
+
+      {/* TODO: Use generic `Video` component for hero video to avoid duplicate code  */}
       {!imageGallery && (
         <div className={classes.heroImage}>
           {!showVideo && (
@@ -91,7 +100,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
               alt={heroImage.alt}
             />
           )}
-          {!showVideo && heroVideo && (
+          {!showVideo && heroVideo && !videoLoading && (
             <button
               type="button"
               className={classes.iconVideo}
@@ -102,6 +111,15 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
               <span hidden>Play Video</span>
             </button>
           )}
+          {videoLoading && (
+            <Preloader
+              use={Oval}
+              size={60}
+              strokeWidth={11}
+              strokeColor="#000"
+              duration={500}
+            />
+          )}
           {showVideo && (
             <iframe
               width="560"
@@ -110,6 +128,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              onLoad={onFrameLoad}
             ></iframe>
           )}
         </div>
@@ -118,28 +137,31 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         <div className={classes.tutorialInfo}>
           {time && (
             <div className={classes.tutorialInfoBlock}>
-              <strong>Time</strong>
-              <span>{time}</span>
+              <div className={classes.info}>
+                <strong>Time</strong>
+                <span>{time} mins</span>
+              </div>
+              <div className={classes.icon}>
+                <IconTime className={'active'} />
+              </div>
             </div>
           )}
           {skillLevel && (
             <div className={classes.tutorialInfoBlock}>
-              <strong>Skill</strong>
-              <div className={classes.flex}>
-                <div>
-                  <Skill
-                    className={classNames(skillLevel === 'easy' && 'active')}
-                  />
-                  <Skill
-                    className={classNames(skillLevel === 'medium' && 'active')}
-                  />
-                  <Skill
-                    className={classNames(
-                      skillLevel === 'difficult' && 'active'
-                    )}
-                  />
-                </div>
+              <div className={classes.info}>
+                <strong>Skill</strong>
                 <span>{skillLevel}</span>
+              </div>
+              <div className={classNames('b-skill', classes.icon)}>
+                <Skill
+                  className={classNames(skillLevel === 'easy' && 'active')}
+                />
+                <Skill
+                  className={classNames(skillLevel === 'medium' && 'active')}
+                />
+                <Skill
+                  className={classNames(skillLevel === 'difficult' && 'active')}
+                />
               </div>
             </div>
           )}
@@ -152,6 +174,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
 interface ArticleHeaderInterface {
   article: any;
   type: any;
+  socialLinks: any;
 }
 
 export default ArticleHeader;
