@@ -57,6 +57,7 @@ import siteSettings from './documents/siteSettings'
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
+import beforeAfterImage from './objects/beforeAfterImage'
 import blogAuthorReference from './objects/blogAuthorReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -116,6 +117,7 @@ export default createSchema({
     authorBioPortableText,
     textBlockPortableText,
     youTube,
+    beforeAfterImage,
 
     // Old Stuff to be deleted
     siteSettings,

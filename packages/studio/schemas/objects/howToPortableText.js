@@ -61,6 +61,9 @@ export default {
     },
     {
       type: 'productReference'
+    },
+    {
+      type: 'beforeAfterImage'
     }
   ]
 }
