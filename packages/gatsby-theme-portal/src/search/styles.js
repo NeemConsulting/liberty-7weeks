@@ -1,0 +1,212 @@
+export default theme => ({
+  searchControlWrapper: {
+    width: '100%',
+    '& form': {
+      display: 'flex',
+      flexWrap: 'wrap',
+      margin: '60px auto 30px',
+      position: 'relative',
+      '& input': {
+        outline: 'none',
+        padding: '10px 20px',
+        border: '1px solid #999',
+        width: '100%',
+        flex: 1,
+        fontSize: 30,
+        lineHeight: '48px',
+        color: theme.palette.common.black,
+        borderRight: 'none',
+      },
+      '& button': {
+        padding: '10px 0',
+        width: 80,
+        backgroundColor: '#fff',
+        borderLeft: 'none',
+        border: '1px solid #999',
+        textAlign: 'center',
+        cursor: 'pointer',
+        '&:hover svg': {
+          fill: theme.palette.common.black,
+        },
+      },
+      '& svg': {
+        width: 28,
+        height: 28,
+        fill: theme.palette.primary.main,
+        transition: 'all .3s ease-in',
+      },
+      '& .ais-SearchBox-loadingIndicator': {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      },
+    },
+  },
+  resultsInfo: {
+    fontSize: '1.125rem',
+    lineHeight: '32px',
+    fontWeight: 400,
+    marginBottom: 10,
+  },
+  searchQuery: {
+    fontSize: '2.5rem',
+    fontWeight: 600,
+    lineHeight: '44px',
+    marginRight: 20,
+  },
+  searhResultWrapper: {
+    '& .ais-Hits-list': {
+      listStyleType: 'none',
+      padding: 0,
+      margin: '0 -10px',
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      alignContent: 'stretch',
+      '& .ais-Hits-item': {
+        flex: '0 0 auto',
+        width: 'calc(100%/3.5)',
+        margin: '0 20px',
+        marginBottom: 30,
+        '&:nth-child(3)': {
+          marginRight: 0,
+        },
+      },
+    },
+    '& a': {
+      display: 'block',
+      textDecoration: 'none',
+      color: theme.palette.common.black,
+      '&:hover': {
+        '& h4 span': {
+          backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '100% .1875rem',
+          backgroundPosition: '0 100%',
+        },
+        '& img': {
+          transform: 'scale(1.1)',
+        },
+      },
+      '& p': {
+        fontSize: '.875rem',
+        color: theme.palette.grey[50],
+      },
+    },
+    '& p, & h4': {
+      marginTop: 8,
+      marginBottom: 0,
+    },
+    '& .image-wrapper': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 8,
+      minHeight: 237,
+      maxHeight: 237,
+      overflow: 'hidden',
+      '& img': {
+        display: 'block',
+        width: '100%',
+        margin: 'auto',
+        maxWidth: 237,
+        transition: 'all .3s ease-in',
+      },
+    },
+  },
+  filters: {
+    '& .filter-wrapper': {
+      paddingRight: 20,
+      position: 'relative',
+      '& .ais-ClearRefinements': {
+        position: 'absolute',
+        right: 0,
+        top: 8,
+      },
+      '& h2': {
+        margin: 0,
+      },
+    },
+    '& .filter': {
+      borderBottom: '1px solid #f4f4f4',
+      borderTop: '1px solid #f4f4f4',
+    },
+    '& .filter-category': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+
+      '& svg': {
+        width: 16,
+        height: 16,
+        transform: 'rotate(-90deg)',
+        transition: 'all .3s ease-out',
+      },
+    },
+    '& ul': {
+      listStyleType: 'none',
+      padding: 0,
+      marginTop: 0,
+      marginBottom: 0,
+      '& li': {
+        marginRight: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+      },
+      '& label': {
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+        cursor: 'pointer',
+        fontSize: '0.875rem',
+        userSelect: 'none',
+        '&:hover': {
+          backgroundColor: 'black',
+          color: 'white',
+        },
+      },
+      '& .ais-RefinementList-labelText, & .ais-RefinementList-count': {
+        marginLeft: 5,
+        display: 'inline-block',
+      },
+      '& input': {
+        margin: 0,
+      },
+      '& .ais-RefinementList-count': {
+        backgroundColor: 'rgba(197,201,224,.2)',
+        padding: '1px 8px',
+        borderRadius: 2,
+        display: 'inline-block',
+        fontSize: '.650rem',
+        marginLeft: '5px',
+        color: '#333',
+      },
+    },
+  },
+  searchForm: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: '0 auto',
+  },
+  searchInput: {
+    outline: 'none',
+    padding: '10px 20px',
+    border: '1px solid #999',
+    width: '100%',
+    flex: 1,
+    fontSize: 30,
+    lineHeight: '48px',
+    color: theme.palette.common.black,
+    borderRight: 'none',
+  },
+  searchButton: {
+    padding: '10px 0',
+    width: 60,
+    backgroundColor: '#fff',
+    borderLeft: 'none',
+    borderColor: '#999',
+    textAlign: 'center',
+    cursor: 'pointer',
+  },
+});

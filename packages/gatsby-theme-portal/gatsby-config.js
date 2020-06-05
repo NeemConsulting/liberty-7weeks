@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-
+const queries = require('./src/fragments/AlgoliaSearch');
 module.exports = ({ themeConfig }) => {
   const siteMetadata = {
     siteName: themeConfig['site_name'],
@@ -9,6 +9,8 @@ module.exports = ({ themeConfig }) => {
     lang: themeConfig['meta_lang'],
     sanityId: themeConfig['sanity_id'],
     sanityDataset: themeConfig['sanity_dataset'],
+    algoliaAppID: themeConfig['algolia_app_id'],
+    algoliaAdminApiKey: themeConfig['algolia_admin_api_key'],
   };
 
   const netlifyOptions = {
@@ -81,6 +83,16 @@ module.exports = ({ themeConfig }) => {
     {
       resolve: `gatsby-plugin-netlify`,
       options: netlifyOptions,
+    },
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: siteMetadata.algoliaAppID,
+        apiKey: siteMetadata.algoliaAdminApiKey,
+        queries,
+        enablePartialUpdates: true,
+        chunkSize: 10000,
+      },
     },
   ];
   plugins.push(sanitySourcePlugin);
