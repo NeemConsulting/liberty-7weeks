@@ -3,7 +3,9 @@ export const getSearchUrl = (
   query: string,
   queryType: string
 ) => {
-  return `${url}?query=refinementList[${queryType}][0]=${encodeURIComponent(
-    query.toLowerCase()
-  )}`;
+  return `${url}?refinementList[${queryType}][0]=${encodeURIComponent(query)}`;
+};
+
+export const getSearchQueryUrl = (query: string, url = '/search-results') => {
+  return `${url}?query=${query}`;
 };

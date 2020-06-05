@@ -123,7 +123,7 @@ export default theme => ({
   },
   navigationListItem: {
     position: 'relative',
-    '&:hover > a': {
+    '&:hover > a, &:focus-within': {
       backgroundColor: theme.palette.primary.main,
     },
     '&:hover > div': {
@@ -160,7 +160,7 @@ export default theme => ({
       '&:hover, &:focus': {
         backgroundColor: theme.palette.primary.main,
       },
-      '&:focus > div': {
+      '&:focus + div': {
         height: 'auto',
       },
     },
@@ -196,6 +196,9 @@ export default theme => ({
       height: 0,
       background: theme.palette.common.black,
       minWidth: '200px',
+      '&:focus-within': {
+        height: 'auto',
+      },
     },
   },
   subNavigationList: {

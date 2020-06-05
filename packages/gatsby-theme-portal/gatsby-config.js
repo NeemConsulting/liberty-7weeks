@@ -11,6 +11,7 @@ module.exports = ({ themeConfig }) => {
     sanityDataset: themeConfig['sanity_dataset'],
     algoliaAppID: themeConfig['algolia_app_id'],
     algoliaAdminApiKey: themeConfig['algolia_admin_api_key'],
+    algoliaApiKey: themeConfig['algolia_api_key'],
   };
 
   const netlifyOptions = {

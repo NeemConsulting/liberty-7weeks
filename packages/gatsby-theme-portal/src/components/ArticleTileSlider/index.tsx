@@ -24,8 +24,8 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const classes = useStyles();
   const params = {
-    slidesPerView: 4,
     spaceBetween: 20,
+    freeMode: true,
     scrollbar: {
       el: '.swiper-scrollbar',
       hide: false,
@@ -101,27 +101,31 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
           See All
         </Link>
       </div>
-      <button
-        className={classNames(classes.navigationButton, classes.nextButton)}
-        type="button"
-        onClick={swiperNext}
-        disabled={isLastSlide}
-      >
-        <Next />
-        <span className={classes.srOnly}>Next</span>
-      </button>
+      {slides.length > 3 && (
+        <button
+          className={classNames(classes.navigationButton, classes.nextButton)}
+          type="button"
+          onClick={swiperNext}
+          disabled={isLastSlide}
+        >
+          <Next />
+          <span className={classes.srOnly}>Next</span>
+        </button>
+      )}
       <Swiper {...params} getSwiper={updateSwiper}>
         {slides.map(slide => renderer(slide))}
       </Swiper>
-      <button
-        className={classNames(classes.navigationButton, classes.prevButton)}
-        type="button"
-        onClick={swiperPrev}
-        disabled={isFirstSlide}
-      >
-        <Next />
-        <span className={classes.srOnly}>Prev</span>
-      </button>
+      {slides.length > 3 && (
+        <button
+          className={classNames(classes.navigationButton, classes.prevButton)}
+          type="button"
+          onClick={swiperPrev}
+          disabled={isFirstSlide}
+        >
+          <Next />
+          <span className={classes.srOnly}>Prev</span>
+        </button>
+      )}
     </div>
   );
 };

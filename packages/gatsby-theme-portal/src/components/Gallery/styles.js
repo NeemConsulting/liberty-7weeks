@@ -86,7 +86,6 @@ export default theme => ({
       },
       '&:focus': {
         right: 10,
-        outline: 'none',
         '& svg': {
           fill: theme.palette.primary.main,
         },

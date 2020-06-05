@@ -35,7 +35,6 @@ const FeatureArticle = (props: FeatureArticleProps) => {
 
   const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
-
   page.seo = page.seo || {};
 
   return (

@@ -87,8 +87,5 @@ export default theme => ({
         transform: 'scaleX(1)',
       },
     },
-    '&:focus': {
-      outline: 'none',
-    },
   },
 });

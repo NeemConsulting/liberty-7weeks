@@ -40,11 +40,7 @@ const Breadcrumb: FunctionComponent<BreadcrumbInterface> = ({
                 </li>
                 <li className={classes.item}>
                   <Link
-                    to={getSearchUrl(
-                      searchResultPath,
-                      tag.tagCategory.name,
-                      'tags.name'
-                    )}
+                    to={getSearchUrl(searchResultPath, tag.name, 'tags.name')}
                     className={classes.link}
                   >
                     {tag.name}

@@ -38,6 +38,9 @@ export default theme => ({
     '& svg': {
       fill: theme.palette.common.white,
     },
+    '&:focus-within button': {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   followButton: {
     backgroundColor: 'transparent',
@@ -52,7 +55,7 @@ export default theme => ({
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },
-    '&:hover > div': {
+    '&:hover > div, &:focus > div': {
       height: 'auto',
     },
   },
@@ -74,6 +77,9 @@ export default theme => ({
       minWidth: 340,
       right: -20,
       width: 340,
+      '&:focus-within': {
+        height: 'auto',
+      },
     },
     '&:before': {
       content: '""',
@@ -205,5 +211,20 @@ export default theme => ({
       backgroundColor: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
     },
+  },
+  label: {
+    display: 'none',
+  },
+  srOnly: {
+    border: 0,
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'polygon(0 0,0 0,0 0)',
+    height: '.0625rem',
+    margin: '-.0625rem',
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    width: '.0625rem',
+    whiteSpace: 'nowrap',
   },
 });

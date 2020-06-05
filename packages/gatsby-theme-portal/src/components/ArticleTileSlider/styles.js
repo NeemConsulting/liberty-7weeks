@@ -242,9 +242,6 @@ export default theme => ({
       opacity: 0.2,
       cursor: 'not-allowed',
     },
-    '&:hover, &:focus': {
-      outline: 'none',
-    },
   },
   nextButton: {
     right: -60,

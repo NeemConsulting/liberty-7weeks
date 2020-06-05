@@ -25,6 +25,7 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
     threshold: 5,
     slidesPerView: 1,
     spaceBetween: 0,
+    paginationClickable: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -80,7 +81,6 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
                     slide.heroImage.asset.localFile.childImageSharp.fluid.src
                   }
                   alt={slide.heroImage.alt}
-                  style={{ height: '422px' }}
                 />
               ))}
             <div className={classes.copy}>

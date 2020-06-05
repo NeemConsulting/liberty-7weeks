@@ -1,10 +1,10 @@
 const path = require('path');
 
 require('dotenv').config({
-  path: path.resolve(process.cwd(), '.env.tl-ph'),
+  path: path.resolve(process.cwd(), '.env.tl-ph')
 });
 require('dotenv').config({
-  path: path.resolve(process.cwd(), '.env.development'),
+  path: path.resolve(process.cwd(), '.env.development')
 });
 
 module.exports = {
@@ -23,9 +23,10 @@ module.exports = {
           sanity_token: process.env['app_local_sanityToken'],
           algolia_app_id: process.env['app_local_algolia_app_id'],
           algolia_admin_api_key: process.env['app_local_algolia_admin_api_key'],
-          algolia_search_api_key: process.env['app_local_algolia_search_api_key'],
+          algolia_search_api_key:
+            process.env['app_local_algolia_search_api_key']
         }
-      },
-    },
-  ],
+      }
+    }
+  ]
 };

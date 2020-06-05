@@ -23,6 +23,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
   const params = {
     slidesPerView: 4,
     spaceBetween: 30,
+    freeMode: true,
     scrollbar: {
       el: '.swiper-scrollbar',
       hide: false,

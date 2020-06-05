@@ -1,10 +1,11 @@
 const postQuery = `{
-  allSanityHowToArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } ) 
+  allSanityHowToArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } )
     {
     edges
     {
       node
       {
+        path
         objectID:_id
         slug{current}
         pageType:_type
@@ -31,12 +32,13 @@ const postQuery = `{
 }
 }`;
 const galleryArticleQuery = `{
-  allSanityGalleryArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } ) 
+  allSanityGalleryArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } )
     {
     edges
     {
       node
       {
+        path
         objectID:_id
         slug{current}
         pageType:_type
@@ -57,12 +59,13 @@ const galleryArticleQuery = `{
 }
 }`;
 const featureArticleQuery = `{
-  allSanityFeatureArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } ) 
+  allSanityFeatureArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } )
     {
     edges
     {
       node
       {
+        path
         objectID:_id
         slug{current}
         pageType:_type
@@ -79,18 +82,19 @@ const featureArticleQuery = `{
         publishedAt(formatString:"YYYY/MM/DD")
         seoKeys:seo{metaKeywords}
         _rawFeatureBody
-        
+
     }
   }
 }
 }`;
 const productQuery = `{
-  allSanityProduct(filter: {slug: {current: {ne: null}}}) 
+  allSanityProduct(filter: {slug: {current: {ne: null}}})
     {
     edges
     {
       node
       {
+        path
         objectID:_id
         slug{current}
         pageType:_type

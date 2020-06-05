@@ -2,7 +2,7 @@ export default theme => ({
   element: {
     backgroundColor: theme.palette.primary.main,
     border: 'none',
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     position: 'fixed',
     width: 45,
     height: 45,
@@ -27,7 +27,7 @@ export default theme => ({
       transform: 'scaleY(0)',
       transformOrigin: '0 100%',
       transitionProperty: 'transform',
-      transitionDuration: '0.3s',
+      transitionDuration: '0.2s',
       transitionTimingFunction: 'ease-out',
     },
     '&:hover': {
@@ -42,7 +42,7 @@ export default theme => ({
       transform: 'perspective(1px) translateZ(0) translateX(0)',
     },
     '& svg': {
-      fill: theme.palette.common.white,
+      fill: theme.palette.common.black,
       width: 24,
       height: 24,
       transition: 'all .5s',

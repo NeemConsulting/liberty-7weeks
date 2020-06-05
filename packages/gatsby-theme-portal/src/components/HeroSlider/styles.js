@@ -74,7 +74,7 @@ export default theme => ({
     fontSize: '.875rem',
     fontWeight: 700,
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     paddingTop: theme.spacing(1.25),
     paddingBottom: theme.spacing(1.25),
     paddingLeft: theme.spacing(2),
@@ -82,6 +82,7 @@ export default theme => ({
     display: 'inline-block',
     textDecoration: 'none',
     position: 'relative',
+    transition: 'all .3s ease-out',
     transform: 'perspective(1px) translateZ(0)',
     '&:before': {
       content: '""',
@@ -98,8 +99,11 @@ export default theme => ({
       transitionDuration: '0.3s',
       transitionTimingFunction: 'ease-out',
     },
-    '&:hover:before': {
-      transform: 'scaleX(1)',
+    '&:hover': {
+      color: theme.palette.common.white,
+      '&:before': {
+        transform: 'scaleX(1)',
+      },
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '1.125rem',
@@ -149,9 +153,6 @@ export default theme => ({
     '&:disabled': {
       opacity: 0.2,
       cursor: 'not-allowed',
-    },
-    '&:hover, &:focus': {
-      outline: 'none',
     },
   },
   nextButton: {
