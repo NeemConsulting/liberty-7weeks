@@ -14,6 +14,7 @@ const SiteNavigation: FunctionComponent = () => {
           navL1 {
             landingPage {
               name
+              path
               slug {
                 current
               }
@@ -24,6 +25,7 @@ const SiteNavigation: FunctionComponent = () => {
           navL2 {
             landingPage {
               name
+              path
               slug {
                 current
               }
@@ -49,7 +51,7 @@ const SiteNavigation: FunctionComponent = () => {
     if (navItem.path) {
       url = navItem.path;
     } else if (navItem.landingPage) {
-      url = navItem.landingPage.slug.current;
+      url = navItem.landingPage.path;
     } else {
       url = '#';
     }
@@ -151,6 +153,7 @@ interface NavItemInterface {
   path: string;
   landingPage?: {
     name: string;
+    path: string;
     slug: {
       current: string;
     };

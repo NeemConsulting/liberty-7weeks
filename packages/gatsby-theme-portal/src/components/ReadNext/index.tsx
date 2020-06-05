@@ -12,7 +12,7 @@ const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
     <section className={classes.readNext}>
       <h3 className={classes.readNextTitle}>Next Read</h3>
       <div className={classes.readNextContent}>
-        <Link className={classes.readNextLink} to={`/${data.slug.current}`}>
+        <Link className={classes.readNextLink} to={`/${data.path}`}>
           <div className={classes.readNextImage}>
             <Img fluid={data.heroImage.asset.fluid} alt={data.heroImage.alt} />
           </div>

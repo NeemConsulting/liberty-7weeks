@@ -47,10 +47,7 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
       <div key={slide.headline}>
         <div>
           <span className={classes.slideType}>{slide._type}</span>
-          <Link
-            className={classes.sliderLink}
-            to={slide.slug ? slide.slug.current : '/'}
-          >
+          <Link className={classes.sliderLink} to={slide.path}>
             {slide.heroImage && (
               <div className={classes.heroImage}>
                 <Img

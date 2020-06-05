@@ -50,7 +50,7 @@ const FeatureArticle = (props: FeatureArticleProps) => {
         type={'Article'}
         name={page.headline}
         description={page.subheading}
-        slug={page.slug.current}
+        slug={page.path}
         image={{
           url: page.heroImage.asset.url,
           width: page.heroImage.asset.metadata.dimensions.width,
@@ -58,7 +58,7 @@ const FeatureArticle = (props: FeatureArticleProps) => {
         }}
         data={page}
       />
-      <OGTags type={'article'} slug={page.slug.current} data={page} />
+      <OGTags type={'article'} slug={page.path} data={page} />
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>

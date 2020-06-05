@@ -1,48 +1,52 @@
 /* eslint-disable no-console */
-const url = require('url');
-const fs = require('fs');
-const get = require('lodash/get');
 const path = require('path');
+const { getPagePath } = require('./scripts/utils');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createLandingPages = require('./scripts/build/createLandingPages');
 const createHowtoPages = require('./scripts/build/createHowtoPages');
 const createProductPages = require('./scripts/build/createProductPages');
 const createFeaturePages = require('./scripts/build/createFeaturePages');
 const createGalleryPages = require('./scripts/build/createGalleryPages');
+const express = require(`express`);
 
-const addTrailingSlash = path => {
-  try {
-    return path && path.endsWith('/') ? path : `${path}/`;
-  } catch (err) {
-    console.error(err);
-  }
+exports.onCreateDevServer = ({ app }) => {
+  app.use(
+    express.static(path.resolve(process.cwd(), `../gatsby-theme-portal/static`))
+  );
 };
 
-const findPageFromNodes = (pagesNodes, pageType) =>
-  pagesNodes.find(pageNode => pageNode.type === pageType);
+exports.createResolvers = ({ createResolvers }) => {
+  const pathResolver = {
+    path: {
+      type: 'String',
+      resolve(source, args, context, info) {
+        const parentPage = source.parentPage
+          ? context.nodeModel.getNodeById({
+              id: source.parentPage._ref,
+            })
+          : null;
+
+        return getPagePath({
+          slug: source.slug,
+          parentPage,
+        });
+      },
+    },
+  };
+
+  createResolvers({
+    SanityHowToArticle: pathResolver,
+    SanityGalleryArticle: pathResolver,
+    SanityFeatureArticle: pathResolver,
+    SanityLandingPage: pathResolver,
+    SanityProduct: pathResolver,
+  });
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  // const createPageFromTemplate = (edge, page) => {
-  //   const slug = addTrailingSlash(edge.node.fields.slug);
-  //   createPage({
-  //     path: slug,
-  //     component: path.resolve(process.cwd(), getPageTemplate(page.type)),
-  //     context: {
-  //       page,
-  //       edge,
-  //       slug,
-  //       name: edge.node.name,
-  //       title: get(edge, 'node.title'),
-  //       nextSlug: addTrailingSlash(get(edge, 'next.fields.slug')),
-  //       previousSlug: addTrailingSlash(get(edge, 'previous.fields.slug')),
-  //     },
-  //   });
-  // };
 
   const pagesCreators = [
     createLandingPages({
@@ -66,25 +70,6 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage,
     }),
   ];
-  // const pages = await createDefaultPages({
-  //   graphql,
-  //   createPage: page => {
-  //     const slug = addTrailingSlash(page.relativePath);
-  //     createPage({
-  //       path: slug,
-  //       component: require.resolve(getPageTemplate(page.type)),
-  //       context: {
-  //         title: get(page, 'title'),
-  //         brand: get(page, 'brand'),
-  //         regexpBrand: get(page, 'brand')
-  //           ? '/' + get(page, 'brand') + '/i'
-  //           : '',
-  //         slug,
-  //         page,
-  //       },
-  //     });
-  //   },
-  // });
 
   await Promise.all(pagesCreators);
 };
@@ -96,15 +81,6 @@ exports.onCreateWebpackConfig = ({
   loaders,
   plugins,
 }) => {
-  /*
-  const appConfig = require('awd-app-config').getConfig();
-
-  // Create an object of all the variables in .env file
-  const envKeys = Object.keys(appConfig).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(appConfig[next]);
-    return prev;
-  }, {});
-  */
   if (stage === 'build-javascript') {
     actions.setWebpackConfig({
       optimization: {

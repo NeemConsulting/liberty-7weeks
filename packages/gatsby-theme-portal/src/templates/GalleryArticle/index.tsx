@@ -48,7 +48,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         type={'Article'}
         name={page.headline}
         description={page.subheading || page.headline}
-        slug={page.slug.current}
+        slug={page.path}
         image={{
           url: page.heroImage.asset.url,
           width: page.heroImage.asset.metadata.dimensions.width,
@@ -56,7 +56,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         }}
         data={page}
       />
-      <OGTags type={'article'} slug={page.slug.current} data={page} />
+      <OGTags type={'article'} slug={page.path} data={page} />
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <ArticleHeader
@@ -68,7 +68,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
           data={page.imageGallery.picture}
           name={page.headline}
           authorName={page.author.name}
-          slug={page.slug.current}
+          slug={page.path}
         />
       </Container>
 

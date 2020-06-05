@@ -7,6 +7,7 @@ export const query1 = graphql`
     _createdAt(formatString: "MMMM D, YYYY")
     _updatedAt(formatString: "MMMM D, YYYY")
     subheading
+    path
     slug {
       current
     }
@@ -166,6 +167,7 @@ export const query2 = graphql`
     headline
     publishedAt(formatString: "MMMM D, YYYY")
     subheading
+    path
     slug {
       current
     }

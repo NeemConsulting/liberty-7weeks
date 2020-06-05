@@ -65,7 +65,7 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
       </button>
       <Swiper {...params} getSwiper={updateSwiper}>
         {slides.map((slide: any, index: number) => (
-          <div key={slide.slug.current}>
+          <div key={slide.path}>
             {slide.heroImage &&
               (index ? (
                 <Img
@@ -88,10 +88,7 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
                 <Typography variant="h2" className={classes.heading}>
                   {slide.headline}
                 </Typography>
-                <Link
-                  className={classes.callToAction}
-                  to={slide.slug ? slide.slug.current : '/'}
-                >
+                <Link className={classes.callToAction} to={slide.path}>
                   Go to Article
                 </Link>
               </div>
