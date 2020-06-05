@@ -21,7 +21,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
         className={classNames('c-teaser__item', classes.teaser)}
         key={article.id}
       >
-        <Link to={article.slug.current} className={classes.teaserLink}>
+        <Link to={article.path} className={classes.teaserLink}>
           <div className={classes.flexBox}>
             <div className={'c-teaser__image'}>
               <Img

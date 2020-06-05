@@ -40,7 +40,7 @@ const extractor = (pageHref: string, data: any, brandInfo: any) => {
       '@type': 'HowToSupply',
       name: product.name,
       image: product.image ? product.image.asset.url : null,
-      url: `${pageHref}/${product.slug ? product.slug.current : null}`,
+      url: `${pageHref}${product.path}`,
     }));
   const video = data.heroVideo && {
     '@type': 'VideoObject',

@@ -4,6 +4,7 @@ export const query = graphql`
   fragment LandingPageFieldsFull on SanityLandingPage {
     id
     name
+    path
     slug {
       current
     }
@@ -48,6 +49,7 @@ export const query = graphql`
               url
               youTubeCaption
             }
+            path
             slug {
               current
             }
@@ -82,6 +84,7 @@ export const query = graphql`
               }
               alt
             }
+            path
             slug {
               current
             }
@@ -120,6 +123,7 @@ export const query = graphql`
               url
               youTubeCaption
             }
+            path
             slug {
               current
             }
@@ -168,6 +172,7 @@ export const query = graphql`
           brand {
             name
           }
+          path
           slug {
             current
           }

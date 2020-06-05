@@ -51,7 +51,7 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
         type={'HowTo'}
         name={page.headline}
         description={page.subheading}
-        slug={page.slug.current}
+        slug={page.path}
         image={{
           url: page.heroImage.asset.url,
           width: page.heroImage.asset.metadata.dimensions.width,
@@ -59,7 +59,7 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
         }}
         data={page}
       />
-      <OGTags type={'article'} slug={page.slug.current} data={page} />
+      <OGTags type={'article'} slug={page.path} data={page} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid className={classes.articleBody} item xs={12} sm={7}>

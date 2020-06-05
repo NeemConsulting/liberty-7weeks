@@ -10,6 +10,7 @@ export const query1 = graphql`
     skillLevel
     subheading
     time
+    path
     slug {
       current
     }
@@ -199,6 +200,7 @@ export const query2 = graphql`
     skillLevel
     subheading
     time
+    path
     slug {
       current
     }

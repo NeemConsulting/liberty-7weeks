@@ -32,11 +32,11 @@ const LandingPage = (props: LandingPageProps) => {
         type={'WebPage'}
         name={page.name}
         description={page.name}
-        slug={page.slug.current}
+        slug={page.path}
         data={page}
       />
-      <OGTags type={'page'} slug={page.slug.current} data={page} />
-      {page.slug.current !== '/' && <Breadcrumb pageTitle={page.name} />}
+      <OGTags type={'page'} slug={page.path} data={page} />
+      {page.path !== '/' && <Breadcrumb pageTitle={page.name} />}
       {page.landingSections.map(section => (
         <LandingSectionRenderer key={section.id} section={section} />
       ))}

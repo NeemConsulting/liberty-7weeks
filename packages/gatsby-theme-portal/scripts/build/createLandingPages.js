@@ -1,4 +1,5 @@
 const path = require('path');
+const { getPagePath } = require('../utils');
 const component = path.resolve(
   process.cwd(),
   `../gatsby-theme-portal/src/templates/LandingPage/index.tsx`
@@ -21,7 +22,7 @@ module.exports = async ({ graphql, createPage }) => {
 
   result.data.allSanityLandingPage.nodes.forEach(node => {
     createPage({
-      path: node.slug.current,
+      path: getPagePath(node),
       component,
       context: {
         title: node.name,

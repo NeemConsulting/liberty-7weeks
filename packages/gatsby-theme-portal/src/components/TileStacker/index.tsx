@@ -23,10 +23,7 @@ const TileStacker: FunctionComponent<TileStackerInterface> = ({
         <div key={slide.headline}>
           <div className={classes.tile}>
             <span className={classes.slideType}>{slide._type}</span>
-            <Link
-              className={classes.sliderLink}
-              to={slide.slug ? slide.slug.current : '/'}
-            >
+            <Link className={classes.sliderLink} to={slide.path}>
               {slide.heroImage && (
                 <div className={classes.heroImage}>
                   <Img

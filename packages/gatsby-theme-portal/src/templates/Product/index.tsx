@@ -52,7 +52,7 @@ const ProductPage = (props: ProductPageProps) => {
         <Grid item xs={3}>
           {productNodes.map(item => (
             <Paper className={classes.paper} key={item.name + item.id}>
-              <Link to={item.slug ? item.slug.current : '/'}>{item.name}</Link>
+              <Link to={item.path}>{item.name}</Link>
             </Paper>
           ))}
         </Grid>

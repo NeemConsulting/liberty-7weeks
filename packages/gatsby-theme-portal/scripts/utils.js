@@ -24,4 +24,16 @@ const getSlug = (name = '') =>
     .join('-')
     .replace(/(-)(?=\1)/g, ''); // replace same concurrent - with single one
 
-module.exports = { parseArg, getSlug };
+const getPagePath = node => {
+  const pathSections = [];
+
+  node.parentPage &&
+    node.parentPage.slug &&
+    node.parentPage.slug.current &&
+    pathSections.push(node.parentPage.slug.current);
+  node.slug && node.slug.current && pathSections.push(node.slug.current);
+
+  return `/${pathSections.join('/')}/`.replace(/(\/)\/+/g, '$1');
+};
+
+module.exports = { parseArg, getSlug, getPagePath };

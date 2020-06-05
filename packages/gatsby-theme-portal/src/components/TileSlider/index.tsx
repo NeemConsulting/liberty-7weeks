@@ -43,10 +43,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
     return (
       <div key={slide.name}>
         <div>
-          <Link
-            className={classes.sliderLink}
-            to={slide.slug ? slide.slug.current : '/'}
-          >
+          <Link className={classes.sliderLink} to={slide.path}>
             {slide.image && (
               <Img fluid={slide.image.asset.fluid} alt={slide.image.alt} />
             )}
