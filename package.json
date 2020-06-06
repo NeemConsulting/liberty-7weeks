@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "build-studio": "lerna bootstrap && cd packages/studio && yarn run build",
-    "build-web": "lerna bootstrap && (cd packages/studio && yarn run graphql-deploy) && (cd packages/tl-ph && yarn run build)",
+    "build-web": "lerna bootstrap && (cd packages/studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN yarn run graphql-deploy) && (cd packages/tl-ph && yarn run build)",
     "graphql-deploy": "lerna run graphql-deploy",
     "format": "lerna run format",
     "lint": "lerna run lint",
