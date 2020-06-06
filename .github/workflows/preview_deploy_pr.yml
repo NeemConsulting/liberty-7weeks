@@ -15,12 +15,14 @@ jobs:
             uses: actions/setup-node@v1
             with:
               node-version: 12.x
-          - name: install n build
+          - name: build & Install web
             env:
                 SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+                app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}
+                app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
             run: |
                  yarn
-                 npm run build-web
+                 yarn run build-web
           - name: Deploy to Netlify
             id: netlify-deploy
             uses: nwtgck/actions-netlify@v1.1
