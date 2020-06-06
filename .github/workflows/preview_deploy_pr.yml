@@ -47,7 +47,7 @@ jobs:
             with:
               urls: |
                 ${{ needs.deploy_preview.outputs.url }}
-                ${{ needs.deploy_preview.outputs.url }}/how-to-do-a-dutch-braid-in-six-easy-steps
+                ${{ needs.deploy_preview.outputs.url }}/hair-style/how-to-do-a-dutch-braid-in-six-easy-steps
               uploadArtifacts: true # save results as an action artifacts
               temporaryPublicStorage: true # upload lighthouse report to the temporary storage
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
