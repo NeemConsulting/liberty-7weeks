@@ -47,6 +47,8 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
           SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+          app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
+          app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}  
         with:
           args: deploy --dir=web/public --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID","SANITY_DEPLOY_STUDIO_TOKEN"]'
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID","SANITY_DEPLOY_STUDIO_TOKEN","app_local_algolia_app_id","app_local_algolia_search_api_key"]'
