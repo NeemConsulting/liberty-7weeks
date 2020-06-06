@@ -5,7 +5,7 @@ on:
     types: [content-update-build]
   push:
     branches: master
-    paths: web/**
+    paths: packages/tl-ph/**
 jobs:
     web:
         runs-on: ubuntu-latest
