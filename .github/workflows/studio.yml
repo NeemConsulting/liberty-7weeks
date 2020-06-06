@@ -2,7 +2,7 @@ name: Studio | Build and Deploy
 on: 
   push:
     branches: master
-    paths: studio/**
+    paths: packages/studio/**
 jobs:
   deploy:
     runs-on: ubuntu-latest
