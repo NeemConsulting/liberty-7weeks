@@ -5,7 +5,9 @@ on:
     types: [content-update-build]
   push:
     branches: master
-    paths: packages/tl-ph/**
+    paths: 
+      -'packages/tl-ph/**'
+      -'packages/gatsby-theme-portal/**' 
 jobs:
     web:
         runs-on: ubuntu-latest
