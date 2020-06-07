@@ -91,7 +91,7 @@ module.exports = ({ themeConfig }) => {
 //         appId: siteMetadata.algoliaAppID,
 //         apiKey: siteMetadata.algoliaAdminApiKey,
 //         queries,
-//         enablePartialUpdates: true,
+//         enablePartialUpdates: false,
 //         chunkSize: 10000,
 //       },
 //     },
