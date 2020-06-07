@@ -6,8 +6,8 @@ on:
   push:
     branches: master
     paths: 
-      -'packages/tl-ph/**'
-      -'packages/gatsby-theme-portal/**' 
+      - packages/tl-ph/**
+      - packages/gatsby-theme-portal/**
 jobs:
     web:
         runs-on: ubuntu-latest
