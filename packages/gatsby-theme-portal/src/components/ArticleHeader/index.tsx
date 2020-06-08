@@ -8,8 +8,8 @@ import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
 import { ReactComponent as IconTime } from '../../images/icons/time.svg';
 
-import useStyles from './styles';
 import { Typography } from '@material-ui/core';
+import useStyles from './styles';
 
 const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   article,

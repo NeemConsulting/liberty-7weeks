@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import SEO from '../../components/Seo';
@@ -16,12 +15,6 @@ import ArticleHeader from 'src/components/ArticleHeader';
 import PageSchema from '../../components/PageSchema';
 import OGTags from '../../components/OGTags';
 
-const useStyles = makeStyles(theme => ({
-  articleBody: {
-    fontSize: '1.125rem',
-  },
-}));
-
 const FeatureArticle = (props: FeatureArticleProps) => {
   const {
     data: {
@@ -33,7 +26,6 @@ const FeatureArticle = (props: FeatureArticleProps) => {
     },
   } = props;
 
-  const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
   page.seo = page.seo || {};
 
@@ -61,7 +53,7 @@ const FeatureArticle = (props: FeatureArticleProps) => {
       <Breadcrumb tag={page.tags[0]} pageTitle={page.headline} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} item xs={12} sm={7}>
+          <Grid item xs={12} sm={7}>
             <ArticleHeader
               article={page}
               type={'feature'}

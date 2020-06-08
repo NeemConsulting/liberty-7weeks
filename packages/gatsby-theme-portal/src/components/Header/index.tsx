@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import LogoImage from '../../images/logo.svg';
 import SiteNavigation from '../Navigation';
 import SiteSearch from './search';
 import NewsletterFollow from './newsletter-follow';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Header: FunctionComponent = () => {
   const data = useStaticQuery(graphql`

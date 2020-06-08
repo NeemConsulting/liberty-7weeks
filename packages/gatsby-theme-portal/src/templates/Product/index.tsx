@@ -1,26 +1,11 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
-
-const useStyles = makeStyles(theme => ({
-  mainGrid: {
-    marginTop: theme.spacing(10),
-  },
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1.25),
-    margin: theme.spacing(1.25),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-  },
-}));
+import useStyles from './styles';
 
 const ProductPage = (props: ProductPageProps) => {
   const {

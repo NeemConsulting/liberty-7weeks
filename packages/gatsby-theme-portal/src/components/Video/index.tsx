@@ -1,13 +1,12 @@
 import React, { FunctionComponent, useState } from 'react';
 import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+
 import { Preloader, Oval } from 'react-preloader-icon';
 import { getYouTubeId } from '../../helpers/youtube';
 import { ReactComponent as IconYoutube } from '../../images/icons/youtube.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Video: FunctionComponent<VideoInterface> = ({
   videoMetaData,

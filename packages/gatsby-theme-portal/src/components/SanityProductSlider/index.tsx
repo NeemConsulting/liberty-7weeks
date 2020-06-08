@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { SanityProductSliderInterface } from './models';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Container from '@material-ui/core/Container';
 import TileSlider from '../TileSlider';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const SanityProductSlider: FunctionComponent<SanityProductSliderInterface> = ({
   name,

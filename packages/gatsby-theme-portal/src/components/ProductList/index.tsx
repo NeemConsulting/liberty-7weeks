@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const ProductList: FunctionComponent<ProductListInterface> = ({ data }) => {
   const classes = useStyles();

@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { ReactComponent as Next } from '../../images/icons/next.svg';
 import PageSchema from '../PageSchema';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Gallery: FunctionComponent<GalleryInterface> = ({
   data,

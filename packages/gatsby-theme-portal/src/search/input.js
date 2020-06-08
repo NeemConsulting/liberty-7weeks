@@ -1,9 +1,7 @@
 import React from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 export default connectSearchBox(({ refine, ...rest }) => {
   const classes = useStyles();

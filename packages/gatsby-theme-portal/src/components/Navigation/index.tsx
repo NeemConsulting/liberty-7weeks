@@ -1,10 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+
 import classNames from 'classnames';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const SiteNavigation: FunctionComponent = () => {
   const data = useStaticQuery(graphql`

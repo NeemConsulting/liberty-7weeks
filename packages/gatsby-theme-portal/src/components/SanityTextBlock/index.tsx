@@ -2,13 +2,12 @@ import React, { FunctionComponent } from 'react';
 import Container from '@material-ui/core/Container';
 import classNames from 'classnames';
 import { SanityTextBlockInterface } from './models';
-import { makeStyles } from '@material-ui/core/styles';
+
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 import quote from '../../images/icons/quote-left.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const SanityTextBlock: FunctionComponent<SanityTextBlockInterface> = ({
   name,

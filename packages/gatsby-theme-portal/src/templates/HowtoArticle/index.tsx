@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import SEO from '../../components/Seo';
@@ -16,12 +15,6 @@ import ReadNext from '../../components/ReadNext';
 import PageSchema from '../../components/PageSchema';
 import OGTags from '../../components/OGTags';
 
-const useStyles = makeStyles(theme => ({
-  articleBody: {
-    fontSize: '1.125rem',
-  },
-}));
-
 const HowtoArticlePage = (props: HowtoArticlePageProps) => {
   const {
     data: {
@@ -33,7 +26,6 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
     },
   } = props;
 
-  const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
 
   page.seo = page.seo || {};
@@ -62,7 +54,7 @@ const HowtoArticlePage = (props: HowtoArticlePageProps) => {
       <OGTags type={'article'} slug={page.path} data={page} />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} item xs={12} sm={7}>
+          <Grid item xs={12} sm={7}>
             <ArticleHeader
               article={page}
               type={'howto'}

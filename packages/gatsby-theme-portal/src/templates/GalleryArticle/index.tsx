@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
 import Gallery from '../../components/Gallery';
@@ -16,12 +14,6 @@ import RichText from '../../components/RichText';
 import ArticleHeader from '../../components/ArticleHeader';
 import OGTags from '../../components/OGTags';
 
-const useStyles = makeStyles(theme => ({
-  articleBody: {
-    fontSize: '1.125rem',
-  },
-}));
-
 const GalleryArticlePage = (props: GalleryArticlePageProps) => {
   const {
     data: {
@@ -33,7 +25,6 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
     },
   } = props;
 
-  const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
 
   return (
@@ -74,7 +65,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
 
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} xs={12} item sm={7}>
+          <Grid xs={12} item sm={7}>
             <RichText data={page._rawBody} />
             {page.readnext && <ReadNext data={page} />}
           </Grid>

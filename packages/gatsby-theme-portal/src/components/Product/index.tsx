@@ -1,11 +1,10 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+
 import { ReactComponent as IconBuy } from '../../images/icons/buy.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Product: FunctionComponent<ProductInterface> = ({ metadata, image }) => {
   const {

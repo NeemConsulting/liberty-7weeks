@@ -1,45 +1,47 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import SEO from '../components/Seo';
 import Layout from '../components/Layout';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
-  wrapper: {
-    padding: theme.spacing(8),
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  '@keyframes animate': {
-    '0%': {
-      backgroundPosition: 'left 0px top 30%',
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    wrapper: {
+      padding: theme.spacing(8),
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center',
     },
-    '40%': {
-      backgroundPosition: 'left 800px top 30%',
+    '@keyframes animate': {
+      '0%': {
+        backgroundPosition: 'left 0px top 30%',
+      },
+      '40%': {
+        backgroundPosition: 'left 800px top 30%',
+      },
     },
-  },
-  title: {
-    fontSize: '20rem',
-    lineHeight: 1,
-    fontWeight: 600,
-    margin: 0,
-    marginBottom: theme.spacing(2),
-    backgroundImage: 'url(/textclip.jpg)',
-    '-webkitBackgroundClip': () => `${'text'}`,
-    textFillColor: 'transparent',
-    animation: `$animate 15s linear infinite`,
-  },
-  subTitle: {
-    fontSize: '2rem',
-    lineHeight: 1,
-    fontWeight: 600,
-    margin: 0,
-    marginBottom: theme.spacing(2),
-  },
-}));
+    title: {
+      fontSize: '20rem',
+      lineHeight: 1,
+      fontWeight: 600,
+      margin: 0,
+      marginBottom: theme.spacing(2),
+      backgroundImage: 'url(/textclip.jpg)',
+      '-webkitBackgroundClip': () => `${'text'}`,
+      textFillColor: 'transparent',
+      animation: `$animate 15s linear infinite`,
+    },
+    subTitle: {
+      fontSize: '2rem',
+      lineHeight: 1,
+      fontWeight: 600,
+      margin: 0,
+      marginBottom: theme.spacing(2),
+    },
+  })
+);
 
 export const query = graphql`
   query NotFoundPageQuery {
