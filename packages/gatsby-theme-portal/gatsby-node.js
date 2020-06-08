@@ -117,9 +117,20 @@ exports.onCreateWebpackConfig = ({
     });
   }
 
-  // actions.setWebpackConfig({
-  //   plugins: [plugins.define(envKeys)],
-  // });
+  const envKeys = Object.keys(process.env).reduce((prev, next) => {
+    if (next.indexOf('app_') === 0) {
+      const key = next
+        .split('_')
+        .slice(2)
+        .join('_');
+      prev[`process.env.${key}`] = JSON.stringify(process.env[next]);
+    }
+    return prev;
+  }, {});
+
+  actions.setWebpackConfig({
+    plugins: [plugins.define(envKeys)],
+  });
 
   // disable map-files
   actions.setWebpackConfig({
