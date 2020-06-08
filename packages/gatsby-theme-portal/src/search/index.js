@@ -121,8 +121,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 <Panel header="Page Type">
                   <RefinementList
                     attribute="pageType"
-                    limit={4}
-                    showMoreLimit={5}
+                    limit={2}
+                    showMoreLimit={50}
                     showMore={true}
                   />
                 </Panel>
@@ -132,7 +132,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   <RefinementList
                     attribute="tags.name"
                     limit={4}
-                    showMoreLimit={5}
+                    showMoreLimit={50}
                     showMore={true}
                   />
                 </Panel>
@@ -143,7 +143,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     <RefinementList
                       attribute="tags.tagCategory.name"
                       limit={4}
-                      showMoreLimit={5}
+                      showMoreLimit={50}
                       showMore={true}
                     />
                   </Panel>
@@ -154,9 +154,15 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   <Panel header="Duration">
                     <RefinementList
                       attribute="duration"
-                      limit={4}
-                      showMoreLimit={5}
+                      limit={2}
+                      showMoreLimit={50}
                       showMore={true}
+                      transformItems={items =>
+                        items.map(item => ({
+                          ...item,
+                          label: `${item.label} mins`,
+                        }))
+                      }
                     />
                   </Panel>
                 </div>
@@ -170,9 +176,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               </div>
             </div>
           </Grid>
-          {/* <Grid item xs={12} sm={1}></Grid> */}
-          <Grid item container xs={12} sm={9}>
-            <Grid item container xs={12}>
+          <Grid container xs={12} sm={9}>
+            <Grid item xs={12}>
               <div className={classes.actions}>
                 <SortBy
                   defaultRefinement="howtoArticle_publishedAt_Dsc"
@@ -207,8 +212,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   <IconGrid />
                 </button>
               </div>
-            </Grid>
-            <Grid item container xs={12}>
               <div
                 className={classNames(classes.searhResultWrapper, viewType)}
                 show={query && query.length > 0 && focus}

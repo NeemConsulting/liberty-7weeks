@@ -25,6 +25,7 @@ export const PostHit = clickHandler => ({ hit }) => {
           <Snippet attribute="usageBody" hit={hit} tagName="mark" />
           <Snippet attribute="galleryBody" hit={hit} tagName="mark" />
           <Snippet attribute="howTobody" hit={hit} tagName="mark" />
+          <Snippet attribute="featureBody" hit={hit} tagName="mark" />
           <span>{' [...]'}</span>
         </p>
       </div>
