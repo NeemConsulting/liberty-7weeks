@@ -121,8 +121,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 <Panel header="Page Type">
                   <RefinementList
                     attribute="pageType"
-                    limit={4}
-                    showMoreLimit={5}
+                    limit={2}
+                    showMoreLimit={50}
                     showMore={true}
                   />
                 </Panel>
@@ -132,7 +132,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   <RefinementList
                     attribute="tags.name"
                     limit={4}
-                    showMoreLimit={5}
+                    showMoreLimit={50}
                     showMore={true}
                   />
                 </Panel>
@@ -143,7 +143,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     <RefinementList
                       attribute="tags.tagCategory.name"
                       limit={4}
-                      showMoreLimit={5}
+                      showMoreLimit={50}
                       showMore={true}
                     />
                   </Panel>
@@ -154,9 +154,15 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   <Panel header="Duration">
                     <RefinementList
                       attribute="duration"
-                      limit={4}
-                      showMoreLimit={5}
+                      limit={2}
+                      showMoreLimit={50}
                       showMore={true}
+                      transformItems={items =>
+                        items.map(item => ({
+                          ...item,
+                          label: `${item.label} mins`,
+                        }))
+                      }
                     />
                   </Panel>
                 </div>
