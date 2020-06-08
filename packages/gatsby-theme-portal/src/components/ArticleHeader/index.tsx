@@ -1,8 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Preloader, Oval } from 'react-preloader-icon';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 import classNames from 'classnames';
 import SocialMenu from '../SocialMenu';
 import { getYouTubeId } from '../../helpers/youtube';
@@ -10,8 +8,7 @@ import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
 import { ReactComponent as IconTime } from '../../images/icons/time.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 import { Typography } from '@material-ui/core';
 
 const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
