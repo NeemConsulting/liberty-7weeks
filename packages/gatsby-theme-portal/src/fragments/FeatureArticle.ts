@@ -5,6 +5,7 @@ export const query1 = graphql`
     _type
     _rawFeatureBody(resolveReferences: { maxDepth: 10 })
     subheading
+    path
     slug {
       current
     }
@@ -149,6 +150,7 @@ export const query2 = graphql`
   fragment FeatureFieldsTile on SanityFeatureArticle {
     headline
     subheading
+    path
     slug {
       current
     }
