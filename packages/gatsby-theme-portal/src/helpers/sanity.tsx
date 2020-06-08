@@ -7,7 +7,7 @@ import Video from '../components/Video';
 import Product from '../components/Product';
 import classNames from 'classnames';
 
-const sanityConfig = { projectId: 'e1mdz151', dataset: 'production' };
+const sanityConfig = { projectId: 'PROJECT_ID', dataset: 'DATASET_ID' };
 
 export const blockTypeDefaultSerializers = {
   types: {
