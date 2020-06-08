@@ -1,44 +1,44 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     sectionTitle: {
       fontSize: '2.5rem',
       fontWeight: 600,
       margin: 0,
-      marginBottom: theme.spacing(3),
-      marginRight: theme.spacing(3),
+      marginBottom: spacing(3),
+      marginRight: spacing(3),
     },
     sliderWrapper: {
-      marginLeft: theme.spacing(-2),
-      marginRight: theme.spacing(-2),
+      marginLeft: spacing(-2),
+      marginRight: spacing(-2),
       position: 'relative',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         margin: 0,
       },
       '& .swiper-pagination': {
         display: 'flex',
         justifyContent: 'center',
         position: 'static',
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-        [theme.breakpoints.up('md')]: {
-          marginTop: theme.spacing(2.5),
-          marginBottom: theme.spacing(2.5),
+        marginTop: spacing(2),
+        marginBottom: spacing(2),
+        [breakpoints.up('md')]: {
+          marginTop: spacing(2.5),
+          marginBottom: spacing(2.5),
         },
       },
       '& .swiper-pagination-bullet': {
-        backgroundColor: theme.palette.grey[20],
+        backgroundColor: palette.grey[20],
         width: 10,
         height: 10,
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           width: 20,
           height: 20,
         },
       },
 
       '& .swiper-pagination-bullet-active': {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: palette.common.black,
       },
 
       '& picture img': {
@@ -46,15 +46,15 @@ export default makeStyles((theme: Theme) =>
       },
     },
     copy: {
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: palette.common.white,
       maxWidth: '96%',
-      marginTop: theme.spacing(-1.875),
+      marginTop: spacing(-1.875),
       marginBottom: 0,
       marginLeft: 'auto',
       marginRight: 'auto',
       zIndex: 1,
       position: 'relative',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         position: 'absolute',
         top: '50%',
         right: 0,
@@ -65,23 +65,23 @@ export default makeStyles((theme: Theme) =>
       },
     },
     heading: {
-      marginBottom: theme.spacing(1.875),
+      marginBottom: spacing(1.875),
     },
     copyInner: {
-      padding: theme.spacing(2.5),
-      [theme.breakpoints.up('md')]: {
-        padding: theme.spacing(3),
+      padding: spacing(2.5),
+      [breakpoints.up('md')]: {
+        padding: spacing(3),
       },
     },
     callToAction: {
       fontSize: '.875rem',
       fontWeight: 700,
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.black,
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
+      backgroundColor: palette.primary.main,
+      color: palette.common.black,
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
       display: 'inline-block',
       textDecoration: 'none',
       position: 'relative',
@@ -95,7 +95,7 @@ export default makeStyles((theme: Theme) =>
         left: 0,
         right: 0,
         bottom: 0,
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleX(0)',
         transformOrigin: '0 50%',
         transitionProperty: 'transform',
@@ -103,17 +103,17 @@ export default makeStyles((theme: Theme) =>
         transitionTimingFunction: 'ease-out',
       },
       '&:hover': {
-        color: theme.palette.common.white,
+        color: palette.common.white,
         '&:before': {
           transform: 'scaleX(1)',
         },
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
-        paddingTop: theme.spacing(1.75),
-        paddingBottom: theme.spacing(1.75),
-        paddingLeft: theme.spacing(2.5),
-        paddingRight: theme.spacing(2.5),
+        paddingTop: spacing(1.75),
+        paddingBottom: spacing(1.75),
+        paddingLeft: spacing(2.5),
+        paddingRight: spacing(2.5),
       },
     },
     carouselArrow: {
@@ -143,7 +143,7 @@ export default makeStyles((theme: Theme) =>
         height: 50,
         transition: 'all .3s ease-in',
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         top: '45%',
         height: 80,
         width: 45,
@@ -165,11 +165,11 @@ export default makeStyles((theme: Theme) =>
       },
       '&:not(:disabled):hover': {
         '& svg': {
-          fill: theme.palette.primary.main,
+          fill: palette.primary.main,
           marginLeft: -10,
         },
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         right: -60,
       },
     },
@@ -181,11 +181,11 @@ export default makeStyles((theme: Theme) =>
       },
       '&:not(:disabled):hover': {
         '& svg': {
-          fill: theme.palette.primary.main,
+          fill: palette.primary.main,
           marginLeft: -20,
         },
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         left: -60,
       },
     },

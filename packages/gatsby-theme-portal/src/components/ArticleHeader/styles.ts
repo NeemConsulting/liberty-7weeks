@@ -1,49 +1,49 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     header: {
       margin: 'auto',
       maxWidth: 750,
-      [theme.breakpoints.up('md')]: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
+      [breakpoints.up('md')]: {
+        marginTop: spacing(2),
+        marginBottom: spacing(2),
       },
       '& svg': {
         width: 28,
         height: 28,
-        fill: theme.palette.common.black,
+        fill: palette.common.black,
       },
     },
     headingPrimary: {
-      [theme.breakpoints.up('md')]: {
-        marginBottom: theme.spacing(1.875),
+      [breakpoints.up('md')]: {
+        marginBottom: spacing(1.875),
       },
     },
     headingSecondary: {
       fontSize: '2.5rem',
       fontWeight: 600,
       margin: 0,
-      marginBottom: theme.spacing(2.5),
+      marginBottom: spacing(2.5),
     },
     textSecondary: {
-      paddingBottom: theme.spacing(1.25),
+      paddingBottom: spacing(1.25),
       fontSize: '.875rem',
       margin: 0,
-      marginBottom: theme.spacing(1.25),
-      [theme.breakpoints.up('md')]: {
+      marginBottom: spacing(1.25),
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
-        marginBottom: theme.spacing(2),
+        marginBottom: spacing(2),
       },
     },
     articleInfo: {
       fontSize: '.875rem',
       fontWeight: 400,
       maxWidth: 750,
-      marginBottom: theme.spacing(1.875),
+      marginBottom: spacing(1.875),
       display: 'flex',
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         marginBottom: 0,
       },
     },
@@ -51,24 +51,24 @@ export default makeStyles((theme: Theme) =>
     articleDate: {},
     divider: {
       margin: 0,
-      marginLeft: theme.spacing(1.25),
-      marginRight: theme.spacing(1.25),
+      marginLeft: spacing(1.25),
+      marginRight: spacing(1.25),
     },
     articleInfoWrapper: {
       display: 'flex',
       flexDirection: 'column',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
       },
     },
     heroImage: {
-      marginTop: theme.spacing(1.25),
+      marginTop: spacing(1.25),
       position: 'relative',
       '& iframe': {
         height: 263,
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           height: 399,
         },
       },
@@ -95,56 +95,56 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: 'transparent',
       '& svg': {
         transition: 'all .5s',
-        fill: theme.palette.common.white,
+        fill: palette.common.white,
         width: 60,
         height: 60,
         cursor: 'pointer',
       },
       '&:hover': {
         '& svg': {
-          fill: theme.palette.primary.main,
+          fill: palette.primary.main,
           transform: 'scale(1.2)',
         },
       },
     },
     textCenter: {
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         textAlign: 'center',
       },
     },
     link: {
-      backgroundImage: `linear-gradient(120deg,${theme.palette.primary.main} 0%,${theme.palette.primary.main} 100%)`,
+      backgroundImage: `linear-gradient(120deg,${palette.primary.main} 0%,${palette.primary.main} 100%)`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 3px',
       backgroundPosition: '0 100%',
-      color: theme.palette.common.black,
+      color: palette.common.black,
       lineHeight: 1.75,
       textDecoration: 'none',
       display: 'flex',
     },
     tutorialInfo: {
       display: 'flex',
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2),
+      marginTop: spacing(2),
+      marginBottom: spacing(2),
       width: '100%',
     },
     tutorialInfoBlock: {
-      backgroundColor: theme.palette.secondary.main,
-      padding: theme.spacing(1),
+      backgroundColor: palette.secondary.main,
+      padding: spacing(1),
       fontSize: '.625rem',
       lineHeight: 1.1,
       letterSpacing: 1,
-      marginRight: theme.spacing(1.5),
+      marginRight: spacing(1.5),
       flex: '1 50%',
       display: 'flex',
       position: 'relative',
       alignItems: 'center',
-      [theme.breakpoints.up('md')]: {
-        paddingTop: theme.spacing(1.25),
-        paddingBottom: theme.spacing(1.25),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        marginRight: theme.spacing(2.5),
+      [breakpoints.up('md')]: {
+        paddingTop: spacing(1.25),
+        paddingBottom: spacing(1.25),
+        paddingLeft: spacing(2),
+        paddingRight: spacing(2),
+        marginRight: spacing(2.5),
         fontSize: '.75rem',
       },
       '&:last-child': {
@@ -152,7 +152,7 @@ export default makeStyles((theme: Theme) =>
       },
       '& strong': {
         display: 'block',
-        marginBottom: theme.spacing(1),
+        marginBottom: spacing(1),
         textTransform: 'uppercase',
       },
       '& span': {
@@ -170,7 +170,7 @@ export default makeStyles((theme: Theme) =>
           '&:first-child': {
             marginLeft: 0,
           },
-          [theme.breakpoints.up('md')]: {
+          [breakpoints.up('md')]: {
             width: 44,
             height: 44,
             marginLeft: 10,
@@ -183,7 +183,7 @@ export default makeStyles((theme: Theme) =>
         '&.active': {
           opacity: 1,
         },
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           width: 44,
           height: 44,
           marginLeft: 10,
@@ -194,10 +194,10 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       '& span': {
-        marginLeft: theme.spacing(2.5),
+        marginLeft: spacing(2.5),
       },
       '& svg': {
-        marginRight: theme.spacing(1.25),
+        marginRight: spacing(1.25),
         opacity: 0.2,
         '&.active': {
           opacity: 1,
@@ -210,8 +210,8 @@ export default makeStyles((theme: Theme) =>
         width: 25,
         height: 25,
         borderRadius: '50%',
-        border: `2px solid ${theme.palette.primary.main}`,
-        marginRight: theme.spacing(1.25),
+        border: `2px solid ${palette.primary.main}`,
+        marginRight: spacing(1.25),
       },
       '& picture img': {
         width: '25px !important',

@@ -1,9 +1,9 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     mainContentWrapper: {
-      marginTop: theme.spacing(7.5),
+      marginTop: spacing(7.5),
       overflow: 'hidden',
       '&.home-page': {
         paddingTop: 0,
@@ -16,19 +16,19 @@ export default makeStyles((theme: Theme) =>
       zIndex: 3,
       display: 'none',
       '& .MuiSwitch-track': {
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: palette.common.white,
       },
-      [theme.breakpoints.up('lg')]: {
+      [breakpoints.up('lg')]: {
         display: 'block',
       },
     },
     skipLink: {
       position: 'absolute',
-      padding: theme.spacing(0.5),
+      padding: spacing(0.5),
       zIndex: 4,
-      color: theme.palette.common.black,
-      background: theme.palette.common.white,
-      border: `.0625rem solid ${theme.palette.common.black}`,
+      color: palette.common.black,
+      background: palette.common.white,
+      border: `.0625rem solid ${palette.common.black}`,
       whiteSpace: 'nowrap',
       '&:not(:focus)': {
         width: 1,

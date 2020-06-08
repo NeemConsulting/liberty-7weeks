@@ -1,23 +1,23 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      paddingTop: theme.spacing(2.5),
-      paddingBottom: theme.spacing(2.5),
+      paddingTop: spacing(2.5),
+      paddingBottom: spacing(2.5),
       position: 'relative',
-      [theme.breakpoints.up('md')]: {
-        paddingTop: theme.spacing(5),
-        paddingBottom: theme.spacing(5),
+      [breakpoints.up('md')]: {
+        paddingTop: spacing(5),
+        paddingBottom: spacing(5),
       },
     },
     sectionTitle: {
       display: 'flex',
       flexDirection: 'column',
-      marginBottom: theme.spacing(1.875),
-      [theme.breakpoints.up('md')]: {
-        marginBottom: theme.spacing(2),
+      marginBottom: spacing(1.875),
+      [breakpoints.up('md')]: {
+        marginBottom: spacing(2),
         flexDirection: 'row',
         alignItems: 'center',
       },
@@ -26,23 +26,23 @@ export default makeStyles((theme: Theme) =>
       position: 'relative',
     },
     sectionLink: {
-      color: theme.palette.common.black,
+      color: palette.common.black,
       textDecoration: 'none',
       fontSize: '.875rem',
       fontWeight: 700,
       alignSelf: 'flex-start',
-      backgroundImage: `linear-gradient(120deg,${theme.palette.primary.main} 0%,${theme.palette.primary.main} 100%)`,
+      backgroundImage: `linear-gradient(120deg,${palette.primary.main} 0%,${palette.primary.main} 100%)`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% .1875rem',
       backgroundPosition: '0 100%',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
-        marginLeft: theme.spacing(3),
-        marginBottom: theme.spacing(1),
+        marginLeft: spacing(3),
+        marginBottom: spacing(1),
         alignSelf: 'center',
       },
       '&:hover, &:focus': {
-        backgroundImage: `linear-gradient(120deg,${theme.palette.common.black} 0%,${theme.palette.common.black} 100%)`,
+        backgroundImage: `linear-gradient(120deg,${palette.common.black} 0%,${palette.common.black} 100%)`,
       },
     },
     heroImage: {
@@ -56,7 +56,7 @@ export default makeStyles((theme: Theme) =>
       height: '2.5rem',
       bottom: '.5rem',
       left: '.5rem',
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: palette.primary.main,
       position: 'absolute',
       display: 'flex',
       alignItems: 'center',
@@ -71,7 +71,7 @@ export default makeStyles((theme: Theme) =>
         left: 0,
         right: 0,
         bottom: 0,
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleX(0)',
         transformOrigin: '0 50%',
         transitionProperty: 'transform',
@@ -81,13 +81,13 @@ export default makeStyles((theme: Theme) =>
       '& svg': {
         width: '1.5rem',
         height: '1.5rem',
-        fill: theme.palette.common.white,
-        [theme.breakpoints.up('md')]: {
+        fill: palette.common.white,
+        [breakpoints.up('md')]: {
           width: '2rem',
           height: '2rem',
         },
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         width: '3.25rem',
         height: '3.25rem',
         bottom: '.6875rem',
@@ -100,7 +100,7 @@ export default makeStyles((theme: Theme) =>
       textDecoration: 'none',
       '&:hover': {
         '& h3 > span': {
-          backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
+          backgroundImage: `linear-gradient(120deg,${palette.secondary.main} 0%,${palette.secondary.main} 100%)`,
         },
         '& .icon:before': {
           transform: 'scaleX(1)',
@@ -114,11 +114,11 @@ export default makeStyles((theme: Theme) =>
     sliderItemCaption: {
       fontSize: '.875rem',
       fontWeight: 600,
-      color: theme.palette.common.black,
+      color: palette.common.black,
       margin: 0,
-      padding: theme.spacing(2),
-      backgroundColor: theme.palette.common.white,
-      [theme.breakpoints.up('md')]: {
+      padding: spacing(2),
+      backgroundColor: palette.common.white,
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
       '& span': {
@@ -134,21 +134,21 @@ export default makeStyles((theme: Theme) =>
       position: 'absolute',
       top: 0,
       left: 0,
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: palette.common.white,
       fontSize: '.625rem',
       fontWeight: 600,
       lineHeight: 1.1,
-      color: theme.palette.quinary.main,
-      paddingTop: theme.spacing(0.375),
-      paddingBottom: theme.spacing(0.375),
-      paddingLeft: theme.spacing(0.625),
-      paddingRight: theme.spacing(0.625),
+      color: palette.quinary.main,
+      paddingTop: spacing(0.375),
+      paddingBottom: spacing(0.375),
+      paddingLeft: spacing(0.625),
+      paddingRight: spacing(0.625),
       zIndex: 1,
       textTransform: 'uppercase',
       letterSpacing: 1,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '.75rem',
-        padding: theme.spacing(0.75),
+        padding: spacing(0.75),
       },
     },
 

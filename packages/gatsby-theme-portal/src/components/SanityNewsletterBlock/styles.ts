@@ -1,11 +1,11 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     newsletter: {
       position: 'relative',
-      paddingBottom: theme.spacing(4),
-      paddingTop: theme.spacing(4),
+      paddingBottom: spacing(4),
+      paddingTop: spacing(4),
       textAlign: 'center',
     },
     newsletterContent: {
@@ -13,28 +13,28 @@ export default makeStyles((theme: Theme) =>
       zIndex: 1,
       maxWidth: 760,
       margin: 'auto',
-      paddingLeft: theme.spacing(2.5),
-      paddingRight: theme.spacing(2.5),
+      paddingLeft: spacing(2.5),
+      paddingRight: spacing(2.5),
     },
     newsletterTitle: {
       fontSize: '1.125rem',
       lineHeight: 1.3,
       margin: 0,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.875rem',
-        marginBottom: theme.spacing(3.75),
+        marginBottom: spacing(3.75),
       },
       '& p': {
         margin: 0,
       },
     },
     form: {
-      marginTop: theme.spacing(2.5),
+      marginTop: spacing(2.5),
       width: '90%',
       margin: 'auto',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         width: '70%',
-        marginTop: theme.spacing(1.25),
+        marginTop: spacing(1.25),
       },
     },
     formGroup: {
@@ -47,10 +47,10 @@ export default makeStyles((theme: Theme) =>
     formControl: {
       width: '100%',
       flex: 1,
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
       height: 50,
       fontSize: '1.125rem',
       '&:focus': {
@@ -64,9 +64,9 @@ export default makeStyles((theme: Theme) =>
       height: 50,
       marginLeft: -1,
       cursor: 'pointer',
-      backgroundColor: theme.palette.primary.main,
-      border: `1px solid ${theme.palette.primary.main}`,
-      color: theme.palette.common.white,
+      backgroundColor: palette.primary.main,
+      border: `1px solid ${palette.primary.main}`,
+      color: palette.common.white,
       position: 'relative',
       transform: 'perspective(1px) translateZ(0)',
       '&:before': {
@@ -77,7 +77,7 @@ export default makeStyles((theme: Theme) =>
         left: 0,
         right: 0,
         bottom: 0,
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleX(0)',
         transformOrigin: '0 50%',
         transitionProperty: 'transform',
@@ -85,7 +85,7 @@ export default makeStyles((theme: Theme) =>
         transitionTimingFunction: 'ease-out',
       },
       '&:hover': {
-        borderColor: theme.palette.common.black,
+        borderColor: palette.common.black,
         '&:before': {
           transform: 'scaleX(1)',
         },

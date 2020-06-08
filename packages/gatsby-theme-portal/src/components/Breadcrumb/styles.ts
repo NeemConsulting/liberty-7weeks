@@ -1,13 +1,13 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     wrapper: {
-      paddingTop: theme.spacing(1.5),
-      paddingBottom: theme.spacing(1.5),
-      [theme.breakpoints.up('md')]: {
-        paddingTop: theme.spacing(2.5),
-        paddingBottom: theme.spacing(2.5),
+      paddingTop: spacing(1.5),
+      paddingBottom: spacing(1.5),
+      [breakpoints.up('md')]: {
+        paddingTop: spacing(2.5),
+        paddingBottom: spacing(2.5),
       },
     },
     items: {
@@ -18,16 +18,16 @@ export default makeStyles((theme: Theme) =>
     },
     item: {
       fontSize: '.75rem',
-      paddingLeft: theme.spacing(1),
+      paddingLeft: spacing(1),
       whiteSpace: 'nowrap',
       '&::before': {
         display: 'inline-block',
-        paddingRight: theme.spacing(1),
-        color: theme.palette.grey[50],
+        paddingRight: spacing(1),
+        color: palette.grey[50],
         content: "'/'",
       },
       '&:first-child': {
-        paddingLeft: theme.spacing(0.5),
+        paddingLeft: spacing(0.5),
         display: 'block',
         '&:before': {
           display: 'none',
@@ -35,17 +35,17 @@ export default makeStyles((theme: Theme) =>
       },
       '& + li + li + li': {
         display: 'none',
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           display: 'block',
         },
       },
     },
     link: {
-      color: theme.palette.common.black,
+      color: palette.common.black,
       textDecoration: 'none',
     },
     active: {
-      color: theme.palette.grey[100],
+      color: palette.grey[100],
     },
   })
 );

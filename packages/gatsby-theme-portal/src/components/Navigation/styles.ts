@@ -1,6 +1,6 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     NavigationToggleButton: {
       background: 'transparent',
@@ -32,7 +32,7 @@ export default makeStyles((theme: Theme) =>
           },
         },
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         display: 'none',
       },
     },
@@ -49,7 +49,7 @@ export default makeStyles((theme: Theme) =>
       position: 'absolute',
       height: '.0625rem',
       width: '100%',
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: palette.common.white,
       opacity: 1,
       left: 0,
       top: '-.3125rem',
@@ -86,11 +86,11 @@ export default makeStyles((theme: Theme) =>
       left: 0,
       right: 0,
       bottom: 0,
-      background: theme.palette.common.black,
+      background: palette.common.black,
       zIndex: 1,
       height: 0,
       transition: 'height .3s ease-in-out',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         display: 'block',
         position: 'static',
         height: 'auto',
@@ -102,7 +102,7 @@ export default makeStyles((theme: Theme) =>
     navigationInnerWrapper: {
       overflow: 'auto',
       height: '100%',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         height: 'auto',
         display: 'block',
         overflow: 'visible',
@@ -112,12 +112,12 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       padding: 0,
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
       listStyleType: 'none',
       margin: 0,
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         alignItems: 'center',
         flexDirection: 'row',
         borderTop: 'none',
@@ -127,7 +127,7 @@ export default makeStyles((theme: Theme) =>
     navigationListItem: {
       position: 'relative',
       '&:hover > a, &:focus-within': {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
       '&:hover > div': {
         height: 'auto',
@@ -135,8 +135,8 @@ export default makeStyles((theme: Theme) =>
     },
     navigationLink: {
       fontSize: '1rem',
-      color: theme.palette.common.white,
-      padding: theme.spacing(1.875),
+      color: palette.common.white,
+      padding: spacing(1.875),
       textDecoration: 'none',
       width: '100%',
       textAlign: 'left',
@@ -151,33 +151,33 @@ export default makeStyles((theme: Theme) =>
         height: 'auto',
       },
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         padding: 0,
-        paddingLeft: theme.spacing(1.25),
-        paddingRight: theme.spacing(1.25),
+        paddingLeft: spacing(1.25),
+        paddingRight: spacing(1.25),
         fontWeight: '700',
         width: 'auto',
         display: 'flex',
         alignItems: 'center',
         height: '59px',
         '&:hover, &:focus': {
-          backgroundColor: theme.palette.primary.main,
+          backgroundColor: palette.primary.main,
         },
         '&:focus + div': {
           height: 'auto',
         },
       },
 
-      [theme.breakpoints.up('lg')]: {
-        paddingLeft: theme.spacing(2.5),
-        paddingRight: theme.spacing(2.5),
+      [breakpoints.up('lg')]: {
+        paddingLeft: spacing(2.5),
+        paddingRight: spacing(2.5),
         fontSize: '1.125rem',
       },
     },
     dropdownMenuIcon: {
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         position: 'static',
-        marginLeft: theme.spacing(1.25),
+        marginLeft: spacing(1.25),
       },
     },
     dropdownMenuIconSVG: {
@@ -191,13 +191,13 @@ export default makeStyles((theme: Theme) =>
       transition: 'height .3s ease-in-out',
       height: 0,
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         position: 'absolute',
         top: '100%',
         left: 0,
         overflow: 'auto',
         height: 0,
-        background: theme.palette.common.black,
+        background: palette.common.black,
         minWidth: '200px',
         '&:focus-within': {
           height: 'auto',
@@ -207,15 +207,15 @@ export default makeStyles((theme: Theme) =>
     subNavigationList: {
       listStyleType: 'none',
       padding: 0,
-      [theme.breakpoints.up('md')]: {
-        paddingTop: theme.spacing(1.25),
-        paddingBottom: theme.spacing(1.25),
-        borderTop: `4px solid ${theme.palette.primary.main}`,
+      [breakpoints.up('md')]: {
+        paddingTop: spacing(1.25),
+        paddingBottom: spacing(1.25),
+        borderTop: `4px solid ${palette.primary.main}`,
       },
     },
     subNavigationListItem: {},
     subNavigationLink: {
-      padding: theme.spacing(1.875),
+      padding: spacing(1.875),
       fontSize: '1rem',
       color: 'white',
       textDecoration: 'none',
@@ -224,7 +224,7 @@ export default makeStyles((theme: Theme) =>
       position: 'relative',
       display: 'block',
       '&:hover': {
-        backgroundColor: theme.palette.grey[50],
+        backgroundColor: palette.grey[50],
       },
     },
   })

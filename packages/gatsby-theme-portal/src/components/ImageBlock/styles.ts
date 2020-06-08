@@ -1,13 +1,13 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     section: {
-      backgroundColor: theme.palette.tertiary.main,
+      backgroundColor: palette.tertiary.main,
       paddingTop: 0,
       '&.imageblocktypeb': {
         '& .c-image_wrapper': {
-          [theme.breakpoints.up('md')]: {
+          [breakpoints.up('md')]: {
             order: 1,
           },
         },
@@ -17,9 +17,9 @@ export default makeStyles((theme: Theme) =>
       },
     },
     sectionTitle: {
-      color: theme.palette.common.black,
-      marginTop: theme.spacing(1.25),
-      marginBottom: theme.spacing(0.625),
+      color: palette.common.black,
+      marginTop: spacing(1.25),
+      marginBottom: spacing(0.625),
       lineHeight: 1.2,
       '& span': {
         transition: '.15s',
@@ -29,8 +29,8 @@ export default makeStyles((theme: Theme) =>
         backgroundSize: '100% .1875rem',
         backgroundPosition: '0 100%',
       },
-      [theme.breakpoints.up('md')]: {
-        marginBottom: theme.spacing(2.5),
+      [breakpoints.up('md')]: {
+        marginBottom: spacing(2.5),
       },
     },
     link: {
@@ -38,7 +38,7 @@ export default makeStyles((theme: Theme) =>
       display: 'block',
       '&:hover': {
         '& h2 span': {
-          backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
+          backgroundImage: `linear-gradient(120deg,${palette.secondary.main} 0%,${palette.secondary.main} 100%)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% .1875rem',
           backgroundPosition: '0 100%',
@@ -51,7 +51,7 @@ export default makeStyles((theme: Theme) =>
     content: {
       display: 'flex',
       flexDirection: 'column',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         flexDirection: 'row',
       },
     },
@@ -63,23 +63,23 @@ export default makeStyles((theme: Theme) =>
         height: '100% !important',
         transition: 'all 500ms ease 0s !important',
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         order: 2,
         width: 752,
       },
     },
     copyText: {
-      padding: theme.spacing(2.25),
-      background: theme.palette.common.white,
-      color: theme.palette.common.black,
+      padding: spacing(2.25),
+      background: palette.common.white,
+      color: palette.common.black,
       order: 2,
-      top: theme.spacing(-2.25),
+      top: spacing(-2.25),
       position: 'relative',
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         order: 1,
         alignSelf: 'center',
-        padding: theme.spacing(3),
+        padding: spacing(3),
         right: -20,
         top: 0,
         maxWidth: 500,
@@ -87,7 +87,7 @@ export default makeStyles((theme: Theme) =>
       '& p': {
         margin: 0,
         fontSize: '.875rem',
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           fontSize: '1.125rem',
         },
       },

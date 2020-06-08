@@ -1,9 +1,9 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     readNext: {
-      marginTop: theme.spacing(3.75),
+      marginTop: spacing(3.75),
     },
     readNextTitle: {
       position: 'relative',
@@ -12,7 +12,7 @@ export default makeStyles((theme: Theme) =>
       lineHeight: 1.1,
       margin: 0,
 
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
 
@@ -24,15 +24,15 @@ export default makeStyles((theme: Theme) =>
         zIndex: -1,
         bottom: 0,
         left: '-.625rem',
-        background: theme.palette.secondary.main,
+        background: palette.secondary.main,
       },
     },
     readNextContent: {
-      marginTop: theme.spacing(2),
+      marginTop: spacing(2),
       position: 'relative',
       '&:before': {
         content: '""',
-        background: theme.palette.secondary.main,
+        background: palette.secondary.main,
         position: 'absolute',
         height: '100%',
         right: 0,
@@ -40,17 +40,17 @@ export default makeStyles((theme: Theme) =>
         width: '100vw',
         zIndex: -1,
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         maxHeight: 212,
       },
     },
     readNextImage: {
       overflow: 'hidden',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         height: '212px',
       },
       '& img': {
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           maxWidth: 350,
           width: '532px !important',
           height: '345px !important',
@@ -58,19 +58,19 @@ export default makeStyles((theme: Theme) =>
       },
     },
     readNextLink: {
-      color: theme.palette.common.black,
+      color: palette.common.black,
       display: 'block',
       textDecoration: 'none',
       fontSize: '1.875rem',
       fontWeight: 600,
-      paddingTop: theme.spacing(1.25),
-      paddingRight: theme.spacing(1.25),
-      [theme.breakpoints.up('md')]: {
+      paddingTop: spacing(1.25),
+      paddingRight: spacing(1.25),
+      [breakpoints.up('md')]: {
         padding: 0,
       },
       '&:hover': {
         '& h3 span': {
-          backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
+          backgroundImage: `linear-gradient(120deg,${palette.secondary.main} 0%,${palette.secondary.main} 100%)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% .1875rem',
           backgroundPosition: '0 100%',
@@ -78,12 +78,12 @@ export default makeStyles((theme: Theme) =>
       },
     },
     readNextCopy: {
-      backgroundColor: theme.palette.common.white,
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
-      paddingLeft: theme.spacing(2.5),
-      paddingRight: theme.spacing(2.5),
-      [theme.breakpoints.up('md')]: {
+      backgroundColor: palette.common.white,
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
+      paddingLeft: spacing(2.5),
+      paddingRight: spacing(2.5),
+      [breakpoints.up('md')]: {
         position: 'absolute',
         maxWidth: 350,
         right: 20,
@@ -95,7 +95,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 600,
       lineHeight: 1.2,
       margin: 0,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.875rem',
       },
     },
@@ -103,10 +103,10 @@ export default makeStyles((theme: Theme) =>
       fontSize: '.75rem',
       fontWeight: 600,
       margin: 0,
-      marginBottom: theme.spacing(1),
-      marginRight: theme.spacing(1),
+      marginBottom: spacing(1),
+      marginRight: spacing(1),
       textTransform: 'uppercase',
-      color: theme.palette.quinary.main,
+      color: palette.quinary.main,
       display: 'block',
     },
   })

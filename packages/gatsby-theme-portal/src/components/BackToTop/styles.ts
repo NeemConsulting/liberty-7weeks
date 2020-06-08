@@ -1,11 +1,11 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ palette }: Theme) =>
   createStyles({
     element: {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: palette.primary.main,
       border: 'none',
-      color: theme.palette.common.black,
+      color: palette.common.black,
       position: 'fixed',
       width: 45,
       height: 45,
@@ -26,7 +26,7 @@ export default makeStyles((theme: Theme) =>
         right: 0,
         bottom: 0,
         height: 'auto',
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleY(0)',
         transformOrigin: '0 100%',
         transitionProperty: 'transform',
@@ -38,19 +38,18 @@ export default makeStyles((theme: Theme) =>
           transform: 'scaleY(1)',
         },
         '& svg': {
-          fill: theme.palette.primary.main,
+          fill: palette.primary.main,
         },
       },
       '&:focus': {
         transform: 'perspective(1px) translateZ(0) translateX(0)',
       },
       '& svg': {
-        fill: theme.palette.common.black,
+        fill: palette.common.black,
         width: 24,
         height: 24,
         transition: 'all .5s',
       },
-      [theme.breakpoints.up('md')]: {},
     },
     isActive: {
       transform: 'perspective(1px) translateZ(0) translateX(0)',

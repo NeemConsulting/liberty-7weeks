@@ -1,6 +1,6 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     wrapper: {
       '& .preloader-icon': {
@@ -14,11 +14,11 @@ export default makeStyles((theme: Theme) =>
       margin: 0,
     },
     heroImage: {
-      marginTop: theme.spacing(1.25),
+      marginTop: spacing(1.25),
       position: 'relative',
       '& iframe': {
         height: 263,
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           height: 399,
         },
       },
@@ -35,14 +35,14 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: 'transparent',
       '& svg': {
         transition: 'all .5s',
-        fill: theme.palette.common.white,
+        fill: palette.common.white,
         width: 60,
         height: 60,
         cursor: 'pointer',
       },
       '&:hover': {
         '& svg': {
-          fill: theme.palette.primary.main,
+          fill: palette.primary.main,
           transform: 'scale(1.2)',
         },
       },

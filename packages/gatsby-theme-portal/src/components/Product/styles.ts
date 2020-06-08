@@ -1,10 +1,10 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     wrapper: {
-      marginBottom: theme.spacing(3.75),
-      marginTop: theme.spacing(3.75),
+      marginBottom: spacing(3.75),
+      marginTop: spacing(3.75),
       textAlign: 'center',
       position: 'relative',
     },
@@ -13,23 +13,23 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 700,
       maxWidth: '80%',
       margin: 'auto',
-      paddingBottom: theme.spacing(0.375),
+      paddingBottom: spacing(0.375),
       '& span': {
-        backgroundImage: `linear-gradient(120deg,${theme.palette.secondary.main} 0%,${theme.palette.secondary.main} 100%)`,
+        backgroundImage: `linear-gradient(120deg,${palette.secondary.main} 0%,${palette.secondary.main} 100%)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% .1875rem',
         backgroundPosition: '0 100%',
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem !important',
       },
     },
     tagline: {
-      marginBottom: theme.spacing(1.25),
+      marginBottom: spacing(1.25),
       '& span': {
         fontSize: '1.125rem',
         fontWeight: 700,
-        background: `linear-gradient(to bottom,${theme.palette.common.white} 40%,${theme.palette.quaternary.main} 5%,${theme.palette.quaternary.main} 95%)`,
+        background: `linear-gradient(to bottom,${palette.common.white} 40%,${palette.quaternary.main} 5%,${palette.quaternary.main} 95%)`,
         display: 'inline-block',
       },
     },
@@ -44,15 +44,15 @@ export default makeStyles((theme: Theme) =>
       },
     },
     buynow: {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
+      backgroundColor: palette.primary.main,
+      color: palette.common.white,
       fontSize: '.875rem',
       fontWeight: 700,
       overflow: 'hidden',
       transform: 'perspective(1px) translateZ(0)',
       borderRadius: 3,
       transition: 'all .5s',
-      marginTop: theme.spacing(2),
+      marginTop: spacing(2),
       '&:after': {
         display: 'none',
       },
@@ -65,7 +65,7 @@ export default makeStyles((theme: Theme) =>
         right: 0,
         bottom: 0,
         height: 'auto',
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleX(0)',
         transformOrigin: '0 50%',
         transitionProperty: 'transform',
@@ -73,8 +73,8 @@ export default makeStyles((theme: Theme) =>
         transitionTimingFunction: 'ease-out',
       },
       '& svg': {
-        marginRight: theme.spacing(2),
-        marginLeft: theme.spacing(2),
+        marginRight: spacing(2),
+        marginLeft: spacing(2),
         transition: 'all .5s',
       },
       '&:hover': {
@@ -82,7 +82,7 @@ export default makeStyles((theme: Theme) =>
           transform: 'scaleX(1)',
         },
         '& svg': {
-          fill: theme.palette.common.white,
+          fill: palette.common.white,
         },
       },
     },
@@ -90,13 +90,13 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       '& span': {
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: palette.secondary.main,
         display: 'block',
-        paddingTop: theme.spacing(1.25),
-        paddingBottom: theme.spacing(1.25),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        color: theme.palette.common.black,
+        paddingTop: spacing(1.25),
+        paddingBottom: spacing(1.25),
+        paddingLeft: spacing(2),
+        paddingRight: spacing(2),
+        color: palette.common.black,
       },
     },
   })

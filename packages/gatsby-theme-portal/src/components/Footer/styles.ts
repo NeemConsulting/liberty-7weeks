@@ -1,53 +1,53 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     footer: {
-      background: theme.palette.common.black,
+      background: palette.common.black,
       transition: 'color 0.25s ease-out 0s',
       fontSize: '.775rem',
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'column',
-      paddingTop: theme.spacing(6),
+      paddingTop: spacing(6),
       '& .c-social': {
-        marginLeft: theme.spacing(2.5),
-        marginRight: theme.spacing(2.5),
+        marginLeft: spacing(2.5),
+        marginRight: spacing(2.5),
       },
     },
     wrapper: {
-      paddingLeft: theme.spacing(2.5),
-      paddingRight: theme.spacing(2.5),
+      paddingLeft: spacing(2.5),
+      paddingRight: spacing(2.5),
     },
     navigationItems: {
       listStyleType: 'none',
       columns: 2,
       paddingLeft: 0,
-      paddingBottom: theme.spacing(2),
-      marginTop: theme.spacing(3.75),
-      [theme.breakpoints.up('md')]: {
+      paddingBottom: spacing(2),
+      marginTop: spacing(3.75),
+      [breakpoints.up('md')]: {
         display: 'flex',
         justifyContent: 'center',
         alignItem: 'center',
-        paddingBottom: theme.spacing(6),
+        paddingBottom: spacing(6),
       },
     },
     navigationItem: {
-      marginBottom: theme.spacing(1.25),
-      [theme.breakpoints.up('md')]: {
+      marginBottom: spacing(1.25),
+      [breakpoints.up('md')]: {
         marginBottom: 0,
-        marginLeft: theme.spacing(2.5),
-        marginRight: theme.spacing(2.5),
+        marginLeft: spacing(2.5),
+        marginRight: spacing(2.5),
       },
     },
     navigationLink: {
-      color: theme.palette.common.white,
+      color: palette.common.white,
       textDecoration: 'none',
       display: 'inline-block',
       fontSize: '.875rem',
       fontWeight: 700,
       lineHeight: 1.6,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
       '&:after': {
@@ -59,24 +59,24 @@ export default makeStyles((theme: Theme) =>
       },
       '&:hover:after': {
         width: '100%',
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
     },
     footerSecondary: {
       textAlign: 'center',
-      backgroundColor: theme.palette.grey[50],
-      color: theme.palette.grey[200],
+      backgroundColor: palette.grey[50],
+      color: palette.grey[200],
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
-      [theme.breakpoints.up('md')]: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(5),
+      padding: spacing(3),
+      paddingBottom: spacing(3),
+      [breakpoints.up('md')]: {
+        paddingTop: spacing(4),
+        paddingBottom: spacing(5),
       },
       '& img': {
-        marginRight: theme.spacing(1.25),
+        marginRight: spacing(1.25),
         opacity: 0.5,
       },
     },

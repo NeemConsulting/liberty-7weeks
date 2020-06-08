@@ -1,9 +1,9 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     social: {
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         alignSelf: 'center',
       },
 
@@ -15,20 +15,20 @@ export default makeStyles((theme: Theme) =>
       },
 
       '& li': {
-        marginRight: theme.spacing(2.5),
+        marginRight: spacing(2.5),
         '&:last-child': {
           marginRight: 0,
         },
       },
 
       '& a:hover svg': {
-        fill: theme.palette.primary.main,
+        fill: palette.primary.main,
       },
 
       '& svg': {
         width: 32,
         height: 32,
-        fill: theme.palette.common.white,
+        fill: palette.common.white,
         transition: 'all .3s',
       },
     },

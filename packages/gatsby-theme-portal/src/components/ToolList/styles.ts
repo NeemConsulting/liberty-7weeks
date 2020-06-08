@@ -1,10 +1,10 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     section: {
-      marginTop: theme.spacing(3.75),
-      marginBottom: theme.spacing(3.75),
+      marginTop: spacing(3.75),
+      marginBottom: spacing(3.75),
     },
     sectionTitle: {
       fontSize: '1.875rem',
@@ -12,10 +12,10 @@ export default makeStyles((theme: Theme) =>
       lineHeight: 1.1,
       position: 'relative',
       margin: 0,
-      marginBottom: theme.spacing(3.75),
+      marginBottom: spacing(3.75),
       '&:before': {
         content: '""',
-        background: theme.palette.quaternary.main,
+        background: palette.quaternary.main,
         position: 'absolute',
         right: 0,
         top: 0,
@@ -28,10 +28,10 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginBottom: theme.spacing(2.5),
+      marginBottom: spacing(2.5),
     },
     icon: {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: palette.secondary.main,
       borderRadius: '50%',
       width: 50,
       height: 50,
@@ -42,7 +42,7 @@ export default makeStyles((theme: Theme) =>
         width: 20,
         height: 20,
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         width: 120,
         height: 120,
         '& svg': {
@@ -56,9 +56,9 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 600,
       lineHeight: 1.1,
       margin: 0,
-      marginTop: theme.spacing(1),
+      marginTop: spacing(1),
       textAlign: 'center',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '.875rem',
       },
     },

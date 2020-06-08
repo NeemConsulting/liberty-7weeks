@@ -4,8 +4,6 @@ import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 // Get Default breakpoints to define typograhy responsive behaviour
 const breakpoints = createBreakpoints({});
 
-const themeName = 'allthingshair';
-
 const color = {
   primary: '#ff3366',
   secondary: '#b8f0c0',
@@ -96,5 +94,4 @@ export default createMuiTheme({
   typography,
   palette,
   overrides,
-  themeName,
 });

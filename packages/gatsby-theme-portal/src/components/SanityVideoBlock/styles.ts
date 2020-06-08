@@ -1,42 +1,42 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     section: {
-      backgroundColor: theme.palette.tertiary.main,
+      backgroundColor: palette.tertiary.main,
       paddingTop: 0,
-      paddingBottom: theme.spacing(2),
-      [theme.breakpoints.up('md')]: {
+      paddingBottom: spacing(2),
+      [breakpoints.up('md')]: {
         paddingTop: 0,
         paddingBottom: 0,
       },
     },
     sectionTitle: {
-      [theme.breakpoints.up('md')]: {
-        marginBottom: theme.spacing(2.5),
+      [breakpoints.up('md')]: {
+        marginBottom: spacing(2.5),
       },
     },
     content: {
       display: 'flex',
       flexDirection: 'column',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         flexDirection: 'row',
       },
       '& iframe': {
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           order: 2,
           height: 380,
         },
       },
     },
     copyText: {
-      padding: theme.spacing(2.25),
-      background: theme.palette.common.white,
+      padding: spacing(2.25),
+      background: palette.common.white,
       order: 2,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         order: 1,
         alignSelf: 'center',
-        padding: theme.spacing(3),
+        padding: spacing(3),
         position: 'relative',
         right: -20,
       },

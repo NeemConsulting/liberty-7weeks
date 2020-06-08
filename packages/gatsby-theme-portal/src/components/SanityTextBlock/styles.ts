@@ -1,14 +1,14 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     section: {
-      paddingBottom: theme.spacing(2),
-      paddingTop: theme.spacing(2),
-      backgroundColor: theme.palette.quaternary.main,
-      [theme.breakpoints.up('md')]: {
-        paddingBottom: theme.spacing(5),
-        paddingTop: theme.spacing(5),
+      paddingBottom: spacing(2),
+      paddingTop: spacing(2),
+      backgroundColor: palette.quaternary.main,
+      [breakpoints.up('md')]: {
+        paddingBottom: spacing(5),
+        paddingTop: spacing(5),
       },
       '& h1': {
         fontSize: '1.875rem',
@@ -16,12 +16,12 @@ export default makeStyles((theme: Theme) =>
         lineHeight: 1.1,
         marginTop: 0,
         marginBottom: 10,
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           fontSize: '2.875rem',
         },
       },
       '&.textblocktypea': {
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: palette.common.white,
         '& p': {
           width: '80%',
           margin: 'auto',
@@ -31,16 +31,16 @@ export default makeStyles((theme: Theme) =>
     sectionDescription: {
       textAlign: 'center',
       margin: 'auto',
-      color: theme.palette.grey[50],
+      color: palette.grey[50],
       '& p': {
         fontSize: '.875rem',
         margin: 0,
-        [theme.breakpoints.up('md')]: {
+        [breakpoints.up('md')]: {
           fontSize: '1.125rem',
         },
       },
       '& h1, & h2, & h3, & h4, & h5, & h6': {
-        color: theme.palette.common.black,
+        color: palette.common.black,
       },
       '& h2': {
         fontSize: '1.5rem',
@@ -60,7 +60,7 @@ export default makeStyles((theme: Theme) =>
             '&:last-child': {
               fontSize: '1rem',
               opacity: 0.5,
-              color: theme.palette.common.black,
+              color: palette.common.black,
             },
           },
         },
@@ -73,7 +73,7 @@ export default makeStyles((theme: Theme) =>
           backgroundRepeat: 'no-repeat',
           backgroundSize: '30px 30px',
           backgroundPosition: 'center center',
-          backgroundColor: theme.palette.quaternary.main,
+          backgroundColor: palette.quaternary.main,
           height: 40,
           width: 40,
           transform: 'translateX(-50%)',
@@ -87,7 +87,7 @@ export default makeStyles((theme: Theme) =>
           transform: 'translateX(-50%)',
           width: 200,
           height: 2,
-          backgroundColor: theme.palette.primary.main,
+          backgroundColor: palette.primary.main,
           zIndex: 0,
         },
       },

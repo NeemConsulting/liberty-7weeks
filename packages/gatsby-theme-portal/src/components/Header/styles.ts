@@ -1,6 +1,6 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     header: {
       position: 'fixed',
@@ -11,38 +11,38 @@ export default makeStyles((theme: Theme) =>
       height: '60px',
       display: 'flex',
       alignItems: 'center',
-      borderBottom: `1px solid ${theme.palette.primary.main}`,
-      backgroundColor: theme.palette.common.black,
+      borderBottom: `1px solid ${palette.primary.main}`,
+      backgroundColor: palette.common.black,
     },
     headerContentWrapper: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         justifyContent: 'flex-start',
       },
     },
     logo: {
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         margin: 0,
-        marginRight: theme.spacing(3.75),
-        marginBottom: theme.spacing(-0.25),
+        marginRight: spacing(3.75),
+        marginBottom: spacing(-0.25),
       },
     },
     pad20: {
-      padding: theme.spacing(2.5),
+      padding: spacing(2.5),
     },
     follow: {
       position: 'absolute',
       right: 120,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         right: 80,
       },
       '& svg': {
-        fill: theme.palette.common.white,
+        fill: palette.common.white,
       },
       '&:focus-within button': {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
     },
     followButton: {
@@ -56,7 +56,7 @@ export default makeStyles((theme: Theme) =>
       justifyContent: 'center',
       position: 'relative',
       '&:hover': {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
       '&:hover > div, &:focus > div': {
         height: 'auto',
@@ -66,7 +66,7 @@ export default makeStyles((theme: Theme) =>
       position: 'fixed',
       top: 60,
       right: 0,
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: palette.common.white,
       width: '100vw',
       boxShadow: '0 0 10px 4px rgba(0,0,0,.1)',
       height: 0,
@@ -75,7 +75,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'column',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         position: 'absolute',
         minWidth: 340,
         right: -20,
@@ -91,29 +91,29 @@ export default makeStyles((theme: Theme) =>
         left: 0,
         top: 0,
         height: 4,
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
       '& .c-social': {
         '& ul': {
           justifyContent: 'center',
         },
         '& svg': {
-          fill: theme.palette.common.black,
+          fill: palette.common.black,
         },
       },
     },
     newsletter: {
-      marginTop: theme.spacing(2.5),
+      marginTop: spacing(2.5),
     },
     newsletterSubscribeButton: {
       fontSize: '.875rem',
       fontWeight: 700,
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
+      backgroundColor: palette.primary.main,
+      color: palette.common.white,
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
       display: 'inline-block',
       textDecoration: 'none',
       position: 'relative',
@@ -126,7 +126,7 @@ export default makeStyles((theme: Theme) =>
         left: 0,
         right: 0,
         bottom: 0,
-        background: theme.palette.common.black,
+        background: palette.common.black,
         transform: 'scaleX(0)',
         transformOrigin: '0 50%',
         transitionProperty: 'transform',
@@ -136,22 +136,22 @@ export default makeStyles((theme: Theme) =>
       '&:hover:before': {
         transform: 'scaleX(1)',
       },
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         fontSize: '1.125rem',
-        paddingTop: theme.spacing(1.75),
-        paddingBottom: theme.spacing(1.75),
-        paddingLeft: theme.spacing(2.5),
-        paddingRight: theme.spacing(2.5),
+        paddingTop: spacing(1.75),
+        paddingBottom: spacing(1.75),
+        paddingLeft: spacing(2.5),
+        paddingRight: spacing(2.5),
       },
     },
     siteSearch: {
       position: 'absolute',
       right: 60,
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         right: 20,
       },
       '& svg': {
-        fill: theme.palette.common.white,
+        fill: palette.common.white,
       },
     },
     searchButton: {
@@ -164,7 +164,7 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       '&:hover': {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
       },
     },
     siteSearchOverlay: {
@@ -173,28 +173,28 @@ export default makeStyles((theme: Theme) =>
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: palette.common.white,
       overflow: 'auto',
       zIndex: 3,
     },
     siteSearchForm: {
       maxWidth: '780px',
       display: 'flex',
-      marginTop: theme.spacing(6.25),
-      marginBottom: theme.spacing(6.25),
-      marginLeft: theme.spacing(2.5),
-      marginRight: theme.spacing(2.5),
-      [theme.breakpoints.up('md')]: {
+      marginTop: spacing(6.25),
+      marginBottom: spacing(6.25),
+      marginLeft: spacing(2.5),
+      marginRight: spacing(2.5),
+      [breakpoints.up('md')]: {
         marginLeft: 'auto',
         marginRight: 'auto',
       },
     },
     siteSearchInput: {
-      paddingTop: theme.spacing(1.25),
-      paddingBottom: theme.spacing(1.25),
-      paddingLeft: theme.spacing(2.5),
-      paddingRight: theme.spacing(2.5),
-      border: `1px solid ${theme.palette.grey[200]}`,
+      paddingTop: spacing(1.25),
+      paddingBottom: spacing(1.25),
+      paddingLeft: spacing(2.5),
+      paddingRight: spacing(2.5),
+      border: `1px solid ${palette.grey[200]}`,
       fontSize: '1.125rem',
       fontWeight: 600,
       width: '100%',
@@ -202,7 +202,7 @@ export default makeStyles((theme: Theme) =>
     },
     siteSearchFormButton: {
       backgroundColor: 'transparent',
-      border: `1px solid ${theme.palette.grey[200]}`,
+      border: `1px solid ${palette.grey[200]}`,
       cursor: 'pointer',
       height: 60,
       width: 60,
@@ -211,8 +211,8 @@ export default makeStyles((theme: Theme) =>
       justifyContent: 'center',
       marginLeft: -1,
       '&:hover': {
-        backgroundColor: theme.palette.primary.main,
-        borderColor: theme.palette.primary.main,
+        backgroundColor: palette.primary.main,
+        borderColor: palette.primary.main,
       },
     },
     label: {

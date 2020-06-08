@@ -1,12 +1,12 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     galleryWrapper: {
       textAlign: 'center',
       padding: 0,
-      paddingBottom: theme.spacing(2.5),
-      marginBottom: theme.spacing(2.5),
+      paddingBottom: spacing(2.5),
+      marginBottom: spacing(2.5),
       '& .carousel-root': {
         display: 'flex',
         flexDirection: 'column',
@@ -21,7 +21,7 @@ export default makeStyles((theme: Theme) =>
         },
         '& .thumbs-wrapper': {
           display: 'none',
-          [theme.breakpoints.up('md')]: {
+          [breakpoints.up('md')]: {
             maxWidth: 750,
             margin: 'auto',
             display: 'block',
@@ -32,10 +32,10 @@ export default makeStyles((theme: Theme) =>
           cursor: 'pointer',
           opacity: 0.2,
           '&:hover': {
-            borderColor: theme.palette.primary.main,
+            borderColor: palette.primary.main,
           },
           '&.selected': {
-            borderColor: theme.palette.primary.main,
+            borderColor: palette.primary.main,
             opacity: 1,
           },
         },
@@ -46,14 +46,14 @@ export default makeStyles((theme: Theme) =>
         },
       },
       '& .carousel-status': {
-        background: theme.palette.common.black,
-        color: theme.palette.common.white,
+        background: palette.common.black,
+        color: palette.common.white,
         textShadow: 'none',
         left: 0,
         right: 'auto',
         margin: 0,
-        paddingLeft: theme.spacing(1.875),
-        paddingRight: theme.spacing(1.875),
+        paddingLeft: spacing(1.875),
+        paddingRight: spacing(1.875),
         fontSize: '1rem',
         fontWeight: 700,
         '& span': {
@@ -66,7 +66,7 @@ export default makeStyles((theme: Theme) =>
     },
     carouselArrow: {
       display: 'none',
-      [theme.breakpoints.up('md')]: {
+      [breakpoints.up('md')]: {
         position: 'absolute',
         zIndex: 2,
         top: 'calc(50% - 50px)',
@@ -84,13 +84,13 @@ export default makeStyles((theme: Theme) =>
         '&:hover': {
           right: 10,
           '& svg': {
-            fill: theme.palette.primary.main,
+            fill: palette.primary.main,
           },
         },
         '&:focus': {
           right: 10,
           '& svg': {
-            fill: theme.palette.primary.main,
+            fill: palette.primary.main,
           },
         },
       },

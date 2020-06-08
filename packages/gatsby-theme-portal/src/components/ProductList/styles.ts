@@ -1,14 +1,14 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
     section: {
-      marginTop: theme.spacing(3.75),
-      marginBottom: theme.spacing(3.75),
+      marginTop: spacing(3.75),
+      marginBottom: spacing(3.75),
       position: 'relative',
       '&:before': {
         content: '""',
-        background: theme.palette.quaternary.main,
+        background: palette.quaternary.main,
         position: 'absolute',
         right: 0,
         bottom: 0,
@@ -23,10 +23,10 @@ export default makeStyles((theme: Theme) =>
       lineHeight: 1.1,
       position: 'relative',
       margin: 0,
-      marginBottom: theme.spacing(3.75),
+      marginBottom: spacing(3.75),
       '&:before': {
         content: '""',
-        background: theme.palette.quaternary.main,
+        background: palette.quaternary.main,
         position: 'absolute',
         right: 0,
         top: 0,
@@ -40,7 +40,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 600,
       lineHeight: 1.4,
       margin: 0,
-      marginTop: theme.spacing(1),
+      marginTop: spacing(1),
       textAlign: 'center',
     },
     image: {
@@ -49,11 +49,11 @@ export default makeStyles((theme: Theme) =>
       margin: 'auto',
     },
     gridContainer: {
-      paddingBottom: theme.spacing(1.25),
+      paddingBottom: spacing(1.25),
     },
     gridItem: {
       padding: 0,
-      marginBottom: theme.spacing(2.5),
+      marginBottom: spacing(2.5),
     },
   })
 );
