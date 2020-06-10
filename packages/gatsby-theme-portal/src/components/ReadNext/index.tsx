@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
   const classes = useStyles();

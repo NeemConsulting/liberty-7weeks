@@ -1,11 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { getSearchUrl } from '../../helpers/searchUrl';
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Breadcrumb: FunctionComponent<BreadcrumbInterface> = ({
   tag,

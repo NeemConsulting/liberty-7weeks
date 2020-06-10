@@ -2,10 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
   articles,

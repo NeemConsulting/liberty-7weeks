@@ -13,8 +13,7 @@ import Footer from '../Footer';
 import PageSchema from '../PageSchema';
 import BackToTop from '../BackToTop';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Layout = ({ className, children }: LayoutProps) => {
   const [dark, setDark] = useState(false);

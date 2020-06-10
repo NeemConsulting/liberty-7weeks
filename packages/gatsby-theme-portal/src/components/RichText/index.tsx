@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const ArticleBodyBlockContent: FunctionComponent<ArticleBodyBlockContentProps> = ({
   data,

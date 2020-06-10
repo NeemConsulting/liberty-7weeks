@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 
 import { ReactComponent as Comb } from '../../images/icons/comb.svg';
@@ -12,8 +12,7 @@ import { ReactComponent as Dryer } from '../../images/icons/dryer.svg';
 import { ReactComponent as Ironer } from '../../images/icons/ironer.svg';
 import { ReactComponent as Pins } from '../../images/icons/pins.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
   const classes = useStyles();

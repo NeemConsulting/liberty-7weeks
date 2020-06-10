@@ -2,14 +2,13 @@ import React, { FunctionComponent, useState } from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
+
 import { Typography } from '@material-ui/core';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
 import { TileSliderInterface } from './models';
 import { ReactComponent as Next } from '../../images/icons/next.svg';
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const TileSlider: FunctionComponent<TileSliderInterface> = ({
   name,

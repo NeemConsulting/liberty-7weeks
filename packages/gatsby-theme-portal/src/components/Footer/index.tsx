@@ -1,12 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 
 import UnileverLogo from '../../images/unilever-logo.png';
 import SocialMenu from '../SocialMenu';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Footer: FunctionComponent = () => {
   const data = useStaticQuery(graphql`

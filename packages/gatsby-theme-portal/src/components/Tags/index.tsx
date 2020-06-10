@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+
 import { getSearchUrl } from '../../helpers/searchUrl';
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Tags: FunctionComponent<TagsInterface> = ({ data, searchResultPath }) => {
   const classes = useStyles();

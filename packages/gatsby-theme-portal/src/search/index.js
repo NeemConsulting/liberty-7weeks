@@ -17,13 +17,12 @@ import qs from 'qs';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import * as hitComps from './hitComps';
-import { makeStyles } from '@material-ui/core/styles';
+
 import classNames from 'classnames';
 import { ReactComponent as IconList } from '../images/icons/list.svg';
 import { ReactComponent as IconGrid } from '../images/icons/grid.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Results = connectStateResults(
   ({ searchState, searchResults, children }) =>

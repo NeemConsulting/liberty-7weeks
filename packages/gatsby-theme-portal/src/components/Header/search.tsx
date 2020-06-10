@@ -1,10 +1,7 @@
-import React, { useState, FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
-
 import { ReactComponent as Search } from '../../images/icons/search.svg';
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const SiteSearch: FunctionComponent = () => {
   const classes = useStyles();
