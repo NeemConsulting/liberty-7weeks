@@ -46,9 +46,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   };
   const DEBOUNCE_TIME = 400;
   const searchClient = algoliasearch(
-    process.env['algolia_app_id'] || 'VW9INLJ17V',
-    process.env['algolia_search_api_key'] ||
-      'cd59e4d6a74ef20cb941bb64e8bdfe4f'
+    process.env['algolia_app_id'],
+    process.env['algolia_search_api_key']
   );
 
   const [searchState, setSearchState] = useState(() => {
@@ -110,73 +109,73 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               <CurrentRefinements clearsQuery />
             </div>
           </Grid>
-          <Grid className={classes.filters} item sm={3}>
-            <div className={classes.filterHeader}>
-              <span>Filter by</span>
-              <ClearRefinements clearsQuery />
-            </div>
-            <div className="filter-wrapper">
-              <div>
-                <Panel header="Page Type">
-                  <RefinementList
-                    attribute="pageType"
-                    limit={2}
-                    showMoreLimit={50}
-                    showMore={true}
-                  />
-                </Panel>
+          <div className={classes.twoColumn}>
+            <div className={classes.filters}>
+              <div className={classes.filterHeader}>
+                <span>Filter by</span>
+                <ClearRefinements clearsQuery />
               </div>
-              <div className="filter">
-                <Panel header="Tags">
-                  <RefinementList
-                    attribute="tags.name"
-                    limit={4}
-                    showMoreLimit={50}
-                    showMore={true}
-                  />
-                </Panel>
-              </div>
-              <div className="filter">
+              <div className="filter-wrapper">
                 <div>
-                  <Panel header="Category">
+                  <Panel header="Page Type">
                     <RefinementList
-                      attribute="tags.tagCategory.name"
+                      attribute="pageType"
+                      limit={2}
+                      showMoreLimit={50}
+                      showMore={true}
+                    />
+                  </Panel>
+                </div>
+                <div className="filter">
+                  <Panel header="Tags">
+                    <RefinementList
+                      attribute="tags.name"
                       limit={4}
                       showMoreLimit={50}
                       showMore={true}
                     />
                   </Panel>
                 </div>
-              </div>
-              <div className="filter">
-                <div>
-                  <Panel header="Duration">
-                    <RefinementList
-                      attribute="duration"
-                      limit={2}
-                      showMoreLimit={50}
-                      showMore={true}
-                      transformItems={items =>
-                        items.map(item => ({
-                          ...item,
-                          label: `${item.label} mins`,
-                        }))
-                      }
-                    />
-                  </Panel>
+                <div className="filter">
+                  <div>
+                    <Panel header="Category">
+                      <RefinementList
+                        attribute="tags.tagCategory.name"
+                        limit={4}
+                        showMoreLimit={50}
+                        showMore={true}
+                      />
+                    </Panel>
+                  </div>
                 </div>
-              </div>
-              <div className="filter">
-                <div>
-                  <Panel header="Difficulty">
-                    <RefinementList attribute="difficulty" />
-                  </Panel>
+                <div className="filter">
+                  <div>
+                    <Panel header="Duration">
+                      <RefinementList
+                        attribute="duration"
+                        limit={2}
+                        showMoreLimit={50}
+                        showMore={true}
+                        transformItems={items =>
+                          items.map(item => ({
+                            ...item,
+                            label: `${item.label} mins`,
+                          }))
+                        }
+                      />
+                    </Panel>
+                  </div>
+                </div>
+                <div className="filter">
+                  <div>
+                    <Panel header="Difficulty">
+                      <RefinementList attribute="difficulty" />
+                    </Panel>
+                  </div>
                 </div>
               </div>
             </div>
-          </Grid>
-          <Grid container xs={12} sm={9}>
-            <Grid item xs={12}>
+            <div className={classes.gridItems}>
               <div className={classes.actions}>
                 <SortBy
                   defaultRefinement="howtoArticle_publishedAt_Dsc"
@@ -227,8 +226,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                   </Index>
                 ))}
               </div>
-            </Grid>
-          </Grid>
+            </div>
+          </div>
         </Grid>
       </Container>
     </InstantSearch>

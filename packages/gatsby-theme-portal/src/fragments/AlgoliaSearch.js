@@ -10,8 +10,8 @@ const postQuery = `{
         slug{current}
         pageType:_type
         slug: slug{current}
-        Title:headline
-        Subtitle:subheading
+        title:headline
+        subtitle:subheading
         image: heroImage{asset {
           url
         }
@@ -42,8 +42,8 @@ const galleryArticleQuery = `{
         objectID:_id
         slug{current}
         pageType:_type
-        Title:headline
-        Subtitle:subheading
+        title:headline
+        subtitle:subheading
         image: heroImage{asset {
           url
         }
@@ -69,8 +69,8 @@ const featureArticleQuery = `{
         objectID:_id
         slug{current}
         pageType:_type
-        Title:headline
-        Subtitle:subheading
+        title:headline
+        subtitle:subheading
         image: heroImage{asset {
           url
         }
@@ -98,8 +98,8 @@ const productQuery = `{
         objectID:_id
         slug{current}
         pageType:_type
-        Title:name
-        Subtitle:tagLine
+        title:name
+        subtitle:tagLine
         image: image{asset {
           url
         }

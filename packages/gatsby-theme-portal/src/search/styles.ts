@@ -128,9 +128,8 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     },
     searhResultWrapper: {
       width: '100%',
-      [breakpoints.up('md')]: {
-        paddingLeft: spacing(6),
-        marginBottom: spacing(6),
+      '& figure': {
+        margin: 0,
       },
       '& .preloader-icon': {
         display: 'flex',
@@ -138,12 +137,12 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       },
       '&.list': {
         '& .image-wrapper': {
-          '& img': {
-            width: 80,
-            height: 80,
+          '&  .gatsby-image-wrapper': {
+            maxWidth: 80,
+            maxHeight: 80,
             [breakpoints.up('md')]: {
-              width: 140,
-              height: 140,
+              maxWidth: 140,
+              maxHeight: 140,
             },
           },
         },
@@ -152,7 +151,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         '& .ais-InfiniteHits-list': {
           listStyleType: 'none',
           padding: 0,
-          margin: '0 -10px',
+          margin: '0',
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
@@ -162,16 +161,19 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         '& .ais-InfiniteHits-item': {
           justifyContent: 'space-between',
           flex: '0 0 auto',
-          width: 'calc(100%/2.30)',
+          width: 'calc(100%/2.19)',
           margin: '0 10px',
           marginBottom: 10,
           [breakpoints.up('md')]: {
-            width: 'calc(100%/3.5)',
-            margin: '0 20px',
+            width: 'calc(100%/4.52)',
+            margin: '0 15px',
             marginBottom: 30,
           },
           '&:hover': {
             backgroundColor: 'transparent',
+          },
+          '&:nth-child(4n)': {
+            marginRight: 0,
           },
         },
         '& .ais-InfiniteHits-item__link': {
@@ -187,7 +189,8 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
           },
           '& h4': {
             fontSize: '.875rem',
-            lineHeight: 1.1,
+            lineHeight: 1.2,
+            marginTop: spacing(1),
             [breakpoints.up('md')]: {
               fontSize: '1.125rem',
             },
@@ -202,11 +205,12 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         '& .ais-InfiniteHits-item__desc': {
           display: 'none',
         },
-        '& .image-wrapper': {
-          width: 'auto',
-          height: 'auto',
-          '& img': {
-            width: '100%',
+        '&  .gatsby-image-wrapper': {
+          maxWidth: '100%',
+          maxHeight: 240,
+          [breakpoints.up('md')]: {
+            maxWidth: 210,
+            maxHeight: 210,
           },
         },
       },
@@ -234,7 +238,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
           padding: spacing(2.5),
         },
         '& h4': {
-          marginTop: 10,
+          marginTop: 0,
           marginBottom: 8,
           display: 'inline-block',
           fontSize: '.875rem',
@@ -242,6 +246,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
           [breakpoints.up('md')]: {
             fontSize: '1.5rem',
             textDecoration: 'none',
+            marginTop: 10,
           },
         },
       },
@@ -253,6 +258,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       '& .ais-InfiniteHits-item__desc': {
         fontSize: '0.75rem',
         marginTop: 0,
+        marginBottom: 0,
         '& + p': {
           margin: 0,
         },
@@ -312,11 +318,23 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         },
       },
     },
+    twoColumn: {
+      display: 'flex',
+      width: '100%',
+    },
+    gridItems: {
+      width: '100%',
+      flex: 1,
+      [breakpoints.up('md')]: {
+        paddingLeft: spacing(6),
+        marginBottom: spacing(6),
+      },
+    },
     filters: {
       display: 'none',
       [breakpoints.up('md')]: {
+        width: 250,
         display: 'block',
-        marginBottom: spacing(8),
       },
       '& .ais-Panel': {
         marginTop: spacing(2),
