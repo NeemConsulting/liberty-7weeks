@@ -15,11 +15,15 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
 
   const renderListItem = (article: any, imgStyle: any) => {
     return (
-      <div
+      <article
         className={classNames('c-teaser__item', classes.teaser)}
         key={article.id}
       >
-        <Link to={article.path} className={classes.teaserLink}>
+        <Link
+          to={article.path}
+          className={classes.teaserLink}
+          aria-label={article.headline}
+        >
           <div className={classes.flexBox}>
             <div className={'c-teaser__image'}>
               <Img
@@ -38,7 +42,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
             </div>
           </div>
         </Link>
-      </div>
+      </article>
     );
   };
 
@@ -56,7 +60,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
         )}
         <div className={classes.scrollArea}>
           {articles &&
-            articles.map((article: any) => {
+            articles.slice(0, 8).map((article: any) => {
               return renderListItem(article, {
                 imgStyle: { height: '80px' },
                 style: { height: '80px', width: '80px' },

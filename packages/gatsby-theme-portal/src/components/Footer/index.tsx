@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import UnileverLogo from '../../images/unilever-logo.png';
 import SocialMenu from '../SocialMenu';
 import useStyles from './styles';
+import BackToTop from '../BackToTop';
 
 const Footer: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
@@ -29,9 +30,13 @@ const Footer: FunctionComponent = () => {
   const classes = useStyles();
 
   return (
-    <footer className={classes.footer}>
+    <footer className={classes.footer} role="contentinfo" aria-label="footer">
       <SocialMenu links={data.brandInfo} />
-      <nav className={classes.wrapper} role="navigation">
+      <nav
+        className={classes.wrapper}
+        role="navigation"
+        aria-label="Footer Navigation"
+      >
         <ul className={classes.navigationItems}>
           {data.sanityNavBar.navItems.map(
             (navItem: { navL1: { name: string; path: string } }) => (
@@ -48,14 +53,10 @@ const Footer: FunctionComponent = () => {
         </ul>
       </nav>
       <div className={classes.footerSecondary}>
-        <img
-          src={UnileverLogo}
-          role="presentation"
-          alt="Unilever Logo"
-          width="36"
-        />
+        <img src={UnileverLogo} role="presentation" width="36" />
         <p>Copyright &copy; {new Date().getFullYear()} Unilever.</p>
       </div>
+      <BackToTop />
     </footer>
   );
 };

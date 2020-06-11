@@ -12,8 +12,21 @@ export const query1 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     heroImage {
+      alt
       asset {
         label
         title
@@ -160,10 +173,23 @@ export const query2 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     _type
     id
     heroImage {
+      alt
       asset {
         url
         fluid {

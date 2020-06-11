@@ -45,6 +45,19 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
           margin: 0,
         },
       },
+      '& .control-dots': {
+        padding: 0,
+        '& .dot': {
+          boxShadow: 'none',
+          backgroundColor: palette.common.black,
+          opacity: 0.5,
+          width: 14,
+          height: 14,
+          '&.selected': {
+            backgroundColor: palette.primary.main,
+          },
+        },
+      },
       '& .carousel-status': {
         background: palette.common.black,
         color: palette.common.white,
@@ -105,6 +118,18 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       '&:focus': {
         left: 10,
       },
+    },
+    srOnly: {
+      border: 0,
+      clip: 'rect(0 0 0 0)',
+      clipPath: 'polygon(0 0,0 0,0 0)',
+      height: '.0625rem',
+      margin: '-.0625rem',
+      overflow: 'hidden',
+      padding: 0,
+      position: 'absolute',
+      width: '.0625rem',
+      whiteSpace: 'nowrap',
     },
   })
 );

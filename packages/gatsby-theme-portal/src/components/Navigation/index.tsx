@@ -74,12 +74,14 @@ const SiteNavigation: FunctionComponent = () => {
         </div>
       </button>
       <nav
+        role="navigation"
+        aria-label="Main Navigation"
         className={classNames(
           classes.navigation,
           activeNav ? classes.activeNavigation : null
         )}
       >
-        <h2 className={classes.screenReaderOnly}>Primary Navigation</h2>
+        <span className={classes.screenReaderOnly}>Primary Navigation</span>
         <div className={classes.navigationInnerWrapper} id="nav">
           <ul className={classes.navigationList}>
             {data.sanityNavBar.navItems.map(

@@ -27,6 +27,7 @@ const FeatureArticle = (props: FeatureArticleProps) => {
   } = props;
 
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
+
   page.seo = page.seo || {};
 
   return (

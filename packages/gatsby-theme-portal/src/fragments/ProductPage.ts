@@ -9,6 +9,7 @@ export const query1 = graphql`
     _rawIngredients(resolveReferences: { maxDepth: 10 })
     _rawMarketingDescription(resolveReferences: { maxDepth: 10 })
     image {
+      alt
       asset {
         label
         title
@@ -54,6 +55,7 @@ export const query2 = graphql`
       name
     }
     image {
+      alt
       asset {
         url
         fluid {

@@ -1,9 +1,11 @@
 import React, { ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import { FormGroup, FormControlLabel, Switch } from '@material-ui/core/';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 import theme from '../theme';
 import themeDark from '../theme-dark';
@@ -11,7 +13,6 @@ import themeDark from '../theme-dark';
 import Header from '../Header';
 import Footer from '../Footer';
 import PageSchema from '../PageSchema';
-import BackToTop from '../BackToTop';
 
 import useStyles from './styles';
 
@@ -30,24 +31,26 @@ const Layout = ({ className, children }: LayoutProps) => {
         <PageSchema type={'WebSite'} />
         <main
           id="main"
+          role="main"
+          aria-label="Main Content"
           className={classNames(classes.mainContentWrapper, className)}
         >
+          <FormGroup className={classes.mode} row>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={dark}
+                  onChange={() => setDark(!dark)}
+                  name="mode"
+                  inputProps={{ 'aria-label': 'Switch Dark Mode' }}
+                />
+              }
+              label="Mode"
+            />
+          </FormGroup>
           <Grid>{children}</Grid>
         </main>
         <Footer />
-        <BackToTop />
-        <FormGroup className={classes.mode} row>
-          <FormControlLabel
-            color="primary"
-            control={
-              <Switch
-                checked={dark}
-                onChange={() => setDark(!dark)}
-                name="mode"
-              />
-            }
-          />
-        </FormGroup>
       </ThemeProvider>
     </React.Fragment>
   );

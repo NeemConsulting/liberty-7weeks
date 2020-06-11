@@ -16,6 +16,7 @@ export const query1 = graphql`
     }
     id
     heroImage {
+      alt
       asset {
         label
         title
@@ -47,6 +48,18 @@ export const query1 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     _rawHowTobody(resolveReferences: { maxDepth: 10 })
     productList {
@@ -208,6 +221,22 @@ export const query2 = graphql`
       current
     }
     id
+    heroVideo {
+      url
+      youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
     heroImage {
       alt
       asset {

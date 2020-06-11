@@ -34,20 +34,20 @@ const Product: FunctionComponent<ProductInterface> = ({ metadata, image }) => {
             <span>{name}</span>
           </h3>
         )}
-        {buyNow && (
-          <a
-            className={classes.buynow}
-            href={buyNow}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={classes.animateIcon}>
-              <IconBuy />
-              <span>Buy Now</span>
-            </span>
-          </a>
-        )}
       </Link>
+      {buyNow && (
+        <a
+          className={classes.buynow}
+          href={buyNow}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={classes.animateIcon}>
+            <IconBuy />
+            <span>Buy Now</span>
+          </span>
+        </a>
+      )}
     </div>
   );
 };

@@ -45,6 +45,10 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
     setVideoLoading(false);
   };
 
+  const renderVideoThumbnail = (src, alt) => {
+    return <img className="img-responsive" src={src} alt={alt} />;
+  };
+
   return (
     <div className={classes.header}>
       <Typography
@@ -86,27 +90,37 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         </div>
         <SocialMenu links={socialLinks} />
       </div>
-
       {/* TODO: Use generic `Video` component for hero video to avoid duplicate code  */}
       {!imageGallery && (
         <div className={classes.heroImage}>
-          {!showVideo && (
-            <img
-              className="img-responsive"
-              src={heroImage.asset.localFile.childImageSharp.fluid.src}
-              alt={heroImage.alt}
-            />
-          )}
+          {!showVideo &&
+            !heroVideo &&
+            renderVideoThumbnail(
+              heroImage.asset.localFile.childImageSharp.fluid.src,
+              heroImage.alt
+            )}
           {!showVideo && heroVideo && !videoLoading && (
-            <button
-              type="button"
-              className={classes.iconVideo}
-              onClick={playVideo}
-              data-url={heroVideo.url}
-            >
-              <Youtube />
-              <span hidden>Play Video</span>
-            </button>
+            <>
+              {heroVideo.heroImage
+                ? renderVideoThumbnail(
+                    heroVideo.heroImage.asset.localFile.childImageSharp.fluid
+                      .src,
+                    heroVideo.heroImage.alt
+                  )
+                : renderVideoThumbnail(
+                    heroImage.asset.localFile.childImageSharp.fluid.src,
+                    heroImage.alt
+                  )}
+              <button
+                type="button"
+                className={classes.iconVideo}
+                onClick={playVideo}
+                data-url={heroVideo.url}
+              >
+                <Youtube />
+                <span className={classes.srOnly}>Play Video</span>
+              </button>
+            </>
           )}
           {videoLoading && (
             <Preloader
@@ -134,7 +148,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         <div className={classes.tutorialInfo}>
           {time && (
             <div className={classes.tutorialInfoBlock}>
-              <div className={classes.info}>
+              <div>
                 <strong>Time</strong>
                 <span>{time} mins</span>
               </div>
@@ -145,7 +159,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
           )}
           {skillLevel && (
             <div className={classes.tutorialInfoBlock}>
-              <div className={classes.info}>
+              <div>
                 <strong>Skill</strong>
                 <span>{skillLevel}</span>
               </div>
