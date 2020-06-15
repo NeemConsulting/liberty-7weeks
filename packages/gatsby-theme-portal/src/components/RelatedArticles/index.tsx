@@ -61,17 +61,13 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
         <div className={classes.scrollArea}>
           {articles &&
             articles.slice(0, 8).map((article: any) => {
-              return renderListItem(article, {
-                imgStyle: { height: '80px' },
-                style: { height: '80px', width: '80px' },
-              });
+              return renderListItem(article, {});
             })}
         </div>
         {lastArticle && (
           <div className={classNames('c-article__last', classes.teaserLast)}>
             {renderListItem(lastArticle, {
               imgStyle: { height: '100%' },
-              style: { height: '174px', width: '174px' },
             })}
           </div>
         )}

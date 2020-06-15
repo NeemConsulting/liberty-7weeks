@@ -22,6 +22,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       textAlign: 'left',
       color: palette.text.secondary,
       position: 'relative',
+      '& .gatsby-image-wrapper': {
+        width: 80,
+      },
     },
     teaserFirst: {
       marginBottom: spacing(3),
@@ -67,8 +70,8 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       [breakpoints.up('md')]: {
         marginTop: spacing(6),
       },
-      '& .c-teaser__image': {
-        width: 190,
+      '& .gatsby-image-wrapper': {
+        width: 175,
       },
       '& .c-teaser__copy': {
         flex: '1',
