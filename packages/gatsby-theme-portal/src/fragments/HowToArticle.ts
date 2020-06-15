@@ -53,7 +53,13 @@ export const query1 = graphql`
         asset {
           localFile {
             childImageSharp {
-              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
                 src
               }
             }
@@ -73,7 +79,7 @@ export const query1 = graphql`
       image {
         asset {
           url
-          fluid {
+          fluid(maxWidth: 250, maxHeight: 250) {
             aspectRatio
             base64
             sizes
@@ -122,20 +128,6 @@ export const query1 = graphql`
       name
       slug {
         current
-      }
-      image {
-        alt
-        asset {
-          fluid(maxWidth: 50, maxHeight: 50) {
-            aspectRatio
-            base64
-            sizes
-            src
-            srcSet
-            srcSetWebp
-            srcWebp
-          }
-        }
       }
     }
     readnext {
@@ -229,7 +221,13 @@ export const query2 = graphql`
         asset {
           localFile {
             childImageSharp {
-              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
                 src
               }
             }

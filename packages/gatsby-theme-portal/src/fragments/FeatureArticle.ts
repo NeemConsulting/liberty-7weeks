@@ -17,7 +17,13 @@ export const query1 = graphql`
         asset {
           localFile {
             childImageSharp {
-              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
                 src
               }
             }
@@ -178,7 +184,13 @@ export const query2 = graphql`
         asset {
           localFile {
             childImageSharp {
-              fluid(toFormat: JPG, jpegProgressive: true, jpegQuality: 70) {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
                 src
               }
             }

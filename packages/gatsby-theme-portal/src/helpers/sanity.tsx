@@ -17,13 +17,18 @@ export const blockTypeDefaultSerializers = {
     figure: ({ node }) => {
       const fluidProps = getFluidGatsbyImage(
         node.asset._id,
-        { maxWidth: 800 },
+        { maxWidth: 720, maxHeight: 800 },
         sanityConfig
       );
 
       return (
         <div className={'c-image'}>
-          <Img fluid={fluidProps} alt={node.alt} />
+          <Img
+            fluid={fluidProps}
+            alt={node.alt}
+            style={{ maxWidth: '720px', maxHeight: '800px' }}
+            imgStyle={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
+          />
           <div className={'c-image__credit'}>
             <span>{node.imageCaption}</span>
             <span>{node.imageCredit}</span>
@@ -36,7 +41,7 @@ export const blockTypeDefaultSerializers = {
     }) => {
       const fluidProps = getFluidGatsbyImage(
         imageName.asset._id,
-        { maxWidth: 800 },
+        { maxWidth: 540, maxHeight: 360 },
         sanityConfig
       );
 
