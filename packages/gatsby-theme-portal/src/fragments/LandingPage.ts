@@ -134,12 +134,6 @@ export const query = graphql`
           name
         }
       }
-      ... on SanityImageBlock {
-        id
-        url
-        name
-        _rawTextBlockBody(resolveReferences: { maxDepth: 10 })
-      }
       ... on SanityNewsletterBlock {
         id
         name
@@ -202,6 +196,7 @@ export const query = graphql`
         _type
       }
       ... on SanityImageBlock {
+        id
         name
         image {
           asset {
@@ -213,6 +208,20 @@ export const query = graphql`
               srcSet
               srcSetWebp
               srcWebp
+            }
+            localFile {
+              childImageSharp {
+                fluid(
+                  maxWidth: 380
+                  toFormat: JPG
+                  jpegProgressive: true
+                  jpegQuality: 70
+                  srcSetBreakpoints: [300, 400, 600, 800]
+                ) {
+                  src
+                  srcSet
+                }
+              }
             }
           }
           alt

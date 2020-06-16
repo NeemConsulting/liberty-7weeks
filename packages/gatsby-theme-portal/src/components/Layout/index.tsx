@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import BackToTop from '../BackToTop';
 
 import theme from '../theme';
 import themeDark from '../theme-dark';
@@ -51,6 +52,19 @@ const Layout = ({ className, children }: LayoutProps) => {
           <Grid>{children}</Grid>
         </main>
         <Footer />
+        <BackToTop />
+        <FormGroup className={classes.mode} row>
+          <FormControlLabel
+            color="primary"
+            control={
+              <Switch
+                checked={dark}
+                onChange={() => setDark(!dark)}
+                name="mode"
+              />
+            }
+          />
+        </FormGroup>
       </ThemeProvider>
     </React.Fragment>
   );

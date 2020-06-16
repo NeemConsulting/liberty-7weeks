@@ -97,6 +97,7 @@ module.exports = ({ themeConfig }) => {
     },
   ];
   plugins.push(sanitySourcePlugin);
+  plugins.push('gatsby-plugin-preact');
 
   return {
     siteMetadata,

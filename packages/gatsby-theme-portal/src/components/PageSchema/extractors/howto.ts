@@ -1,27 +1,31 @@
-import blocksToHtml from '@sanity/block-content-to-html';
 import timeConverter from '../timeConverter';
 
 const removeHtmlTags = (str: string) => str.replace(/(<([^>]+)>)/gi, '');
+const extractText = portableBlocks =>
+  portableBlocks.length
+    ? portableBlocks
+        .map(
+          block1 =>
+            block1.children && block1.children.map(block2 => block2.text)
+        )
+        .toString()
+    : '';
 
 const extractSteps = (pageHref, richTextBlocks) => {
   return richTextBlocks
     .filter(block => block._type === 'step')
     .map(stepBlock => {
-      const stepHtmlBlock = blocksToHtml({
-        blocks: stepBlock.instructionName,
-      });
-
       const directions = stepBlock.directions
         .map(dblock => ({
           '@type': 'HowToDirection',
-          text: removeHtmlTags(blocksToHtml({ blocks: dblock })),
+          text: removeHtmlTags(extractText(dblock)),
         }))
         .filter(block => block.text);
 
       return {
         '@type': 'HowToStep',
         url: pageHref,
-        name: removeHtmlTags(stepHtmlBlock),
+        name: removeHtmlTags(extractText(stepBlock.instructionName)),
         itemListElement: directions,
         image: {
           '@type': 'ImageObject',

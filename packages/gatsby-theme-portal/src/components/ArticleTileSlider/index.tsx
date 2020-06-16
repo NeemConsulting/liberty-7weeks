@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import { Typography } from '@material-ui/core';
 import Swiper from 'react-id-swiper';
-import 'swiper/css/swiper.css';
+import 'swiper/css/swiper.min.css';
 
 import { ArticleTileSliderInterface } from './models';
 import { ReactComponent as PlayVideo } from '../../images/icons/play.svg';

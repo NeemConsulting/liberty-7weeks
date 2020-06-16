@@ -17,6 +17,7 @@ const ImageBlock: FunctionComponent<ImageBlockInterface> = ({
   _rawTextBlockBody,
   url,
   imageBlockType,
+  preferPerformance = false,
 }) => {
   const classes = useStyles();
   const getComponentvariant = type => {
@@ -25,6 +26,20 @@ const ImageBlock: FunctionComponent<ImageBlockInterface> = ({
       .trim()
       .toLowerCase();
   };
+  const Image = preferPerformance ? (
+    <img
+      srcSet={image.asset.localFile.childImageSharp.fluid.srcSet}
+      sizes="(max-width: 959px) 400px, 800px"
+      src={image.asset.localFile.childImageSharp.fluid.src}
+      alt={image.alt}
+    />
+  ) : (
+    <Img
+      fluid={image.asset.fluid}
+      alt={image.alt}
+      imgStyle={{ height: '422px' }}
+    />
+  );
 
   return (
     <section
@@ -39,11 +54,7 @@ const ImageBlock: FunctionComponent<ImageBlockInterface> = ({
             <div
               className={classNames('c-image_wrapper', classes.imageWrapper)}
             >
-              <Img
-                fluid={image.asset.fluid}
-                alt={image.alt}
-                imgStyle={{ height: '422px' }}
-              />
+              {Image}
             </div>
             <div className={classNames('c-image_text', classes.copyText)}>
               <Typography variant="h2" className={classes.sectionTitle}>

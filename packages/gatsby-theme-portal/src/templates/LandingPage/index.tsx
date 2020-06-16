@@ -37,8 +37,12 @@ const LandingPage = (props: LandingPageProps) => {
       />
       <OGTags type={'page'} slug={page.path} data={page} />
       {page.path !== '/' && <Breadcrumb pageTitle={page.name} />}
-      {page.landingSections.map(section => (
-        <LandingSectionRenderer key={section.id} section={section} />
+      {page.landingSections.map((section, index) => (
+        <LandingSectionRenderer
+          key={section.id}
+          section={section}
+          preferPerformance={index <= 1}
+        />
       ))}
     </Layout>
   );

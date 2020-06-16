@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { Typography } from '@material-ui/core';
 import { HeroSliderInterface } from './models';
 import Swiper from 'react-id-swiper';
-import 'swiper/css/swiper.css';
+import 'swiper/css/swiper.min.css';
 import useStyles from './styles';
 import { ReactComponent as Next } from '../../images/icons/next.svg';
 

@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import loadable from '@loadable/component';
 import { LandingSectionRendererInterface } from './models';
-import SanityArticleSlider from '../SanityArticleSlider';
-import SanityProductSlider from '../SanityProductSlider';
+const SanityArticleSlider = loadable(() => import('../SanityArticleSlider'));
+const SanityProductSlider = loadable(() => import('../SanityProductSlider'));
 import SanityTextBlock from '../SanityTextBlock';
 import SanityNewsletterBlock from '../SanityNewsletterBlock';
 import SanityVideoBlock from '../SanityVideoBlock';
@@ -18,6 +19,7 @@ const componentsMap = {
 
 const LandingSectionRenderer: FunctionComponent<LandingSectionRendererInterface> = ({
   section,
+  preferPerformance = false,
 }) => {
   const sanityType = section.__typename;
   const getComponent = sanityType => {
@@ -32,7 +34,10 @@ const LandingSectionRenderer: FunctionComponent<LandingSectionRendererInterface>
     }
   };
 
-  return React.createElement(getComponent(sanityType), { ...section });
+  return React.createElement(getComponent(sanityType), {
+    ...section,
+    preferPerformance,
+  });
 };
 
 export default LandingSectionRenderer;
