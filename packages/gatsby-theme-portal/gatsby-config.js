@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const queries = require('./src/fragments/AlgoliaSearch');
+const queries = require('./src/helpers/AlgoliaSearch');
 module.exports = ({ themeConfig }) => {
   const siteMetadata = {
     siteName: themeConfig['site_name'],

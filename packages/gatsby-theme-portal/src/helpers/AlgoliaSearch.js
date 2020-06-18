@@ -1,4 +1,10 @@
-const postQuery = `{
+const {
+  handleGalleryArticleRawBody,
+  handlehowToArticleRawBody,
+  handleProductRawBody,
+  handleFeatureArticleRawBody,
+} = require('./searchQuery');
+const howToArticleQuery = `{
   allSanityHowToArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},sort: { fields: [publishedAt], order: DESC } )
     {
     edges
@@ -13,9 +19,19 @@ const postQuery = `{
         title:headline
         subtitle:subheading
         image: heroImage{asset {
-          url
+        url
+        fluid(maxWidth: 140, maxHeight: 140) {
+          aspectRatio
+          base64
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
+      }    
           alt
+          imageCaption
           imageTabID
         }
         duration: time
@@ -45,9 +61,19 @@ const galleryArticleQuery = `{
         title:headline
         subtitle:subheading
         image: heroImage{asset {
-          url
+        url
+        fluid(maxWidth: 140, maxHeight: 140) {
+          aspectRatio
+          base64
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
+      }    
           alt
+          imageCaption
           imageTabID
         }
         tags: tags{tagCategory{name},name}
@@ -72,9 +98,19 @@ const featureArticleQuery = `{
         title:headline
         subtitle:subheading
         image: heroImage{asset {
-          url
+        url
+        fluid(maxWidth: 140, maxHeight: 140) {
+          aspectRatio
+          base64
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
+      }    
           alt
+          imageCaption
           imageTabID
         }
         tags: tags{tagCategory{name},name}
@@ -88,21 +124,30 @@ const featureArticleQuery = `{
 }
 }`;
 const productQuery = `{
-  allSanityProduct(filter: {slug: {current: {ne: null}}})
+  allSanityProduct(filter: {slug: {current: {ne: null}}}) 
     {
     edges
     {
       node
       {
-        path
         objectID:_id
         slug{current}
         pageType:_type
         title:name
         subtitle:tagLine
-        image: image{asset {
-          url
+        image: image{
+      asset {
+        url
+        fluid(maxWidth: 140, maxHeight: 140) {
+          aspectRatio
+          base64
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
+      }    
           alt
           imageCaption
           imageTabID
@@ -117,75 +162,34 @@ const productQuery = `{
   }
 }
 }`;
-const handleProductRawBody = node => {
-  const { _rawUsageDetails, _rawIngredients, ...rest } = node;
-  const record = {
-    ...rest,
-  };
-  if (_rawUsageDetails) {
-    record.usageBody = _rawUsageDetails
-      .map(temp => temp.children && temp.children.map(temp1 => temp1.text))
-      .toString();
-  }
-  if (_rawIngredients) {
-    record.ingredientBody = _rawUsageDetails
-      .map(temp => temp.children && temp.children.map(temp1 => temp1.text))
-      .toString();
-  }
-
-  return record;
-};
-
-const handlehowToArticleRawBody = node => {
-  const { _rawHowTobody, ...rest } = node;
-  const record = {
-    ...rest,
-  };
-  if (_rawHowTobody) {
-    record.howTobody = _rawHowTobody
-      .map(temp => temp.children && temp.children.map(temp1 => temp1.text))
-      .toString();
-  }
-
-  return record;
-};
-
-const handleGalleryArticleRawBody = node => {
-  const { _rawBody, ...rest } = node;
-  const record = {
-    ...rest,
-  };
-  if (_rawBody) {
-    record.galleryBody = _rawBody
-      .map(temp => temp.children && temp.children.map(temp1 => temp1.text))
-      .toString();
-  }
-
-  return record;
-};
-
-const handleFeatureArticleRawBody = node => {
-  const { _rawFeatureBody, ...rest } = node;
-  const record = {
-    ...rest,
-  };
-  if (_rawFeatureBody) {
-    record.featureBody = _rawFeatureBody
-      .map(temp => temp.children && temp.children.map(temp1 => temp1.text))
-      .toString();
-  }
-
-  return record;
+const settings = {
+  attributesForFaceting: [
+    `pageType`,
+    `tags.name`,
+    `tags.tagCategory.name`,
+    `difficulty`,
+    `duration`,
+  ],
+  ranking: ['desc(publishedAt)'],
+  hitsPerPage: 10,
+  attributesToSnippet: [
+    `featureBody:30`,
+    `galleryBody:30`,
+    `howTobody:30`,
+    `usageBody:30`,
+    `ingredientBody:30`,
+  ],
 };
 
 const queries = [
   {
-    query: postQuery,
+    query: howToArticleQuery,
     transformer: ({ data }) =>
       data.allSanityHowToArticle.edges.map(({ node }) =>
         handlehowToArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
+    settings,
     matchFields: ['slug', 'modified'],
   },
   {
@@ -194,7 +198,8 @@ const queries = [
       data.allSanityGalleryArticle.edges.map(({ node }) =>
         handleGalleryArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
+    settings,
     matchFields: ['slug', 'modified'],
   },
   {
@@ -203,14 +208,16 @@ const queries = [
       data.allSanityFeatureArticle.edges.map(({ node }) =>
         handleFeatureArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
+    settings,
     matchFields: ['slug', 'modified'],
   },
   {
     query: productQuery,
     transformer: ({ data }) =>
       data.allSanityProduct.edges.map(({ node }) => handleProductRawBody(node)),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
+    settings,
     matchFields: ['slug', 'modified'],
   },
 ];
