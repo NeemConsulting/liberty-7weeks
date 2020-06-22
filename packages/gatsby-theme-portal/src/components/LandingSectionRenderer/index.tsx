@@ -1,8 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import loadable from '@loadable/component';
 import { LandingSectionRendererInterface } from './models';
-const SanityArticleSlider = loadable(() => import('../SanityArticleSlider'));
-const SanityProductSlider = loadable(() => import('../SanityProductSlider'));
+const SanityArticleSlider = loadable(() => import('../SanityArticleSlider'), {
+  fallback: <div style={{ height: 500 }}>loading...</div>,
+});
+const SanityProductSlider = loadable(() => import('../SanityProductSlider'), {
+  fallback: <div style={{ height: 500 }}>loading...</div>,
+});
 import SanityTextBlock from '../SanityTextBlock';
 import SanityNewsletterBlock from '../SanityNewsletterBlock';
 import SanityVideoBlock from '../SanityVideoBlock';
