@@ -185,7 +185,7 @@ const queries = [
       data.allSanityHowToArticle.edges.map(({ node }) =>
         handlehowToArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
     matchFields: ['slug', 'modified'],
   },
   {
@@ -194,7 +194,7 @@ const queries = [
       data.allSanityGalleryArticle.edges.map(({ node }) =>
         handleGalleryArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
     matchFields: ['slug', 'modified'],
   },
   {
@@ -203,14 +203,14 @@ const queries = [
       data.allSanityFeatureArticle.edges.map(({ node }) =>
         handleFeatureArticleRawBody(node)
       ),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
     matchFields: ['slug', 'modified'],
   },
   {
     query: productQuery,
     transformer: ({ data }) =>
       data.allSanityProduct.edges.map(({ node }) => handleProductRawBody(node)),
-    indexName: 'platformLiberty',
+    indexName: 'howtoArticle',
     matchFields: ['slug', 'modified'],
   },
 ];

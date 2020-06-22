@@ -3,4 +3,5 @@ export interface SanityArticleSliderInterface {
   slideType: any;
   headline: string | null;
   slides: any;
+  tagName: string;
 }

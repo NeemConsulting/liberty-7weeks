@@ -33,12 +33,18 @@ const Results = connectStateResults(
 const Stats = connectStateResults(
   ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits}`
 );
-export default function Search({ indices, collapse, hitsAsGrid }) {
+export default function Search({
+  indices,
+  filterProducts,
+  grid,
+  collapse,
+  hitsAsGrid,
+}) {
   const classes = useStyles();
   const ref = createRef();
   const [query, setQuery] = useState('');
   const [focus, setFocus] = useState(false);
-  const [viewType, setViewType] = useState('list');
+  const [viewType, setViewType] = useState(grid == 'true' ? 'grid' : 'list');
   const createURL = state => `?${qs.stringify(state)}`;
   const searchStateToUrl = ({ location }, searchState) =>
     searchState ? `${location.pathname}${createURL(searchState)}` : '';
@@ -47,9 +53,9 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   };
   const DEBOUNCE_TIME = 400;
   const searchClient = algoliasearch(
-    process.env['app_local_algolia_app_id'] || 'VW9INLJ17V',
+    process.env['app_local_algolia_app_id'] || 'TUS0YOBD3F',
     process.env['app_local_algolia_search_api_key'] ||
-      'cd59e4d6a74ef20cb941bb64e8bdfe4f'
+      'fe16863454663937e5c39de4de666362'
   );
 
   const [searchState, setSearchState] = useState(() => {
@@ -90,7 +96,9 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid className={classes.searchControlWrapper} item sm={12}>
-            <SearchBox searchAsYouType={true} />
+            {filterProducts == 'true' ? null : (
+              <SearchBox searchAsYouType={true} />
+            )}
           </Grid>
           <Grid className={classes.searchControlWrapper} item sm={12}>
             <div className={classes.resultsInfo}>
@@ -117,63 +125,74 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               <ClearRefinements clearsQuery />
             </div>
             <div className="filter-wrapper">
-              <div>
-                <Panel header="Page Type">
-                  <RefinementList
-                    attribute="pageType"
-                    limit={2}
-                    showMoreLimit={50}
-                    showMore={true}
-                  />
-                </Panel>
-              </div>
-              <div className="filter">
-                <Panel header="Tags">
-                  <RefinementList
-                    attribute="tags.name"
-                    limit={4}
-                    showMoreLimit={50}
-                    showMore={true}
-                  />
-                </Panel>
-              </div>
-              <div className="filter">
-                <div>
-                  <Panel header="Category">
-                    <RefinementList
-                      attribute="tags.tagCategory.name"
-                      limit={4}
-                      showMoreLimit={50}
-                      showMore={true}
-                    />
-                  </Panel>
-                </div>
-              </div>
-              <div className="filter">
-                <div>
-                  <Panel header="Duration">
-                    <RefinementList
-                      attribute="duration"
-                      limit={2}
-                      showMoreLimit={50}
-                      showMore={true}
-                      transformItems={items =>
-                        items.map(item => ({
-                          ...item,
-                          label: `${item.label} mins`,
-                        }))
-                      }
-                    />
-                  </Panel>
-                </div>
-              </div>
-              <div className="filter">
-                <div>
-                  <Panel header="Difficulty">
-                    <RefinementList attribute="difficulty" />
-                  </Panel>
-                </div>
-              </div>
+              {filterProducts == 'true' ? (
+                <>
+                  <div>
+                    <Panel header="Hair & Product Types">
+                      <RefinementList attribute="tags.name" showMore={true} />
+                    </Panel>
+                  </div>
+
+                  <div className="filter">
+                    <div>
+                      <Panel header="Brand">
+                        <RefinementList
+                          attribute="brandName.name"
+                          showMore={true}
+                        />
+                      </Panel>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <Panel header="Page Type">
+                      <RefinementList attribute="pageType" showMore={true} />
+                    </Panel>
+                  </div>
+                  <div className="filter">
+                    <Panel header="Tags">
+                      <RefinementList attribute="tags.name" showMore={true} />
+                    </Panel>
+                  </div>
+                  <div className="filter">
+                    <div>
+                      <Panel header="Category">
+                        <RefinementList
+                          attribute="tags.tagCategory.name"
+                          showMore={true}
+                        />
+                      </Panel>
+                    </div>
+                  </div>
+                  <div className="filter">
+                    <div>
+                      <Panel header="Duration">
+                        <RefinementList
+                          attribute="duration"
+                          limit={2}
+                          showMoreLimit={50}
+                          showMore={true}
+                          transformItems={items =>
+                            items.map(item => ({
+                              ...item,
+                              label: `${item.label} mins`,
+                            }))
+                          }
+                        />
+                      </Panel>
+                    </div>
+                  </div>
+                  <div className="filter">
+                    <div>
+                      <Panel header="Difficulty">
+                        <RefinementList attribute="difficulty" />
+                      </Panel>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </Grid>
           {/* <Grid item xs={12} sm={1}></Grid> */}

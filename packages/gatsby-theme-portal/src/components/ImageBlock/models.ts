@@ -1,5 +1,4 @@
 export interface ImageBlockInterface {
-  id: string;
   name: string;
   image: any;
   url: string;

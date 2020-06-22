@@ -22,6 +22,7 @@ const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
   slides,
   headline,
   slideType,
+  tagName,
 }) => {
   const classes = useStyles();
 
@@ -38,7 +39,7 @@ const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
   return (
     <section className={classNames(classes.section, componentName)}>
       <Container maxWidth="lg">
-        <Component {...{ name, slides, headline }} />
+        <Component {...{ name, slides, headline, tagName }} />
       </Container>
     </section>
   );
