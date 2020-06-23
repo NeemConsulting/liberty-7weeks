@@ -18,6 +18,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       '& .MuiSwitch-track': {
         backgroundColor: palette.common.white,
       },
+      '& .MuiFormControlLabel-label': {
+        display: 'none',
+      },
       [breakpoints.up('lg')]: {
         display: 'block',
       },

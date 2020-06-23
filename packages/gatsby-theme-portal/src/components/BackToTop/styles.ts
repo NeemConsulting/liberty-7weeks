@@ -41,9 +41,6 @@ export default makeStyles(({ palette }: Theme) =>
           fill: palette.primary.main,
         },
       },
-      '&:focus': {
-        transform: 'perspective(1px) translateZ(0) translateX(0)',
-      },
       '& svg': {
         fill: palette.common.black,
         width: 24,

@@ -137,7 +137,28 @@ export const query = graphql`
       ... on SanityNewsletterBlock {
         id
         name
+        ctaLabel
+        headline
         _rawBody(resolveReferences: { maxDepth: 10 })
+        campaignID
+        image {
+          asset {
+            fluid {
+              aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+            }
+          }
+          alt
+        }
+        type {
+          name
+          description
+        }
       }
       ... on SanityProductSlider {
         id

@@ -9,7 +9,6 @@ export const PostHit = clickHandler => ({ hit }) => {
     title,
     image: { asset, alt },
   } = hit;
-  console.log(hit);
   return (
     <article>
       <Link

@@ -4,7 +4,7 @@ import { LandingSectionRendererInterface } from './models';
 const SanityArticleSlider = loadable(() => import('../SanityArticleSlider'));
 const SanityProductSlider = loadable(() => import('../SanityProductSlider'));
 import SanityTextBlock from '../SanityTextBlock';
-import SanityNewsletterBlock from '../SanityNewsletterBlock';
+import NewsletterBlock from '../NewsletterBlock';
 import SanityVideoBlock from '../SanityVideoBlock';
 import ImageBlock from '../ImageBlock';
 
@@ -12,7 +12,7 @@ const componentsMap = {
   SanityArticleSlider: SanityArticleSlider,
   SanityProductSlider: SanityProductSlider,
   SanityTextBlock: SanityTextBlock,
-  SanityNewsletterBlock: SanityNewsletterBlock,
+  SanityNewsletterBlock: NewsletterBlock,
   SanityVideoBlock: SanityVideoBlock,
   SanityImageBlock: ImageBlock,
 };
@@ -30,14 +30,18 @@ const LandingSectionRenderer: FunctionComponent<LandingSectionRendererInterface>
     } else {
       console.info('Unknown block for landing page: ', sanityType);
 
-      return componentsMap['SanityTextBlock'];
+      return false;
     }
   };
 
-  return React.createElement(getComponent(sanityType), {
-    ...section,
-    preferPerformance,
-  });
+  const Comp = getComponent(sanityType);
+
+  return Comp
+    ? React.createElement(Comp, {
+        ...section,
+        preferPerformance,
+      })
+    : null;
 };
 
 export default LandingSectionRenderer;

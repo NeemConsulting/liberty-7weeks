@@ -12,6 +12,7 @@ module.exports = ({ themeConfig }) => {
     algoliaAppID: themeConfig['algolia_app_id'],
     algoliaAdminApiKey: themeConfig['algolia_admin_api_key'],
     algoliaApiKey: themeConfig['algolia_api_key'],
+    newsletterApiEndpoint: themeConfig['app_local_newsletter_api_endpoint'],
   };
 
   const netlifyOptions = {

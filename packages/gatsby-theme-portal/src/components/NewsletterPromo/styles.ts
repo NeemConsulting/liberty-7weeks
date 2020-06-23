@@ -28,47 +28,22 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         margin: 0,
       },
     },
-    form: {
-      marginTop: spacing(2.5),
-      width: '90%',
-      margin: 'auto',
-      [breakpoints.up('md')]: {
-        width: '70%',
-        marginTop: spacing(1.25),
-      },
-    },
-    formGroup: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    formLabel: {
-      display: 'none',
-    },
-    formControl: {
-      width: '100%',
-      flex: 1,
-      paddingTop: spacing(1.25),
-      paddingBottom: spacing(1.25),
-      paddingLeft: spacing(2),
-      paddingRight: spacing(2),
-      height: 50,
-      fontSize: '1.125rem',
-      '&:focus': {
-        outline: 0,
-      },
-    },
-    formButton: {
+    subscribe: {
       fontSize: '1.125rem',
       fontWeight: 700,
       width: 160,
       height: 50,
-      marginLeft: -1,
       cursor: 'pointer',
       backgroundColor: palette.primary.main,
       border: `1px solid ${palette.primary.main}`,
       color: palette.common.white,
       position: 'relative',
       transform: 'perspective(1px) translateZ(0)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textDecoration: 'none',
+      margin: 'auto',
       '&:before': {
         content: '""',
         position: 'absolute',
