@@ -15,6 +15,9 @@ module.exports = async ({ graphql, createPage }) => {
           slug {
             current
           }
+          tags {
+            name
+          }
         }
       }
     }
@@ -28,6 +31,7 @@ module.exports = async ({ graphql, createPage }) => {
       context: {
         title: node.name,
         slug: node.id,
+        tags: node.tags.map(tag => tag.name),
       },
     });
   });

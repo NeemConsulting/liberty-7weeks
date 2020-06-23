@@ -6,6 +6,7 @@ import OGTags from '../../components/OGTags';
 import Breadcrumb from '../../components/Breadcrumb';
 import TileSlider from '../../components/TileSlider';
 import ImageBlock from '../../components/ImageBlock';
+import SocialMenu from '../../components/SocialMenu';
 import Button from '../../components/Common/Button';
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
@@ -39,6 +40,11 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'transparent',
     border: 'none',
   },
+  socialWrapper: {
+    '& svg': {
+      fill: 'black',
+    },
+  },
 }));
 
 const ProductPage = (props: ProductPageProps) => {
@@ -47,11 +53,12 @@ const ProductPage = (props: ProductPageProps) => {
       page,
       products: { nodes: productNodes },
       articles: { nodes: articlesList },
-      tags: { nodes: tagsList },
+      brandInfo,
       imageBlock,
     },
   } = props;
-  console.log(imageBlock);
+
+  const classes = useStyles();
 
   page.seo = page.seo || {};
 
@@ -70,26 +77,29 @@ const ProductPage = (props: ProductPageProps) => {
           <Container>
             <Grid container>
               <Grid item lg={5} md={5} xs={12}>
-                <section>
-                  <Img fluid={page.image.asset.fluid} alt={page.image.alt} />
-                </section>
+                <Img fluid={page.image.asset.fluid} alt={page.image.alt} />
               </Grid>
               <Grid item lg={7} md={7} xs={12}>
                 <h1>{page.name}</h1>
-                <Button lable="Buy Now" />
+                <Button lable="Buy Now" link={page.buyNow} />
                 <Grid container spacing={2}>
-                  <Grid item lg={6} md={6} xs={12}>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    xs={12}
+                    className={classes.socialWrapper}
+                  >
                     <BlockContent
                       blocks={page._rawMarketingDescription}
                       serializers={blockTypeDefaultSerializers}
-                      className={'hello'}
                     />
+                    <SocialMenu links={brandInfo} />
                   </Grid>
                   <Grid item lg={6} md={6} xs={12}>
                     <BlockContent
                       blocks={page._rawUsageDetails}
                       serializers={blockTypeDefaultSerializers}
-                      className={'hello'}
                     />
                   </Grid>
                 </Grid>
@@ -97,13 +107,16 @@ const ProductPage = (props: ProductPageProps) => {
             </Grid>
           </Container>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.mainGrid}>
           <Container>
-            <TileSlider
-              name="Products"
-              slides={productNodes}
-              headline="Product may you like"
-            />
+            {productNodes.length > 0 && (
+              <TileSlider
+                name="Products"
+                slides={productNodes}
+                headline="Products You Might Also Like"
+                seeAllLink="product-showcase"
+              />
+            )}
           </Container>
         </Grid>
         <Grid item xs={12}>
@@ -117,15 +130,17 @@ const ProductPage = (props: ProductPageProps) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <SanityArticleSlider
-            name="articles"
-            slides={articlesList}
-            headline="Our Tips & Advice"
-            slideType={{ name: 'tile' }}
-          />
+          {articlesList.length > 0 && (
+            <SanityArticleSlider
+              name="articles"
+              slides={articlesList}
+              headline="Our Tips & Advice"
+              slideType={{ name: 'tile' }}
+            />
+          )}
         </Grid>
         <Grid item xs={12}>
-          <Container>{tagsList && <Tags data={tagsList} />}</Container>
+          <Container>{page.tags && <Tags data={page.tags} />}</Container>
         </Grid>
       </Grid>
     </Layout>
@@ -135,16 +150,35 @@ const ProductPage = (props: ProductPageProps) => {
 export default ProductPage;
 
 export const query = graphql`
-  query($slug: String!) {
-    products: allSanityProduct {
+  query($slug: String!, $tags: [String!]) {
+    products: allSanityProduct(
+      filter: {
+        tags: { elemMatch: { name: { in: $tags } } }
+        id: { nin: [$slug] }
+      }
+    ) {
       nodes {
         ...ProductFieldsTile
       }
     }
+
     page: sanityProduct(id: { eq: $slug }) {
       ...ProductFieldsFull
+      tags {
+        name
+        tagCategory {
+          name
+        }
+      }
     }
-    articles: allSanityHowToArticle {
+    articles: allSanityHowToArticle(
+      filter: {
+        tags: { elemMatch: { name: { in: $tags } } }
+        id: { nin: [$slug] }
+      }
+      limit: 10
+      sort: { fields: _createdAt, order: DESC }
+    ) {
       nodes {
         ...HowToFieldsTile
       }
@@ -182,6 +216,13 @@ export const query = graphql`
         name
       }
     }
+    brandInfo: sanityBrandInfo {
+      pinteresturl
+      twitterurl
+      youtubeurl
+      facebookurl
+      instaurl
+    }
   }
 `;
 
@@ -190,7 +231,7 @@ interface ProductPageProps {
     page: any;
     products: any;
     articles: any;
-    tags: any;
+    brandInfo: any;
     imageBlock: any;
   };
   pageContext: {

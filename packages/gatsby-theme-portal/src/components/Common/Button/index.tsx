@@ -6,9 +6,9 @@ const useStyles = makeStyles(Styles);
 
 const Button = (props: ButtonProps) => {
   const classes = useStyles();
-  const { lable, ...rest } = props;
+  const { lable, link, ...rest } = props;
   return (
-    <a target="_blank" rel="noreferrer" href={'https://google.com'} {...rest}>
+    <a target="_blank" rel="noreferrer" href={link} {...rest}>
       <button className={classes.Button}>{lable}</button>
     </a>
   );
@@ -18,4 +18,5 @@ export default Button;
 
 interface ButtonProps {
   lable: string;
+  link: string;
 }
