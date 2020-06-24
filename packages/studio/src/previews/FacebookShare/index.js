@@ -18,7 +18,7 @@ const FacebookShare = ({ document, width }) => {
   const description = (seo && seo.metaDescription) || subheading;
   const openGraphImage =
     (seo && seo.openGraphImage) || (heroImage && heroImage.image && heroImage.image);
-  const websiteUrl = 'https://www.allthingshair.com/en-ph/';
+  const websiteUrl = '';
   const websiteUrlWithoutProtocol = websiteUrl.split('://')[1];
 
   return (
