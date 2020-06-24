@@ -3,9 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     teaserWrapper: {
-      marginTop: spacing(3.75),
       [breakpoints.up('md')]: {
-        marginTop: spacing(2.5),
         maxWidth: 400,
       },
       '&.fixed': {

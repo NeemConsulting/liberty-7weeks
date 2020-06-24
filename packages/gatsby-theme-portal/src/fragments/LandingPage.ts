@@ -8,11 +8,20 @@ export const query = graphql`
     slug {
       current
     }
+    headline
+    _rawIntroduction(resolveReferences: { maxDepth: 10 })
     landingSections {
       ... on SanityArticleSlider {
         id
         name
         headline
+        searchCtaLabel
+        searchTags {
+          name
+          tagCategory {
+            name
+          }
+        }
         slides {
           ... on SanityFeatureArticle {
             _type
@@ -22,7 +31,7 @@ export const query = graphql`
             heroImage {
               asset {
                 url
-                fluid {
+                fluid(maxWidth: 752, maxHeight: 421) {
                   aspectRatio
                   base64
                   sizes
@@ -61,7 +70,7 @@ export const query = graphql`
             heroImage {
               asset {
                 url
-                fluid {
+                fluid(maxWidth: 752, maxHeight: 421) {
                   aspectRatio
                   base64
                   sizes
@@ -96,7 +105,7 @@ export const query = graphql`
             heroImage {
               asset {
                 url
-                fluid {
+                fluid(maxWidth: 752, maxHeight: 421) {
                   aspectRatio
                   base64
                   sizes

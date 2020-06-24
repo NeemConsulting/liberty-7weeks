@@ -48,10 +48,7 @@ const SearchResults: FunctionComponent = () => {
   );
 
   const Stats = connectStateResults(
-    ({ searchResults: res }) =>
-      res &&
-      res.nbHits > 0 &&
-      `${res.nbHits}`
+    ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits}`
   );
   const [searchState, setSearchState] = useState(() => {
     return typeof window !== `undefined`
@@ -81,15 +78,15 @@ const SearchResults: FunctionComponent = () => {
   return (
     <Layout>
       <SEO lang={'tl-ph'} title="" description="" keywords="" />
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={indices[0].name}
-        searchState={searchState}
-        onSearchStateChange={onSearchStateChange}
-        createURL={createURL}
-        root={{ props: { ref } }}
-      >
-        <Container maxWidth="lg">
+      <Container maxWidth="lg">
+        <InstantSearch
+          searchClient={searchClient}
+          indexName={indices[0].name}
+          searchState={searchState}
+          onSearchStateChange={onSearchStateChange}
+          createURL={createURL}
+          root={{ props: { ref } }}
+        >
           <Grid container spacing={2}>
             <Grid className={classes.searchControlWrapper} item sm={12}>
               <SearchBox searchAsYouType={true} />
@@ -225,7 +222,9 @@ const SearchResults: FunctionComponent = () => {
                       <Results>
                         <InfiniteHits
                           showPrevious={false}
-                          hitComponent={hitComps[hitComp](() => setFocus(false))}
+                          hitComponent={hitComps[hitComp](() =>
+                            setFocus(false)
+                          )}
                         />
                       </Results>
                     </Index>
@@ -234,8 +233,8 @@ const SearchResults: FunctionComponent = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Container>
-      </InstantSearch>
+        </InstantSearch>
+      </Container>
     </Layout>
   );
 };

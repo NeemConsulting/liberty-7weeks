@@ -14,11 +14,11 @@ import { ReactComponent as Pins } from '../../images/icons/pins.svg';
 
 import useStyles from './styles';
 
-const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
+const ToolList: FunctionComponent<ToolListInterface> = ({ data, title }) => {
   const classes = useStyles();
   return (
     <section className={classes.section}>
-      <h2 className={classes.sectionTitle}>Tools</h2>
+      <h2 className={classes.sectionTitle}>{title}</h2>
       <Grid container spacing={2}>
         {data.map(tool => (
           <Grid className={classes.gridItem} item xs={3} key={tool.name}>
@@ -48,5 +48,6 @@ const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
 
 interface ToolListInterface {
   data: any;
+  title: string;
 }
 export default ToolList;

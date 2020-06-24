@@ -16,6 +16,10 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       [breakpoints.up('md')]: {
         margin: 0,
       },
+      '& picture': {
+        display: 'block',
+        maxWidth: 752,
+      },
       '& .swiper-pagination': {
         display: 'flex',
         justifyContent: 'center',
@@ -41,8 +45,13 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         backgroundColor: palette.common.black,
       },
 
+      '& figure': {
+        margin: 0,
+      },
+
       '& picture img': {
-        maxWidth: 800,
+        width: '100%',
+        height: '100%',
       },
     },
     copy: {
@@ -57,7 +66,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       [breakpoints.up('md')]: {
         position: 'absolute',
         top: '50%',
-        right: 0,
+        right: 30,
         transform: 'translateY(-50%)',
         zIndex: 1,
         maxWidth: 462,
@@ -72,6 +81,14 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       [breakpoints.up('md')]: {
         padding: spacing(3),
       },
+    },
+    slideType: {
+      marginBottom: spacing(1),
+      textTransform: 'uppercase',
+      letterSpacing: 2,
+      color: palette.quinary.main,
+      fontSize: '.75rem',
+      fontWeight: 700,
     },
     callToAction: {
       fontSize: '.875rem',
@@ -139,8 +156,6 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       height: 50,
       cursor: 'pointer',
       '& svg': {
-        width: 55,
-        height: 50,
         transition: 'all .3s ease-in',
       },
       [breakpoints.up('md')]: {
@@ -148,8 +163,6 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         height: 80,
         width: 45,
         '& svg': {
-          width: 75,
-          height: 80,
           transition: 'all .3s ease-in',
         },
       },
@@ -160,13 +173,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     },
     nextButton: {
       right: 10,
-      '& svg': {
-        marginLeft: -15,
-      },
       '&:not(:disabled):hover': {
         '& svg': {
           fill: palette.primary.main,
-          marginLeft: -10,
         },
       },
       [breakpoints.up('md')]: {
@@ -176,13 +185,11 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     prevButton: {
       left: 10,
       '& svg': {
-        marginLeft: -15,
         transform: 'rotate(180deg)',
       },
       '&:not(:disabled):hover': {
         '& svg': {
           fill: palette.primary.main,
-          marginLeft: -20,
         },
       },
       [breakpoints.up('md')]: {

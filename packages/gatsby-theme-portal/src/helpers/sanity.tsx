@@ -41,7 +41,7 @@ export const blockTypeDefaultSerializers = {
     }) => {
       const fluidProps = getFluidGatsbyImage(
         imageName.asset._id,
-        { maxWidth: 540, maxHeight: 360 },
+        { maxWidth: 540 },
         sanityConfig
       );
 

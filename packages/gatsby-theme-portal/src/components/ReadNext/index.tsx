@@ -4,11 +4,11 @@ import Img from 'gatsby-image';
 
 import useStyles from './styles';
 
-const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
+const ReadNext: FunctionComponent<ReadNextInterface> = ({ data, title }) => {
   const classes = useStyles();
   return (
     <section className={classes.readNext}>
-      <h3 className={classes.readNextTitle}>Next Read</h3>
+      <h3 className={classes.readNextTitle}>{title}</h3>
       <div className={classes.readNextContent}>
         <Link className={classes.readNextLink} to={data.readnext.path}>
           <div className={classes.readNextImage}>
@@ -33,5 +33,6 @@ const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
 
 interface ReadNextInterface {
   data: any;
+  title: string;
 }
 export default ReadNext;

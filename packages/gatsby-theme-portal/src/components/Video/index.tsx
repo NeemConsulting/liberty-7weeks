@@ -59,7 +59,7 @@ const Video: FunctionComponent<VideoInterface> = ({
             <span hidden>Play Video</span>
           </button>
         )}
-        {!videoLoading && (
+        {videoLoading && (
           <Preloader
             use={Oval}
             size={60}

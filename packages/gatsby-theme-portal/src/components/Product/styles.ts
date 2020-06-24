@@ -39,6 +39,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       position: 'relative',
     },
     link: {
+      display: 'block !important',
       '&:before, &:after': {
         display: 'none',
       },
@@ -53,6 +54,7 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       borderRadius: 3,
       transition: 'all .5s',
       marginTop: spacing(2),
+      display: 'inline-block',
       '&:after': {
         display: 'none',
       },

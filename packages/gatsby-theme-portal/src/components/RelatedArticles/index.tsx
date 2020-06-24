@@ -7,6 +7,7 @@ import useStyles from './styles';
 
 const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
   articles,
+  title,
 }) => {
   const classes = useStyles();
 
@@ -49,7 +50,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
   return (
     <>
       <div className={classes.teaserWrapper}>
-        <h4 className={classes.title}>Related Articles</h4>
+        <h4 className={classes.title}>{title}</h4>
         {firstArticle && (
           <div className={classNames('c-article__first', classes.teaserFirst)}>
             {renderListItem(firstArticle, {
@@ -78,6 +79,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
 
 interface RelatedArticlesInterface {
   articles: any;
+  title: string;
 }
 
 export default RelatedArticles;

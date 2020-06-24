@@ -3,4 +3,6 @@ export interface SanityArticleSliderInterface {
   slideType: any;
   headline: string | null;
   slides: any;
+  searchCtaLabel: string;
+  searchTags: any;
 }

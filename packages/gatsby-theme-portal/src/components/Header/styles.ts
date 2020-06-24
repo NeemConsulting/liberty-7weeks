@@ -28,6 +28,10 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         marginRight: spacing(3.75),
         marginBottom: spacing(-0.25),
       },
+      '& a': {
+        display: 'flex',
+        alignItems: 'center',
+      },
     },
     pad20: {
       padding: spacing(2.5),
@@ -114,9 +118,10 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       paddingBottom: spacing(1.25),
       paddingLeft: spacing(2),
       paddingRight: spacing(2),
-      display: 'inline-block',
+      display: 'block',
       textDecoration: 'none',
       position: 'relative',
+      textAlign: 'center',
       transform: 'perspective(1px) translateZ(0)',
       '&:before': {
         content: '""',

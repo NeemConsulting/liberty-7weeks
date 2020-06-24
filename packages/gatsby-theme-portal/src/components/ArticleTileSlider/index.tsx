@@ -9,12 +9,14 @@ import 'swiper/css/swiper.min.css';
 import { ArticleTileSliderInterface } from './models';
 import { ReactComponent as PlayVideo } from '../../images/icons/play.svg';
 import { ReactComponent as Next } from '../../images/icons/next.svg';
+import { getSearchUrlWithTagsAndCategory } from '../../helpers/searchUrl';
 import useStyles from './styles';
 
 const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
-  name,
   slides,
   headline,
+  searchCtaLabel,
+  searchTags,
 }) => {
   const [swiper, updateSwiper] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -94,9 +96,14 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
         <Typography variant="h2" className={classes.sliderTitle}>
           {headline}
         </Typography>
-        <Link className={classes.sectionLink} to={'/'}>
-          See All
-        </Link>
+        {searchCtaLabel && (
+          <Link
+            className={classes.sectionLink}
+            to={getSearchUrlWithTagsAndCategory(searchTags)}
+          >
+            {searchCtaLabel}
+          </Link>
+        )}
       </div>
       {slides.length > 3 && (
         <button

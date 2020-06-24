@@ -19,11 +19,7 @@ export const PostHit = clickHandler => ({ hit }) => {
       >
         <div className="image-wrapper">
           <figure>
-            <Img
-              fluid={asset.fluid}
-              alt={alt}
-              style={{ width: '360px', height: '360px' }}
-            />
+            <Img fluid={asset.fluid} alt={alt} />
           </figure>
         </div>
         <div className={'ais-InfiniteHits-item__copy'}>

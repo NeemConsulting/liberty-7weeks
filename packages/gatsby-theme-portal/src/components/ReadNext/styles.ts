@@ -46,14 +46,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     },
     readNextImage: {
       overflow: 'hidden',
-      [breakpoints.up('md')]: {
-        height: '212px',
-      },
-      '& img': {
+      '& .gatsby-image-wrapper': {
         [breakpoints.up('md')]: {
           maxWidth: 350,
-          width: '532px !important',
-          height: '345px !important',
         },
       },
     },
@@ -87,7 +82,8 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         position: 'absolute',
         maxWidth: 350,
         right: 20,
-        top: 20,
+        top: '50%',
+        transform: 'translateY(-50%)',
       },
     },
     readNextCopyTitle: {

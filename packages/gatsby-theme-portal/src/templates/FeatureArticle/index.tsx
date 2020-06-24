@@ -23,6 +23,8 @@ const FeatureArticle = (props: FeatureArticleProps) => {
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
       brandInfo,
+      genericLabels,
+      sectionTitles,
     },
   } = props;
 
@@ -59,20 +61,33 @@ const FeatureArticle = (props: FeatureArticleProps) => {
               article={page}
               type={'feature'}
               socialLinks={brandInfo}
+              playLabel={genericLabels.play}
             />
-            {page.toolList && <ToolList data={page.toolList} />}
-            {page.productList && <ProductList data={page.productList} />}
+            {page.toolList && (
+              <ToolList data={page.toolList} title={sectionTitles.toolName} />
+            )}
+            {page.productList && (
+              <ProductList
+                data={page.productList}
+                title={sectionTitles.productName}
+              />
+            )}
             {page._rawFeatureBody && <RichText data={page._rawFeatureBody} />}
-            {page.readnext && <ReadNext data={page} />}
+            {page.readnext && (
+              <ReadNext data={page} title={sectionTitles.nextRead} />
+            )}
           </Grid>
           <Grid item xs={12} sm={1}></Grid>
           <Grid item xs={12} sm={4}>
             {relatedArticles.length !== 0 && (
-              <RelatedArticles articles={relatedArticles} />
+              <RelatedArticles
+                articles={relatedArticles}
+                title={sectionTitles.relatedArticlesName}
+              />
             )}
           </Grid>
         </Grid>
-        <Tags data={page.tags} />
+        <Tags data={page.tags} title={sectionTitles.relatedTopicsName} />
       </Container>
     </Layout>
   );
@@ -121,6 +136,17 @@ export const query = graphql`
       facebookurl
       instaurl
     }
+    genericLabels: sanityGlobalLabels {
+      play
+    }
+    sectionTitles: sanityHowToTemplate {
+      name
+      nextRead
+      productName
+      relatedArticlesName
+      relatedTopicsName
+      toolName
+    }
   }
 `;
 
@@ -131,6 +157,8 @@ interface FeatureArticleProps {
     featureArticles: any;
     howToArticles: any;
     brandInfo: any;
+    genericLabels: any;
+    sectionTitles: any;
   };
   pageContext: {
     slug: string;

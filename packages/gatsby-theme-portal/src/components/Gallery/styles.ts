@@ -16,6 +16,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         maxWidth: 750,
         maxHeight: 500,
         margin: 'auto',
+        '&.carousel-slider': {
+          overflow: 'visible',
+        },
         '& .slide': {
           background: '#f4f4f4',
         },
@@ -26,11 +29,15 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
             margin: 'auto',
             display: 'block',
           },
+          '& .control-arrow': {
+            display: 'none',
+          },
         },
         '& .thumb': {
           transition: 'all .6s ease 0s',
           cursor: 'pointer',
           opacity: 0.2,
+          marginRight: 0,
           '&:hover': {
             borderColor: palette.primary.main,
           },
@@ -56,6 +63,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
           '&.selected': {
             backgroundColor: palette.primary.main,
           },
+        },
+        [breakpoints.up('md')]: {
+          display: 'none',
         },
       },
       '& .carousel-status': {
@@ -89,19 +99,13 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         backgroundColor: 'transparent',
         border: 'none',
         display: 'block',
-        right: 15,
+        right: -90,
         transition: 'all .4s ease 0s !important',
         '& svg': {
           transition: 'all .4s ease 0s !important',
         },
         '&:hover': {
-          right: 10,
-          '& svg': {
-            fill: palette.primary.main,
-          },
-        },
-        '&:focus': {
-          right: 10,
+          right: -100,
           '& svg': {
             fill: palette.primary.main,
           },
@@ -109,14 +113,11 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       },
     },
     carouselArrowPrev: {
-      left: 15,
+      left: -90,
       transform: 'rotate(180deg)',
       right: 'auto',
       '&:hover': {
-        left: 10,
-      },
-      '&:focus': {
-        left: 10,
+        left: -100,
       },
     },
     srOnly: {

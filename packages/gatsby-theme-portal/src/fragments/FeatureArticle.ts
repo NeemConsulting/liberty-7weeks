@@ -108,7 +108,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -130,7 +130,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -152,7 +152,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes

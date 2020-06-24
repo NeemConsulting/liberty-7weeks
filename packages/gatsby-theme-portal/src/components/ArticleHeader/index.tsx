@@ -15,6 +15,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   article,
   type,
   socialLinks,
+  playLabel,
 }) => {
   const classes = useStyles();
   const [showVideo, setShowVideo] = useState(false);
@@ -118,7 +119,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
                 data-url={heroVideo.url}
               >
                 <Youtube />
-                <span className={classes.srOnly}>Play Video</span>
+                <span className={classes.srOnly}>{playLabel}</span>
               </button>
             </>
           )}
@@ -186,6 +187,7 @@ interface ArticleHeaderInterface {
   article: any;
   type: any;
   socialLinks: any;
+  playLabel: string;
 }
 
 export default ArticleHeader;

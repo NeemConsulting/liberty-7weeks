@@ -43,23 +43,17 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     navigationLink: {
       color: palette.common.white,
       textDecoration: 'none',
-      display: 'inline-block',
+      display: 'flex',
+      alignItems: 'center',
       fontSize: '.875rem',
       fontWeight: 700,
       lineHeight: 1.6,
       [breakpoints.up('md')]: {
         fontSize: '1.125rem',
       },
-      '&:after': {
-        content: '""',
-        display: 'block',
-        height: '.1875rem',
-        transition: '.35s cubic-bezier(.215,.61,.355,1)',
-        width: 0,
-      },
-      '&:hover:after': {
-        width: '100%',
-        backgroundColor: palette.primary.main,
+      '& svg': {
+        marginLeft: spacing(0.5),
+        fill: palette.secondary.main,
       },
     },
     footerSecondary: {

@@ -22,6 +22,7 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
       brandInfo,
+      sectionTitles,
     },
   } = props;
 
@@ -67,16 +68,21 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
         <Grid container spacing={2}>
           <Grid xs={12} item sm={7}>
             <RichText data={page._rawBody} />
-            {page.readnext && <ReadNext data={page} />}
+            {page.readnext && (
+              <ReadNext data={page} title={sectionTitles.nextRead} />
+            )}
           </Grid>
           <Grid item xs={12} sm={1}></Grid>
           <Grid item xs={12} sm={4} style={{ position: 'relative' }}>
             {relatedArticles.length !== 0 && (
-              <RelatedArticles articles={relatedArticles} />
+              <RelatedArticles
+                articles={relatedArticles}
+                title={sectionTitles.relatedArticlesName}
+              />
             )}
           </Grid>
         </Grid>
-        <Tags data={page.tags} />
+        <Tags data={page.tags} title={sectionTitles.relatedTopicsName} />
       </Container>
     </Layout>
   );
@@ -127,6 +133,15 @@ export const query = graphql`
       facebookurl
       instaurl
     }
+
+    sectionTitles: sanityHowToTemplate {
+      name
+      nextRead
+      productName
+      relatedArticlesName
+      relatedTopicsName
+      toolName
+    }
   }
 `;
 
@@ -137,6 +152,7 @@ interface GalleryArticlePageProps {
     featureArticles: any;
     howToArticles: any;
     brandInfo: any;
+    sectionTitles: any;
   };
   pageContext: {
     slug: string;

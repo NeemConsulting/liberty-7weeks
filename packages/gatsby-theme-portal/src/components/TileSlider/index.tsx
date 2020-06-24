@@ -8,13 +8,16 @@ import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.min.css';
 import { TileSliderInterface } from './models';
 import { ReactComponent as Next } from '../../images/icons/next.svg';
+import { getSearchUrlWithTagsAndCategory } from '../../helpers/searchUrl';
 import useStyles from './styles';
 
 const TileSlider: FunctionComponent<TileSliderInterface> = ({
-  name,
   slides,
   headline,
+  searchCtaLabel,
+  searchTags,
 }) => {
+  console.log(searchCtaLabel);
   const [swiper, updateSwiper] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
   const [isFirstSlide, setIsFirstSlide] = useState(true);
@@ -82,9 +85,14 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
         <Typography variant="h2" className={classes.sliderTitle}>
           {headline}
         </Typography>
-        <Link className={classes.sectionLink} to={'/'}>
-          See All
-        </Link>
+        {searchCtaLabel && (
+          <Link
+            className={classes.sectionLink}
+            to={getSearchUrlWithTagsAndCategory(searchTags)}
+          >
+            {searchCtaLabel}
+          </Link>
+        )}
       </div>
       <button
         className={classNames(classes.navigationButton, classes.nextButton)}

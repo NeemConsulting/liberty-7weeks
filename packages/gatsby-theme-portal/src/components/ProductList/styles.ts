@@ -54,6 +54,22 @@ export default makeStyles(({ palette, spacing }: Theme) =>
     gridItem: {
       padding: 0,
       marginBottom: spacing(2.5),
+      '& img': {
+        transition: 'all 500ms !important',
+      },
+      '& a': {
+        color: palette.common.black,
+        textDecoration: 'none',
+        '&:hover img': {
+          transform: 'scale(1.05)',
+        },
+        '&:hover h3 span': {
+          backgroundImage: `linear-gradient(120deg,${palette.secondary.main} 0%,${palette.secondary.main} 100%)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '100% .1875rem',
+          backgroundPosition: '0 100%',
+        },
+      },
     },
   })
 );

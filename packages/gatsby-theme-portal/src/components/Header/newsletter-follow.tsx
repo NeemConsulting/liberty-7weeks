@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-
+import { Link } from 'gatsby';
 import { ReactComponent as Follow } from '../../images/icons/follow.svg';
 import SocialMenu from '../SocialMenu';
 
@@ -13,7 +13,7 @@ const NewsletterFollow: FunctionComponent<NewsletterFollowInterface> = ({
 
   return (
     <div className={classes.follow}>
-      <button className={classes.followButton} type="button">
+      <Link className={classes.followButton} to={'/subscribe'}>
         <Follow />
         <div className={classes.followPopup}>
           <div className={classes.pad20}>
@@ -25,7 +25,7 @@ const NewsletterFollow: FunctionComponent<NewsletterFollowInterface> = ({
             </div>
           </div>
         </div>
-      </button>
+      </Link>
     </div>
   );
 };

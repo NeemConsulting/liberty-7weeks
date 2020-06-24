@@ -1,16 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import BlockContent from '@sanity/block-content-to-react';
+import Container from '@material-ui/core/Container';
 import SEO from '../../components/Seo';
 import Layout from '../../components/Layout';
 import LandingSectionRenderer from '../../components/LandingSectionRenderer';
 import PageSchema from '../../components/PageSchema';
 import OGTags from '../../components/OGTags';
 import Breadcrumb from '../../components/Breadcrumb';
+import { blockTypeDefaultSerializers } from '../../helpers/sanity';
+import useStyles from './styles';
 
 const LandingPage = (props: LandingPageProps) => {
   const {
     data: { page },
   } = props;
+  const classes = useStyles();
 
   page.seo = page.seo || {};
 
@@ -37,6 +42,21 @@ const LandingPage = (props: LandingPageProps) => {
       />
       <OGTags type={'page'} slug={page.path} data={page} />
       {page.path !== '/' && <Breadcrumb pageTitle={page.name} />}
+      {(page.headline || page._rawIntroduction) && (
+        <Container maxWidth="lg">
+          <div className={classes.pageContext}>
+            {page.headline && (
+              <h1 className={classes.headline}>{page.headline}</h1>
+            )}
+            {page._rawIntroduction && (
+              <BlockContent
+                serializers={blockTypeDefaultSerializers}
+                blocks={page._rawIntroduction}
+              />
+            )}
+          </div>
+        </Container>
+      )}
       {page.landingSections.map((section, index) => (
         <LandingSectionRenderer
           key={section.id}

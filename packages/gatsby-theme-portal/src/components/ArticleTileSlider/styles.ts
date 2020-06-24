@@ -73,6 +73,9 @@ export default makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       },
       '& .swiper-slide': {
         opacity: 0.2,
+        '& a': {
+          margin: 2,
+        },
       },
       '& .swiper-slide.swiper-slide-active': {
         opacity: 1,
