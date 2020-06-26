@@ -1,11 +1,10 @@
 name: Studio and Web | Build and Deploy
 on:
-    push:
-      branches: [ master ]
+    repository_dispatch:
+      types: [trigger-first-deploy]  
 jobs:
   studio:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'Initial Commit')"
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
@@ -15,19 +14,21 @@ jobs:
           node-version: 12.x
       - name: Build Studio
         run: |
-             npm install
-             npm run build-studio && cp studio/netlify.toml studio/dist
-      - name: Deploy Studio to Netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+             yarn install
+             yarn run build-studio && cp packages/studio/netlify.toml packages/studio/dist
+      - name: Deploy Studio to Netilfy       
+        id: netlify-deploy
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          args: deploy --dir=studio/dist --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+            publish-dir: 'packages/studio/dist'
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            production-branch: master 
+        env:
+            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+            NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}  
   web:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'Initial Commit')"
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
@@ -37,16 +38,20 @@ jobs:
           node-version: 12.x
       - name: Build Website
         env:
-            SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+           SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+           app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}
+           app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
         run: |
-             npm install
-             npm run build-web
-      - name: Deploy Web to netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
-          SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+             yarn install
+             yarn run build-web
+      - name: Deploy Web to Netlify      
+        id:   netlify-deploy
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          args: deploy --dir=web/public --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID","SANITY_DEPLOY_STUDIO_TOKEN"]'
+            publish-dir: 'packages/tl-ph/public'
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            production-branch: master
+        env:
+            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+            NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
+      - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}  
