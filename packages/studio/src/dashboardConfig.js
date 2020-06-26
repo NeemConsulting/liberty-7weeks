@@ -18,7 +18,7 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'REPO_DETAILS',
+            value: 'REPO_URL',
             category: 'Code'
           },
           {
