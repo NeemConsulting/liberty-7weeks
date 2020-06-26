@@ -8,8 +8,8 @@ import Product from '../components/Product';
 import classNames from 'classnames';
 
 const sanityConfig = {
-  projectId: process.env['sanityId'],
-  dataset: process.env['sanityDataset'],
+  projectId: PROJECT_ID,
+  dataset: DATASET_ID,
 };
 
 export const blockTypeDefaultSerializers = {
