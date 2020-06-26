@@ -25,6 +25,7 @@ const DeployGitHub = () => {
   const [disableWeb, setDisableWeb] = useState(false)
   const deployStudio = () => {
     setDeployingStudio(true)
+    setDisableStudio(true)
     fetch(
       'WEBHOOK_URL',
       {
