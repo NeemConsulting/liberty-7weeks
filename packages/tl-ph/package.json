@@ -7,12 +7,21 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "develop": "cross-env NODE_ENV=development && gatsby develop",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
     "gatsby": "^2.21.10",
     "gatsby-theme-portal": "1.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^6.0.0",
+    "axe-core": "^3.5.5",
+    "cypress": "^4.8.0",
+    "cypress-axe": "^0.8.1",
+    "start-server-and-test": "^1.11.0"
   }
 }

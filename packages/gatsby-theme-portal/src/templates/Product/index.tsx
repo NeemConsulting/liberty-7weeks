@@ -7,7 +7,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import TileSlider from '../../components/TileSlider';
 import ImageBlock from '../../components/ImageBlock';
 import SocialMenu from '../../components/SocialMenu';
-import Button from '../../components/Common/Button';
+import { PrimaryButton, SecondaryButton } from '../../components/Common/Button';
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 import Tags from '../../components/Tags';
@@ -45,6 +45,9 @@ const useStyles = makeStyles(theme => ({
       fill: 'black',
     },
   },
+  marginButton: {
+    marginLeft: theme.spacing(2),
+  },
 }));
 
 const ProductPage = (props: ProductPageProps) => {
@@ -81,7 +84,12 @@ const ProductPage = (props: ProductPageProps) => {
               </Grid>
               <Grid item lg={7} md={7} xs={12}>
                 <h1>{page.name}</h1>
-                <Button lable="Buy Now" link={page.buyNow} />
+                <PrimaryButton lable="Buy Now" link={page.buyNow} />
+                <SecondaryButton
+                  className={classes.marginButton}
+                  lable="See the benifits"
+                  link={page.learnMore}
+                />
                 <Grid container spacing={2}>
                   <Grid
                     item

@@ -90,7 +90,7 @@ module.exports = ({ themeConfig }) => {
       options: {
         appId: siteMetadata.algoliaAppID,
         apiKey: siteMetadata.algoliaAdminApiKey,
-        indexName: 'platformLiberty',
+        indexName: 'demo',
         queries,
         enablePartialUpdates: true,
         chunkSize: 10000,

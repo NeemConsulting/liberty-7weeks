@@ -47,9 +47,9 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   };
   const DEBOUNCE_TIME = 400;
   const searchClient = algoliasearch(
-    process.env['app_local_algolia_app_id'] || 'Z0TSVBYCZ7',
+    process.env['app_local_algolia_app_id'] || 'JPSOQF72HZ',
     process.env['app_local_algolia_search_api_key'] ||
-      'b222b54982b03b04b1c5cbe051457a17'
+      'e06c02ccfda0fda35a990c691bdec954'
   );
 
   const [searchState, setSearchState] = useState(() => {
