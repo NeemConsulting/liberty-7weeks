@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import Search from '../../search';
 
 const searchIndices = [
-  { name: `howtoArticle`, title: `howtoArticle`, hitComp: `PostHit` },
+  { name: `platformLiberty`, title: `platformLiberty`, hitComp: `PostHit` },
 ];
 
 const SearchResults: FunctionComponent = () => {

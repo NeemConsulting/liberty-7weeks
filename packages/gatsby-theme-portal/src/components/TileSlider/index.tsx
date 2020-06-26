@@ -15,6 +15,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
   name,
   slides,
   headline,
+  seeAllLink,
 }) => {
   const [swiper, updateSwiper] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -44,7 +45,10 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
     return (
       <div key={slide.name}>
         <div>
-          <Link className={classes.sliderLink} to={slide.path}>
+          <Link
+            className={classes.sliderLink}
+            to={slide.path ? slide.path : slide.slug.current}
+          >
             {slide.image && (
               <Img fluid={slide.image.asset.fluid} alt={slide.image.alt} />
             )}
@@ -83,7 +87,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
         <Typography variant="h2" className={classes.sliderTitle}>
           {headline}
         </Typography>
-        <Link className={classes.sectionLink} to={'/'}>
+        <Link className={classes.sectionLink} to={seeAllLink}>
           See All
         </Link>
       </div>

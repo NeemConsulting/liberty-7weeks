@@ -47,9 +47,9 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   };
   const DEBOUNCE_TIME = 400;
   const searchClient = algoliasearch(
-    process.env['app_local_algolia_app_id'] || 'VW9INLJ17V',
+    process.env['app_local_algolia_app_id'] || 'Z0TSVBYCZ7',
     process.env['app_local_algolia_search_api_key'] ||
-      'cd59e4d6a74ef20cb941bb64e8bdfe4f'
+      'b222b54982b03b04b1c5cbe051457a17'
   );
 
   const [searchState, setSearchState] = useState(() => {
@@ -183,9 +183,12 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 <SortBy
                   defaultRefinement="howtoArticle_publishedAt_Dsc"
                   items={[
-                    { value: 'howtoArticle', label: 'Published Date Dsc' },
                     {
-                      value: 'howtoArticle_publishedAt_Dsc',
+                      value: 'platformLiberty_desc',
+                      label: 'Published Date Dsc',
+                    },
+                    {
+                      value: 'platformLiberty',
                       label: 'Published Date Asc',
                     },
                   ]}
