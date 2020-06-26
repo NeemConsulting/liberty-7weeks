@@ -1,0 +1,125 @@
+name: Preview Deploy
+on:
+  pull_request:
+    branches: master
+jobs:
+    deploy_preview:
+        runs-on: ubuntu-latest
+        name: Deploy the Pull Request Preview
+        outputs:
+          url: ${{ steps.netlify-deploy.outputs.deploy-url }}
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v1
+          - name: Use Node.js 12.x
+            uses: actions/setup-node@v1
+            with:
+              node-version: 12.x
+          - name: build & Install web
+            env:
+                SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+                app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}
+                app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
+            run: |
+                 yarn
+                 yarn run build-web
+          - name: Deploy to Netlify
+            id: netlify-deploy
+            uses: nwtgck/actions-netlify@v1.1
+            with:
+                publish-dir: 'packages/tl-ph/public'
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                deploy-message: ${{ github.event.pull_request.title }}
+            env:
+              NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+              NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
+          - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}
+        
+    lighthouse-check:
+       runs-on: ubuntu-latest
+       needs: [deploy_preview]
+       steps:
+        - uses: actions/checkout@master
+        - run: mkdir /tmp/artifacts
+        - name: Run Lighthouse
+          uses: foo-software/lighthouse-check-action@master
+          with:
+           accessToken: ${{ secrets.GITHUB_TOKEN }}
+           author: ${{ github.actor }}
+           prCommentSaveOld	: true  
+           awsBucket: ${{ secrets.LIGHTHOUSE_CHECK_AWS_BUCKET }}
+           awsRegion: ${{ secrets.LIGHTHOUSE_CHECK_AWS_REGION }}
+           branch: ${{ github.ref }}
+           outputDirectory: /tmp/artifacts
+           urls: '${{ needs.deploy_preview.outputs.url }},${{ needs.deploy_preview.outputs.url }}/hair-style/how-to-do-a-dutch-braid-in-six-easy-steps'
+           sha: ${{ github.sha }}
+           slackWebhookUrl: ${{ secrets.LIGHTHOUSE_CHECK_WEBHOOK_URL }}
+        - name: Upload artifacts
+          uses: actions/upload-artifact@master
+          with:
+           name: Lighthouse reports
+           path: /tmp/artifacts
+                
+    sdtt:
+      runs-on: ubuntu-latest
+      name: Run Structured Data Tests
+      needs: [deploy_preview]
+      steps:
+          - uses: actions/checkout@master
+          - run: mkdir -p output/
+          - name: Use Node.js 12.x
+            uses: actions/setup-node@v1
+            with:
+              node-version: 12.x
+          - name: Run Structured Data Test
+            run: |
+                 npm i structured-data-testing-tool -g
+                 sdtt --url  ${{ needs.deploy_preview.outputs.url }} --schemas "jsonld:Article" -p Twitter -p Facebook --presets SocialMedia -i > output/results.txt
+          -  if: ${{ always() }}      
+             uses: actions/upload-artifact@v1
+             with: 
+              name: structured-data-results
+              path: output
+          -  if: ${{ always() }} 
+             uses: actions/download-artifact@v1
+             with: 
+              name: structured-data-results
+          -  if: ${{ always() }}
+             name: comment PR
+             uses: machine-learning-apps/pr-comment@master
+             env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             with:
+              path: structured-data-results/results.txt
+    pa11y:
+      runs-on: ubuntu-latest
+      name: Run Accessility Tests using pa11y
+      needs: [deploy_preview]
+      steps:
+          - uses: actions/checkout@master
+          - run: mkdir -p output/
+          - name: Use Node.js 12.x
+            uses: actions/setup-node@v1
+            with:
+              node-version: 12.x
+          - name: Run Accessility Tests using pa11y
+            run: |
+                 npm i -g pa11y
+                 echo " **please note that only 20% to 50% of all accessibility issues can be automatically detected**, Manual testing is always required. Plese register and do manual run on https://axe.deque.com " > output/results.txt
+                 pa11y --runner axe ${{ needs.deploy_preview.outputs.url }} > output/results.txt
+          -  if: ${{ always() }} 
+             uses: actions/upload-artifact@v1
+             with: 
+              name: pa11y-results
+              path: output
+          -  if: ${{ always() }} 
+             uses: actions/download-artifact@v1
+             with: 
+              name: pa11y-results
+          -  if: ${{ always() }}
+             name: comment PR
+             uses: machine-learning-apps/pr-comment@master
+             env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             with:
+              path: pa11y-results/results.txt
