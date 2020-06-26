@@ -4,7 +4,7 @@
     "name": "PROJECT_NAME"
   },
   "api": {
-    "projectId": "PROJECT_NAME",
+    "projectId": "PROJECT_ID",
     "dataset": "DATASET_ID"
   },
   "plugins": [
