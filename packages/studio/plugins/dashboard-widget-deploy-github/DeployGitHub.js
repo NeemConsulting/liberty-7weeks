@@ -37,7 +37,7 @@ const DeployGitHub = () => {
       .then(res => res.json())
       .then(() => {
         setDeployingStudio(false)
-        setTimeout(() => setDisableStudio(true), 180000)
+        setTimeout(() => setDisableStudio(false), 180000)
       })
   }
   const deployWeb = () => {
