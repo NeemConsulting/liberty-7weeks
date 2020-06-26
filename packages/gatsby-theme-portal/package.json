@@ -54,6 +54,7 @@
     "preact-render-to-string": "^5.1.9",
     "rc-tooltip": "^4.0.0-alpha.3",
     "react": "^16.13.1",
+    "react-compare-slider": "^1.0.4",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-id-swiper": "^3.0.0",

@@ -41,3 +41,6 @@ button:focus,
 a:focus {
   outline: 2px dashed #b8f0c0;
 }
+figure {
+  margin: 0;
+}

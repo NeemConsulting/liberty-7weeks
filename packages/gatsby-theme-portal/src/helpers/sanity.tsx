@@ -1,19 +1,26 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import BlockContent from '@sanity/block-content-to-react';
 import Video from '../components/Video';
 import Product from '../components/Product';
 import classNames from 'classnames';
+import loadable from '@loadable/component';
+
+const BeforeAndAfter = loadable(() => import('../components/BeforeAndAfter'), {
+  fallback: <div style={{ height: 500 }}>loading...</div>,
+});
 
 const sanityConfig = {
-  projectId: "PROJECT_ID",
-  dataset: "DATASET_ID",
+  projectId: 'PROJECT_ID',
+  dataset: 'DATASET_ID',
 };
 
 export const blockTypeDefaultSerializers = {
   types: {
+    beforeAfterImage: ({ node }) => {
+      return <BeforeAndAfter images={node} />;
+    },
     figure: ({ node }) => {
       const fluidProps = getFluidGatsbyImage(
         node.asset._id,
@@ -27,7 +34,11 @@ export const blockTypeDefaultSerializers = {
             fluid={fluidProps}
             alt={node.alt}
             style={{ maxWidth: '720px', maxHeight: '800px' }}
-            imgStyle={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
+            imgStyle={{
+              width: 'auto',
+              height: 'auto',
+              maxWidth: '100%',
+            }}
           />
           <div className={'c-image__credit'}>
             <span>{node.imageCaption}</span>
