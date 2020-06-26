@@ -72,7 +72,7 @@ const DeployGitHub = () => {
             <figure>
               <img src="../../static/badge-studio.svg" />
               <figcaption>
-                <a href=\"STUDIO_ACTION_URL">
+                <a href="STUDIO_ACTION_URL">
                   View Studio Deployment
                 </a>
               </figcaption>
@@ -92,7 +92,7 @@ const DeployGitHub = () => {
             <figure>
               <img src="../../static/badge.svg" />
               <figcaption>
-                <a href=\"WEB_ACTION_URL">
+                <a href="WEB_ACTION_URL">
                   View Web Deployment
                 </a>
               </figcaption>
