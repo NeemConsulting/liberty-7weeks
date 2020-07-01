@@ -44,6 +44,7 @@ const Layout = ({ className, children }: LayoutProps) => {
               <Switch
                 checked={dark}
                 onChange={() => setDark(!dark)}
+                aria-label="mode"
                 name="mode"
               />
             }

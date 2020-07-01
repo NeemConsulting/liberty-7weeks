@@ -21,7 +21,6 @@ const SocialMenu: FunctionComponent<SocialMenuInterface> = ({ links }) => {
     youtube: Youtube,
     default: Share,
   };
-  console.log(links);
   const renderItems = () => {
     return Object.entries(links).map(([key, value]) => {
       const Component = socialIcons[key.split('url')[0]] || socialIcons.default;

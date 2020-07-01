@@ -49,9 +49,7 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
             className={classes.sliderLink}
             to={slide.path ? slide.path : slide.slug.current}
           >
-            {slide.image && (
-              <Img fluid={slide.image.asset.fluid} alt={slide.image.alt} />
-            )}
+            {slide.image && <Img fluid={slide.image.asset.fluid} alt="" />}
             <h3 className={classes.sliderItemCaption}>
               <span>{slide.name}</span>
             </h3>

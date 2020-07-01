@@ -130,7 +130,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               <div className="filter">
                 <Panel header="Tags">
                   <RefinementList
-                    attribute="tags.name"
+                    attribute="tag"
                     limit={4}
                     showMoreLimit={50}
                     showMore={true}
@@ -141,7 +141,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 <div>
                   <Panel header="Category">
                     <RefinementList
-                      attribute="tags.tagCategory.name"
+                      attribute="tagCategory"
                       limit={4}
                       showMoreLimit={50}
                       showMore={true}

@@ -118,9 +118,11 @@ const productQuery = `{
 }
 }`;
 const handleProductRawBody = node => {
-  const { _rawUsageDetails, _rawIngredients, ...rest } = node;
+  const { _rawUsageDetails, _rawIngredients, tags, ...rest } = node;
   const record = {
     ...rest,
+    tag: tags.map(tag => tag.name),
+    tagCategory: tags.map(tag => tag.tagCategory.name),
   };
   if (_rawUsageDetails) {
     record.usageBody = _rawUsageDetails
@@ -137,9 +139,11 @@ const handleProductRawBody = node => {
 };
 
 const handlehowToArticleRawBody = node => {
-  const { _rawHowTobody, ...rest } = node;
+  const { _rawHowTobody, tags, ...rest } = node;
   const record = {
     ...rest,
+    tag: tags.map(tag => tag.name),
+    tagCategory: tags.map(tag => tag.tagCategory.name),
   };
   if (_rawHowTobody) {
     record.howTobody = _rawHowTobody
@@ -151,9 +155,11 @@ const handlehowToArticleRawBody = node => {
 };
 
 const handleGalleryArticleRawBody = node => {
-  const { _rawBody, ...rest } = node;
+  const { _rawBody, tags, ...rest } = node;
   const record = {
     ...rest,
+    tag: tags.map(tag => tag.name),
+    tagCategory: tags.map(tag => tag.tagCategory.name),
   };
   if (_rawBody) {
     record.galleryBody = _rawBody
@@ -165,9 +171,11 @@ const handleGalleryArticleRawBody = node => {
 };
 
 const handleFeatureArticleRawBody = node => {
-  const { _rawFeatureBody, ...rest } = node;
+  const { _rawFeatureBody, tags, ...rest } = node;
   const record = {
     ...rest,
+    tag: tags.map(tag => tag.name),
+    tagCategory: tags.map(tag => tag.tagCategory.name),
   };
   if (_rawFeatureBody) {
     record.featureBody = _rawFeatureBody
