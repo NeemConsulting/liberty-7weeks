@@ -1,326 +1,325 @@
-/* eslint-disable */
-import React, { useState, createRef } from 'react';
+import React, { useRef } from 'react';
+import { Link } from 'gatsby';
 import {
   InstantSearch,
-  Index,
-  connectStateResults,
   RefinementList,
-  ClearRefinements,
-  CurrentRefinements,
-  InfiniteHits,
   SortBy,
+  Pagination,
+  ClearRefinements,
+  Highlight,
+  Hits,
+  HitsPerPage,
   Panel,
   Configure,
-  connectSearchBox,
+  SearchBox,
+  Snippet,
 } from 'react-instantsearch-dom';
-import Autocomplete from './autocomplete';
-import FilterDrawer from './filterDrawer';
-import CustomRefinementList from './customRefinementList';
-import './autocomplete.css';
 import algoliasearch from 'algoliasearch/lite';
-import qs from 'qs';
-import Grid from '@material-ui/core/Grid';
-import * as hitComps from './hitComps';
-import { makeStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
-import { ReactComponent as IconList } from '../images/icons/list.svg';
-import { ReactComponent as IconGrid } from '../images/icons/grid.svg';
+import {
+  ClearFiltersMobile,
+  NoResults,
+  ResultsNumberMobile,
+  SaveFiltersMobile,
+} from './widgets';
+import withURLSync from './URLSync';
+import './theme.css';
+import './search.css';
+import './search.mobile.css';
+import './widgets/Pagination.css';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
-
-const VirtualSearchBox = connectSearchBox(() => null);
-
-const Results = connectStateResults(
-  ({ searchState, searchResults, children }) =>
-    searchResults && searchResults.nbHits !== 0 ? children : null
+const searchClient = algoliasearch(
+  process.env['app_local_algolia_app_id'] || 'TUS0YOBD3F',
+  process.env['app_local_algolia_search_api_key'] ||
+    'fe16863454663937e5c39de4de666362'
 );
 
-const Stats = connectStateResults(
-  ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits}`
+const Hit = ({ hit }) => (
+  <Link className={'ais-InfiniteHits-item__link'} to={`/${hit.path}`}>
+    <article className="hit">
+      <header className="hit-image-container">
+        <img
+          src={`${hit.image.asset.url}?w=240&h=240&fit=crop&fm=webp`}
+          alt={hit.image.alt}
+          className="hit-image"
+        />
+      </header>
+
+      <div className="hit-info-container">
+        <p className="hit-category"></p>
+        <h1>
+          <Highlight attribute="Title" tagName="mark" hit={hit} />
+        </h1>
+        <p className="hit-description">
+          <Snippet attribute="ingredientBody" hit={hit} tagName="mark" />
+          <Snippet attribute="usageBody" hit={hit} tagName="mark" />
+          <Snippet attribute="galleryBody" hit={hit} tagName="mark" />
+          <Snippet attribute="howTobody" hit={hit} tagName="mark" />
+          <Snippet attribute="featureBody" hit={hit} tagName="mark" />
+        </p>
+      </div>
+    </article>
+  </Link>
 );
-export default function Search({
-  indices,
-  filterProducts,
-  grid,
-  collapse,
-  hitsAsGrid,
-}) {
-  console.log('filterProducts', filterProducts);
-  const classes = useStyles();
-  const ref = createRef();
-  const [query, setQuery] = useState('');
-  const [focus, setFocus] = useState(false);
-  const [viewType, setViewType] = useState('grid');
-  const createURL = state => `?${qs.stringify(state)}`;
-  const searchStateToUrl = ({ location }, searchState) =>
-    searchState ? `${location.pathname}${createURL(searchState)}` : '';
-  const urlToSearchState = ({ search }) => {
-    return search ? qs.parse(search.slice(1)) : {};
-  };
-  const onSuggestionSelected = (_, { suggestion }) => {
-    setQuery(suggestion.name);
-  };
 
-  const onSuggestionCleared = () => {
-    setQuery('');
-  };
+const Search = props => {
+  const containerRef = useRef(null);
+  const headerRef = useRef(null);
 
-  const DEBOUNCE_TIME = 400;
-  const searchClient = algoliasearch(
-    process.env['app_local_algolia_app_id'] || 'TUS0YOBD3F',
-    process.env['app_local_algolia_search_api_key'] ||
-      'fe16863454663937e5c39de4de666362'
-  );
+  function openFilters() {
+    document.body.classList.add('filtering');
+    typeof window !== 'undefined' && window.scrollTo(0, 0);
+    typeof window !== 'undefined' && window.addEventListener('keyup', onKeyUp);
+    typeof window !== 'undefined' && window.addEventListener('click', onClick);
+  }
 
-  const [searchState, setSearchState] = useState(() => {
-    return typeof window !== `undefined`
-      ? urlToSearchState(location)
-      : urlToSearchState({});
-  });
-  const [debouncedSetState, setDebouncedSetState] = useState(null);
+  function closeFilters() {
+    document.body.classList.remove('filtering');
+    containerRef.current.scrollIntoView();
+    typeof window !== 'undefined' &&
+      window.removeEventListener('keyup', onKeyUp);
+    typeof window !== 'undefined' &&
+      window.removeEventListener('click', onClick);
+  }
 
-  const onSearchStateChange = updatedSearchState => {
-    clearTimeout(debouncedSetState);
+  function onKeyUp(event) {
+    if (event.key !== 'Escape') {
+      return;
+    }
 
-    setDebouncedSetState(
-      setTimeout(() => {
-        history.pushState(
-          searchStateToUrl(updatedSearchState),
-          updatedSearchState
-        );
-      }, DEBOUNCE_TIME)
-    );
+    closeFilters();
+  }
 
-    setSearchState(updatedSearchState);
-  };
+  function onClick(event) {
+    if (event.target !== headerRef.current) {
+      return;
+    }
 
-  const handleViewType = event => {
-    setViewType(event.currentTarget.dataset.view);
-  };
-
-  console.log('searchState', searchState);
+    closeFilters();
+  }
 
   return (
-    <>
-      <InstantSearch
-        indexName={indices[0].name}
-        searchClient={searchClient}
-        searchState={searchState}
-        onSearchStateChange={onSearchStateChange}
-        createURL={createURL}
-        root={{ props: { ref } }}
-      >
-        <Configure hitsPerPage={5} />
-        {filterProducts == 'true' ? null : (
-          <Autocomplete
-            onSuggestionSelected={onSuggestionSelected}
-            onSuggestionCleared={onSuggestionCleared}
-          />
-        )}
+    <InstantSearch
+      searchClient={searchClient}
+      indexName="howtoArticle"
+      searchState={props.searchState}
+      createURL={props.createURL}
+      onSearchStateChange={props.onSearchStateChange}
+    >
+      <header className="header" ref={headerRef}>
+        {/* <p className="header-logo">
+          <AlgoliaSvg />
+        </p> */}
 
-        <div className={classes.containerWrapper}>
-          <Grid container spacing={2}>
-            <Grid className={classes.searchControlWrapper} item sm={12}>
-              {filterProducts == 'true' ? null : (
+        <p className="header-title">Stop looking for an item — find it.</p>
+
+        <SearchBox
+          translations={{
+            placeholder: 'Product, brand, color, …',
+          }}
+          submit={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 18 18"
+            >
+              <g
+                fill="none"
+                fillRule="evenodd"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.67"
+                transform="translate(1 1)"
+              >
+                <circle cx="7.11" cy="7.11" r="7.11" />
+                <path d="M16 16l-3.87-3.87" />
+              </g>
+            </svg>
+          }
+        />
+      </header>
+
+      <Configure snippetEllipsisText="…" removeWordsIfNoResults="allOptional" />
+
+      <main className="container" ref={containerRef}>
+        <div className="container-wrapper">
+          <section className="container-filters" onKeyUp={onKeyUp}>
+            <div className="container-header">
+              <h2>Filters</h2>
+
+              <div className="clear-filters" data-layout="desktop">
+                <ClearRefinements
+                  translations={{
+                    reset: (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="11"
+                          height="11"
+                          viewBox="0 0 11 11"
+                        >
+                          <g fill="none" fillRule="evenodd" opacity=".4">
+                            <path d="M0 0h11v11H0z" />
+                            <path
+                              fill="#000"
+                              fillRule="nonzero"
+                              d="M8.26 2.75a3.896 3.896 0 1 0 1.102 3.262l.007-.056a.49.49 0 0 1 .485-.456c.253 0 .451.206.437.457 0 0 .012-.109-.006.061a4.813 4.813 0 1 1-1.348-3.887v-.987a.458.458 0 1 1 .917.002v2.062a.459.459 0 0 1-.459.459H7.334a.458.458 0 1 1-.002-.917h.928z"
+                            />
+                          </g>
+                        </svg>
+                        Clear filters
+                      </>
+                    ),
+                  }}
+                />
+              </div>
+
+              <div className="clear-filters" data-layout="mobile">
+                <ResultsNumberMobile />
+              </div>
+            </div>
+
+            <div className="container-body">
+              {props.filterProducts === 'true' ? (
                 <>
-                  <VirtualSearchBox defaultRefinement={query} />
-                  <CustomRefinementList attribute="pageType" searchable />
+                  <Panel header="Hair & Product Types">
+                    <RefinementList attribute="tag" />
+                  </Panel>
+                </>
+              ) : (
+                <>
+                  <Panel header="Tags">
+                    <RefinementList attribute="pageType" />
+                  </Panel>
+                  <Panel header="Duration">
+                    <RefinementList attribute="duration" />
+                  </Panel>
                 </>
               )}
-            </Grid>
-            <Grid className={classes.searchControlWrapper} item sm={12}>
-              <div className={classes.resultsInfo}>
-                <span className={classes.searchQuery}>
-                  {query ? `Results for ${query}` : 'All Results'}
-                </span>
-                <span className={classes.resultsStats}>
-                  <Stats
-                    translations={{
-                      stats(nbHits) {
-                        return `(${nbHits})`;
-                      },
-                    }}
-                  />
-                </span>
-              </div>
-              <div className={classes.currentRefinements}>
-                <CurrentRefinements clearsQuery />
-              </div>
-            </Grid>
-            <div className={classes.filterMobile} item xs={12}>
-              <Grid item xs={12}>
-                <FilterDrawer
-                  searchClient={searchClient}
-                  searchState={searchState}
-                  onSearchStateChange={onSearchStateChange}
-                  filterProducts={filterProducts}
-                />
-              </Grid>
             </div>
-            <div className={classes.filters} item sm={3}>
-              <div className={classes.filterHeader}>
-                <span>Filter by</span>
-                <div className={classes.clearFilters} data-layout="desktop">
-                  <ClearRefinements
-                    clearsQuery
-                    translations={{
-                      reset: (
-                        <>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="11"
-                            height="11"
-                            viewBox="0 0 11 11"
-                          >
-                            <g fill="none" fillRule="evenodd" opacity=".4">
-                              <path d="M0 0h11v11H0z" />
-                              <path
-                                fill="#000"
-                                fillRule="nonzero"
-                                d="M8.26 2.75a3.896 3.896 0 1 0 1.102 3.262l.007-.056a.49.49 0 0 1 .485-.456c.253 0 .451.206.437.457 0 0 .012-.109-.006.061a4.813 4.813 0 1 1-1.348-3.887v-.987a.458.458 0 1 1 .917.002v2.062a.459.459 0 0 1-.459.459H7.334a.458.458 0 1 1-.002-.917h.928z"
-                              />
-                            </g>
-                          </svg>
-                          Clear filters
-                        </>
-                      ),
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="filter-wrapper">
-                {filterProducts == 'true' ? (
-                  <>
-                    <div>
-                      <Panel header="Hair & Product Types">
-                        <RefinementList attribute="tags.name" showMore={true} />
-                      </Panel>
-                    </div>
+          </section>
 
-                    <div className="filter">
-                      <div>
-                        <Panel header="Brand">
-                          <RefinementList
-                            attribute="brandName.name"
-                            showMore={true}
-                          />
-                        </Panel>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="filter">
-                      <Panel header="Tags">
-                        <RefinementList attribute="tags.name" showMore={true} />
-                      </Panel>
-                    </div>
-                    <div className="filter">
-                      <div>
-                        <Panel header="Category">
-                          <RefinementList
-                            attribute="tags.tagCategory.name"
-                            showMore={true}
-                            searchable={true}
-                            translations={{
-                              placeholder: 'Search for tags',
-                            }}
-                          />
-                        </Panel>
-                      </div>
-                    </div>
-                    <div className="filter">
-                      <div>
-                        <Panel header="Duration">
-                          <RefinementList
-                            attribute="duration"
-                            limit={2}
-                            showMoreLimit={50}
-                            showMore={true}
-                            transformItems={items =>
-                              items.map(item => ({
-                                ...item,
-                                label: `${item.label} mins`,
-                              }))
-                            }
-                          />
-                        </Panel>
-                      </div>
-                    </div>
-                    <div className="filter">
-                      <div>
-                        <Panel header="Difficulty">
-                          <RefinementList attribute="difficulty" />
-                        </Panel>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
+          <footer className="container-filters-footer" data-layout="mobile">
+            <div className="container-filters-footer-button-wrapper">
+              <ClearFiltersMobile containerRef={containerRef} />
             </div>
-            {/* <Grid item xs={12} sm={1}></Grid> */}
-            <Grid item container xs={12} sm={9}>
-              <Grid item container xs={12}>
-                <div className={classes.actions}>
-                  <SortBy
-                    defaultRefinement="howtoArticle_publishedAt_Dsc"
-                    items={[
-                      { value: 'howtoArticle', label: 'Published Date Dsc' },
-                      {
-                        value: 'howtoArticle_publishedAt_Dsc',
-                        label: 'Published Date Asc',
-                      },
-                    ]}
-                  />
-                  <button
-                    type="button"
-                    className={classNames(
-                      classes.icon,
-                      viewType === 'list' ? classes.iconActive : null
-                    )}
-                    data-view="list"
-                    onClick={handleViewType}
-                  >
-                    <IconList />
-                  </button>
-                  <button
-                    type="button"
-                    className={classNames(
-                      classes.icon,
-                      viewType === 'grid' ? classes.iconActive : null
-                    )}
-                    data-view="grid"
-                    onClick={handleViewType}
-                  >
-                    <IconGrid />
-                  </button>
-                </div>
-              </Grid>
-              <Grid item container xs={12} sm={12}>
-                <div
-                  className={classNames(classes.searhResultWrapper, viewType)}
-                  show={query && query.length > 0 && focus}
-                  asgrid={hitsAsGrid}
-                >
-                  {indices.map(({ name, hitComp }) => (
-                    <Index key={name} indexName={name}>
-                      <Results>
-                        <InfiniteHits
-                          showPrevious={false}
-                          hitComponent={hitComps[hitComp](() =>
-                            setFocus(false)
-                          )}
-                        />
-                      </Results>
-                    </Index>
-                  ))}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
+
+            <div className="container-filters-footer-button-wrapper">
+              <SaveFiltersMobile onClick={closeFilters} />
+            </div>
+          </footer>
         </div>
-      </InstantSearch>
-    </>
+
+        <section className="container-results">
+          <header className="container-header container-options">
+            <SortBy
+              className="container-option"
+              defaultRefinement="howtoArticle"
+              items={[
+                { value: 'howtoArticle', label: 'Published Date Dsc' },
+                {
+                  value: 'howtoArticle',
+                  label: 'Published Date Asc',
+                },
+              ]}
+            />
+
+            <HitsPerPage
+              className="container-option"
+              items={[
+                {
+                  label: '9 hits per page',
+                  value: 9,
+                },
+                {
+                  label: '18 hits per page',
+                  value: 18,
+                },
+                {
+                  label: '27 hits per page',
+                  value: 27,
+                },
+              ]}
+              defaultRefinement={9}
+            />
+          </header>
+
+          <Hits hitComponent={Hit} />
+          <NoResults />
+
+          <footer className="container-footer">
+            <Pagination
+              padding={2}
+              showFirst={false}
+              showLast={false}
+              translations={{
+                previous: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.143"
+                    >
+                      <path d="M9 5H1M5 9L1 5l4-4" />
+                    </g>
+                  </svg>
+                ),
+                next: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.143"
+                    >
+                      <path d="M1 5h8M5 9l4-4-4-4" />
+                    </g>
+                  </svg>
+                ),
+              }}
+            />
+          </footer>
+        </section>
+      </main>
+
+      <aside data-layout="mobile">
+        <button
+          className="filters-button"
+          data-action="open-overlay"
+          onClick={openFilters}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 1H1l5.6 6.3v4.37L9.4 13V7.3z"
+              stroke="#fff"
+              strokeWidth="1.29"
+              fill="none"
+              fillRule="evenodd"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Filters
+        </button>
+      </aside>
+    </InstantSearch>
   );
-}
+};
+
+export default withURLSync(Search);
