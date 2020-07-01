@@ -1,4 +1,13 @@
 export default theme => ({
+  containerWrapper: {
+    backgroundColor: '#f5f4f3',
+    width: '100%',
+    margin: '0px auto',
+    padding: '0% 5%',
+    [theme.breakpoints.up('md')]: {
+      margin: '0px',
+    },
+  },
   searchControlWrapper: {
     width: '100%',
     '& form': {
@@ -54,6 +63,7 @@ export default theme => ({
     fontSize: '1.125rem',
     lineHeight: 1.1,
     fontWeight: 400,
+    marginTop: '5%',
     marginBottom: theme.spacing(1),
     display: 'flex',
     alignItems: 'flex-end',
@@ -134,6 +144,26 @@ export default theme => ({
       margin: '30px auto',
     },
     '&.list': {
+      '& .ais-InfiniteHits-item': {
+        backgroundColor: '#fefefe',
+        padding: '32px',
+        boxShadow: '4px 4px 30px 1px rgba(0,0,0,.025)',
+        borderRadius: '3px',
+        height: '100%',
+        marginLeft: '32px',
+        justifyContent: 'space-between',
+        flex: '0 0 auto',
+        margin: '0 10px',
+        marginBottom: 10,
+        [theme.breakpoints.up('md')]: {
+          margin: '0 20px',
+          marginBottom: 30,
+        },
+        '&:hover': {
+          backgroundColor: 'transparent',
+          cursor: 'pointer',
+        },
+      },
       '& .image-wrapper': {
         '& img': {
           width: 80,
@@ -157,11 +187,15 @@ export default theme => ({
         alignContent: 'stretch',
       },
       '& .ais-InfiniteHits-item': {
+        backgroundColor: '#fefefe',
+        padding: '32px',
+        boxShadow: '4px 4px 30px 1px rgba(0,0,0,.025)',
+        borderRadius: '3px',
+        height: '100%',
         justifyContent: 'space-between',
         flex: '0 0 auto',
-        width: 'calc(100%/2.30)',
-        margin: '0 10px',
-        marginBottom: 10,
+        width: '100%',
+        margin: '5% 0%',
         [theme.breakpoints.up('md')]: {
           width: 'calc(100%/3.5)',
           margin: '0 20px',
@@ -309,7 +343,19 @@ export default theme => ({
       },
     },
   },
+  filterMobile: {
+    display: 'block',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+      marginBottom: theme.spacing(8),
+    },
+  },
   filters: {
+    backgroundColor: '#fefefe',
+    padding: '32px 32px 16px',
+    boxShadow: '4px 4px 30px 1px rgba(0,0,0,.025)',
+    borderRadius: '3px',
+    marginBottom: '32px',
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'block',
@@ -334,9 +380,37 @@ export default theme => ({
       transition: 'all .5s',
     },
     '& .ais-RefinementList-item--selected': {
+      '& .ais-RefinementList-checkbox': {
+        backgroundColor: '#e2a400',
+      },
+    },
+    '& .ais-RefinementList-item--selected': {
+      '& .ais-RefinementList-checkbox::after': {
+        backgroundColor: '#fff',
+        borderRadius: '4px',
+        content: '',
+        height: '4px',
+        left: '50%',
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateX(-2px) translateY(-2px)',
+        width: '4px',
+      },
+    },
+    '& .ais-RefinementList-item--selected': {
       '& .ais-RefinementList-labelText': {
         fontWeight: 600,
       },
+    },
+    '& .ais-RefinementList-checkbox': {
+      backgroundColor: 'rgba(65, 66, 71, 0.08)',
+      border: 'none',
+      borderRadius: '2px',
+      height: '1rem',
+      margin: 0,
+      marginRight: '1rem',
+      position: 'relative',
+      width: '1rem',
     },
     '& .filter': {
       borderBottom: '1px solid #f4f4f4',
@@ -412,9 +486,14 @@ export default theme => ({
     },
   },
   filterHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'space-between',
+      minHeight: '80px',
+    },
+    justifyContent: 'center',
+    minHeight: '60px',
     borderBottom: '1px solid #ddd',
     paddingBottom: theme.spacing(1.25),
     '& > span': {
@@ -426,7 +505,10 @@ export default theme => ({
         border: 'none',
         backgroundColor: 'transparent',
         cursor: 'pointer',
-        padding: 0,
+        [theme.breakpoints.up('md')]: {
+          padding: 0,
+        },
+        paddingTop: '10%',
         '&:hover': {
           borderBottom: `2px solid ${theme.palette.secondary.main}`,
         },
@@ -438,6 +520,10 @@ export default theme => ({
         },
       },
     },
+  },
+  clearFilters: {
+    alignItems: 'center',
+    display: 'flex',
   },
   searchForm: {
     display: 'flex',
@@ -477,15 +563,20 @@ export default theme => ({
       alignSelf: 'flex-start',
     },
     '& .ais-SortBy-select': {
-      padding: theme.spacing(0.75),
-      paddingTop: theme.spacing(0.75),
-      paddingBottom: theme.spacing(0.75),
       marginRight: theme.spacing(1),
       border: 'none',
       fontSize: '1rem',
-      color: theme.palette.grey[100],
-      backgroundColor: '#f4f4f4',
-      borderRadius: 4,
+      marginBottom: '0px',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '16px',
+      bordeRadius: '5px',
+      backgroundColor: '#fff',
+      color: '#333',
+      minWidth: '200px',
+      justifyContent: 'space-between',
+      position: 'relative',
+      cursor: 'pointer',
     },
   },
   icon: {
@@ -507,5 +598,47 @@ export default theme => ({
     '& svg': {
       fill: theme.palette.primary.main,
     },
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    top: 'auto',
+    bottom: 0,
+    borderTopRightRadius: '.9375rem',
+    borderTopLeftRadius: '.9375rem',
+    webkitTransform: 'translateY(40vh)',
+    transform: 'translateY(40vh)',
+    padding: '1rem 6rem 35rem',
+    maxHeight: 'calc(100vh - 200px)',
+    overflowY: 'auto',
+  },
+  center: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnFilter: {
+    lineHeight: '2.875rem',
+    textAlign: 'center',
+    fontSize: '.875rem',
+    background: '#fff',
+    top: '0',
+    left: '-1.25rem',
+    width: '100%',
+    border: '.0625rem solid #d8d8d8',
+    borderLeft: 'none',
+    fontWeight: '700',
+    color: '#3d3d3d',
+  },
+  list: {
+    width: '100%',
+  },
+  fullList: {
+    width: 'auto',
   },
 });
