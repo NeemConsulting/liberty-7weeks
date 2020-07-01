@@ -51,12 +51,7 @@ const Footer: FunctionComponent = () => {
         </ul>
       </nav>
       <div className={classes.footerSecondary}>
-        <img
-          src={UnileverLogo}
-          role="presentation"
-          alt="Unilever Logo"
-          width="36"
-        />
+        <img src={UnileverLogo} role="img" alt="Unilever Logo" width="36" />
         <p>Copyright &copy; {new Date().getFullYear()} Unilever.</p>
       </div>
     </footer>

@@ -63,7 +63,7 @@ export default theme => ({
     cursor: 'pointer',
     backgroundColor: theme.palette.primary.main,
     border: `1px solid ${theme.palette.primary.main}`,
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     position: 'relative',
     transform: 'perspective(1px) translateZ(0)',
     '&:before': {
@@ -82,6 +82,7 @@ export default theme => ({
       transitionTimingFunction: 'ease-out',
     },
     '&:hover': {
+      color: theme.palette.common.white,
       borderColor: theme.palette.common.black,
       '&:before': {
         transform: 'scaleX(1)',

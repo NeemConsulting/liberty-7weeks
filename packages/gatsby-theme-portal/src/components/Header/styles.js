@@ -106,7 +106,7 @@ export default theme => ({
     fontSize: '.875rem',
     fontWeight: 700,
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     paddingTop: theme.spacing(1.25),
     paddingBottom: theme.spacing(1.25),
     paddingLeft: theme.spacing(2),
@@ -129,6 +129,9 @@ export default theme => ({
       transitionProperty: 'transform',
       transitionDuration: '0.3s',
       transitionTimingFunction: 'ease-out',
+    },
+    '&:hover': {
+      color: theme.palette.common.white,
     },
     '&:hover:before': {
       transform: 'scaleX(1)',
