@@ -12,6 +12,8 @@ const LandingPage = (props: LandingPageProps) => {
     data: { page },
   } = props;
 
+  console.log('Landingpagedata', props);
+
   page.seo = page.seo || {};
 
   const site = {};

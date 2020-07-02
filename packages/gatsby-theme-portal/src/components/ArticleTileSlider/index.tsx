@@ -46,6 +46,7 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
   };
 
   const renderer = slide => {
+    console.log('articleSlide', slide);
     return (
       <div key={slide.headline}>
         <div>
@@ -54,7 +55,11 @@ const ArticleTileSlider: FunctionComponent<ArticleTileSliderInterface> = ({
             {slide.heroImage && (
               <div className={classes.heroImage}>
                 <Img
-                  fluid={slide.heroImage.asset.fluid}
+                  fluid={{
+                    ...slide.heroImage.asset.fluid,
+                    sizes:
+                      '(max-width: 512px) 25vw, (max-width: 768px) 50vw, (max-width: 1268px) 75vw, (max-width: 1680px) 90vw, 90vw',
+                  }}
                   alt={slide.heroImage.alt}
                 />
                 {slide.heroVideo && (

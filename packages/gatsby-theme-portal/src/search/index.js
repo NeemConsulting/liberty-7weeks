@@ -37,11 +37,27 @@ const Hit = ({ hit }) => (
   <Link className={'ais-InfiniteHits-item__link'} to={`/${hit.path}`}>
     <article className="hit">
       <header className="hit-image-container">
-        <img
+        {/* <img
           src={`${hit.image.asset.url}?w=240&h=240&fit=crop&fm=webp`}
           alt={hit.image.alt}
           className="hit-image"
-        />
+        /> */}
+        <picture>
+          <source
+            media="(max-width: 799px)"
+            srcset={`${hit.image.asset.url}?w=180&h=180&fit=crop&fm=webp`}
+          />
+          <source
+            media="(min-width: 800px)"
+            srcset={`${hit.image.asset.url}?w=240&h=240&fit=crop&fm=webp`}
+          />
+          <img
+            src={`${hit.image.asset.url}?w=240&h=240&fit=crop&fm=webp`}
+            alt="Chris standing up holding his daughter Elva"
+            alt={hit.image.alt}
+            className="hit-image"
+          />
+        </picture>
       </header>
 
       <div className="hit-info-container">

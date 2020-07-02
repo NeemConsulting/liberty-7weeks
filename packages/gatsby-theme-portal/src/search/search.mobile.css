@@ -130,9 +130,9 @@
 
   .header {
     background: linear-gradient(to bottom, #ae8600, #885b01);
-    background-image: url('./assets/cover-mobile.png');
+    /* background-image: url('./assets/cover-mobile.png');
     background-image: url('./assets/cover-mobile.png'),
-      linear-gradient(to bottom, #ae8600, #885b01);
+      linear-gradient(to bottom, #ae8600, #885b01); */
     background-position: bottom;
     background-size: cover;
     min-height: 300px;
