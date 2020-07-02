@@ -1,0 +1,36 @@
+name: Development Web | Build and Deploy
+on:
+  push:
+    branches: testing
+    paths:
+      - packages/tl-ph/**
+      - packages/gatsby-theme-portal/**
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Build Website
+        env:
+          SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+          app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}
+          app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
+        run: |
+          yarn install
+          yarn run build-web
+      - name: Deploy Web to Netlify
+        id: netlify-deploy
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: "packages/tl-ph/public"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          production-branch: testing
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_WEB_SITE_ID }}
+      - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}
