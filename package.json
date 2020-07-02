@@ -12,7 +12,7 @@
     "format": "lerna run format",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap"
-    "cy:e2e": "echo /"Testing need to be done/" "
+    "cy:e2e": "echo 'Testing need to be done' "
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.9",
