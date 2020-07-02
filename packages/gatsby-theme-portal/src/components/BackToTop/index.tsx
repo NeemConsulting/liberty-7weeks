@@ -41,7 +41,9 @@ const BackToTop: FunctionComponent = () => {
       onClick={handleClick}
     >
       <ArrowUp />
-      <span className={classes.srOnly}>Top</span>
+      <span role="link" className={classes.srOnly}>
+        Top
+      </span>
     </a>
   );
 };

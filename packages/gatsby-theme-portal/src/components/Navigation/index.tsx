@@ -75,6 +75,7 @@ const SiteNavigation: FunctionComponent = () => {
         </div>
       </button>
       <nav
+        aria-label="navigation"
         className={classNames(
           classes.navigation,
           activeNav ? classes.activeNavigation : null
