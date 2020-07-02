@@ -11,7 +11,8 @@
     "graphql-deploy": "lerna run graphql-deploy",
     "format": "lerna run format",
     "lint": "lerna run lint",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "cy:e2e": "echo 'Test' "
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.9",
