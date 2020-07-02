@@ -1,8 +1,5 @@
 name: Development Web | Build and Deploy
 on:
-  # ONLY triggers on develop branch
-  repository_dispatch:
-    types: [content-update-build]
   push:
     branches: develop
     paths:
