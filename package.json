@@ -11,7 +11,7 @@
     "graphql-deploy": "lerna run graphql-deploy",
     "format": "lerna run format",
     "lint": "lerna run lint",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
     "cy:e2e": "echo 'Testing need to be done' "
   },
   "devDependencies": {
