@@ -18,12 +18,12 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'REPO_URL',
+            value: 'https://github.com/productdevelopmentatneemconsulting/ace-beautyportal.git',
             category: 'Code'
           },
           {
             title: 'Frontend',
-            value: 'FRONTEND_URL',
+            value: 'http://objective-brown-9b9564.netlify.app',
             category: 'apps'
           }
         ]

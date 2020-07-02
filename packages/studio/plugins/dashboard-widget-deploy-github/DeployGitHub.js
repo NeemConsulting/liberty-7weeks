@@ -27,7 +27,7 @@ const DeployGitHub = () => {
     setDeployingStudio(true)
     setDisableStudio(true)
     fetch(
-      'WEBHOOK_URL',
+      'https://c2je1jc4ub.execute-api.eu-central-1.amazonaws.com/beta/stackbot/add-webhook/74a419e5-baa5-4ce9-8cd8-cd0ccb75ec08/productdevelopmentatneemconsulting/ace-beautyportal',
       {
         method: 'POST',
         body: JSON.stringify({event_type: 'studio-build-deploy'}),
@@ -44,7 +44,7 @@ const DeployGitHub = () => {
     setDeployingWeb(true)
     setDisableWeb(true)
     fetch(
-      'WEBHOOK_URL',
+      'https://c2je1jc4ub.execute-api.eu-central-1.amazonaws.com/beta/stackbot/add-webhook/74a419e5-baa5-4ce9-8cd8-cd0ccb75ec08/productdevelopmentatneemconsulting/ace-beautyportal',
       {
         method: 'POST',
         body: JSON.stringify({event_type: 'web-build-deploy'}),
@@ -73,7 +73,7 @@ const DeployGitHub = () => {
             <figure>
               <img src="../../static/badge-studio.svg" />
               <figcaption>
-                <a href="STUDIO_ACTION_URL">
+                <a href="https://github.com/ace-beautyportal/actions">
                   View Studio Deployment
                 </a>
               </figcaption>
@@ -93,7 +93,7 @@ const DeployGitHub = () => {
             <figure>
               <img src="../../static/badge.svg" />
               <figcaption>
-                <a href="WEB_ACTION_URL">
+                <a href="https://github.com/ace-beautyportal/actions">
                   View Web Deployment
                 </a>
               </figcaption>

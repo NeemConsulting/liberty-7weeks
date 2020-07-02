@@ -1,11 +1,11 @@
 {
   "root": true,
   "project": {
-    "name": "PROJECT_NAME"
+    "name": "ace-beautyportal"
   },
   "api": {
-    "projectId": "PROJECT_ID",
-    "dataset": "DATASET_ID"
+    "projectId": "rapq7bc8",
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
