@@ -53,6 +53,7 @@ const Footer: FunctionComponent = () => {
       <div className={classes.footerSecondary}>
         <img src={UnileverLogo} role="img" alt="Unilever Logo" width="36" />
         <p>Copyright &copy; {new Date().getFullYear()} Unilever.</p>
+        <p>Hair beauty portal</p>
       </div>
     </footer>
   );
