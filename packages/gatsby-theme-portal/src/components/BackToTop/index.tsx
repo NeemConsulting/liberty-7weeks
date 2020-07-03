@@ -1,11 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
-
 import { ReactComponent as ArrowUp } from '../../images/icons/up.svg';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const BackToTop: FunctionComponent = () => {
   const classes = useStyles();

@@ -1,14 +1,12 @@
 import React, { FunctionComponent, useState } from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import { TileStackerInterface } from './models';
 import { ReactComponent as PlayVideo } from '../../images/icons/play.svg';
-import Styles from './styles';
-
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const TileStacker: FunctionComponent<TileStackerInterface> = ({
   name,

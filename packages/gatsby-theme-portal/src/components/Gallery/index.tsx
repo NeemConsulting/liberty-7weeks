@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { ReactComponent as Next } from '../../images/icons/next.svg';
 import PageSchema from '../PageSchema';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const Gallery: FunctionComponent<GalleryInterface> = ({
   data,
@@ -73,6 +70,39 @@ const Gallery: FunctionComponent<GalleryInterface> = ({
     ));
   };
 
+  const renderIndicator = (
+    clickHandler: (e: React.MouseEvent | React.KeyboardEvent) => void,
+    isSelected: boolean,
+    index: number,
+    label: string
+  ) => {
+    if (isSelected) {
+      return (
+        <li
+          className={classNames('dot', 'selected')}
+          aria-label={`Selected: ${label} ${index + 1}`}
+          title={`Selected: ${label} ${index + 1}`}
+        >
+          <span className={classes.srOnly}>{`${label} ${index + 1}`}</span>
+        </li>
+      );
+    }
+    return (
+      <li
+        className={'dot'}
+        onClick={clickHandler}
+        onKeyDown={clickHandler}
+        value={index}
+        key={index}
+        tabIndex={0}
+        title={`${label} ${index + 1}`}
+        aria-label={`${label} ${index + 1}`}
+      >
+        <span className={classes.srOnly}>{`${label} ${index + 1}`}</span>
+      </li>
+    );
+  };
+
   return (
     <>
       <PageSchema type={'ImageGallery'} {...{ name, slug, data, authorName }} />
@@ -84,6 +114,7 @@ const Gallery: FunctionComponent<GalleryInterface> = ({
           renderArrowPrev={renderArrowPrev}
           renderArrowNext={renderArrowNext}
           renderThumbs={renderThumbs}
+          renderIndicator={renderIndicator}
           centerMode
           centerSlidePercentage={100}
         >
@@ -93,6 +124,7 @@ const Gallery: FunctionComponent<GalleryInterface> = ({
                 className="img-responsive"
                 fluid={picture.asset.fluid}
                 alt={picture.alt}
+                style={{ maxHeight: 500 }}
                 imgStyle={{
                   left: '50%',
                   transform: 'translateX(-50%)',

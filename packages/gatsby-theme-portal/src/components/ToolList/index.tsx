@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 
 import { ReactComponent as Comb } from '../../images/icons/comb.svg';
@@ -12,14 +12,13 @@ import { ReactComponent as Dryer } from '../../images/icons/dryer.svg';
 import { ReactComponent as Ironer } from '../../images/icons/ironer.svg';
 import { ReactComponent as Pins } from '../../images/icons/pins.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
-const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
+const ToolList: FunctionComponent<ToolListInterface> = ({ data, title }) => {
   const classes = useStyles();
   return (
     <section className={classes.section}>
-      <h2 className={classes.sectionTitle}>Tools</h2>
+      <h2 className={classes.sectionTitle}>{title}</h2>
       <Grid container spacing={2}>
         {data.map(tool => (
           <Grid className={classes.gridItem} item xs={3} key={tool.name}>
@@ -49,5 +48,6 @@ const ToolList: FunctionComponent<ToolListInterface> = ({ data }) => {
 
 interface ToolListInterface {
   data: any;
+  title: string;
 }
 export default ToolList;

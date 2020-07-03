@@ -24,7 +24,9 @@ module.exports = {
           algolia_app_id: process.env['app_local_algolia_app_id'],
           algolia_admin_api_key: process.env['app_local_algolia_admin_api_key'],
           algolia_search_api_key:
-            process.env['app_local_algolia_search_api_key']
+            process.env['app_local_algolia_search_api_key'],
+          newsletter_api_endpoint:
+            process.env['app_local_newsletter_api_endpoint']
         }
       }
     }

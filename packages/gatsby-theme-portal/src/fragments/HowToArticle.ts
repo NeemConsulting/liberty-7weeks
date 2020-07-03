@@ -16,6 +16,7 @@ export const query1 = graphql`
     }
     id
     heroImage {
+      alt
       asset {
         label
         title
@@ -47,6 +48,24 @@ export const query1 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     _rawHowTobody(resolveReferences: { maxDepth: 10 })
     productList {
@@ -57,10 +76,11 @@ export const query1 = graphql`
       slug {
         current
       }
+      path
       image {
         asset {
           url
-          fluid {
+          fluid(maxWidth: 140, maxHeight: 140) {
             aspectRatio
             base64
             sizes
@@ -110,20 +130,6 @@ export const query1 = graphql`
       slug {
         current
       }
-      image {
-        alt
-        asset {
-          fluid(maxWidth: 50, maxHeight: 50) {
-            aspectRatio
-            base64
-            sizes
-            src
-            srcSet
-            srcSetWebp
-            srcWebp
-          }
-        }
-      }
     }
     readnext {
       ... on SanityGalleryArticle {
@@ -136,7 +142,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -158,7 +164,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -180,7 +186,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -208,13 +214,35 @@ export const query2 = graphql`
       current
     }
     id
+    heroVideo {
+      url
+      youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
     heroImage {
       alt
       asset {
         label
         title
         url
-        fluid {
+        fluid(maxWidth: 175, maxHeight: 175) {
           aspectRatio
           base64
           sizes

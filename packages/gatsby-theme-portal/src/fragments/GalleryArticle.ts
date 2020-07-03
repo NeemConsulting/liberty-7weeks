@@ -72,7 +72,7 @@ export const query1 = graphql`
           label
           title
           url
-          fluid(maxWidth: 334, maxHeight: 500) {
+          fluid(maxWidth: 500, maxHeight: 500) {
             aspectRatio
             base64
             sizes
@@ -106,8 +106,9 @@ export const query1 = graphql`
         }
         _type
         heroImage {
+          alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -127,8 +128,9 @@ export const query1 = graphql`
         }
         _type
         heroImage {
+          alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -148,8 +150,9 @@ export const query1 = graphql`
         }
         _type
         heroImage {
+          alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -181,7 +184,7 @@ export const query2 = graphql`
         label
         title
         url
-        fluid {
+        fluid(maxWidth: 175, maxHeight: 175) {
           aspectRatio
           base64
           sizes

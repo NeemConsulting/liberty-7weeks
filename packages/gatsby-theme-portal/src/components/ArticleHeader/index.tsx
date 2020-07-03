@@ -1,8 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Preloader, Oval } from 'react-preloader-icon';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 import classNames from 'classnames';
 import SocialMenu from '../SocialMenu';
 import { getYouTubeId } from '../../helpers/youtube';
@@ -10,14 +8,14 @@ import { ReactComponent as Skill } from '../../images/icons/skill.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
 import { ReactComponent as IconTime } from '../../images/icons/time.svg';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
 import { Typography } from '@material-ui/core';
+import useStyles from './styles';
 
 const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
   article,
   type,
   socialLinks,
+  playLabel,
 }) => {
   const classes = useStyles();
   const [showVideo, setShowVideo] = useState(false);
@@ -46,6 +44,10 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
 
   const onFrameLoad = () => {
     setVideoLoading(false);
+  };
+
+  const renderVideoThumbnail = (src, alt) => {
+    return <img className="img-responsive" src={src} alt={alt} />;
   };
 
   return (
@@ -89,27 +91,37 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         </div>
         <SocialMenu links={socialLinks} />
       </div>
-
       {/* TODO: Use generic `Video` component for hero video to avoid duplicate code  */}
       {!imageGallery && (
         <div className={classes.heroImage}>
-          {!showVideo && (
-            <img
-              className="img-responsive"
-              src={heroImage.asset.localFile.childImageSharp.fluid.src}
-              alt={heroImage.alt}
-            />
-          )}
+          {!showVideo &&
+            !heroVideo &&
+            renderVideoThumbnail(
+              heroImage.asset.localFile.childImageSharp.fluid.src,
+              heroImage.alt
+            )}
           {!showVideo && heroVideo && !videoLoading && (
-            <button
-              type="button"
-              className={classes.iconVideo}
-              onClick={playVideo}
-              data-url={heroVideo.url}
-            >
-              <Youtube />
-              <span hidden>Play Video</span>
-            </button>
+            <>
+              {heroVideo.heroImage
+                ? renderVideoThumbnail(
+                    heroVideo.heroImage.asset.localFile.childImageSharp.fluid
+                      .src,
+                    heroVideo.heroImage.alt
+                  )
+                : renderVideoThumbnail(
+                    heroImage.asset.localFile.childImageSharp.fluid.src,
+                    heroImage.alt
+                  )}
+              <button
+                type="button"
+                className={classes.iconVideo}
+                onClick={playVideo}
+                data-url={heroVideo.url}
+              >
+                <Youtube />
+                <span className={classes.srOnly}>{playLabel}</span>
+              </button>
+            </>
           )}
           {videoLoading && (
             <Preloader
@@ -137,7 +149,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
         <div className={classes.tutorialInfo}>
           {time && (
             <div className={classes.tutorialInfoBlock}>
-              <div className={classes.info}>
+              <div>
                 <strong>Time</strong>
                 <span>{time} mins</span>
               </div>
@@ -148,7 +160,7 @@ const ArticleHeader: FunctionComponent<ArticleHeaderInterface> = ({
           )}
           {skillLevel && (
             <div className={classes.tutorialInfoBlock}>
-              <div className={classes.info}>
+              <div>
                 <strong>Skill</strong>
                 <span>{skillLevel}</span>
               </div>
@@ -175,6 +187,7 @@ interface ArticleHeaderInterface {
   article: any;
   type: any;
   socialLinks: any;
+  playLabel: string;
 }
 
 export default ArticleHeader;

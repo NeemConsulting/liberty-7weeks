@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
 import Gallery from '../../components/Gallery';
@@ -16,12 +14,6 @@ import RichText from '../../components/RichText';
 import ArticleHeader from '../../components/ArticleHeader';
 import OGTags from '../../components/OGTags';
 
-const useStyles = makeStyles(theme => ({
-  articleBody: {
-    fontSize: '1.125rem',
-  },
-}));
-
 const GalleryArticlePage = (props: GalleryArticlePageProps) => {
   const {
     data: {
@@ -30,10 +22,10 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
       featureArticles: { nodes: featureNodes },
       howToArticles: { nodes: howToNodes },
       brandInfo,
+      sectionTitles,
     },
   } = props;
 
-  const classes = useStyles();
   const relatedArticles = [...galleryNodes, ...featureNodes, ...howToNodes];
 
   return (
@@ -74,18 +66,23 @@ const GalleryArticlePage = (props: GalleryArticlePageProps) => {
 
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid className={classes.articleBody} xs={12} item sm={7}>
+          <Grid xs={12} item sm={7}>
             <RichText data={page._rawBody} />
-            {page.readnext && <ReadNext data={page} />}
+            {page.readnext && (
+              <ReadNext data={page} title={sectionTitles.nextRead} />
+            )}
           </Grid>
           <Grid item xs={12} sm={1}></Grid>
           <Grid item xs={12} sm={4} style={{ position: 'relative' }}>
             {relatedArticles.length !== 0 && (
-              <RelatedArticles articles={relatedArticles} />
+              <RelatedArticles
+                articles={relatedArticles}
+                title={sectionTitles.relatedArticlesName}
+              />
             )}
           </Grid>
         </Grid>
-        <Tags data={page.tags} />
+        <Tags data={page.tags} title={sectionTitles.relatedTopicsName} />
       </Container>
     </Layout>
   );
@@ -136,6 +133,15 @@ export const query = graphql`
       facebookurl
       instaurl
     }
+
+    sectionTitles: sanityHowToTemplate {
+      name
+      nextRead
+      productName
+      relatedArticlesName
+      relatedTopicsName
+      toolName
+    }
   }
 `;
 
@@ -146,6 +152,7 @@ interface GalleryArticlePageProps {
     featureArticles: any;
     howToArticles: any;
     brandInfo: any;
+    sectionTitles: any;
   };
   pageContext: {
     slug: string;

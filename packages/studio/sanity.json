@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "liberty-7weeks"
+    "name": "ace-beautyportal"
   },
   "api": {
-    "projectId": "9tzpo84o",
+    "projectId": "rapq7bc8",
     "dataset": "production"
   },
   "plugins": [
@@ -16,7 +16,7 @@
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify",
+    "dashboard-widget-deploy-github",
     "tab-asset-source",
     "@sanity/studio-hints",
     "@sanity/production-preview",
@@ -53,7 +53,7 @@
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
-          "path": "./resolveProductionUrl.js" 
-        }
+      "path": "./resolveProductionUrl.js"
+    }
   ]
 }

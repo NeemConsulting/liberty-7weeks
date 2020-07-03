@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import LogoImage from '../../images/logo.svg';
 import SiteNavigation from '../Navigation';
 import SiteSearch from './search';
 import NewsletterFollow from './newsletter-follow';
-
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
+import { ReactComponent as Logo } from '../../images/logo.svg';
 
 const Header: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
@@ -26,12 +23,12 @@ const Header: FunctionComponent = () => {
   const classes = useStyles();
 
   return (
-    <header className={classes.header}>
+    <header className={classes.header} role="banner" aria-label="header">
       <Container maxWidth="lg">
         <div className={classes.headerContentWrapper}>
           <div className={classes.logo}>
             <Link to="/">
-              <img src={LogoImage} width="139" alt="Simple Article" />
+              <Logo />
             </Link>
           </div>
           <SiteNavigation />

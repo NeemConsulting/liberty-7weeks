@@ -1,8 +1,10 @@
 name: Studio | Build and Deploy
-on: 
+on:
   push:
     branches: master
     paths: packages/studio/**
+  repository_dispatch:
+    types: [studio-build-deploy]
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,16 +17,16 @@ jobs:
           node-version: 12.x
       - name: Build Studio
         run: |
-             yarn install
-             yarn run build-studio && cp packages/studio/netlify.toml packages/studio/dist
-      - name: Deploy Studio to Netilfy       
+          yarn install
+          yarn run build-studio && cp packages/studio/netlify.toml packages/studio/dist
+      - name: Deploy Studio to Netilfy
         id: netlify-deploy
         uses: nwtgck/actions-netlify@v1.1
         with:
-            publish-dir: 'packages/studio/dist'
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            production-branch: master 
+          publish-dir: "packages/studio/dist"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          production-branch: master
         env:
-            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-            NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}

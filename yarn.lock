@@ -1069,6 +1069,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.7.7":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.9.6":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.9.6.tgz#7a5f82c6fa29959b12f708213be6de8ec0b79338"
@@ -2468,6 +2475,14 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@loadable/component@^5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.12.0.tgz#34d056d15f53dc08d04e9203cad6867cf4f7306c"
+  integrity sha512-eDG7FPZ8tCFA/mqu2IrYV6eS+UxGBo21PwtEV9QpkpYrx25xKRXzJUm36yfQPK3o7jXu43xpPkwiU4mLWcjJlw==
+  dependencies:
+    "@babel/runtime" "^7.7.7"
+    hoist-non-react-statics "^3.3.1"
+
 "@material-ui/core@^4.9.13":
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.10.0.tgz#e214e8f7981ff7975a918404b94508418642e463"
@@ -2766,6 +2781,24 @@
     lodash.debounce "^4.0.8"
     native-url "^0.2.6"
     schema-utils "^2.6.5"
+
+"@prefresh/core@^0.7.0":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@prefresh/core/-/core-0.7.1.tgz#75c73975dbbf66d70fc698eda26aeae1767d3c07"
+  integrity sha512-wa7M0cTV7DcBu3vw4MEtVXWFxsdHXbky8qzhBFJ/HEp7fdEmvOateYmGOjSeOn+QaKeAqUBGTMnTyVER0lamNA==
+
+"@prefresh/utils@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/utils/-/utils-0.2.0.tgz#1d269210758346e8e1f8a6410b61ba3e4fb982f9"
+  integrity sha512-mxJraGQLPmvAuI8Br0y/pvJWI2sy5IHU5veZ5GglP1gnb4dpp5rjIVjHdlVvrXUKGtFIpB3zxrqS+vYn1cQ01A==
+
+"@prefresh/webpack@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/webpack/-/webpack-0.8.0.tgz#f66268f7756940b955a5720dafacceb4554c7714"
+  integrity sha512-l9vZiiI+1Za34fEvylUKiU8YFVA9w3/xmnMtj+PtVLY9zPUrBs15k23EfkUSDPJ6tuD/dfmFol6y/h6tlcuo7A==
+  dependencies:
+    "@prefresh/core" "^0.7.0"
+    "@prefresh/utils" "^0.2.0"
 
 "@reach/auto-id@^0.7.2":
   version "0.7.4"
@@ -8743,6 +8776,11 @@ deep-sort-object@^1.0.1:
   dependencies:
     is-plain-object "^2.0.1"
 
+deepmerge@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+
 deepmerge@^4.0.0, deepmerge@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
@@ -10977,6 +11015,20 @@ form-urlencoded@^2.0.7:
   resolved "https://registry.yarnpkg.com/form-urlencoded/-/form-urlencoded-2.0.9.tgz#ea07c5dbd9aa739275d53ec5c671ea069fe7d597"
   integrity sha512-fWUzNiOnYa126vFAT6TFXd1mhJrvD8IqmQ9ilZPjkLYQfaRreBr5fIUoOpPlWtqaAG64nzoE7u5zSetifab9IA==
 
+formik@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/formik/-/formik-2.1.4.tgz#8deef07ec845ea98f75e03da4aad7aab4ac46570"
+  integrity sha512-oKz8S+yQBzuQVSEoxkqqJrKQS5XJASWGVn6mrs+oTWrBoHgByVwwI1qHiVc9GKDpZBU9vAxXYAKz2BvujlwunA==
+  dependencies:
+    deepmerge "^2.1.1"
+    hoist-non-react-statics "^3.3.0"
+    lodash "^4.17.14"
+    lodash-es "^4.17.14"
+    react-fast-compare "^2.0.1"
+    scheduler "^0.18.0"
+    tiny-warning "^1.0.2"
+    tslib "^1.10.0"
+
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
@@ -11315,6 +11367,14 @@ gatsby-plugin-page-creator@^2.3.7:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
+
+gatsby-plugin-preact@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-4.0.3.tgz#b70142e88f277ad4c6aad42a499b1733dddeef42"
+  integrity sha512-bouFOodX7i9l4e6VwbUmlZo8RXqDT7hH1Wer6cxppXJlkdBf+tmE2HJEJ16bKAy2ij2/0g91lo6XJgLSEUE29Q==
+  dependencies:
+    "@prefresh/webpack" "^0.8.0"
+    react-refresh "^0.8.2"
 
 gatsby-plugin-react-helmet@3.1.22:
   version "3.1.22"
@@ -12808,7 +12868,7 @@ hoist-non-react-statics@^2.1.1, hoist-non-react-statics@^2.3.1:
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
   integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -15434,7 +15494,7 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-lodash-es@^4.17.15:
+lodash-es@^4.17.14, lodash-es@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
@@ -19028,6 +19088,18 @@ potrace@^2.1.2:
   dependencies:
     jimp "^0.10.2"
 
+preact-render-to-string@^5.1.9:
+  version "5.1.9"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.9.tgz#201d7bb4c20899b68f5cbda705d36c45305f7efb"
+  integrity sha512-fuuZP/nBcsYvfI5Mjs8R0wVA8jPbnAsr/UQ5Y5/p9Qg4HAz9vSVJ03iejBVw4YGV8jkUCJv0++k4zwp6qjx2Kg==
+  dependencies:
+    pretty-format "^3.8.0"
+
+preact@^10.4.4:
+  version "10.4.4"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.4.tgz#0bd6d759ec2f8684aaf8c63c7f076191e46528cf"
+  integrity sha512-EaTJrerceyAPatQ+vfnadoopsMBZAOY7ak9ogVdUi5xbpR8SoHgtLryXnW+4mQOwt21icqoVR1brkU2dq7pEBA==
+
 prebuild-install@^5.3.3:
   version "5.3.4"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.4.tgz#6982d10084269d364c1856550b7d090ea31fa293"
@@ -19154,6 +19226,11 @@ pretty-format@^25.2.1, pretty-format@^25.5.0:
     ansi-regex "^5.0.0"
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
+
+pretty-format@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
+  integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
 
 pretty-ms@^3.2.0:
   version "3.2.0"
@@ -19638,6 +19715,13 @@ react-click-outside@^3.0.0:
   dependencies:
     hoist-non-react-statics "^2.1.1"
 
+react-compare-slider@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-compare-slider/-/react-compare-slider-1.0.4.tgz#8f14e25b5b66c2c4fad3c8c189ce3b761171ffe1"
+  integrity sha512-ELEmeGeLnJf6FbBsaUO2NvcNQ17mR5S1aLH2eDkWPxc05i/5x1HHW1D++bgvmMogYlJtGfzWrTavPS0ZW3tyEw==
+  dependencies:
+    resize-observer "^1.0.0"
+
 react-container-query@^0.11.0:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/react-container-query/-/react-container-query-0.11.2.tgz#d12f7c8cdd356058635a77197c7c6a39cbabfbd9"
@@ -19710,7 +19794,7 @@ react-error-overlay@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
 
-react-fast-compare@^2.0.2, react-fast-compare@^2.0.4:
+react-fast-compare@^2.0.1, react-fast-compare@^2.0.2, react-fast-compare@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
@@ -19957,6 +20041,11 @@ react-refresh@^0.7.0:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
+
+react-refresh@^0.8.2:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
+  integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
 react-responsive-carousel@^3.2.7:
   version "3.2.7"
@@ -20844,7 +20933,7 @@ resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
-resize-observer@1.0.0:
+resize-observer@1.0.0, resize-observer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/resize-observer/-/resize-observer-1.0.0.tgz#4f8380b73b411af4ed7d916fe85a2d59900e71ef"
   integrity sha512-D7UFShDm2TgrEDEyeg+/tTEbvOgPWlvPAfJtxiKp+qutu6HowmcGJKjECgGru0PPDIj3SAucn3ZPpOx54fF7DQ==

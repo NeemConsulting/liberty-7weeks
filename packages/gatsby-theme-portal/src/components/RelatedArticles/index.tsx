@@ -2,13 +2,12 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
   articles,
+  title,
 }) => {
   const classes = useStyles();
 
@@ -17,11 +16,15 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
 
   const renderListItem = (article: any, imgStyle: any) => {
     return (
-      <div
+      <article
         className={classNames('c-teaser__item', classes.teaser)}
         key={article.id}
       >
-        <Link to={article.path} className={classes.teaserLink}>
+        <Link
+          to={article.path}
+          className={classes.teaserLink}
+          aria-label={article.headline}
+        >
           <div className={classes.flexBox}>
             <div className={'c-teaser__image'}>
               <Img
@@ -40,14 +43,14 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
             </div>
           </div>
         </Link>
-      </div>
+      </article>
     );
   };
 
   return (
     <>
       <div className={classes.teaserWrapper}>
-        <h4 className={classes.title}>Related Articles</h4>
+        <h4 className={classes.title}>{title}</h4>
         {firstArticle && (
           <div className={classNames('c-article__first', classes.teaserFirst)}>
             {renderListItem(firstArticle, {
@@ -58,18 +61,14 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
         )}
         <div className={classes.scrollArea}>
           {articles &&
-            articles.map((article: any) => {
-              return renderListItem(article, {
-                imgStyle: { height: '80px' },
-                style: { height: '80px', width: '80px' },
-              });
+            articles.slice(0, 8).map((article: any) => {
+              return renderListItem(article, {});
             })}
         </div>
         {lastArticle && (
           <div className={classNames('c-article__last', classes.teaserLast)}>
             {renderListItem(lastArticle, {
               imgStyle: { height: '100%' },
-              style: { height: '174px', width: '174px' },
             })}
           </div>
         )}
@@ -80,6 +79,7 @@ const RelatedArticles: FunctionComponent<RelatedArticlesInterface> = ({
 
 interface RelatedArticlesInterface {
   articles: any;
+  title: string;
 }
 
 export default RelatedArticles;

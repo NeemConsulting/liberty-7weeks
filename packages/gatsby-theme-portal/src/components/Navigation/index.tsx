@@ -1,10 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+
 import classNames from 'classnames';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const SiteNavigation: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
@@ -75,12 +74,14 @@ const SiteNavigation: FunctionComponent = () => {
         </div>
       </button>
       <nav
+        role="navigation"
+        aria-label="Main Navigation"
         className={classNames(
           classes.navigation,
           activeNav ? classes.activeNavigation : null
         )}
       >
-        <h2 className={classes.screenReaderOnly}>Primary Navigation</h2>
+        <span className={classes.screenReaderOnly}>Primary Navigation</span>
         <div className={classes.navigationInnerWrapper} id="nav">
           <ul className={classes.navigationList}>
             {data.sanityNavBar.navItems.map(

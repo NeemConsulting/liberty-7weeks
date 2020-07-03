@@ -2,21 +2,22 @@ import React, { FunctionComponent, useState } from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
+
 import { Typography } from '@material-ui/core';
 import Swiper from 'react-id-swiper';
-import 'swiper/css/swiper.css';
+import 'swiper/css/swiper.min.css';
 import { TileSliderInterface } from './models';
 import { ReactComponent as Next } from '../../images/icons/next.svg';
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import { getSearchUrlWithTagsAndCategory } from '../../helpers/searchUrl';
+import useStyles from './styles';
 
 const TileSlider: FunctionComponent<TileSliderInterface> = ({
-  name,
   slides,
   headline,
-  seeAllLink,
+  searchCtaLabel,
+  searchTags,
 }) => {
+  console.log(searchCtaLabel);
   const [swiper, updateSwiper] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
   const [isFirstSlide, setIsFirstSlide] = useState(true);
@@ -87,9 +88,14 @@ const TileSlider: FunctionComponent<TileSliderInterface> = ({
         <Typography variant="h2" className={classes.sliderTitle}>
           {headline}
         </Typography>
-        <Link className={classes.sectionLink} to={seeAllLink}>
-          See All
-        </Link>
+        {searchCtaLabel && (
+          <Link
+            className={classes.sectionLink}
+            to={getSearchUrlWithTagsAndCategory(searchTags)}
+          >
+            {searchCtaLabel}
+          </Link>
+        )}
       </div>
       <button
         className={classNames(classes.navigationButton, classes.nextButton)}

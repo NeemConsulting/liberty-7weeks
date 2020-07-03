@@ -1,20 +1,21 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
-const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
+const ReadNext: FunctionComponent<ReadNextInterface> = ({ data, title }) => {
   const classes = useStyles();
   return (
     <section className={classes.readNext}>
-      <h3 className={classes.readNextTitle}>Next Read</h3>
+      <h3 className={classes.readNextTitle}>{title}</h3>
       <div className={classes.readNextContent}>
-        <Link className={classes.readNextLink} to={`/${data.readnext.path}`}>
+        <Link className={classes.readNextLink} to={data.readnext.path}>
           <div className={classes.readNextImage}>
-            <Img fluid={data.readnext.heroImage.asset.fluid} alt={data.readnext.heroImage.alt} />
+            <Img
+              fluid={data.readnext.heroImage.asset.fluid}
+              alt={data.readnext.heroImage.alt}
+            />
           </div>
           <div className={classes.readNextCopy}>
             <span className={classes.readNextCopyType}>
@@ -32,5 +33,6 @@ const ReadNext: FunctionComponent<ReadNextInterface> = ({ data }) => {
 
 interface ReadNextInterface {
   data: any;
+  title: string;
 }
 export default ReadNext;

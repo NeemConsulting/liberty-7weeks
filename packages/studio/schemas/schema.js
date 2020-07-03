@@ -51,6 +51,7 @@ import productReference from './objects/productReference'
 import youTube from './objects/youTube'
 import bioPortableText from './objects/bioPortableText'
 import authorBioPortableText from './objects/authorBioPortableText'
+import landingpagesPortableText from './objects/landingpagesPortableText'
 
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
@@ -116,6 +117,7 @@ export default createSchema({
     step,
     authorBioPortableText,
     textBlockPortableText,
+    landingpagesPortableText,
     youTube,
     beforeAfterImage,
 

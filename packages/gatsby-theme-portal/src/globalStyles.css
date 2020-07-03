@@ -3,27 +3,24 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src:
-    url('/fonts/ProximaNovaAltRegular.woff2') format('woff2'), url('/fonts/ProximaNovaAltRegular.woff2') format('woff')
-;
+  src: url('/fonts/ProximaNovaAltRegular.woff2') format('woff2'),
+    url('/fonts/ProximaNovaAltRegular.woff2') format('woff');
 }
 @font-face {
   font-family: Proxima Nova Alt;
   font-style: normal;
   font-display: swap;
   font-weight: 300;
-  src:
-    url('/fonts/ProximaNovaAltLight.woff2') format('woff2'), url('/fonts/ProximaNovaAltRegular.woff') format('woff')
-;
+  src: url('/fonts/ProximaNovaAltLight.woff2') format('woff2'),
+    url('/fonts/ProximaNovaAltRegular.woff') format('woff');
 }
 @font-face {
   font-family: Proxima Nova Alt;
   font-style: normal;
   font-display: swap;
   font-weight: 600;
-  src:
-    url('/fonts/ProximaNovaAltBold.woff2') format('woff2'), url('/fonts/ProximaNovaAltBold.woff') format('woff')
-;
+  src: url('/fonts/ProximaNovaAltBold.woff2') format('woff2'),
+    url('/fonts/ProximaNovaAltBold.woff') format('woff');
 }
 * {
   box-sizing: border-box;
@@ -39,4 +36,11 @@ iframe {
   width: 100%;
   display: block;
   max-width: 100%;
+}
+button:focus,
+a:focus {
+  outline: 2px dashed #b8f0c0;
+}
+figure {
+  margin: 0;
 }

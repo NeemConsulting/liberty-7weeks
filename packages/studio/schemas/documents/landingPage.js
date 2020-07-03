@@ -21,7 +21,7 @@ export default {
     },
     {
       name: 'introduction',
-      type: 'textBlockPortableText',
+      type: 'landingpagesPortableText',
       title: 'Introduction',
       description: 'Brief intro to this section / landing page'
     },

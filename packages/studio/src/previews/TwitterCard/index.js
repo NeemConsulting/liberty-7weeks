@@ -12,9 +12,10 @@ const urlFor = (source) => {
 };
 
 const author = {
-  name: 'AllthingsHair',
-  handle: 'AllthingsHair',
-  image: 'https://pbs.twimg.com/profile_images/898222585401532416/FOq1BSfD_400x400.jpg',
+  name: 'Beautyportal',
+  handle: 'Beautyportal',
+  // insert your twiiter brand image url below
+  image: 'https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg',
 };
 
 const TwitterCard = ({ document, width }) => {

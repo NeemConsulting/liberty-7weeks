@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const queries = require('./src/fragments/AlgoliaSearch');
+const queries = require('./src/helpers/AlgoliaSearch');
 module.exports = ({ themeConfig }) => {
   const siteMetadata = {
     siteName: themeConfig['site_name'],
@@ -12,6 +12,7 @@ module.exports = ({ themeConfig }) => {
     algoliaAppID: themeConfig['algolia_app_id'],
     algoliaAdminApiKey: themeConfig['algolia_admin_api_key'],
     algoliaApiKey: themeConfig['algolia_api_key'],
+    newsletterApiEndpoint: themeConfig['app_local_newsletter_api_endpoint'],
   };
 
   const netlifyOptions = {
@@ -85,19 +86,19 @@ module.exports = ({ themeConfig }) => {
       resolve: `gatsby-plugin-netlify`,
       options: netlifyOptions,
     },
-    {
-      resolve: 'gatsby-plugin-algolia',
-      options: {
-        appId: siteMetadata.algoliaAppID,
-        apiKey: siteMetadata.algoliaAdminApiKey,
-        indexName: 'platformLiberty',
-        queries,
-        enablePartialUpdates: true,
-        chunkSize: 10000,
-      },
-    },
+    //     {
+    //       resolve: 'gatsby-plugin-algolia',
+    //       options: {
+    //         appId: siteMetadata.algoliaAppID,
+    //         apiKey: siteMetadata.algoliaAdminApiKey,
+    //         queries,
+    //         enablePartialUpdates: true,
+    //         chunkSize: 10000,
+    //       },
+    //     },
   ];
   plugins.push(sanitySourcePlugin);
+  plugins.push('gatsby-plugin-preact');
 
   return {
     siteMetadata,

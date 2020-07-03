@@ -12,8 +12,27 @@ export const query1 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     heroImage {
+      alt
       asset {
         label
         title
@@ -89,7 +108,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -111,7 +130,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -133,7 +152,7 @@ export const query1 = graphql`
         heroImage {
           alt
           asset {
-            fluid(maxWidth: 380, maxHeight: 380) {
+            fluid(maxWidth: 350, maxHeight: 212) {
               aspectRatio
               base64
               sizes
@@ -160,13 +179,32 @@ export const query2 = graphql`
     heroVideo {
       url
       youTubeCaption
+      heroImage {
+        alt
+        asset {
+          localFile {
+            childImageSharp {
+              fluid(
+                toFormat: JPG
+                jpegProgressive: true
+                jpegQuality: 70
+                maxHeight: 400
+                maxWidth: 712
+              ) {
+                src
+              }
+            }
+          }
+        }
+      }
     }
     _type
     id
     heroImage {
+      alt
       asset {
         url
-        fluid {
+        fluid(maxWidth: 175, maxHeight: 175) {
           aspectRatio
           base64
           sizes

@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 import { SanityArticleSliderInterface } from './models';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Container from '@material-ui/core/Container';
 import ArticleTileSlider from '../ArticleTileSlider';
 import HeroSlider from '../HeroSlider';
 import TileStacker from '../TileStacker';
 
-import Styles from './styles';
-const useStyles = makeStyles(Styles);
+import useStyles from './styles';
 
 const componentMap = {
   tile: ArticleTileSlider,
@@ -22,6 +21,8 @@ const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
   slides,
   headline,
   slideType,
+  searchCtaLabel,
+  searchTags,
 }) => {
   const classes = useStyles();
 
@@ -31,14 +32,18 @@ const SanityArticleSlider: FunctionComponent<SanityArticleSliderInterface> = ({
     if (sliderType.indexOf('hero') >= 0) return 'hero';
     if (sliderType.indexOf('tile') >= 0) return 'tile';
     if (sliderType.indexOf('stacker') >= 0) return 'stacker';
+
+    return 'default';
   };
   const componentName = getComponentName(slideType);
-  const Component = componentMap[componentName] || componentMap.default;
+  const Component = componentMap[componentName];
 
   return (
     <section className={classNames(classes.section, componentName)}>
       <Container maxWidth="lg">
-        <Component {...{ name, slides, headline }} />
+        <Component
+          {...{ name, slides, headline, searchCtaLabel, searchTags }}
+        />
       </Container>
     </section>
   );

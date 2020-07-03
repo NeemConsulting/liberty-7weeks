@@ -5,4 +5,5 @@ export interface ImageBlockInterface {
   url: string;
   imageBlockType: any;
   _rawTextBlockBody: any;
+  preferPerformance: boolean;
 }
