@@ -7,7 +7,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import TileSlider from '../../components/TileSlider';
 import ImageBlock from '../../components/ImageBlock';
 import SocialMenu from '../../components/SocialMenu';
-import Button from '../../components/Common/Button';
+import { PrimaryButton, SecondaryButton } from '../../components/Common/Button';
 import BlockContent from '@sanity/block-content-to-react';
 import { blockTypeDefaultSerializers } from '../../helpers/sanity';
 import Tags from '../../components/Tags';
@@ -45,6 +45,9 @@ const useStyles = makeStyles(theme => ({
       fill: 'black',
     },
   },
+  marginLeft: {
+    marginLeft: theme.spacing(1),
+  },
 }));
 
 const ProductPage = (props: ProductPageProps) => {
@@ -61,7 +64,6 @@ const ProductPage = (props: ProductPageProps) => {
   const classes = useStyles();
 
   page.seo = page.seo || {};
-
   return (
     <Layout>
       <SEO
@@ -81,7 +83,16 @@ const ProductPage = (props: ProductPageProps) => {
               </Grid>
               <Grid item lg={7} md={7} xs={12}>
                 <h1>{page.name}</h1>
-                <Button lable="Buy Now" link={page.buyNow} />
+                {page.buyNow && (
+                  <PrimaryButton lable="Buy Now" link={page.buyNow} />
+                )}
+                {page.learnMore && (
+                  <SecondaryButton
+                    className={classes.marginLeft}
+                    lable="See the benefits"
+                    link={page.learnMore}
+                  />
+                )}
                 <Grid container spacing={2}>
                   <Grid
                     item
@@ -111,10 +122,11 @@ const ProductPage = (props: ProductPageProps) => {
           <Container>
             {productNodes.length > 0 && (
               <TileSlider
-                name="Products"
+                name="products"
                 slides={productNodes}
                 headline="Products You Might Also Like"
-                seeAllLink="product-showcase"
+                searchCtaLabel="See All Products"
+                searchTags={page.tags}
               />
             )}
           </Container>
@@ -136,6 +148,8 @@ const ProductPage = (props: ProductPageProps) => {
               slides={articlesList}
               headline="Our Tips & Advice"
               slideType={{ name: 'tile' }}
+              searchTags={page.tags}
+              searchCtaLabel="See All Articles"
             />
           )}
         </Grid>

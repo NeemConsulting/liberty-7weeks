@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 export const query1 = graphql`
   fragment ProductFieldsFull on SanityProduct {
     buyNow
+    learnMore
     brand {
       name
     }
