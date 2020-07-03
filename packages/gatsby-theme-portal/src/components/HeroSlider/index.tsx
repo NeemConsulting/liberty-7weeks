@@ -76,16 +76,31 @@ const HeroSlider: FunctionComponent<HeroSliderInterface> = ({
                       '(max-width: 512px) 30vw, (max-width: 768px) 60vw, (max-width: 1268px) 90vw, (max-width: 1680px) 100vw, 100vw',
                   }}
                   alt={slide.heroImage.alt}
-                  style={{ height: '422px' }}
+                  style={{ maxWidth: 752 }}
                   imgStyle={{ objectPosition: 'top center' }}
                 />
               ) : (
-                <img
-                  src={
-                    slide.heroImage.asset.localFile.childImageSharp.fluid.src
-                  }
-                  alt={slide.heroImage.alt}
-                />
+                <figure>
+                  <picture>
+                    <source
+                      srcSet={`${slide.heroImage.asset.url}?w=752&h=421&auto=format 1x, ${slide.heroImage.asset.url}?w=752&h=421&auto=format&dpr=2 2x`}
+                      media="screen and (min-width: 767px)"
+                    />
+                    <img
+                      src={`${slide.heroImage.asset.url}?w=700&h=392&auto=format`}
+                      alt={slide.heroImage.alt}
+                      width="752"
+                      height="421"
+                    />
+                  </picture>
+                </figure>
+
+                // <img
+                //   src={
+                //     slide.heroImage.asset.localFile.childImageSharp.fluid.src
+                //   }
+                //   alt={slide.heroImage.alt}
+                // />
               ))}
             <div className={classes.copy}>
               <div className={classes.copyInner}>
