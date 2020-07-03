@@ -24,7 +24,7 @@ import { ReactComponent as IconGrid } from '../../images/icons/grid.svg';
 import useStyles from './styles';
 
 const indices = [
-  { name: `platformLiberty`, title: `platformLiberty`, hitComp: `PostHit` },
+  { name: `howtoArticle`, title: `howtoArticle`, hitComp: `PostHit` },
 ];
 const SearchResults: FunctionComponent = () => {
   const classes = useStyles();
