@@ -1,0 +1,53 @@
+name: Develop Preview Deploy
+on:
+  pull_request:
+    branches: develop
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    name: Deploy the Pull Request Preview
+    outputs:
+      url: ${{ steps.netlify-deploy.outputs.deploy-url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: build & Install web
+        env:
+          SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
+          app_local_algolia_search_api_key: ${{secrets.ALGOLIA_SEARCH_API_KEY}}
+          app_local_algolia_app_id: ${{secrets.ALGOLIA_APP_ID}}
+        run: |
+          yarn
+          yarn run build-web
+      - name: Deploy to Netlify
+        id: netlify-deploy
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: "packages/tl-ph/public"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: ${{ github.event.pull_request.title }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_WEB_SITE_ID }}
+      - run: echo netlify URL ${{ steps.netlify-deploy.outputs.deploy-url }}
+
+  lighthouse_check:
+    runs-on: ubuntu-latest
+    name: Run Lighthouse Checks
+    needs: [deploy_preview]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          urls: |
+            ${{ needs.deploy_preview.outputs.url }}
+            ${{ needs.deploy_preview.outputs.url }}/hair-style/how-to-do-a-dutch-braid-in-six-easy-steps
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
