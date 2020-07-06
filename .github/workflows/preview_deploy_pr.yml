@@ -2,8 +2,9 @@ name: Preview Deploy
 on:
   pull_request:
     branches: master
-  push: 
-    branches: release/**
+  create: 
+    branches: 
+      - 'release/**'
 jobs:
     deploy_preview:
         runs-on: ubuntu-latest
