@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types: [content-update-build]
   push:
-    branches: master
+    branches: [master, release/**]
     paths: 
       - packages/tl-ph/**
       - packages/gatsby-theme-portal/**
